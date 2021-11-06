@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>bg.tu_varna.sit</groupId>
-    <artifactId>Project_Vino_OOP2</artifactId>
+    <groupId>bg.tu_varna.sit.vino</groupId>
+    <artifactId>Project_Vino_Group12</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Project_Vino_OOP2</name>
+    <name>Project_Vino_Group12</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -113,7 +113,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                bg.tu_varna.sit.project_vino_oop2/bg.tu_varna.sit.project_vino_oop2.HelloApplication
+                                bg.tu_varna.sit.vino.project_vino_group12/bg.tu_varna.sit.vino.project_vino_group12.HelloApplication
                             </mainClass>
                         </configuration>
                     </execution>

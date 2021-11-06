@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.project_vino_oop2;
+package bg.tu_varna.sit.vino.project_vino_group12;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

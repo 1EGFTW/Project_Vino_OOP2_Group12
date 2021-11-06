@@ -1,4 +1,4 @@
-module bg.tu_varna.sit.project_vino_oop2 {
+module bg.tu_varna.sit.vino.project_vino_group12 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,6 +10,6 @@ module bg.tu_varna.sit.project_vino_oop2 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens bg.tu_varna.sit.project_vino_oop2 to javafx.fxml;
-    exports bg.tu_varna.sit.project_vino_oop2;
+    opens bg.tu_varna.sit.vino.project_vino_group12 to javafx.fxml;
+    exports bg.tu_varna.sit.vino.project_vino_group12;
 }
