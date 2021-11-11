@@ -11,6 +11,7 @@ module bg.tu_varna.sit.vino.project_vino_group12 {
     requires eu.hansolo.tilesfx;
     requires log4j;
     requires org.hibernate.orm.core;
+
     exports bg.tu_varna.sit.vino.project_vino_group12.application;
     opens bg.tu_varna.sit.vino.project_vino_group12.application to javafx.fxml;
 
