@@ -9,6 +9,45 @@ public class Operator implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name="id_admin",nullable = false)
-    private int id;
+    @Column(name="id_operator",nullable = false)
+    private int id_operator;
+
+    @Column(name="username_operator",nullable = true)
+    private String username_operator;
+
+    @Column(name="password_operator",nullable = true)
+    private String password_operator;
+
+    public int getId_operator() {
+        return id_operator;
+    }
+
+    public void setId_operator(int id_operator) {
+        this.id_operator = id_operator;
+    }
+
+    public String getUsername_operator() {
+        return username_operator;
+    }
+
+    public void setUsername_operator(String username_operator) {
+        this.username_operator = username_operator;
+    }
+
+    public String getPassword_operator() {
+        return password_operator;
+    }
+
+    public void setPassword_operator(String password_operator) {
+        this.password_operator = password_operator;
+    }
+
+    @Override
+    public String toString() {
+        return "Operator{" +
+                "id_operator=" + id_operator +
+                ", username_operator='" + username_operator + '\'' +
+                ", password_operator='" + password_operator + '\'' +
+                '}';
+    }
 }

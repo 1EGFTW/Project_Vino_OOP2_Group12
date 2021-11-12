@@ -13,6 +13,15 @@ module bg.tu_varna.sit.vino.project_vino_group12 {
     requires org.hibernate.orm.core;
     requires java.persistence;
 
+    requires java.naming;
+    requires java.sql;
+
+    opens bg.tu_varna.sit.vino.project_vino_group12.data.entities to org.hibernate.orm.core;
+    exports bg.tu_varna.sit.vino.project_vino_group12.data.entities;
+
+    opens bg.tu_varna.sit.vino.project_vino_group12.data.access to org.hibernate.orm.core;
+    exports bg.tu_varna.sit.vino.project_vino_group12.data.access;
+
     exports bg.tu_varna.sit.vino.project_vino_group12.application;
     opens bg.tu_varna.sit.vino.project_vino_group12.application to javafx.fxml;
 

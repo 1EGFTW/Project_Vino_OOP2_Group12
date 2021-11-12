@@ -10,7 +10,7 @@ public class Admin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name="id_admin",nullable = false)
-    private int id;
+    private int id_admin;
 
     @Column(name="username_admin",nullable = true)
     private String username_admin;
@@ -18,12 +18,12 @@ public class Admin implements Serializable {
     @Column(name="password_admin",nullable = true)
     private String password_admin;
 
-    public int getId() {
-        return id;
+    public int getId_admin() {
+        return id_admin;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_admin = id;
     }
 
     public String getUsername_admin() {
@@ -45,7 +45,7 @@ public class Admin implements Serializable {
     @Override
     public String toString() {
         return "Admin{" +
-                "id=" + id +
+                "id=" + id_admin +
                 ", username_admin='" + username_admin + '\'' +
                 ", password_admin='" + password_admin + '\'' +
                 '}';

@@ -10,7 +10,7 @@ public class Connection {
     private static SessionFactory sessionFactory;
     static{
         try{
-            sessionFactory=new Configuration().buildSessionFactory();
+            sessionFactory=new Configuration().configure().buildSessionFactory();
         }catch (Throwable e)
         {
             log.error("Initial SessionFactory error"+e);
