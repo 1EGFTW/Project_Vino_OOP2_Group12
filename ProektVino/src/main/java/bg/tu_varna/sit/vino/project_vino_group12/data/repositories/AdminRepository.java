@@ -36,12 +36,30 @@ public class AdminRepository implements DAORepository<Admin>{
 
     @Override
     public void update(Admin obj) {
-
+        Session session=Connection.openSession();
+        Transaction transaction=session.beginTransaction();
+        try{
+            session.update(obj);
+            log.info("Admin updated successfully!");
+        }catch(Exception e) {
+            log.error("Admin update error" + e.getMessage());
+        }finally {
+            transaction.commit();
+        }
     }
 
     @Override
     public void delete(Admin obj) {
-
+        Session session=Connection.openSession();
+        Transaction transaction=session.beginTransaction();
+        try{
+            session.delete(obj);
+            log.info("Admin deleted successfully!");
+        }catch(Exception e) {
+            log.error("Admin delete error" + e.getMessage());
+        }finally {
+            transaction.commit();
+        }
     }
 
     @Override
