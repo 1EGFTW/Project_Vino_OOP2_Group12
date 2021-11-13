@@ -5,7 +5,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminReposito
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.hibernate.type.AdaptedImmutableType;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;

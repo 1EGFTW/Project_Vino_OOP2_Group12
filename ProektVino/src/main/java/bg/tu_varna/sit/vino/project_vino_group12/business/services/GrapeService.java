@@ -2,7 +2,6 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
