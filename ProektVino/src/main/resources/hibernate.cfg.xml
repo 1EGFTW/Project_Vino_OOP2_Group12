@@ -7,10 +7,14 @@
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost/wine</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">Franki1254</property>
+        <property name="hibernate.connection.password">tuVarnaVlVA</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production"/>
     </session-factory>
 </hibernate-configuration>
