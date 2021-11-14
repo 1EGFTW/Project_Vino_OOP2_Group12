@@ -10,16 +10,15 @@ import javafx.scene.control.ListView;
 public class HelloController {
     private final AdminService service=AdminService.getInstance();
     @FXML
-    private Label welcomeText;
+    private Label HelloText;
 
     @FXML
     private ListView<AdminListViewModel> listView;
 
     @FXML
     protected void onHelloButtonClick() {
+       // ObservableList<AdminListViewModel> adminListViewModels = service.getAllAdmin();
+        //listView.setItems(adminListViewModels);
 
-        welcomeText.setText("Welcome to JavaFX Application!");
-        ObservableList<AdminListViewModel> adminListViewModels = service.getAllAdmin();
-        listView.setItems(adminListViewModels);
     }
 }

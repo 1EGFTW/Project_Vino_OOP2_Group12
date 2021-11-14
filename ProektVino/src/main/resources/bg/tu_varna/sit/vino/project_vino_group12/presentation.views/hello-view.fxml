@@ -12,7 +12,8 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-    <ListView fx:id="listView"/>
+    <Label fx:id="HelloText" text="Please choose:"/>
+    <Button text="Log in as admin" onAction="#onHelloButtonClick"/>
+    <Button text="Log in as operator" onAction="#onHelloButtonClick"/>
+    <Button text="Log in as warehouse host" onAction="#onHelloButtonClick"/>
 </VBox>
