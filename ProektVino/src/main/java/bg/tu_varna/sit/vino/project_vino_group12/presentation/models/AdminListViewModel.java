@@ -9,6 +9,10 @@ public class AdminListViewModel {
         this.password_admin = password_admin;
     }
 
+    public boolean equals(AdminListViewModel r) {
+   return this.username_admin.equals(r.username_admin)&& this.password_admin.equals(r.password_admin);
+   }
+
     @Override
     public String toString() {
         return String.format("%s | %s",username_admin,password_admin);
