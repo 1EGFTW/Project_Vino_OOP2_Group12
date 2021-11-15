@@ -13,7 +13,7 @@
     </padding>
 
     <Label fx:id="HelloText" text="Please choose:"/>
-    <Button text="Log in as admin" onAction="#onHelloButtonClick" fx:id="adminButton"/>
-    <Button text="Log in as operator" />
-    <Button text="Log in as warehouse host" />
+    <Button text="Log in as admin" onAction="#adminLog" fx:id="adminButton"/>
+    <Button text="Log in as operator" onAction="#operatorLog" fx:id="operatorButton" />
+    <Button text="Log in as warehouse host" onAction="#warehouseHostLog" fx:id="warehouseLogButton"/>
 </VBox>

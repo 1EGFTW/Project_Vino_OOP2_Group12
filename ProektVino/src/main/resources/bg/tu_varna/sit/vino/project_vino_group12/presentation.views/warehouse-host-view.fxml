@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.WarehouseHostViewController">
+    <children>
+        <Label layoutX="252.0" layoutY="76.0" text="Succesful login" fx:id="successfulLogin" />
+    </children>
+</AnchorPane>

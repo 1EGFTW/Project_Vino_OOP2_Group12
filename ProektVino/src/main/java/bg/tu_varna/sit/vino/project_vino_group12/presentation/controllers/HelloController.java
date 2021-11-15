@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_LOGIN;
+
 public class HelloController {
     private final AdminService service=AdminService.getInstance();
     @FXML
@@ -27,15 +29,48 @@ public class HelloController {
 
     @FXML
     private Button adminButton;
-
+    @FXML
+    private Button operatorButton;
+    @FXML
+    private Button warehouseHostButton;
     @FXML
     private ListView<AdminListViewModel> listView;
 
     @FXML
-    protected void onHelloButtonClick() {
-       // ObservableList<AdminListViewModel> adminListViewModels = service.getAllAdmin();
-        //listView.setItems(adminListViewModels);
-
+    protected void adminLog() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void operatorLog(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected void warehouseHostLog(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

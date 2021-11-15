@@ -9,6 +9,9 @@ public class WarehouseHostListViewModel {
         this. password_domakin =password_domakin;
     }
 
+    public boolean equals(WarehouseHostListViewModel r) {
+        return this.username_domakin.equals(r.username_domakin)&& this.password_domakin.equals(r.password_domakin);
+    }
     @Override
     public String toString() {
         return String.format("%s | %s", username_domakin, password_domakin);
