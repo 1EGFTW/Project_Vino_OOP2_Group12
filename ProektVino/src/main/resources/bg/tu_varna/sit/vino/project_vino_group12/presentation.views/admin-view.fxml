@@ -10,10 +10,17 @@
             <Button fx:id="createOperator" layoutX="8.0" layoutY="128.0" mnemonicParsing="false" onAction="#createOperator" prefHeight="25.0" prefWidth="108.0" text="Create Operator" />
             <Button fx:id="createHost" layoutX="125.0" layoutY="128.0" mnemonicParsing="false" onAction="#createHost" text="Create Host" />
             <Label layoutX="91.0" layoutY="25.0" text="Create" />
-            <Button layoutX="64.0" layoutY="76.0" mnemonicParsing="false" text="Create Admin" fx:id="createAdmin" onAction="#createAdmin"/>
+            <Button fx:id="createAdmin" layoutX="64.0" layoutY="76.0" mnemonicParsing="false" onAction="#createAdmin" text="Create Admin" />
          </children>
       </Pane>
       <Separator layoutX="241.0" layoutY="8.0" orientation="VERTICAL" prefHeight="384.0" prefWidth="0.0" />
-      <FlowPane layoutX="247.0" layoutY="14.0" prefHeight="214.0" prefWidth="335.0" style="-fx-background-color: #ffff;" />
+      <Pane layoutX="261.0" layoutY="14.0" prefHeight="176.0" prefWidth="314.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Warehouse operations" />
+            <Button layoutX="14.0" layoutY="43.0" mnemonicParsing="false" text="Add grape" fx:id="addGrape" onAction="#addGrape" />
+            <Button layoutX="108.0" layoutY="43.0" mnemonicParsing="false" text="Add bottles" fx:id="addBottles" onAction="#addBottles"/>
+         </children>
+      </Pane>
+      <Separator layoutX="242.0" layoutY="199.0" prefHeight="17.0" prefWidth="344.0" />
    </children>
 </AnchorPane>

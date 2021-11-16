@@ -23,6 +23,12 @@ public class Bottles implements Serializable {
     @OneToMany(mappedBy = "bottles")
     private Set<Production> productionSet;
 
+    public Bottles(int bottle_size,int bottle_quantity)
+    {
+        this.bottle_size=bottle_size;
+        this.bottle_quantity=bottle_quantity;
+    }
+
     public int getId_bottle() {
         return id_bottle;
     }

@@ -21,7 +21,7 @@ public class Grape implements Serializable {
     @JoinColumn(name="id_sort_color",nullable = false)
     private SortColor sortColor;
 
-    @Column(name="sort_quantity",nullable = true)
+    @Column(name="sort_quantity",nullable = false)
     private int sort_quantity;
 
     @Column(name="quantity_by_kg",nullable = false)
