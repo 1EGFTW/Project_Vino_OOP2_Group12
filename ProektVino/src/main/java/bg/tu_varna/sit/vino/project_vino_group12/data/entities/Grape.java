@@ -30,6 +30,14 @@ public class Grape implements Serializable {
     @OneToMany(mappedBy = "id_sort")
     private Set<Wines> winesSet;
 
+    public Grape(String name_sort,SortColor sortColor,int sort_quantity,int quantity_by_kg)
+    {
+        this.name_sort=name_sort;
+        this.sortColor=sortColor;
+        this.sort_quantity=sort_quantity;
+        this.quantity_by_kg=quantity_by_kg;
+    }
+
     public int getId_sort() {
         return id_sort;
     }

@@ -20,6 +20,10 @@ public class SortColor implements Serializable {
    @OneToMany(mappedBy = "sortColor")
     private Set<Grape> grapeSet;
 
+   public SortColor(String color){
+       this.color=color;
+   }
+
     public int getId_sort_color() {
         return id_sort_color;
     }

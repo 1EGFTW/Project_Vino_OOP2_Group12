@@ -7,6 +7,14 @@ public class SortColorListViewModel {
         this.color = color;
     }
 
+    public boolean equals(SortColorListViewModel r){
+        return this.color.equals(r.color);
+    }
+
+    public String getColor() {
+        return color;
+    }
+
     @Override
     public String toString() {
         return String.format("%s | %s", color);

@@ -65,7 +65,15 @@ public class AdminViewController{
     }
     @FXML
     public void addGrape(ActionEvent actionEvent) {
-
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_GRAPE));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
     }
     @FXML

@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_LOGIN;
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class HelloController {
     private final AdminService service=AdminService.getInstance();
@@ -51,7 +51,7 @@ public class HelloController {
     @FXML
     protected void operatorLog(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_LOGIN));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -63,7 +63,7 @@ public class HelloController {
     @FXML
     protected void warehouseHostLog(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WAREHOUSEHOST_LOGIN));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
