@@ -1,6 +1,8 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.OperatorRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import javafx.scene.control.TextField;
 public class CreateOperatorController {
 
     private final OperatorRepository repository=OperatorRepository.getInstance();
+    private final OperatorService service=OperatorService.getInstance();
     @FXML
     public Label createOperator;
     @FXML
@@ -21,11 +24,9 @@ public class CreateOperatorController {
     public Button login;
     @FXML
     public void onCreateOperatorButtonClick(ActionEvent actionEvent) {
-        Operator o=new Operator();
-        o.setUsername_operator(operator_name.toString());
-        o.setPassword_operator(operator_pass.toString());
+        Operator operator=new Operator(operator_name.getText().toString(),operator_pass.getText().toString());
         try{
-            repository.save(o);
+            repository.save(operator);
         }
         catch (Exception e) {
             e.printStackTrace();

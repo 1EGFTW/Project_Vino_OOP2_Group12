@@ -137,3 +137,13 @@ java.sql.SQLSyntaxErrorException: Table 'wine.hibernate_sequence' doesn't exist
 
 [JavaFX Application Thread] ERROR org.hibernate.AssertionFailure  - 
 
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - 
+
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - 
+
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - 
+
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - 
+
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - 
+

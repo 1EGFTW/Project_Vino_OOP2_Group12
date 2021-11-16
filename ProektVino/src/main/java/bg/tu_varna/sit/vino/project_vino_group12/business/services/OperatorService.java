@@ -33,7 +33,7 @@ public class OperatorService {
                 )).collect(Collectors.toList()));
     }
 
-  /*  public void insertOperators(Operator o) // dobavqne na operatori ot admin prez fxml
+   /* public void insertOperators() // dobavqne na operatori ot admin prez fxml
     {
         Session session= Connection.openSession();
         Transaction transaction=session.beginTransaction();
@@ -46,5 +46,5 @@ public class OperatorService {
             transaction.commit();
         }
     }
-   */
+    */
 }

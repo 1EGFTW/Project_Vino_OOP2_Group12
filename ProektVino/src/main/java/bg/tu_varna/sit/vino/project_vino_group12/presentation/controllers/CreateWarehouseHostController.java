@@ -22,9 +22,7 @@ public class CreateWarehouseHostController {
 
     @FXML
     public void onCreateWarehouseHostButtonClick(ActionEvent actionEvent) {
-        WarehouseHost w=new WarehouseHost();
-        w.setPassword_domakin(warehouseHost_pass.toString());
-        w.setUsername_domakin(warehouseHost_name.toString());
+        WarehouseHost w=new WarehouseHost(warehouseHost_name.getText().toString(),warehouseHost_pass.getText().toString());
         try{
             repository.save(w);
         }

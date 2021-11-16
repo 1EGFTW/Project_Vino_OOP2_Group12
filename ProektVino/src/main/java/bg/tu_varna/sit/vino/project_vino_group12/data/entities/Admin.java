@@ -8,7 +8,6 @@ public class Admin implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name="id_admin",nullable = false)
     private int id_admin;
 
@@ -17,6 +16,11 @@ public class Admin implements Serializable {
 
     @Column(name="password_admin",nullable = true)
     private String password_admin;
+
+    public Admin(String toString, String toString1) {
+        this.username_admin=toString;
+        this.password_admin=toString1;
+    }
 
     public int getId_admin() {
         return id_admin;

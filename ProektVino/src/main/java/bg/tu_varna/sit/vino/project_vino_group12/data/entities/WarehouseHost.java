@@ -19,6 +19,11 @@ public class WarehouseHost implements Serializable {
     @Column(name="password_domakin",nullable = true)
     private String password_domakin;
 
+    public WarehouseHost(String toString, String toString1) {
+        this.username_domakin=toString;
+        this.password_domakin=toString1;
+    }
+
     public int getId_domakin() {
         return id_domakin;
     }

@@ -17,6 +17,11 @@ public class Operator implements Serializable {
     @Column(name="password_operator",nullable = true)
     private String password_operator;
 
+    public Operator(String toString, String toString1) {
+        this.username_operator=toString;
+        this.password_operator=toString1;
+    }
+
     public int getId_operator() {
         return id_operator;
     }

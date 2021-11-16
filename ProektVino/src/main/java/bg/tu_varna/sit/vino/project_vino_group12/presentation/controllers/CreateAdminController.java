@@ -21,9 +21,7 @@ public class CreateAdminController {
     public Button login;
     @FXML
     public void onCreateAdminButtonClick(ActionEvent actionEvent) {
-        Admin a=new Admin();
-        a.setUsername_admin(admin_name.toString());
-        a.setPassword_admin(admin_pass.toString());
+        Admin a=new Admin(admin_name.getText().toString(),admin_pass.getText().toString());
         try{
             repository.save(a);
         }
