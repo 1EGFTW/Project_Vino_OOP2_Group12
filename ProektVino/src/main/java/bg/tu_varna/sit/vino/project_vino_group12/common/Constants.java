@@ -9,6 +9,9 @@ public class Constants {
         public static final String OPERATOR_VIEW = "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/operator-view.fxml";
         public static final String WAREHOUSEHOST_LOGIN = "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/warehouse-host-login.fxml";
         public static final String WAREHOUSEHOST_VIEW = "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/warehouse-host-view.fxml";
+        public static final String CREATE_OPERATOR= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-operator.fxml";
+        public static final String CREATE_WAREHOUSEHOST= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-warehouse-host.fxml";
+        public static final String CREATE_ADMIN= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-warehouse-admin.fxml";
     }
 
     public static class Configurations{

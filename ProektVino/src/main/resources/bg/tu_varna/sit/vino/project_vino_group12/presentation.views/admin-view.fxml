@@ -3,9 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.AdminViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.AdminViewController">
    <children>
-      <Label layoutX="252.0" layoutY="76.0" text="Succesful login" fx:id="successfulLogin" />
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="176.0" prefWidth="217.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Button fx:id="createOperator" layoutX="8.0" layoutY="128.0" mnemonicParsing="false" onAction="#createOperator" prefHeight="25.0" prefWidth="108.0" text="Create Operator" />
+            <Button fx:id="createHost" layoutX="125.0" layoutY="128.0" mnemonicParsing="false" onAction="#createHost" text="Create Host" />
+            <Label layoutX="91.0" layoutY="25.0" text="Create" />
+            <Button layoutX="64.0" layoutY="76.0" mnemonicParsing="false" text="Create Admin" fx:id="createAdmin" onAction="#createAdmin"/>
+         </children>
+      </Pane>
+      <Separator layoutX="241.0" layoutY="8.0" orientation="VERTICAL" prefHeight="384.0" prefWidth="0.0" />
+      <FlowPane layoutX="247.0" layoutY="14.0" prefHeight="214.0" prefWidth="335.0" style="-fx-background-color: #ffff;" />
    </children>
 </AnchorPane>
