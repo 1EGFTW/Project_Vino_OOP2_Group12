@@ -25,12 +25,13 @@ public class AdminViewController{
     private Button createHost;
     @FXML
     private Button createAdmin;
+
    @FXML
     protected void createOperator(ActionEvent event){
        try {
            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_OPERATOR));
+           Stage stage=new Stage();
            Parent root1 = (Parent) fxmlLoader.load();
-           Stage stage = new Stage();
            stage.setScene(new Scene(root1));
            stage.show();
        } catch(Exception e) {
@@ -38,7 +39,8 @@ public class AdminViewController{
        }
 
    }
-   @FXML
+
+    @FXML
     protected void createHost(ActionEvent event){
        try {
            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_WAREHOUSEHOST));
@@ -50,9 +52,8 @@ public class AdminViewController{
            e.printStackTrace();
        }
    }
-
     @FXML
-    public void createAdmin(ActionEvent actionEvent) {
+    protected void createAdmin(ActionEvent actionEvent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_ADMIN));
             Parent root1 = (Parent) fxmlLoader.load();
