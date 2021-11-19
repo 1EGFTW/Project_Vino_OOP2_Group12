@@ -57,28 +57,18 @@ public class OperatorService {
         }
     }
     */
-   public void operatorLogin(OperatorListViewModel o)
+   public boolean operatorLogin(OperatorListViewModel o)
    {
        ObservableList<OperatorListViewModel> allOperators= getAllOperators();
        for (OperatorListViewModel operator:allOperators)
        {
            if(operator.equals(o))
            {
-               logIn=true;
+               return true;
            }
        }
-       if(logIn)
-       {
-           try {
-               FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_VIEW));
-               Parent root1 = (Parent) fxmlLoader.load();
-               Stage stage = new Stage();
-               stage.setScene(new Scene(root1));
-               stage.show();
-           } catch(Exception e) {
-               e.printStackTrace();
-           }
-       }
+       return false;
+
    }
     public void createOperator(Operator o){
         try{

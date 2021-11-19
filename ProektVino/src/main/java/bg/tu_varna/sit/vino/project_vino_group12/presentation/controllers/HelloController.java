@@ -24,6 +24,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class HelloController {
     private final AdminService service=AdminService.getInstance();
+    Stage s=new Stage();
     @FXML
     private Label HelloText;
 
@@ -36,12 +37,18 @@ public class HelloController {
     @FXML
     private ListView<AdminListViewModel> listView;
 
+
+    public HelloController(Stage stage){
+        s=stage;
+    }
     @FXML
     protected void adminLog() {
         try {
+            s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
-            Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
+            fxmlLoader.setController(new AdminLoginController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();
         } catch(Exception e) {
@@ -51,9 +58,12 @@ public class HelloController {
     @FXML
     protected void operatorLog(){
         try {
+            s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_LOGIN));
-            Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
+            fxmlLoader.setController(new OperatorLoginController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+
             stage.setScene(new Scene(root1));
             stage.show();
         } catch(Exception e) {
@@ -63,9 +73,12 @@ public class HelloController {
     @FXML
     protected void warehouseHostLog(){
         try {
+            s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WAREHOUSEHOST_LOGIN));
-            Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
+            fxmlLoader.setController(new WarehouseHostLoginController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+
             stage.setScene(new Scene(root1));
             stage.show();
         } catch(Exception e) {

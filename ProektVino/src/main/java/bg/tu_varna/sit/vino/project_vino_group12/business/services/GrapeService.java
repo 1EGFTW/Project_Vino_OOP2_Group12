@@ -19,7 +19,7 @@ public class GrapeService {
         public static final GrapeService INSTANCE = new GrapeService();
     }
 
-    public ObservableList<GrapeListViewModel> getAllGrape() {
+  /*  public ObservableList<GrapeListViewModel> getAllGrape() {
         List<Grape> grapes = repository.getAll();
 
         return FXCollections.observableList(
@@ -30,4 +30,6 @@ public class GrapeService {
                         g.getQuantity_by_kg()
                 )).collect(Collectors.toList()));
     }
+
+   */
 }

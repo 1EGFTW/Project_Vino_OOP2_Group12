@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
+import org.hibernate.annotations.Sort;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -17,9 +19,8 @@ public class Grape implements Serializable {
     @Column(name="name_sort",nullable = true)
     private String name_sort;
 
-    @ManyToOne
-    @JoinColumn(name="id_sort_color",nullable = false)
-    private SortColor sortColor;
+    @OneToMany(mappedBy="id_sort_color")
+    private Set<SortColor> sortColor;
 
     @Column(name="sort_quantity",nullable = false)
     private int sort_quantity;
@@ -30,7 +31,7 @@ public class Grape implements Serializable {
     @OneToMany(mappedBy = "id_sort")
     private Set<Wines> winesSet;
 
-    public Grape(String name_sort,SortColor sortColor,int sort_quantity,int quantity_by_kg)
+    public Grape(String name_sort,Set<SortColor> sortColor,int sort_quantity,int quantity_by_kg)
     {
         this.name_sort=name_sort;
         this.sortColor=sortColor;
@@ -54,11 +55,11 @@ public class Grape implements Serializable {
         this.name_sort = name_sort;
     }
 
-    public SortColor getSortColor() {
+    public Set<SortColor> getSortColor() {
         return sortColor;
     }
 
-    public void setSortColor(SortColor sortColor) {
+    public void setSortColor(Set<SortColor> sortColor) {
         this.sortColor = sortColor;
     }
 

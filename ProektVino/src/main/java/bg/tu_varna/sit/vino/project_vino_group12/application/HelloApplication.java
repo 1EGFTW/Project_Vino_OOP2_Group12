@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.application;
 
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +25,9 @@ public class HelloApplication extends Application {
         URL path = getClass().getResource(Constants.View.HELLO_VIEW);
 
         if (path != null){
-            Parent root = FXMLLoader.load(path);
+            FXMLLoader fxmlLoader=new FXMLLoader(path);
+            fxmlLoader.setController(new HelloController(stage));
+            Parent root =fxmlLoader.load();      //= FXMLLoader.load(path);
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
 
@@ -36,6 +39,7 @@ public class HelloApplication extends Application {
             stage.setWidth(1024);
             stage.setHeight(768);
             stage.show();
+
         } else {
             log.error("Sorry, the main fxm could not be loaded.");
             System.exit(-1);

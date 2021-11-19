@@ -37,28 +37,17 @@ public class AdminService {
                         a.getPassword_admin()
                 )).collect(Collectors.toList()));
     }
-    public void adminLogin(AdminListViewModel a)
+    public boolean adminLogin(AdminListViewModel a)
     {
         ObservableList<AdminListViewModel> allAdmins= getAllAdmin();
         for (AdminListViewModel admin:allAdmins)
         {
             if(admin.equals(a))
             {
-                logIn=true;
+                return true;
             }
         }
-        if(logIn)
-        {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return false;
     }
     public void createAdmin(Admin a){
         try{

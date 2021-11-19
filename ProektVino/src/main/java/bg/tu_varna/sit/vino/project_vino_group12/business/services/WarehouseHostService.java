@@ -38,28 +38,17 @@ public class WarehouseHostService {
                         wh.getPassword_domakin()
                 )).collect(Collectors.toList()));
     }
-    public void hostLogin(WarehouseHostListViewModel w){
+    public boolean hostLogin(WarehouseHostListViewModel w){
 
         ObservableList<WarehouseHostListViewModel> allHosts= getAllWarehouseHost();
         for (WarehouseHostListViewModel host:allHosts)
         {
             if(host.equals(w))
             {
-                logIn=true;
+                return true;
             }
         }
-        if(logIn)
-        {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WAREHOUSEHOST_VIEW));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
+       return false;
     }
     public void createWarehouseHost(WarehouseHost w){
             try{

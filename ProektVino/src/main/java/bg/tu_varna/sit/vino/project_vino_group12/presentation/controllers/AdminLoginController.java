@@ -24,6 +24,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.AD
 
 public class AdminLoginController {
     private final AdminService service=AdminService.getInstance();
+    public Stage s=new Stage();
     private boolean log=false;
     @FXML
     public Label adminlogin;
@@ -33,9 +34,25 @@ public class AdminLoginController {
     public PasswordField admin_pass;
     @FXML
     public Button login;
+    public AdminLoginController(Stage stage){
+        s=stage;
+    }
     @FXML
     public void onAdminLoginButtonClick(ActionEvent actionEvent) {
         AdminListViewModel adminToLogIn=new AdminListViewModel(admin_name.getText(),admin_pass.getText());
         service.adminLogin(adminToLogIn);
+        if(service.adminLogin(adminToLogIn))
+        {
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
