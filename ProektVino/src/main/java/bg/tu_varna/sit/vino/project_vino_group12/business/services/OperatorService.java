@@ -3,9 +3,14 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.OperatorRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -13,7 +18,11 @@ import org.hibernate.Transaction;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.OPERATOR_VIEW;
+
 public class OperatorService {
+    public boolean logIn=false;
     private final OperatorRepository repository = OperatorRepository.getInstance();
     public static OperatorService getInstance() {
         return OperatorServiceHolder.INSTANCE;
@@ -47,4 +56,27 @@ public class OperatorService {
         }
     }
     */
+   public void operatorLogin(OperatorListViewModel o)
+   {
+       ObservableList<OperatorListViewModel> allOperators= getAllOperators();
+       for (OperatorListViewModel operator:allOperators)
+       {
+           if(operator.equals(o))
+           {
+               logIn=true;
+           }
+       }
+       if(logIn)
+       {
+           try {
+               FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_VIEW));
+               Parent root1 = (Parent) fxmlLoader.load();
+               Stage stage = new Stage();
+               stage.setScene(new Scene(root1));
+               stage.show();
+           } catch(Exception e) {
+               e.printStackTrace();
+           }
+       }
+   }
 }

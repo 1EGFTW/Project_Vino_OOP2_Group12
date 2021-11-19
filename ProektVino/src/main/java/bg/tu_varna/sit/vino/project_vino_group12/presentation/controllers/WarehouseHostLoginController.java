@@ -33,25 +33,6 @@ public class WarehouseHostLoginController {
     @FXML
     public void onWarehouseHostLoginButtonClick(ActionEvent actionEvent){
         WarehouseHostListViewModel warehouseHostToLogIn=new WarehouseHostListViewModel(warehouseHost_name.getText(),warehouseHost_pass.getText());
-        ObservableList<WarehouseHostListViewModel> allWarehouseHosts= service.getAllWarehouseHost();
-        for (WarehouseHostListViewModel w:allWarehouseHosts)
-        {
-            if(w.equals(warehouseHostToLogIn))
-            {
-                log=true;
-            }
-        }
-        if(log)
-        {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WAREHOUSEHOST_VIEW));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
+      service.hostLogin(warehouseHostToLogIn);
     }
 }

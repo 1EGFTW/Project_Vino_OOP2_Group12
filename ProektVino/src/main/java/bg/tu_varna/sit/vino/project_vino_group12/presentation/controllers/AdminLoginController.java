@@ -36,25 +36,6 @@ public class AdminLoginController {
     @FXML
     public void onAdminLoginButtonClick(ActionEvent actionEvent) {
         AdminListViewModel adminToLogIn=new AdminListViewModel(admin_name.getText(),admin_pass.getText());
-        ObservableList<AdminListViewModel> allAdmins= service.getAllAdmin();
-        for (AdminListViewModel a:allAdmins)
-        {
-            if(a.equals(adminToLogIn))
-            {
-                log=true;
-            }
-        }
-        if(log)
-        {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
+        service.adminLogin(adminToLogIn);
     }
 }
