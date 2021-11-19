@@ -20,7 +20,7 @@ public class CreateAdminController {
     public TextField admin_name;
     @FXML
     public Button login;
-    /*
+
    @FXML
     public void onCreateAdminButtonClick(ActionEvent actionEvent) { //da se pogledne zashto kato se pusne tazi funkciq ne trygva repositorito
     //sled tazi funkciq se syzdawa i constructor v admin po syshtiq nachin kakto w operator i warehousehost, no pri tqh raboti
@@ -32,6 +32,6 @@ public class CreateAdminController {
             e.printStackTrace();
         }
     }
-     */
+
 
 }

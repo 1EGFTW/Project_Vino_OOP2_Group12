@@ -23,6 +23,9 @@ public class WarehouseHost implements Serializable {
         this.username_domakin=toString;
         this.password_domakin=toString1;
     }
+    public WarehouseHost(){
+
+    }
 
     public int getId_domakin() {
         return id_domakin;

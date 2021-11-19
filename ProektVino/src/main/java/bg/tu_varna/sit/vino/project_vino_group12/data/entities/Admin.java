@@ -17,11 +17,14 @@ public class Admin implements Serializable {
     @Column(name="password_admin",nullable = true)
     private String password_admin;
 
-    /*public Admin(String toString, String toString1) {
-        this.username_admin=toString;
-        this.password_admin=toString1;
+    public Admin(String toString, String toString1) {
+        this.username_admin = toString;
+        this.password_admin = toString1;
     }
-     */
+    public Admin()
+    {
+
+    }
 
     public int getId_admin() {
         return id_admin;

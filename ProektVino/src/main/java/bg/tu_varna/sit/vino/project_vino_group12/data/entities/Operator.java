@@ -21,6 +21,8 @@ public class Operator implements Serializable {
         this.username_operator=toString;
         this.password_operator=toString1;
     }
+    public  Operator() {
+    }
 
     public int getId_operator() {
         return id_operator;

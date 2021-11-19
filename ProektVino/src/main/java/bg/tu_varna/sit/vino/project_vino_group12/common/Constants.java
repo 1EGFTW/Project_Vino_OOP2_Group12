@@ -11,7 +11,7 @@ public class Constants {
         public static final String WAREHOUSEHOST_VIEW = "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/warehouse-host-view.fxml";
         public static final String CREATE_OPERATOR= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-operator.fxml";
         public static final String CREATE_WAREHOUSEHOST= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-warehouse-host.fxml";
-        public static final String CREATE_ADMIN= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-warehouse-admin.fxml";
+        public static final String CREATE_ADMIN= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/create-admin.fxml";
         public static final String ADD_BOTTLES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add-bottle.fxml";
         public static final String ADD_GRAPE= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add-grape.fxml";
     }
