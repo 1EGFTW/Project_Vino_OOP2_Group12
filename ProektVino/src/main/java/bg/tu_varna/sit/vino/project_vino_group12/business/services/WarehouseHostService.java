@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.WarehouseHost;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WarehouseHostRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
@@ -59,5 +60,14 @@ public class WarehouseHostService {
                 e.printStackTrace();
             }
         }
+    }
+    public void createWarehouseHost(WarehouseHost w){
+            try{
+                repository.save(w);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
     }
 }

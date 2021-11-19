@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
 
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository;
@@ -11,7 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class CreateAdminController {
-    private final AdminRepository repository=AdminRepository.getInstance();
+    private final AdminService service=AdminService.getInstance();
     @FXML
     public Label createAdmin;
     @FXML
@@ -25,13 +27,7 @@ public class CreateAdminController {
     public void onCreateAdminButtonClick(ActionEvent actionEvent) { //da se pogledne zashto kato se pusne tazi funkciq ne trygva repositorito
     //sled tazi funkciq se syzdawa i constructor v admin po syshtiq nachin kakto w operator i warehousehost, no pri tqh raboti
         Admin admin=new Admin(admin_name.getText().toString(),admin_pass.getText().toString());
-        try{
-            repository.save(admin);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        service.createAdmin(admin);
     }
-
 
 }

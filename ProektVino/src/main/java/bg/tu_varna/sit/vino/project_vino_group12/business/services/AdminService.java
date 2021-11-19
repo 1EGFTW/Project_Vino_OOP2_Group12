@@ -60,5 +60,13 @@ public class AdminService {
             }
         }
     }
+    public void createAdmin(Admin a){
+        try{
+            repository.save(a);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

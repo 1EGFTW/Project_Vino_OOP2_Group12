@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.OperatorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
@@ -79,4 +80,12 @@ public class OperatorService {
            }
        }
    }
+    public void createOperator(Operator o){
+        try{
+            repository.save(o);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

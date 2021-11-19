@@ -11,8 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class CreateOperatorController {
-
-    private final OperatorRepository repository=OperatorRepository.getInstance();
     private final OperatorService service=OperatorService.getInstance();
     @FXML
     public Label createOperator;
@@ -25,13 +23,6 @@ public class CreateOperatorController {
     @FXML
     public void onCreateOperatorButtonClick(ActionEvent actionEvent) {
         Operator operator=new Operator(operator_name.getText().toString(),operator_pass.getText().toString());
-        try{
-            repository.save(operator);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
+        service.createOperator(operator);
     }
 }
