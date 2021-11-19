@@ -63,8 +63,20 @@ public class AdminRepository implements DAORepository<Admin>{
     }
 
     @Override
-    public Optional<Admin> getById(Integer id) {
-        return Optional.empty();
+    public List<Admin> getById(Integer id) {
+        Session session=Connection.openSession();
+        Transaction transaction= session.beginTransaction();
+        List<Admin> admins=new LinkedList<>();
+        try{
+            String jpql="SELECT a FROM Admin a WHERE id_admin ="+id;
+            admins.addAll(session.createQuery(jpql,Admin.class).getResultList());
+            log.info("Get all admins!");
+        }catch(Exception e){
+            log.error("Get admin error"+e.getMessage());
+        }finally {
+            transaction.commit();
+        }
+        return admins;
     }
 
    @Override

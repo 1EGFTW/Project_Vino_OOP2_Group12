@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production;
 import org.apache.log4j.Logger;
@@ -65,8 +66,21 @@ public class ProductionRepository implements DAORepository<Production> {
     }
 
     @Override
-    public Optional<Production> getById(Integer id) {
-        return Optional.empty();
+    public List<Production> getById(Integer id)
+    {
+        Session session=Connection.openSession();
+        Transaction transaction= session.beginTransaction();
+        List<Production> productions=new LinkedList<>();
+        try{
+            String jpql="SELECT p FROM Production p WHERE id_production ="+id;
+            productions.addAll(session.createQuery(jpql,Production.class).getResultList());
+            log.info("Get production by id!");
+        }catch(Exception e){
+            log.error("Get admin error"+e.getMessage());
+        }finally {
+            transaction.commit();
+        }
+        return productions;
     }
 
     @Override

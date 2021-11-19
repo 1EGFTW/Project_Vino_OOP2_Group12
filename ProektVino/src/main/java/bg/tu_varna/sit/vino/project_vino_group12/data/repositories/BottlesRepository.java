@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -64,8 +65,21 @@ public class BottlesRepository implements DAORepository<Bottles>{
     }
 
     @Override
-    public Optional<Bottles> getById(Integer id) {
-        return Optional.empty();
+    public List<Bottles> getById(Integer id) {
+
+        Session session=Connection.openSession();
+        Transaction transaction= session.beginTransaction();
+        List<Bottles> bottles=new LinkedList<>();
+        try{
+            String jpql="SELECT b FROM Bottles b WHERE id_bottle ="+id;
+            bottles.addAll(session.createQuery(jpql,Bottles.class).getResultList());
+            log.info("Get bottle by id!");
+        }catch(Exception e){
+            log.error("Get bottle error"+e.getMessage());
+        }finally {
+            transaction.commit();
+        }
+        return bottles;
     }
 
     @Override

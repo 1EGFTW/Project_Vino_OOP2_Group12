@@ -7,6 +7,6 @@ public interface DAORepository<T> {
     void save(T obj);
     void update(T obj);
     void delete(T obj);
-    Optional<T> getById(Integer id);
+    List<T> getById(Integer id);
     List<T> getAll();
 }

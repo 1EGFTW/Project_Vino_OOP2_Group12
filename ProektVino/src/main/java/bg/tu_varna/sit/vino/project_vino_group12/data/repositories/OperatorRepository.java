@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
 import org.apache.log4j.Logger;
@@ -66,8 +67,21 @@ public class OperatorRepository implements DAORepository<Operator>{
     }
 
     @Override
-    public Optional<Operator> getById(Integer id) {
-        return Optional.empty();
+    public List<Operator> getById(Integer id) {
+
+        Session session=Connection.openSession();
+        Transaction transaction= session.beginTransaction();
+        List<Operator> operators=new LinkedList<>();
+        try{
+            String jpql="SELECT o FROM Operator o WHERE id_operator ="+id;
+            operators.addAll(session.createQuery(jpql,Operator.class).getResultList());
+            log.info("Get operator by id!");
+        }catch(Exception e){
+            log.error("Get operator error"+e.getMessage());
+        }finally {
+            transaction.commit();
+        }
+        return operators;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.WarehouseHost;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -64,8 +65,20 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
     }
 
     @Override
-    public Optional<WarehouseHost> getById(Integer id) {
-        return Optional.empty();
+    public List<WarehouseHost> getById(Integer id) {
+        Session session=Connection.openSession();
+        Transaction transaction= session.beginTransaction();
+        List<WarehouseHost> hosts=new LinkedList<>();
+        try{
+            String jpql="SELECT w FROM Domakin_sklad w WHERE id_domakin ="+id;
+            hosts.addAll(session.createQuery(jpql,WarehouseHost.class).getResultList());
+            log.info("Get host by id!");
+        }catch(Exception e){
+            log.error("Get warehouseHost error"+e.getMessage());
+        }finally {
+            transaction.commit();
+        }
+        return hosts;
     }
 
     @Override
