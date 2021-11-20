@@ -19,7 +19,7 @@ public class WinesService {
         public static final WinesService INSTANCE = new WinesService();
     }
 
-    public ObservableList<WinesListViewModel> getAllWines() {
+  /*  public ObservableList<WinesListViewModel> getAllWines() {
         List<Wines> wines = repository.getAll();
 
         return FXCollections.observableList(
@@ -29,4 +29,5 @@ public class WinesService {
                         w.getTotal()
                 )).collect(Collectors.toList()));
     }
+   */
 }

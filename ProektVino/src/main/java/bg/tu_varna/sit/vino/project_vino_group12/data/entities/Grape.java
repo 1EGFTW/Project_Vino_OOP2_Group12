@@ -4,6 +4,7 @@ import org.hibernate.annotations.Sort;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Table(name="grozde")
@@ -12,7 +13,6 @@ public class Grape implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name="id_sort",nullable = false)
     private int id_sort;
 
@@ -20,7 +20,7 @@ public class Grape implements Serializable {
     private String name_sort;
 
     @OneToMany(mappedBy="id_sort_color")
-    private Set<SortColor> sortColor;
+    private SortColor sortColor;
 
     @Column(name="sort_quantity",nullable = false)
     private int sort_quantity;
@@ -28,15 +28,29 @@ public class Grape implements Serializable {
     @Column(name="quantity_by_kg",nullable = false)
     private int quantity_by_kg;
 
-    @OneToMany(mappedBy = "id_sort")
-    private Set<Wines> winesSet;
+    @OneToMany(mappedBy = "primaryKey.grape",cascade = CascadeType.ALL)
+    public Set<GrapeWines> grapeWines=new HashSet<GrapeWines>();
 
-    public Grape(String name_sort,Set<SortColor> sortColor,int sort_quantity,int quantity_by_kg)
-    {
+    public Grape(){
+
+    }
+    public Grape(String name_sort,SortColor sortColor,int sort_quantity,int quantity_by_kg){
         this.name_sort=name_sort;
         this.sortColor=sortColor;
         this.sort_quantity=sort_quantity;
         this.quantity_by_kg=quantity_by_kg;
+    }
+    public void addWines(GrapeWines wines){
+        this.grapeWines.add(wines);
+    }
+    public Set<GrapeWines> getGrapeWines(){
+        return grapeWines;
+    }
+    public void setGrapeWines(Set<GrapeWines> grapeWines){
+        this.grapeWines=grapeWines;
+    }
+    public void addGrapeWine(GrapeWines grapeWines) {
+        this.grapeWines.add(grapeWines);
     }
 
     public int getId_sort() {
@@ -55,11 +69,11 @@ public class Grape implements Serializable {
         this.name_sort = name_sort;
     }
 
-    public Set<SortColor> getSortColor() {
+    public SortColor getSortColor() {
         return sortColor;
     }
 
-    public void setSortColor(Set<SortColor> sortColor) {
+    public void setSortColor(SortColor sortColor) {
         this.sortColor = sortColor;
     }
 
@@ -77,25 +91,5 @@ public class Grape implements Serializable {
 
     public void setQuantity_by_kg(int quantity_by_kg) {
         this.quantity_by_kg = quantity_by_kg;
-    }
-
-    public Set<Wines> getWinesSet() {
-        return winesSet;
-    }
-
-    public void setWinesSet(Set<Wines> winesSet) {
-        this.winesSet = winesSet;
-    }
-
-    @Override
-    public String toString() {
-        return "Grape{" +
-                "id_sort=" + id_sort +
-                ", name_sort='" + name_sort + '\'' +
-                ", sortColor=" + sortColor +
-                ", sort_quantity=" + sort_quantity +
-                ", quantity_by_kg=" + quantity_by_kg +
-                ", winesSet=" + winesSet +
-                '}';
     }
 }

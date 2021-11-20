@@ -19,5 +19,7 @@
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.WarehouseHost"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWinesId"/>
     </session-factory>
 </hibernate-configuration>
