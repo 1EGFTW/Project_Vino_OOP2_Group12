@@ -15,6 +15,9 @@ public class GrapeWines implements Serializable {
     @Column(name="quantity_for_wine")
     private int quantity_for_wine;
 
+    public GrapeWines(){
+
+    }
     public GrapeWinesId getPrimaryKey() {
         return primaryKey;
     }

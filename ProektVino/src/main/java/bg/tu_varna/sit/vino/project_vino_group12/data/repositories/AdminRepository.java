@@ -68,7 +68,7 @@ public class AdminRepository implements DAORepository<Admin>{
         Transaction transaction= session.beginTransaction();
         List<Admin> admins=new LinkedList<>();
         try{
-            String jpql="SELECT a FROM Admin a WHERE id_admin ="+id;
+            String jpql="SELECT a FROM Admin a WHERE id_admin ="+id.toString();
             admins.addAll(session.createQuery(jpql,Admin.class).getResultList());
             log.info("Get all admins!");
         }catch(Exception e){
