@@ -17,8 +17,8 @@ public class Wines implements Serializable {
     @Column(name = "name_wine",nullable = false)
     private String name_wine;
 
-    @OneToMany(mappedBy = "primaryKey.wine",cascade = CascadeType.ALL)
-    public Set<GrapeWines> grapeWines=new HashSet<GrapeWines>();
+    @OneToMany(mappedBy = "wine")
+    private Set<GrapeWines> grapeWines=new HashSet<>();
 
     @Column(name="total",nullable = false)
     private int total;
@@ -35,32 +35,36 @@ public class Wines implements Serializable {
         this.total=total;
     }
 
-    public Set<GrapeWines> getGrapeWines(){
-        return grapeWines;
-    }
-    public void setGrapeWines(Set<GrapeWines> grapeWines){
-        this.grapeWines=grapeWines;
-    }
-    public void addGrapeWine(GrapeWines grapeWines) {
-        this.grapeWines.add(grapeWines);
-    }
-    public int getId_wine(){
+    public int getId_wine() {
         return id_wine;
     }
-    public void setId_wine(int id_wine){
-        this.id_wine=id_wine;
+
+    public void setId_wine(int id_wine) {
+        this.id_wine = id_wine;
     }
-    public int getTotal(){
-        return total;
-    }
-    public void setTotal(int total){
-        this.total=total;
-    }
-    public void setName_wine(String name_wine){
-        this.name_wine=name_wine;
-    }
-    public String getName_wine(){
+
+    public String getName_wine() {
         return name_wine;
     }
 
+    public void setName_wine(String name_wine) {
+        this.name_wine = name_wine;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+    public Set<GrapeWines> getGrapeWines(){
+        return grapeWines;
+    }
+    public void setGrapeWines(Set<GrapeWines> wines){
+        this.grapeWines=wines;
+    }
+    public void addGrapeWines(GrapeWines grapeWines){
+        this.grapeWines.add(grapeWines);
+    }
 }

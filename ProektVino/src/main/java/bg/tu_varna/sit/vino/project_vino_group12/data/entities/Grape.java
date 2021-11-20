@@ -15,43 +15,26 @@ public class Grape implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_sort",nullable = false)
     private int id_sort;
-
-    @Column(name="name_sort",nullable = true)
+    @Column(name="name_sort")
     private String name_sort;
-
-    @OneToMany(mappedBy="id_sort_color")
+    @OneToMany(mappedBy = "id_sort_color")
     private SortColor sortColor;
-
-    @Column(name="sort_quantity",nullable = false)
+    @Column(name="sort_quantity")
     private int sort_quantity;
-
-    @Column(name="quantity_by_kg",nullable = false)
+    @Column(name="quantity_by_kg")
     private int quantity_by_kg;
-
-    @OneToMany(mappedBy = "primaryKey.grape",cascade = CascadeType.ALL)
-    public Set<GrapeWines> grapeWines=new HashSet<GrapeWines>();
-
+    @OneToMany(mappedBy = "grape")
+    private Set<GrapeWines> grapeWines=new HashSet<>();
     public Grape(){
 
     }
-    public Grape(String name_sort,SortColor sortColor,int sort_quantity,int quantity_by_kg){
+    public Grape(String name_sort,int sort_quantity,int quantity_by_kg){
         this.name_sort=name_sort;
-        this.sortColor=sortColor;
         this.sort_quantity=sort_quantity;
         this.quantity_by_kg=quantity_by_kg;
     }
-    public void addWines(GrapeWines wines){
-        this.grapeWines.add(wines);
-    }
-
-    public Set<GrapeWines> getGrapeWines(){
-        return grapeWines;
-    }
-    public void setGrapeWines(Set<GrapeWines> grapeWines){
-        this.grapeWines=grapeWines;
-    }
-    public void addGrapeWine(GrapeWines grapeWines) {
-        this.grapeWines.add(grapeWines);
+    public void addWine(GrapeWines wine){
+        this.grapeWines.add(wine);
     }
 
     public int getId_sort() {
@@ -92,5 +75,14 @@ public class Grape implements Serializable {
 
     public void setQuantity_by_kg(int quantity_by_kg) {
         this.quantity_by_kg = quantity_by_kg;
+    }
+    public Set<GrapeWines> getGrapeWines(){
+        return grapeWines;
+    }
+    public void setGrapeWines(Set<GrapeWines> wines){
+        this.grapeWines=wines;
+    }
+    public void addGrapeWines(GrapeWines grapeWines){
+        this.grapeWines.add(grapeWines);
     }
 }

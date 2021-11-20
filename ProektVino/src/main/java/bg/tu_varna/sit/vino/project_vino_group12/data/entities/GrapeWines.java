@@ -2,28 +2,50 @@ package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
+
 @Entity
 @Table(name="grozde_wines")
-@AssociationOverrides({
-        @AssociationOverride(name = "primaryKey.grape",
-                joinColumns = @JoinColumn(name = "id_sort")),
-        @AssociationOverride(name = "primaryKey.wine",
-                joinColumns = @JoinColumn(name = "id_wine")) })
-public class GrapeWines implements Serializable {
-    @EmbeddedId
-    private GrapeWinesId primaryKey=new GrapeWinesId();
+public class GrapeWines implements Serializable{
+    private static final long serialVersionUID=1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_sort_wine")
+    private int id_sort_wines;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_sort")
+    private Grape grape;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_wine")
+    private Wines wine;
+
     @Column(name="quantity_for_wine")
     private int quantity_for_wine;
 
-    public GrapeWines(){
-
-    }
-    public GrapeWinesId getPrimaryKey() {
-        return primaryKey;
+    public int getId_sort_wines() {
+        return id_sort_wines;
     }
 
-    public void setPrimaryKey(GrapeWinesId primaryKey) {
-        this.primaryKey = primaryKey;
+    public void setId_sort_wines(int id_sort_wines) {
+        this.id_sort_wines = id_sort_wines;
+    }
+
+    public Grape getGrape() {
+        return grape;
+    }
+
+    public void setGrape(Grape grape) {
+        this.grape = grape;
+    }
+
+    public Wines getWine() {
+        return wine;
+    }
+
+    public void setWine(Wines wine) {
+        this.wine = wine;
     }
 
     public int getQuantity_for_wine() {
@@ -32,19 +54,5 @@ public class GrapeWines implements Serializable {
 
     public void setQuantity_for_wine(int quantity_for_wine) {
         this.quantity_for_wine = quantity_for_wine;
-    }
-    @Transient
-    public Grape getGrape(){
-        return getPrimaryKey().getGrape();
-    }
-    public void setGrape(Grape grape){
-        getPrimaryKey().setGrape(grape);
-    }
-    @Transient
-    public Wines getWines(){
-        return getPrimaryKey().getWine();
-    }
-    public void setWines(Wines wines){
-        getPrimaryKey().setWine(wines);
     }
 }
