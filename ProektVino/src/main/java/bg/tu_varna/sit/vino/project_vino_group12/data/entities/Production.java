@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Table(name = "production")
 @Entity
@@ -13,13 +14,11 @@ public class Production implements Serializable {
     @Column(name="id_production",nullable = false)
     private int id_production;
 
-    @ManyToOne
-    @JoinColumn(name="id_wine",nullable = false)
-    private Wines wines;
+    @OneToMany(mappedBy = "production")
+    private Set<Wines> wines;
 
-    @ManyToOne
-    @JoinColumn(name="id_bottle",nullable = false)
-    private Bottles bottles;
+    @OneToMany(mappedBy = "production")
+    private Set<Bottles> bottles;
 
     @Column(name="produced_bottles",nullable = false)
     private int produced_bottles;
@@ -32,28 +31,28 @@ public class Production implements Serializable {
         this.id_production = id_production;
     }
 
-    public Wines getWines() {
-        return wines;
-    }
-
-    public void setWines(Wines wines) {
-        this.wines = wines;
-    }
-
-    public Bottles getBottles() {
-        return bottles;
-    }
-
-    public void setBottles(Bottles bottles) {
-        this.bottles = bottles;
-    }
-
     public int getProduced_bottles() {
         return produced_bottles;
     }
 
     public void setProduced_bottles(int produced_bottles) {
         this.produced_bottles = produced_bottles;
+    }
+
+    public Set<Wines> getWines() {
+        return wines;
+    }
+
+    public void setWines(Set<Wines> wines) {
+        this.wines = wines;
+    }
+
+    public Set<Bottles> getBottles() {
+        return bottles;
+    }
+
+    public void setBottles(Set<Bottles> bottles) {
+        this.bottles = bottles;
     }
 
     @Override

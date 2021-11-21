@@ -20,8 +20,9 @@ public class Bottles implements Serializable {
     @Column(name="bottle_quantity",nullable = true)
     private int bottle_quantity;
 
-    @OneToMany(mappedBy = "bottles")
-    private Set<Production> productionSet;
+   @ManyToOne
+   @JoinColumn(name = "id_bottle")
+   private Production production;
 
     public Bottles(int bottle_size,int bottle_quantity)
     {
@@ -53,13 +54,12 @@ public class Bottles implements Serializable {
         this.bottle_quantity = bottle_quantity;
     }
 
-    public Set<Production> getProductionSet() {
-        return productionSet;
+    public Production getProduction() {
+        return production;
     }
 
-    public void setProductionSet(Set<Production> productionSet) {
-        this.productionSet = productionSet;
-
+    public void setProduction(Production production) {
+        this.production = production;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Bottles implements Serializable {
                 "id_bottle=" + id_bottle +
                 ", bottle_size=" + bottle_size +
                 ", bottle_quantity=" + bottle_quantity +
-                ", productionSet=" + productionSet +
+                ", production=" + production +
                 '}';
     }
 }

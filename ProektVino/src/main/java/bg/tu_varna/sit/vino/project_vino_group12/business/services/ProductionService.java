@@ -19,7 +19,7 @@ public class ProductionService {
         public static final ProductionService INSTANCE = new ProductionService();
     }
 
-    public ObservableList<ProductionListViewModel> getAllProductions() {
+   /* public ObservableList<ProductionListViewModel> getAllProductions() {
         List<Production> productions = repository.getAll();
 
         return FXCollections.observableList(
@@ -29,4 +29,6 @@ public class ProductionService {
                     p.getProduced_bottles()
         )).collect(Collectors.toList()));
     }
+
+    */
 }

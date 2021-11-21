@@ -17,8 +17,8 @@ public class SortColor implements Serializable {
     @Column(name="color",nullable = true)
     private String color;
 
-   @ManyToOne
-    private Grape grape ;
+    @OneToMany(mappedBy = "sortColor")
+    private Set<Grape> grapes ;
 
    public SortColor(String color){
        this.color=color;
@@ -40,12 +40,12 @@ public class SortColor implements Serializable {
         this.color = color;
     }
 
-    public Grape getGrapeSet() {
-        return grape;
+    public Set<Grape> getGrapes() {
+        return grapes;
     }
 
-    public void setGrape(Grape grape) {
-        this.grape = grape;
+    public void setGrapes(Set<Grape> grapes) {
+        this.grapes = grapes;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class SortColor implements Serializable {
         return "SortColor{" +
                 "id_sort_color=" + id_sort_color +
                 ", color='" + color + '\'' +
-                ", grape=" + grape +
+                ", grapes=" + grapes +
                 '}';
     }
 }

@@ -15,16 +15,26 @@ public class Grape implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_sort",nullable = false)
     private int id_sort;
+
     @Column(name="name_sort")
     private String name_sort;
-    @OneToMany(mappedBy = "id_sort_color")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_sort_color")
     private SortColor sortColor;
+
     @Column(name="sort_quantity")
     private int sort_quantity;
+
     @Column(name="quantity_by_kg")
     private int quantity_by_kg;
+
     @OneToMany(mappedBy = "grape")
     private Set<GrapeWines> grapeWines=new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_sort")
+    private Production production;
     public Grape(){
 
     }
