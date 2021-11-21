@@ -10,7 +10,6 @@
         <property name="hibernate.connection.password">Franki1254</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape"/>
@@ -19,6 +18,6 @@
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.WarehouseHost"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines"/>
-        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWinesWines"/>
+        <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines"/>
     </session-factory>
 </hibernate-configuration>
