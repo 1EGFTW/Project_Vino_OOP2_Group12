@@ -1,0 +1,22 @@
+.wrapper{
+    -fx-background-color: #280000;
+    -fx-alignment:bottom;
+}
+
+.box{
+
+    -fx-alignment:center;
+    -fx-background-color: #EEEBD3;
+    -fx-spacing:20px;
+}
+
+.button{
+    -fx-color: #EEEBD3;
+    -fx-font-family: sans-serif;
+}
+
+.label{
+    -fx-font-family: sans-serif;
+    -fx-font-weight: bold;
+}
+
