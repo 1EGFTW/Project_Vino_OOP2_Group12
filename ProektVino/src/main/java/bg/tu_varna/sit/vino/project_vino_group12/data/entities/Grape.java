@@ -33,7 +33,7 @@ public class Grape implements Serializable {
     private Set<GrapeWines> grapeWines=new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sort")
+    @JoinColumn(name = "id_sort",insertable = false,updatable = false)
     private Production production;
     public Grape(){
 

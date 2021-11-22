@@ -3,19 +3,10 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.AdminLoginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import org.hibernate.boot.spi.AbstractDelegatingMetadataBuilderImplementor;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
 
 public class AdminService {
     public boolean logIn=false;

@@ -14,6 +14,7 @@ public class Connection {
         }catch (Throwable e)
         {
             log.error("Initial SessionFactory error"+e);
+            e.printStackTrace();
         }
     }
     public static Session openSession(){

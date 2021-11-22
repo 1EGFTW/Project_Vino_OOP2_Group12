@@ -23,7 +23,8 @@ public class Wines implements Serializable {
     @Column(name="total",nullable = false)
     private int total;
 
-    @OneToMany(mappedBy = "wines")
+    @ManyToOne
+    @JoinColumn(name = "id_production")
     private Production production;
 
     public Wines(){

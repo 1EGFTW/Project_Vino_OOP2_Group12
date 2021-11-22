@@ -12,16 +12,16 @@ public class Bottles implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name="id_bottle",nullable = false)
-    private int id_bottle;
+    private int id_bottles;
 
     @Column(name="bottle_size",nullable = true)
     private int bottle_size;
 
     @Column(name="bottle_quantity",nullable = true)
     private int bottle_quantity;
-
+//da se vidi insertable i updatable(hibernate iska da byde tyka
    @ManyToOne
-   @JoinColumn(name = "id_bottle")
+   @JoinColumn(name = "id_bottle",insertable = false,updatable = false)
    private Production production;
 
     public Bottles(int bottle_size,int bottle_quantity)
@@ -31,11 +31,11 @@ public class Bottles implements Serializable {
     }
 
     public int getId_bottle() {
-        return id_bottle;
+        return id_bottles;
     }
 
-    public void setId_bottle(int id_bottle) {
-        this.id_bottle = id_bottle;
+    public void setId_bottle(int id_bottles) {
+        this.id_bottles = id_bottles;
     }
 
     public int getBottle_size() {
@@ -65,7 +65,7 @@ public class Bottles implements Serializable {
     @Override
     public String toString() {
         return "Bottles{" +
-                "id_bottle=" + id_bottle +
+                "id_bottle=" + id_bottles +
                 ", bottle_size=" + bottle_size +
                 ", bottle_quantity=" + bottle_quantity +
                 ", production=" + production +
