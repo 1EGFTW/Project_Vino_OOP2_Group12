@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.CreateOperatorController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" >
     <children>
         <Label fx:id="createOperator" layoutX="187.0" layoutY="170.0" text="Please enter  username and password:" />
         <PasswordField fx:id="operator_pass" layoutX="356.0" layoutY="280.0" />

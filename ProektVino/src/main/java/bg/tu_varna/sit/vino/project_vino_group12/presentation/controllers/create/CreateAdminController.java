@@ -1,19 +1,24 @@
-package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
+package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
 
 public class CreateAdminController {
     private final AdminService service=AdminService.getInstance();
+    Stage s;
     @FXML
     public Label createAdmin;
     @FXML
@@ -23,11 +28,25 @@ public class CreateAdminController {
     @FXML
     public Button login;
 
-   @FXML
+    public CreateAdminController(Stage stage) {
+        this.s=stage;
+    }
+
+    @FXML
     public void onCreateAdminButtonClick(ActionEvent actionEvent) { //da se pogledne zashto kato se pusne tazi funkciq ne trygva repositorito
     //sled tazi funkciq se syzdawa i constructor v admin po syshtiq nachin kakto w operator i warehousehost, no pri tqh raboti
         Admin admin=new Admin(admin_name.getText().toString(),admin_pass.getText().toString());
         service.createAdmin(admin);
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AdminViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
-
 }

@@ -28,4 +28,12 @@ module bg.tu_varna.sit.vino.project_vino_group12 {
     exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
     opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers to javafx.fxml;
     exports bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
+    exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
+    opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add to javafx.fxml;
+    exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
+    opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login to javafx.fxml;
+    exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create;
+    opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create to javafx.fxml;
+    exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views;
+    opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views to javafx.fxml;
 }

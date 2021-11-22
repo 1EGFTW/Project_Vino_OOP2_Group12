@@ -1,11 +1,8 @@
-package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
+package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,15 +14,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
 
 public class AdminLoginController {
     private final AdminService service=AdminService.getInstance();
     public Stage s;
-    private boolean log=false;
     @FXML
     public Label adminlogin;
     @FXML
@@ -46,8 +39,9 @@ public class AdminLoginController {
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
-                Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
+                fxmlLoader.setController(new AdminViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
                 stage.setScene(new Scene(root1));
                 stage.show();
             } catch(Exception e) {

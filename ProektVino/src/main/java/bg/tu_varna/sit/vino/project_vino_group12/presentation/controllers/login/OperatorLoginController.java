@@ -1,8 +1,8 @@
-package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
+package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.OPERATOR_VIEW;
 
 public class OperatorLoginController {
     private final OperatorService service= OperatorService.getInstance();
@@ -37,9 +36,10 @@ public class OperatorLoginController {
         if(service.operatorLogin(operatorToLogIn)){
             try {
                 s.close();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_VIEW));
-                Parent root1 = (Parent) fxmlLoader.load();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
                 Stage stage = new Stage();
+                fxmlLoader.setController(new OperatorViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
                 stage.setScene(new Scene(root1));
                 stage.show();
             } catch(Exception e) {

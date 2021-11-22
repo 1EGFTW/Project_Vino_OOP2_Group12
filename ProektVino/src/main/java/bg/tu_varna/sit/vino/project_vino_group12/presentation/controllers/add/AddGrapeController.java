@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
+package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.SortColorService;
@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
@@ -21,6 +22,7 @@ public class AddGrapeController {
     private final SortColorRepository sortColorRepository=SortColorRepository.getInstance();
     private final GrapeService grapeService=GrapeService.getInstance();
     private final SortColorService sortColorService=SortColorService.getInstance();
+    Stage s;
     @FXML
     public Label createGrapeLabel;
     @FXML
@@ -41,6 +43,10 @@ public class AddGrapeController {
     public Label quantity_by_kg_label;
     @FXML
     public Button createGrape;
+
+    public AddGrapeController(Stage stage) {
+        this.s=stage;
+    }
    /* @FXML
     public void createGrape(ActionEvent actionEvent) {
         ObservableList<SortColorListViewModel> sortColorListViewModels=sortColorService.getAllSortColor();
