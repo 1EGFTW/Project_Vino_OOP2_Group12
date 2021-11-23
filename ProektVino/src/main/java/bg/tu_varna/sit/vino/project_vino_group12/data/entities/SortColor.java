@@ -14,11 +14,13 @@ public class SortColor implements Serializable {
     @Column(name="id_sort_color",nullable = false)
     private int id_sort_color;
 
-    @Column(name="color",nullable = true)
+    @Column(name="color")
     private String color;
 
     @OneToMany(mappedBy = "sortColor")
     private Set<Grape> grapes ;
+
+    public SortColor(){}
 
    public SortColor(String color){
        this.color=color;
@@ -48,6 +50,9 @@ public class SortColor implements Serializable {
         this.grapes = grapes;
     }
 
+    public boolean equals(SortColor r){
+        return this.color.equals(r.color);
+    }
     @Override
     public String toString() {
         return "SortColor{" +

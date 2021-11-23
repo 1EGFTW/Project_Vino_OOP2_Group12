@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.SortColorService;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
@@ -21,7 +22,9 @@ import javafx.stage.Stage;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.HELLO_VIEW;
+import java.util.Locale;
+
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AddGrapeController {
     private final GrapeRepository grapeRepository= GrapeRepository.getInstance();
@@ -34,7 +37,7 @@ public class AddGrapeController {
     @FXML
     public TextField name_sort;
     @FXML
-    public TextField id_sort_color;
+    public TextField sort_color;
     @FXML
     public TextField quantity_by_kg;
     @FXML
@@ -53,25 +56,12 @@ public class AddGrapeController {
     public AddGrapeController(Stage stage) {
         this.s=stage;
     }
-   /* @FXML
-    public void createGrape(ActionEvent actionEvent) {
-        ObservableList<SortColorListViewModel> sortColorListViewModels=sortColorService.getAllSortColor();
-        for(SortColorListViewModel sc:sortColorListViewModels)
-        {
-            if(sc.getColor().equals(id_sort_color.getText()))
-            {
-                SortColor temp=new SortColor(id_sort_color.getText());
-                Grape grape=new Grape(name_sort.getText(),temp, Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
-                try{
-                    grapeRepository.save(grape);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    @FXML
+    public void createGrape(ActionEvent actionEvent) { // da se vidi zashto izkarva null id
+        SortColor sc=new SortColor(sort_color.getText());
+       Grape g=new Grape(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
+        grapeService.addGrape(g,sc);
     }
-    */
    @FXML
    public void goBack(ActionEvent actionEvent){
        try {

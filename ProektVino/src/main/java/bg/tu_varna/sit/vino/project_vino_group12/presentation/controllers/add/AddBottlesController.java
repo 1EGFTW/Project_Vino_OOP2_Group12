@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
@@ -18,7 +19,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.AD
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.HELLO_VIEW;
 
 public class AddBottlesController {
-    private final BottlesRepository repository=BottlesRepository.getInstance();
+    private final BottlesService service=BottlesService.getInstance();
     Stage s;
     @FXML
     public Label createBottle;
@@ -35,7 +36,7 @@ public class AddBottlesController {
 
     public void onCreateBottleButtonClick(ActionEvent actionEvent) {
         Bottles bottle=new Bottles(Integer.parseInt(bottle_size.getText()),Integer.parseInt(bottle_quantity.getText()));
-        repository.save(bottle);
+        service.addBottle(bottle);
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));

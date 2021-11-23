@@ -3,11 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddGrapeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <Label fx:id="createGrapeLabel" layoutX="244.0" layoutY="91.0" text="Create grape" />
       <TextField fx:id="name_sort" layoutX="88.0" layoutY="206.0" />
-      <TextField fx:id="id_sort_color" layoutX="323.0" layoutY="206.0" />
+      <TextField fx:id="sort_color" layoutX="323.0" layoutY="206.0" />
       <TextField fx:id="sort_quantity" layoutX="88.0" layoutY="274.0" />
       <TextField fx:id="quantity_by_kg" layoutX="323.0" layoutY="274.0" />
       <Label fx:id="name_sort_label" layoutX="148.0" layoutY="165.0" text="Name" />

@@ -17,6 +17,6 @@ public class SortColorListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s", color);
+        return String.format("%s", color);
     }
 }
