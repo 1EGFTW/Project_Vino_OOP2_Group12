@@ -31,6 +31,7 @@ public class GrapeRepository implements DAORepository<Grape> {
             log.info("Grape saved successfully!");
         }catch(Exception e){
             log.error("Grape save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

@@ -32,6 +32,7 @@ public class ProductionRepository implements DAORepository<Production> {
             log.info("Production saved successfully!");
         }catch(Exception e){
             log.error("Production save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

@@ -29,6 +29,7 @@ public class AdminRepository implements DAORepository<Admin>{
             log.info("Admin saved successfully!");
         }catch(Exception e){
             log.error("Admin save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

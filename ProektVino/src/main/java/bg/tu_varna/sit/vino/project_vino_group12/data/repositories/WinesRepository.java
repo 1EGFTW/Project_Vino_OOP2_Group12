@@ -31,6 +31,7 @@ public class WinesRepository implements DAORepository<Wines> {
             log.info("Wines saved successfully!");
         }catch(Exception e){
             log.error("Wines save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

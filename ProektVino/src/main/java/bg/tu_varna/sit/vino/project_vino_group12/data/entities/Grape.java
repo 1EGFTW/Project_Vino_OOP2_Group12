@@ -35,7 +35,6 @@ public class Grape implements Serializable {
    /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_sort",insertable = false,updatable = false)
     private Production production;
-
     */
     public Grape(){
 

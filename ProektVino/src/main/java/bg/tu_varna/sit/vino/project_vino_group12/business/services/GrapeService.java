@@ -35,15 +35,15 @@ public class GrapeService {
                 )).collect(Collectors.toList()));
     }
    */
-    public void addGrape(Grape g,SortColor sc){ //izkarva null id
+    public void addGrape(Grape g){
         List<SortColor> sortColors=sortColorRepository.getAll();
+        g.getSortColor().addGrape(g);
             for (SortColor sortColor : sortColors) {
-                if (sc.equals(sortColor)) {
+                if (g.getSortColor().equals(sortColor)) {
                     g.setSortColor(sortColor);
                     break;
                 }
             }
-
             try{
                 grapeRepository.save(g);
             }catch (Exception e){

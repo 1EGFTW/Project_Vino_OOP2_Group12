@@ -31,6 +31,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
             log.info("Bottle saved successfully!");
         }catch(Exception e){
             log.error("Bottle save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

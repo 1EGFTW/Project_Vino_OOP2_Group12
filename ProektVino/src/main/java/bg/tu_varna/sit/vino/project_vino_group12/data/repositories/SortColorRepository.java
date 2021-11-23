@@ -31,6 +31,7 @@ public class SortColorRepository implements DAORepository<SortColor>{
             log.info("SortColor saved successfully!");
         }catch(Exception e){
             log.error("SortColor save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

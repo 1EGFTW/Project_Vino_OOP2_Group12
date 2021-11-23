@@ -8,6 +8,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +24,7 @@ import javafx.stage.Stage;
 import javax.persistence.criteria.CriteriaBuilder;
 
 import java.util.Locale;
+import java.util.Set;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
@@ -60,7 +62,7 @@ public class AddGrapeController {
     public void createGrape(ActionEvent actionEvent) { // da se vidi zashto izkarva null id
         SortColor sc=new SortColor(sort_color.getText());
        Grape g=new Grape(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
-        grapeService.addGrape(g,sc);
+        grapeService.addGrape(g);
     }
    @FXML
    public void goBack(ActionEvent actionEvent){
@@ -68,7 +70,7 @@ public class AddGrapeController {
            s.close();
            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
            Stage stage = new Stage();
-           fxmlLoader.setController(new HelloController(stage));
+           fxmlLoader.setController(new AdminViewController(stage));
            Parent root1 = (Parent) fxmlLoader.load();
            stage.setScene(new Scene(root1));
            stage.show();

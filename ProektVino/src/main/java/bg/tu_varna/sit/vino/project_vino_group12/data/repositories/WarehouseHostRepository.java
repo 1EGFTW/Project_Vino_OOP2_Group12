@@ -31,6 +31,7 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
             log.info("WarehouseHost saved successfully!");
         }catch(Exception e){
             log.error("WarehouseHost save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

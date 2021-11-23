@@ -33,6 +33,7 @@ public class OperatorRepository implements DAORepository<Operator>{
             log.info("Operator saved successfully!");
         }catch(Exception e){
             log.error("Operator save error"+e.getMessage());
+            e.printStackTrace();
         }finally {
             transaction.commit();
         }

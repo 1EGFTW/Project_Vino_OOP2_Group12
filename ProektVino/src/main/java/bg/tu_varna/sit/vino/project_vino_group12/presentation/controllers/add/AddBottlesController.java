@@ -55,7 +55,7 @@ public class AddBottlesController {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
             Stage stage = new Stage();
-            fxmlLoader.setController(new HelloController(stage));
+            fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();

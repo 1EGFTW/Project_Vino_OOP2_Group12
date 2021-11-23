@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Table(name="sort_color")
@@ -18,13 +19,18 @@ public class SortColor implements Serializable {
     private String color;
 
     @OneToMany(mappedBy = "sortColor")
-    private Set<Grape> grapes ;
+    private Set<Grape> grapes=new HashSet<Grape>();
 
     public SortColor(){}
 
    public SortColor(String color){
        this.color=color;
    }
+
+    public SortColor(String color,Set<Grape> grapes){
+        this.color=color;
+        this.grapes=grapes;
+    }
 
     public int getId_sort_color() {
         return id_sort_color;
@@ -48,6 +54,9 @@ public class SortColor implements Serializable {
 
     public void setGrapes(Set<Grape> grapes) {
         this.grapes = grapes;
+    }
+    public void addGrape(Grape g){
+        this.grapes.add(g);
     }
 
     public boolean equals(SortColor r){
