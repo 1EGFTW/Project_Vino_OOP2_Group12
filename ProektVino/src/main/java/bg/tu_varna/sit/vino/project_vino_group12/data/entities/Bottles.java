@@ -7,6 +7,7 @@ import java.util.Set;
 @Table(name="bottles")
 @Entity
 public class Bottles implements Serializable {
+
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,18 +1,36 @@
 .wrapper{
     -fx-background-color: #280000;
-    -fx-alignment:bottom;
 }
 
 .box{
-
-    -fx-alignment:center;
     -fx-background-color: #EEEBD3;
     -fx-spacing:20px;
+    -fx-padding: 0 0 60px 0;
+}
+
+.imageNLabel{
+    -fx-alignment:bottom-center;
+    -fx-padding: 0 50px 0 0;
+}
+
+#HelloText{
+    -fx-font-size:14;
+}
+
+.buttonLineup{
+    -fx-alignment:bottom-center;
+    -fx-padding: 0 0 30px 0;
+    -fx-spacing: 140px;
 }
 
 .button{
     -fx-color: #EEEBD3;
     -fx-font-family: sans-serif;
+}
+
+.loginButtons{
+    -fx-padding: 15px 15px 15px 15px;
+    -fx-font-size: 16;
 }
 
 .label{

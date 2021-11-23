@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.HELLO_VIEW;
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AddGrapeController {
     private final GrapeRepository grapeRepository= GrapeRepository.getInstance();

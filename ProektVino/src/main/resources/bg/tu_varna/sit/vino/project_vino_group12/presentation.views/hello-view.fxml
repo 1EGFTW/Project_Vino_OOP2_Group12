@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <Pane prefHeight="765" prefWidth="1024" styleClass="wrapper" stylesheets="@css/ui.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="60" layoutY="60" prefHeight="605" prefWidth="884" styleClass="box">
-            <!--fx:controller="bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController"-->
-
-      
-          <Label fx:id="HelloText" text="Please choose:" />
-          <Button fx:id="adminButton" onAction="#adminLog" text="Log in as admin" />
-          <Button fx:id="operatorButton" onAction="#operatorLog" text="Log in as operator" />
-          <Button fx:id="warehouseLogButton" onAction="#warehouseHostLog" text="Log in as warehouse host" />
-      </VBox>
+      <Pane layoutX="60.0" layoutY="60.0" prefHeight="605.0" prefWidth="884.0" styleClass="box">
+         <children>
+            <VBox prefHeight="514.0" prefWidth="884.0" styleClass="imageNLabel">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="502.0" fitWidth="832.0" pickOnBounds="true" preserveRatio="true" />
+                   <Label fx:id="HelloText" text="Please choose:" />
+               </children>
+            </VBox>
+            <HBox layoutY="520.0" prefHeight="85.0" prefWidth="884" styleClass="buttonLineup">
+                <Button fx:id="adminButton" onAction="#adminLog" styleClass="loginButtons" text="Log in as admin" />
+                <Button fx:id="operatorButton" onAction="#operatorLog" styleClass="loginButtons" text="Log in as operator" />
+                <Button fx:id="warehouseLogButton" onAction="#warehouseHostLog" styleClass="loginButtons" text="Log in as warehouse host" />
+            </HBox>
+         </children></Pane>
    </children>
 </Pane>
