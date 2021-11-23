@@ -32,17 +32,22 @@ public class Grape implements Serializable {
     @OneToMany(mappedBy = "grape")
     private Set<GrapeWines> grapeWines=new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+   /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_sort",insertable = false,updatable = false)
     private Production production;
+
+    */
     public Grape(){
 
     }
-    public Grape(String name_sort,int sort_quantity,int quantity_by_kg){
+    public Grape(String name_sort,SortColor sortcolor, int sort_quantity,int quantity_by_kg){
         this.name_sort=name_sort;
+        this.sortColor=sortcolor;
         this.sort_quantity=sort_quantity;
         this.quantity_by_kg=quantity_by_kg;
     }
+
+
     public void addWine(GrapeWines wine){
         this.grapeWines.add(wine);
     }
