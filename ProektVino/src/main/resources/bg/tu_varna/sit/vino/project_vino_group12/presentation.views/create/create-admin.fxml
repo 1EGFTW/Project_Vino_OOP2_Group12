@@ -11,5 +11,6 @@
         <Button fx:id="login" layoutX="276.0" layoutY="339.0" mnemonicParsing="false" onAction="#onCreateAdminButtonClick" text="Create" />
         <Label layoutX="119.0" layoutY="239.0" text="Username" />
         <Label layoutX="413.0" layoutY="239.0" text="Password" />
+        <Button layoutX="493.0" layoutY="339.0" mnemonicParsing="false" text="Go back" onAction="#goBack"/>
     </children>
 </AnchorPane>

@@ -15,5 +15,6 @@
       <Label fx:id="sort_quantity_label" layoutX="148.0" layoutY="247.0" text="Quantity" />
       <Label fx:id="quantity_by_kg_label" layoutX="337.0" layoutY="247.0" text="Wine produced by 1kg" />
       <Button fx:id="createGrape" layoutX="253.0" layoutY="338.0" mnemonicParsing="false" text="Create" onAction="#createGrape"/>
+      <Button layoutX="493.0" layoutY="339.0" mnemonicParsing="false" text="Go back" onAction="#goBack"/>
    </children>
 </AnchorPane>

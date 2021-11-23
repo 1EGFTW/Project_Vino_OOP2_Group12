@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WarehouseHostListViewModel;
 import javafx.event.ActionEvent;
@@ -48,5 +49,19 @@ public class WarehouseHostLoginController {
               e.printStackTrace();
           }
       }
+    }
+    @FXML
+    public void goBack(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(HELLO_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new HelloController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.HELLO_VIEW;
 
 public class AdminLoginController {
     private final AdminService service=AdminService.getInstance();
@@ -47,6 +49,20 @@ public class AdminLoginController {
             } catch(Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+    @FXML
+    public void goBack(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(HELLO_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new HelloController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
     }
 }

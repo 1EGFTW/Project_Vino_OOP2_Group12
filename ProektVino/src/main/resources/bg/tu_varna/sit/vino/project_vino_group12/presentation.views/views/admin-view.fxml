@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="176.0" prefWidth="217.0" style="-fx-background-color: #ffff;">
          <children>
@@ -17,10 +17,11 @@
       <Pane layoutX="261.0" layoutY="14.0" prefHeight="176.0" prefWidth="314.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Warehouse operations" />
-            <Button layoutX="14.0" layoutY="43.0" mnemonicParsing="false" text="Add grape" fx:id="addGrape" onAction="#addGrape" />
-            <Button layoutX="108.0" layoutY="43.0" mnemonicParsing="false" text="Add bottles" fx:id="addBottles" onAction="#addBottles"/>
+            <Button fx:id="addGrape" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#addGrape" text="Add grape" />
+            <Button fx:id="addBottles" layoutX="108.0" layoutY="43.0" mnemonicParsing="false" onAction="#addBottles" text="Add bottles" />
          </children>
       </Pane>
       <Separator layoutX="242.0" layoutY="199.0" prefHeight="17.0" prefWidth="344.0" />
+      <Button layoutX="524.0" layoutY="348.0" mnemonicParsing="false" text="Go back" onAction="#goBack" />
    </children>
 </AnchorPane>
