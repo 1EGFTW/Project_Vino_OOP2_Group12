@@ -35,7 +35,6 @@ public class AdminLoginController {
     @FXML
     public void onAdminLoginButtonClick(ActionEvent actionEvent) {
         AdminListViewModel adminToLogIn=new AdminListViewModel(admin_name.getText(),admin_pass.getText());
-        service.adminLogin(adminToLogIn);
         if(service.adminLogin(adminToLogIn))
         {
             try {

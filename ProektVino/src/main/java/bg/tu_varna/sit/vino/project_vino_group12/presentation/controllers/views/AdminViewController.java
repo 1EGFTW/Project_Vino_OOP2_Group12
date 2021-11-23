@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddBottlesController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddGrapeController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddSortColorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateAdminController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateWarehouseHostController;
@@ -99,6 +100,20 @@ public class AdminViewController{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_BOTTLES));
             Stage stage = new Stage();
             fxmlLoader.setController(new AddBottlesController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void addSortColor(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_SORTCOLOR));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AddSortColorController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();

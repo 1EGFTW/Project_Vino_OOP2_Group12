@@ -28,4 +28,12 @@ public class SortColorService {
                         s.getColor()
                 )).collect(Collectors.toList()));
     }
+    public void addSortColor(SortColor sc){
+        try{
+            repository.save(sc);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

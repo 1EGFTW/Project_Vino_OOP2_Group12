@@ -29,10 +29,7 @@ import java.util.Set;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AddGrapeController {
-    private final GrapeRepository grapeRepository= GrapeRepository.getInstance();
-    private final SortColorRepository sortColorRepository=SortColorRepository.getInstance();
     private final GrapeService grapeService=GrapeService.getInstance();
-    private final SortColorService sortColorService=SortColorService.getInstance();
     Stage s;
     @FXML
     public Label createGrapeLabel;

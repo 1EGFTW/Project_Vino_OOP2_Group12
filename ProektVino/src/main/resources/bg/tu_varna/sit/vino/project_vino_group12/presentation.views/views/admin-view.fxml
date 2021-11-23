@@ -19,9 +19,10 @@
             <Label layoutX="14.0" layoutY="14.0" text="Warehouse operations" />
             <Button fx:id="addGrape" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#addGrape" text="Add grape" />
             <Button fx:id="addBottles" layoutX="108.0" layoutY="43.0" mnemonicParsing="false" onAction="#addBottles" text="Add bottles" />
+            <Button layoutX="208.0" layoutY="43.0" mnemonicParsing="false" text="Add SortColor" onAction="#addSortColor" />
          </children>
       </Pane>
       <Separator layoutX="242.0" layoutY="199.0" prefHeight="17.0" prefWidth="344.0" />
-      <Button layoutX="524.0" layoutY="348.0" mnemonicParsing="false" text="Go back" onAction="#goBack" />
+      <Button layoutX="524.0" layoutY="348.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
    </children>
 </AnchorPane>
