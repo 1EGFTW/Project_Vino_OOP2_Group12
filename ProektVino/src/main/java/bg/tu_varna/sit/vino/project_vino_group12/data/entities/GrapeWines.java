@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name="grozde_wines")
+@Table(name="grozde_wine")
 public class GrapeWines implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
@@ -63,4 +63,5 @@ public class GrapeWines implements Serializable{
     public void setQuantity_for_wine(int quantity_for_wine) {
         this.quantity_for_wine = quantity_for_wine;
     }
+
 }

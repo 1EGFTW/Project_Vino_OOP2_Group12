@@ -22,7 +22,7 @@ public class GrapeWinesService {
     private static class GrapeWinesServiceHolder {
         public static final GrapeWinesService INSTANCE = new GrapeWinesService();
     }
-    public ObservableList<GrapeWinesListViewModel> getAllGrape() {
+    public ObservableList<GrapeWinesListViewModel> getAllGrapeWines() {
         List<GrapeWines> grapes = grapeWinesRepository.getAll();
 
         return FXCollections.observableList(
@@ -33,5 +33,13 @@ public class GrapeWinesService {
                 )).collect(Collectors.toList()));
     }
 
+    public void addGrapeWines(GrapeWines g){
+        try{
+            grapeWinesRepository.save(g);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

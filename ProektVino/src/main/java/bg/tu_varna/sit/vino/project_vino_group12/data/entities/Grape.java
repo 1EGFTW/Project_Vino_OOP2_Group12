@@ -30,7 +30,7 @@ public class Grape implements Serializable {
     private int quantity_by_kg;
 
     @OneToMany(mappedBy = "grape")
-    private Set<GrapeWines> grapeWines=new HashSet<>();
+    private Set<GrapeWines> grapeWines;
 
     public Grape(){
 
@@ -42,11 +42,6 @@ public class Grape implements Serializable {
         this.quantity_by_kg=quantity_by_kg;
     }
 
-
-
-    public void addWine(GrapeWines wine){
-        this.grapeWines.add(wine);
-    }
 
     public int getId_sort() {
         return id_sort;
@@ -92,6 +87,9 @@ public class Grape implements Serializable {
     }
     public void setGrapeWines(Set<GrapeWines> wines){
         this.grapeWines=wines;
+    }
+    public void addWine(GrapeWines wine){
+        this.grapeWines.add(wine);
     }
     public void addGrapeWines(GrapeWines grapeWines){
         this.grapeWines.add(grapeWines);

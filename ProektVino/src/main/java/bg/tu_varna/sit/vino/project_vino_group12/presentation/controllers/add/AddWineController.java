@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeWinesService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WinesService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
@@ -20,8 +21,9 @@ import javafx.stage.Stage;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
 
 public class AddWineController {
-    GrapeService grapeService=GrapeService.getInstance();
-    WinesService winesService=WinesService.getInstance();
+    private final GrapeService grapeService=GrapeService.getInstance();
+    private final  GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
+    private final WinesService winesService=WinesService.getInstance();
     Stage s;
     public AddWineController(Stage stage) {
         this.s=stage;
@@ -48,14 +50,26 @@ public class AddWineController {
     private Button create;
     @FXML
     private Button back;
-/*
+
     @FXML
     public void createWine(ActionEvent actionEvent){
+        Grape g=grapeService.getGrapeByName(grape.getText());
+
         Wines wine=new Wines(name_wine.getText(),Integer.parseInt(total.getText()));
-        GrapeWines grapeWines=new GrapeWines(grapeService.getGrapeByName(grape.getText()), wine,Integer.parseInt(amount.getText()));
+
+        wine=winesService.checkWine(wine);
+
+        GrapeWines grapeWines=new GrapeWines();
+        grapeWines.setWine(wine);
+        grapeWines.setGrape(g);
+        grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
+        g.getGrapeWines().add(grapeWines);
+        wine.getGrapeWines().add(grapeWines);
+        grapeWinesService.addGrapeWines(grapeWines);
+
     }
 
- */
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         try {

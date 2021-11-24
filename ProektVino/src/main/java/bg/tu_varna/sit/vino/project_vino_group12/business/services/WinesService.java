@@ -37,7 +37,16 @@ public class WinesService {
         gw.setWine(w);
 
     }
-
      */
+    public Wines checkWine(Wines w){
+        List<Wines> wines=repository.getAll();
+        for(Wines wine:wines){
+            if(wine.equals(w)){
+                return wine;
+            }
+        }
+        return w;
+    }
+
 
 }
