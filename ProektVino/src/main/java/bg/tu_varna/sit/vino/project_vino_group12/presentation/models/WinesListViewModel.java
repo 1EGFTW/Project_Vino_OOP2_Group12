@@ -1,20 +1,24 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
+
+import java.util.Set;
 
 public class WinesListViewModel {
     private String name_wine;
-    private Grape id_sort;
+    private Set<GrapeWines> grapeWines;
     private int total;
 
-    public WinesListViewModel(String name_wine, Grape id_sort, int total) {
+    public WinesListViewModel(String name_wine,Set<GrapeWines> grapeWines, int total) {
         this.name_wine = name_wine;
-        this.id_sort = id_sort;
+        this.grapeWines=grapeWines;
         this.total = total;
     }
 
+
     @Override
     public String toString() {
-        return String.format("%s | %s | %s", name_wine, id_sort, total);
+        return String.format("%s | %s | %s", name_wine, grapeWines, total);
     }
 }

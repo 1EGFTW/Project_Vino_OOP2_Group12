@@ -32,10 +32,6 @@ public class Grape implements Serializable {
     @OneToMany(mappedBy = "grape")
     private Set<GrapeWines> grapeWines=new HashSet<>();
 
-   /* @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sort",insertable = false,updatable = false)
-    private Production production;
-    */
     public Grape(){
 
     }
@@ -45,6 +41,7 @@ public class Grape implements Serializable {
         this.sort_quantity=sort_quantity;
         this.quantity_by_kg=quantity_by_kg;
     }
+
 
 
     public void addWine(GrapeWines wine){

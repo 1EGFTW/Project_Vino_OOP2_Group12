@@ -24,6 +24,14 @@ public class GrapeWines implements Serializable{
     @Column(name="quantity_for_wine")
     private int quantity_for_wine;
 
+    public GrapeWines(){}
+
+    public GrapeWines(Grape grape, Wines wine, int quantity_for_wine) {
+        this.grape = grape;
+        this.wine = wine;
+        this.quantity_for_wine = quantity_for_wine;
+    }
+
     public int getId_sort_wines() {
         return id_sort_wines;
     }

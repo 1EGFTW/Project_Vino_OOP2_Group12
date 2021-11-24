@@ -23,8 +23,8 @@ public class GrapeService {
         public static final GrapeService INSTANCE = new GrapeService();
     }
 
-  /*  public ObservableList<GrapeListViewModel> getAllGrape() {
-        List<Grape> grapes = repository.getAll();
+    public ObservableList<GrapeListViewModel> getAllGrape() {
+        List<Grape> grapes = grapeRepository.getAll();
 
         return FXCollections.observableList(
                 grapes.stream().map(g -> new GrapeListViewModel(
@@ -34,7 +34,7 @@ public class GrapeService {
                         g.getQuantity_by_kg()
                 )).collect(Collectors.toList()));
     }
-   */
+
     public void addGrape(Grape g){
         List<SortColor> sortColors=sortColorRepository.getAll();
         g.getSortColor().addGrape(g);
@@ -49,7 +49,15 @@ public class GrapeService {
             }catch (Exception e){
                 e.printStackTrace();
             }
-
-
+    }
+    public Grape getGrapeByName(String name){
+        List<Grape> grapes=grapeRepository.getAll();
+        Grape temp=new Grape();
+        for(Grape g:grapes){
+            if(g.getName_sort().equals(name)){
+                temp=g;
+            }
+        }
+        return temp;
     }
 }
