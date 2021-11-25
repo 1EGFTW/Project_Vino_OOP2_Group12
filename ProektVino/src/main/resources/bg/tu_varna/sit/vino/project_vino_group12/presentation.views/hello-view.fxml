@@ -10,7 +10,7 @@
          <children>
             <VBox prefHeight="514.0" prefWidth="884.0" styleClass="imageNLabel">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="502.0" fitWidth="832.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView" fitHeight="502.0" fitWidth="832.0" pickOnBounds="true" preserveRatio="true"/>
                    <Label fx:id="HelloText" text="Please choose:" />
                </children>
             </VBox>

@@ -34,14 +34,12 @@ public class HelloController /*implements Initializable*/ {
     private Button operatorButton;
     @FXML
     private Button warehouseHostButton;
-
     @FXML
     private ImageView imageView;
 /*
     public void initialize(URL location, ResourceBundle resources) { //da se proveri zashto ne se vyzproizvejda izobrajenieto
 
-        File file = new File("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png");
-        Image image = new Image(file.toURI().toString());
+        Image image = new Image("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png");
         imageView.setImage(image);
     }
 
@@ -49,10 +47,11 @@ public class HelloController /*implements Initializable*/ {
  */
     public HelloController(Stage stage){
         s=stage;
-       /* Image image=new Image("bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png");
-        imageView.setImage(image);
 
-        */
+        /*ClassLoader classLoader = getClass().getClassLoader();
+        String imageUrl = classLoader.getResource("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png").toExternalForm();
+        Image image = new Image(imageUrl);
+        imageView.setImage(image);*/
     }
     @FXML
     protected void adminLog() {
