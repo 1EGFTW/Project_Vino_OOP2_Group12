@@ -32,7 +32,9 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
             log.error("GrapeWines save error" + e.getMessage());
             e.printStackTrace();
         } finally {
+
             transaction.commit();
+            session.close();
         }
     }
 
@@ -95,6 +97,7 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
             log.error("Get grapeWines error" + e.getMessage());
         } finally {
             transaction.commit();
+            session.close();
         }
         return grapes;
     }

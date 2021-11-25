@@ -34,6 +34,7 @@ public class WinesRepository implements DAORepository<Wines> {
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -95,6 +96,7 @@ public class WinesRepository implements DAORepository<Wines> {
             log.error("Get wines error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return wines;
     }

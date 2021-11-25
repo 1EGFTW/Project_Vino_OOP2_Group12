@@ -24,7 +24,6 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class HelloController /*implements Initializable*/ {
-    private final AdminService service=AdminService.getInstance();
     Stage s=new Stage();
     @FXML
     private Label HelloText;
@@ -35,21 +34,25 @@ public class HelloController /*implements Initializable*/ {
     private Button operatorButton;
     @FXML
     private Button warehouseHostButton;
+
     @FXML
-    private ListView<AdminListViewModel> listView;
-
-    /*@FXML
     private ImageView imageView;
-
+/*
     public void initialize(URL location, ResourceBundle resources) { //da se proveri zashto ne se vyzproizvejda izobrajenieto
 
         File file = new File("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png");
         Image image = new Image(file.toURI().toString());
         imageView.setImage(image);
-    }*/
+    }
 
+
+ */
     public HelloController(Stage stage){
         s=stage;
+       /* Image image=new Image("bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png");
+        imageView.setImage(image);
+
+        */
     }
     @FXML
     protected void adminLog() {

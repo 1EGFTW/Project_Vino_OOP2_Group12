@@ -7,6 +7,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
+import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,7 @@ public class AddWineController {
     private final GrapeService grapeService=GrapeService.getInstance();
     private final  GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
     private final WinesService winesService=WinesService.getInstance();
+    private final WinesRepository winesRepository=WinesRepository.getInstance();
     Stage s;
     public AddWineController(Stage stage) {
         this.s=stage;
@@ -58,13 +60,16 @@ public class AddWineController {
         Wines wine=new Wines(name_wine.getText(),Integer.parseInt(total.getText()));
 
         wine=winesService.checkWine(wine);
-
+        winesRepository.save(wine);
         GrapeWines grapeWines=new GrapeWines();
         grapeWines.setWine(wine);
         grapeWines.setGrape(g);
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
+        /*
         g.getGrapeWines().add(grapeWines);
         wine.getGrapeWines().add(grapeWines);
+         */
+
         grapeWinesService.addGrapeWines(grapeWines);
 
     }

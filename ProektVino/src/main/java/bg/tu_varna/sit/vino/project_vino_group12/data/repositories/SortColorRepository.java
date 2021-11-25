@@ -34,6 +34,7 @@ public class SortColorRepository implements DAORepository<SortColor>{
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -95,6 +96,7 @@ public class SortColorRepository implements DAORepository<SortColor>{
             log.error("Get sort color error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return sortColors;
     }
