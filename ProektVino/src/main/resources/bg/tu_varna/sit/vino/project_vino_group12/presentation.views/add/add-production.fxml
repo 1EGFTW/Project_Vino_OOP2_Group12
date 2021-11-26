@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="274.0" layoutY="331.0" mnemonicParsing="false" onAction="#addProduction" text="Add" />
+      <Button layoutX="490.0" layoutY="331.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
+      <TextField fx:id="name_wine" layoutX="63.0" layoutY="143.0" />
+      <TextField fx:id="bottle_size" layoutX="377.0" layoutY="143.0" />
+      <TextField fx:id="produced_bottles" layoutX="63.0" layoutY="257.0" />
+      <Label layoutX="123.0" layoutY="103.0" text="Wine" />
+      <Label layoutX="424.0" layoutY="103.0" text="Bottle size" />
+      <Label layoutX="91.0" layoutY="221.0" text="Produced bottles" />
+   </children>
+</AnchorPane>

@@ -12,9 +12,10 @@
       <Label layoutX="394.0" layoutY="151.0" text="Grape" />
       <Label layoutX="41.0" layoutY="228.0" text="Amount of grape needed for production" />
       <TextField fx:id="name_wine" layoutX="58.0" layoutY="175.0" />
-      <TextField fx:id="grape" layoutX="336.0" layoutY="175.0" />
       <TextField fx:id="amount" layoutX="42.0" layoutY="259.0" />
       <Label layoutX="380.0" layoutY="228.0" text="Total quantity" />
       <TextField fx:id="total" layoutX="343.0" layoutY="272.0" />
+      <TextField layoutX="343.0" layoutY="175.0" fx:id="grapes"/>
+      <!-- layoutX="342.0" layoutY="175.0" prefWidth="150.0" fx:id="grapeType"/-->
    </children>
 </AnchorPane>

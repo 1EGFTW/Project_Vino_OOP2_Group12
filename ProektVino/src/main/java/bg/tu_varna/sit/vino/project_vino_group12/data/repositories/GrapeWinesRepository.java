@@ -49,6 +49,7 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
             log.error("GrapeWines update error" + e.getMessage());
         } finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -63,6 +64,7 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
             log.error("GrapeWines delete error" + e.getMessage());
         } finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -80,6 +82,7 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
             log.error("Get grapeWines error" + e.getMessage());
         } finally {
             transaction.commit();
+            session.close();
         }
         return grapes;
     }

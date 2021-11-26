@@ -34,6 +34,7 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -48,6 +49,7 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
             log.error("WarehouseHost update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -62,6 +64,7 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
             log.error("WarehouseHost delete error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -78,6 +81,7 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
             log.error("Get warehouseHost error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return hosts;
     }
@@ -95,6 +99,7 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
             log.error("Get warehouse host error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return warehouseHosts;
     }

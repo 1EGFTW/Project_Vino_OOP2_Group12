@@ -49,6 +49,7 @@ public class WinesRepository implements DAORepository<Wines> {
             log.error("Wines update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -63,6 +64,7 @@ public class WinesRepository implements DAORepository<Wines> {
             log.error("Wines delete error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -79,6 +81,7 @@ public class WinesRepository implements DAORepository<Wines> {
             log.error("Get wine error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return wines;
     }

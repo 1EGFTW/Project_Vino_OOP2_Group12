@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository;
@@ -32,20 +33,30 @@ public class WinesService {
                         w.getTotal()
                 )).collect(Collectors.toList()));
     }
-    /* public void addWine(GrapeWines gw,Wines w){
-        List<GrapeWines> grapeWines=grapeWinesRepository.getAll();
-        gw.setWine(w);
-
-    }
-     */
     public Wines checkWine(Wines w){
         List<Wines> wines=repository.getAll();
         for(Wines wine:wines){
             if(wine.equals(w)){
                 return wine;
+            }else{
+                try{
+                    repository.save(w);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
         return w;
+    }
+    public Wines getWineByName(String name){
+        List<Wines> wines=repository.getAll();
+        Wines temp=new Wines();
+        for(Wines w:wines){
+            if(w.getName_wine().equals(name)){
+                temp=w;
+            }
+        }
+        return temp;
     }
 
 

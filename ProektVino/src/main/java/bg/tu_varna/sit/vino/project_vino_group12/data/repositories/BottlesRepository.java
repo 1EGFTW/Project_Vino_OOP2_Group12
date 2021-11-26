@@ -34,6 +34,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -48,6 +49,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
             log.error("Bottle update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -62,6 +64,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
             log.error("Bottle delete error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -79,6 +82,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
             log.error("Get bottle error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return bottles;
     }
@@ -98,6 +102,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
         }
         finally {
             transaction.commit();
+            session.close();
         }
         return bottles;
     }

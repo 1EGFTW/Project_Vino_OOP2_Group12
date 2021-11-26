@@ -36,6 +36,7 @@ public class OperatorRepository implements DAORepository<Operator>{
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -50,6 +51,7 @@ public class OperatorRepository implements DAORepository<Operator>{
             log.error("Operator update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -64,6 +66,7 @@ public class OperatorRepository implements DAORepository<Operator>{
             log.error("Operator delete error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -81,6 +84,7 @@ public class OperatorRepository implements DAORepository<Operator>{
             log.error("Get operator error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return operators;
     }
@@ -98,6 +102,7 @@ public class OperatorRepository implements DAORepository<Operator>{
             log.error("Get operator error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return operators;
     }
