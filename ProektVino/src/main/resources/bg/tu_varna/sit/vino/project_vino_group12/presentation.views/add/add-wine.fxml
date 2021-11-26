@@ -15,6 +15,7 @@
       <TextField fx:id="amount" layoutX="42.0" layoutY="259.0" />
       <Label layoutX="380.0" layoutY="228.0" text="Total quantity" />
       <TextField fx:id="total" layoutX="343.0" layoutY="272.0" />
-      <ComboBox  layoutX="342.0" layoutY="175.0" prefWidth="150.0" fx:id="grapeType"/>
+      <TextField layoutX="336.0" layoutY="175.0" fx:id="grape"/>
+      <!--<ComboBox  layoutX="342.0" layoutY="175.0" prefWidth="150.0" fx:id="grapeType"/>-->
    </children>
 </AnchorPane>

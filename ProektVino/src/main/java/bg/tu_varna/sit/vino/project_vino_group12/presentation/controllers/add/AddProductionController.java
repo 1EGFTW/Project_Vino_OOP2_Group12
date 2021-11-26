@@ -50,9 +50,7 @@ public class AddProductionController {
     public void addProduction(ActionEvent actionEvent){
         Wines w= winesService.getWineByName(name_wine.getText());
         Bottles b=bottlesService.getBottleBySize(Integer.parseInt(bottle_size.getText()));
-        Production production=new Production(Integer.parseInt(produced_bottles.getText()));
-        production.setBottle(b);
-        production.setWine(w);
+        Production production=new Production(w,b,Integer.parseInt(produced_bottles.getText()));
         productionService.addProduction(production);
     }
     @FXML

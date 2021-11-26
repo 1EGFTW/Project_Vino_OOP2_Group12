@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 public class GrapeWinesService {
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
+    private final GrapeRepository grapeRepository=GrapeRepository.getInstance();
     public static GrapeWinesService getInstance() {
         return GrapeWinesService.GrapeWinesServiceHolder.INSTANCE;
     }
@@ -34,7 +35,11 @@ public class GrapeWinesService {
     }
 
     public void addGrapeWines(GrapeWines g){
+        int quantity=g.getGrape().getSort_quantity();
+        quantity=quantity-g.getQuantity_for_wine();
+        g.getGrape().setSort_quantity(quantity);
         try{
+            grapeRepository.update(g.getGrape());
             grapeWinesRepository.save(g);
         }
         catch (Exception e) {
