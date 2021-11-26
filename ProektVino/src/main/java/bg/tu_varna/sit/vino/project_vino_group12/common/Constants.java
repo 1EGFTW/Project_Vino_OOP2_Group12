@@ -16,6 +16,7 @@ public class Constants {
         public static final String ADD_GRAPE= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add/add-grape.fxml";
         public static final String ADD_SORTCOLOR= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add/add-sortcolor.fxml";
         public static final String ADD_WINE= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add/add-wine.fxml";
+        public static final String ADD_PRODUCTION= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add/add-production.fxml";
     }
 
     public static class Configurations{

@@ -21,10 +21,10 @@ public class Bottles implements Serializable {
     @Column(name="bottle_quantity",nullable = true)
     private int bottle_quantity;
 //da se vidi insertable i updatable(hibernate iska da byde tyka
-   @ManyToOne
-   @JoinColumn(name = "id_bottle",insertable = false,updatable = false)
-   private Production production;
+    @OneToMany(mappedBy = "bottle")
+    private Set<Production> production;
 
+   public Bottles(){}
     public Bottles(int bottle_size,int bottle_quantity)
     {
         this.bottle_size=bottle_size;
@@ -55,21 +55,24 @@ public class Bottles implements Serializable {
         this.bottle_quantity = bottle_quantity;
     }
 
-    public Production getProduction() {
+
+    public boolean equals(Bottles r){
+        return this.bottle_size==r.bottle_size;
+    }
+
+    public int getId_bottles() {
+        return id_bottles;
+    }
+
+    public void setId_bottles(int id_bottles) {
+        this.id_bottles = id_bottles;
+    }
+
+    public Set<Production> getProduction() {
         return production;
     }
 
-    public void setProduction(Production production) {
+    public void setProduction(Set<Production> production) {
         this.production = production;
-    }
-
-    @Override
-    public String toString() {
-        return "Bottles{" +
-                "id_bottle=" + id_bottles +
-                ", bottle_size=" + bottle_size +
-                ", bottle_quantity=" + bottle_quantity +
-                ", production=" + production +
-                '}';
     }
 }

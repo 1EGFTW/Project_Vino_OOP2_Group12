@@ -7,17 +7,24 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
+import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
 
@@ -27,9 +34,7 @@ public class AddWineController {
     private final WinesService winesService=WinesService.getInstance();
     private final WinesRepository winesRepository=WinesRepository.getInstance();
     Stage s;
-    public AddWineController(Stage stage) {
-        this.s=stage;
-    }
+
     @FXML
     private Label label1;
     @FXML
@@ -43,7 +48,7 @@ public class AddWineController {
     @FXML
     private TextField name_wine;
     @FXML
-    private TextField grape;
+    private ComboBox<Grape> grapeType=new ComboBox<>();
     @FXML
     private TextField total;
     @FXML
@@ -53,23 +58,29 @@ public class AddWineController {
     @FXML
     private Button back;
 
+    public void fillComboBoxGrapeType(){
+        GrapeRepository grapeRepository=GrapeRepository.getInstance();
+        List<Grape> allGrapes =grapeRepository.getAll();
+        grapeType.setItems(FXCollections.observableArrayList(allGrapes));
+    }
+
+    public AddWineController(Stage stage) {
+        this.s=stage;
+        fillComboBoxGrapeType();
+    }
+
     @FXML
     public void createWine(ActionEvent actionEvent){
-        Grape g=grapeService.getGrapeByName(grape.getText());
+        Grape g= (Grape) grapeType.getItems();
 
+       /* Grape g=grapeService.getGrapeByName(grape.getText());*/
         Wines wine=new Wines(name_wine.getText(),Integer.parseInt(total.getText()));
 
         wine=winesService.checkWine(wine);
-        winesRepository.save(wine);
         GrapeWines grapeWines=new GrapeWines();
         grapeWines.setWine(wine);
         grapeWines.setGrape(g);
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
-        /*
-        g.getGrapeWines().add(grapeWines);
-        wine.getGrapeWines().add(grapeWines);
-         */
-
         grapeWinesService.addGrapeWines(grapeWines);
 
     }

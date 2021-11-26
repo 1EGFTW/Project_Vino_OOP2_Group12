@@ -23,9 +23,8 @@ public class Wines implements Serializable {
     @Column(name="total",nullable = false)
     private int total;
 
-    @ManyToOne
-    @JoinColumn(name = "id_production")
-    private Production production;
+    @OneToMany(mappedBy = "wine")
+    private Set<Production> production;
 
     public Wines(){
 
@@ -36,7 +35,7 @@ public class Wines implements Serializable {
         this.total=total;
     }
 
-    public Wines(String name_wine, Set<GrapeWines> grapeWines, int total, Production production) {
+    public Wines(String name_wine, Set<GrapeWines> grapeWines, int total, Set<Production> production) {
         this.name_wine = name_wine;
         this.grapeWines = grapeWines;
         this.total = total;
@@ -75,5 +74,24 @@ public class Wines implements Serializable {
 
     public void addGrapeWines(GrapeWines grapeWines){
         this.grapeWines.add(grapeWines);
+    }
+
+    public Set<Production> getProduction() {
+        return production;
+    }
+
+    public void setProduction(Set<Production> production) {
+        this.production = production;
+    }
+
+    @Override
+    public String toString() {
+        return "Wines{" +
+                "id_wine=" + id_wine +
+                ", name_wine='" + name_wine + '\'' +
+                ", grapeWines=" + grapeWines +
+                ", total=" + total +
+                ", production=" + production +
+                '}';
     }
 }

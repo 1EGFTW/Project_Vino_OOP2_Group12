@@ -32,6 +32,7 @@ public class AdminRepository implements DAORepository<Admin>{
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -46,6 +47,7 @@ public class AdminRepository implements DAORepository<Admin>{
             log.error("Admin update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -60,6 +62,7 @@ public class AdminRepository implements DAORepository<Admin>{
             log.error("Admin delete error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -76,6 +79,7 @@ public class AdminRepository implements DAORepository<Admin>{
             log.error("Get admin error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return admins;
     }
@@ -93,6 +97,7 @@ public class AdminRepository implements DAORepository<Admin>{
             log.error("Get admin error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return admins;
     }

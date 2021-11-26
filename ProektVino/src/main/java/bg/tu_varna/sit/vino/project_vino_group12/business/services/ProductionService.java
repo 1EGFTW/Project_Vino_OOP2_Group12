@@ -24,9 +24,18 @@ public class ProductionService {
 
         return FXCollections.observableList(
                 productions.stream().map(p -> new ProductionListViewModel(
-                    p.getWines(),
-                    p.getBottles(),
+                    p.getWine(),
+                    p.getBottle(),
                     p.getProduced_bottles()
         )).collect(Collectors.toList()));
+    }
+    public void addProduction(Production p)
+    {
+        try{
+            repository.save(p);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

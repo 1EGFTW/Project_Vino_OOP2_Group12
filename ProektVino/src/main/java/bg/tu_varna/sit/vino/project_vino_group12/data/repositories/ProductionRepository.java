@@ -35,6 +35,7 @@ public class ProductionRepository implements DAORepository<Production> {
             e.printStackTrace();
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -49,6 +50,7 @@ public class ProductionRepository implements DAORepository<Production> {
             log.error("Production update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -63,6 +65,7 @@ public class ProductionRepository implements DAORepository<Production> {
             log.error("Production delete error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 
@@ -80,6 +83,7 @@ public class ProductionRepository implements DAORepository<Production> {
             log.error("Get admin error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return productions;
     }
@@ -97,6 +101,7 @@ public class ProductionRepository implements DAORepository<Production> {
             log.error("Get production error"+e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
         return productions;
     }

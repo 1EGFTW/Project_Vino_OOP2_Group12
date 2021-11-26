@@ -6,11 +6,11 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import java.util.Set;
 
 public class ProductionListViewModel {
-    private Set<Wines> wines;
-    private Set<Bottles> bottles;
+    private Wines wines;
+    private Bottles bottles;
     private int produces_bottles;
 
-    public ProductionListViewModel(Set<Wines> wines, Set<Bottles> bottles, int produces_bottles) {
+    public ProductionListViewModel(Wines wines, Bottles bottles, int produces_bottles) {
         this.wines = wines;
         this.bottles = bottles;
         this.produces_bottles = produces_bottles;

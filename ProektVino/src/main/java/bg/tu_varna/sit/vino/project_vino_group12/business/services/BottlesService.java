@@ -37,4 +37,16 @@ public class BottlesService {
             e.printStackTrace();
         }
     }
+    public Bottles getBottleBySize(int size){
+        List<Bottles> bottles=repository.getAll();
+        Bottles temp=new Bottles();
+        for(Bottles b:bottles)
+        {
+            if(b.getBottle_size()==size)
+            {
+                temp=b;
+            }
+        }
+        return temp;
+    }
 }
