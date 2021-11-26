@@ -38,13 +38,12 @@ public class WinesService {
         for(Wines wine:wines){
             if(wine.equals(w)){
                 return wine;
-            }else{
-                try{
-                    repository.save(w);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
             }
+        }
+        try{
+            repository.save(w);
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return w;
     }

@@ -30,6 +30,12 @@ public class Production implements Serializable {
         this.produced_bottles=produced_bottles;
     }
 
+    public Production(Wines wine, Bottles bottle, int  produced_bottles) {
+        this.wine=wine;
+        this.bottle=bottle;
+        this.produced_bottles=produced_bottles;
+    }
+
     public int getId_production() {
         return id_production;
     }
