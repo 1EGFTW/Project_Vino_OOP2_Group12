@@ -18,16 +18,17 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
-public class HelloController /*implements Initializable*/ {
+public class HelloController{
     Stage s=new Stage();
     @FXML
     private Label HelloText;
-
     @FXML
     private Button adminButton;
     @FXML
@@ -36,23 +37,36 @@ public class HelloController /*implements Initializable*/ {
     private Button warehouseHostButton;
     @FXML
     private ImageView imageView;
-/*
-    public void initialize(URL location, ResourceBundle resources) { //da se proveri zashto ne se vyzproizvejda izobrajenieto
-
-        Image image = new Image("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png");
-        imageView.setImage(image);
-    }
+    @FXML
+    private ImageView buttonAdminIcon;
 
 
- */
     public HelloController(Stage stage){
         s=stage;
 
-        /*ClassLoader classLoader = getClass().getClassLoader();
+        loadImage();
+    }
+
+    @FXML
+    protected void loadImage(){
+       /* ClassLoader classLoader = getClass().getClassLoader();
         String imageUrl = classLoader.getResource("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png").toExternalForm();
         Image image = new Image(imageUrl);
         imageView.setImage(image);*/
+
+        /*try {
+            Image image = new Image(new FileInputStream("C:\\Users\\my\\Documents\\GitHub\\Project_Vino_OOP2_Group12\\ProektVino\\src\\main\\resources\\bg\\tu_varna\\sit\\vino\\project_vino_group12\\images\\Logo.png"));
+            imageView.setImage(image);
+        }catch(FileNotFoundException e){ e.printStackTrace();}*/
+
+       /* Image image = new Image( new File("Users/my/Documents/GitHub/Project_Vino_OOP2_Group12/ProektVino/src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png").toURI().toString());
+        imageView.setImage(image);*/
+
+        /*Image icon = new Image( new File("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/user.png").toURI().toString());
+        adminButton.setGraphic(new ImageView(icon));*/
+
     }
+
     @FXML
     protected void adminLog() {
         try {

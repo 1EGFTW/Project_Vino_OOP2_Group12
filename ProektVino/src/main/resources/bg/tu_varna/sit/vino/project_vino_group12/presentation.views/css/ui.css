@@ -20,12 +20,28 @@
 .buttonLineup{
     -fx-alignment:bottom-center;
     -fx-padding: 0 0 30px 0;
-    -fx-spacing: 140px;
+    -fx-spacing: 100px;
 }
 
 .button{
-    -fx-color: #EEEBD3;
+    -fx-color: #345830;
     -fx-font-family: sans-serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0A090C;
+    -fx-border-width: 3px;
+    -fx-border-color: #A7CCA3;
+    -fx-alignment: center;
+}
+
+.button:hover{
+    -fx-color: #75AF6E;
+    -fx-cursor: hand;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+    -fx-font-size: 18;
+    -fx-font-style: italic;
+    -fx-position:fixed;
 }
 
 .loginButtons{
