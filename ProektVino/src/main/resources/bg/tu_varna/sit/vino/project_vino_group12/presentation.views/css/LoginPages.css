@@ -1,0 +1,38 @@
+.leftMenu{
+    -fx-background-color: #280000;
+}
+
+.inputField{
+    -fx-background-color: #EEEBD3;
+}
+
+.loginButtons{
+     -fx-color: #345830;
+     -fx-font-family: sans-serif;
+     -fx-text-fill: #0A090C;
+     -fx-border-width: 1px;
+     -fx-border-color: #A7CCA3;
+     -fx-background-radius: 30 30 30 30;
+     -fx-border-radius: 30 30 30 30;
+     -fx-font-size: 12;
+ }
+
+ .loginButtons:hover{
+     -fx-color: #75AF6E;
+     -fx-cursor: hand;
+     -fx-scale-x: 1.1;
+     -fx-scale-y: 1.1;
+     -fx-scale-z: 1.1;
+     -fx-font-size: 16;
+     -fx-font-style: italic;
+     -fx-font-weight: bold;
+     -fx-position:fixed;
+ }
+
+ .label{
+    -fx-font-weight: bold;
+ }
+
+ .inputFields{
+    -fx-control-inner-background: #FFECDB;
+ }
