@@ -94,4 +94,9 @@ public class Grape implements Serializable {
     public void addGrapeWines(GrapeWines grapeWines){
         this.grapeWines.add(grapeWines);
     }
+
+    @Override
+    public String toString() {
+        return  name_sort;
+    }
 }
