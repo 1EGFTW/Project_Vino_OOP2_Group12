@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -8,14 +9,18 @@
    <children>
       <Pane layoutX="60.0" layoutY="60.0" prefHeight="605.0" prefWidth="884.0" styleClass="box">
          <children>
-            <VBox prefHeight="514.0" prefWidth="884.0" styleClass="imageNLabel">
+            <VBox prefHeight="429.0" prefWidth="884.0" styleClass="imageNLabel">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="502.0" fitWidth="832.0" pickOnBounds="true" preserveRatio="true"/>
-                   <Label fx:id="HelloText" text="Please choose:" />
+                  <ImageView fx:id="imageView" fitHeight="477.0" fitWidth="884.0" pickOnBounds="true" preserveRatio="true" />
+                   <Label fx:id="HelloText" prefHeight="16.0" prefWidth="170.0" text="Please choose:" />
                </children>
             </VBox>
             <HBox layoutY="520.0" prefHeight="85.0" prefWidth="884" styleClass="buttonLineup">
-                <Button fx:id="adminButton" onAction="#adminLog" styleClass="loginButtons" text="Log in as admin" />
+                <Button fx:id="adminButton" onAction="#adminLog" styleClass="loginButtons" text="Log in as admin">
+                  <graphic>
+                     <ImageView fx:id="buttonAdminIcon" fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" />
+                  </graphic>
+                  </Button>
                 <Button fx:id="operatorButton" onAction="#operatorLog" styleClass="loginButtons" text="Log in as operator" />
                 <Button fx:id="warehouseLogButton" onAction="#warehouseHostLog" styleClass="loginButtons" text="Log in as warehouse host" />
             </HBox>
