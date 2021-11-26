@@ -48,9 +48,7 @@ public class AddWineController {
     @FXML
     private TextField name_wine;
     @FXML
-    private ComboBox<Grape> grapeType;
-    @FXML
-    private TextField grapes;
+    private ComboBox<Grape> grapeType=new ComboBox<>();
     @FXML
     private TextField total;
     @FXML
@@ -59,27 +57,23 @@ public class AddWineController {
     private Button create;
     @FXML
     private Button back;
-    /*
-    @FXML
+
     public void fillComboBoxGrapeType(){
         GrapeRepository grapeRepository=GrapeRepository.getInstance();
         List<Grape> allGrapes =grapeRepository.getAll();
-        grapeType.setItems(FXCollections.observableList(allGrapes));
-
+        grapeType.setItems(FXCollections.observableArrayList(allGrapes));
     }
-    */
+
     public AddWineController(Stage stage) {
         this.s=stage;
-        /*
         fillComboBoxGrapeType();
-        */
     }
 
     @FXML
     public void createWine(ActionEvent actionEvent){
-        /*Grape g= (Grape) grapeType.getItems();*/
+        Grape g= (Grape) grapeType.getItems();
 
-        Grape g=grapeService.getGrapeByName(grapes.getText());
+       /* Grape g=grapeService.getGrapeByName(grape.getText());*/
         Wines wine=new Wines(name_wine.getText(),Integer.parseInt(total.getText()));
 
         wine=winesService.checkWine(wine);
