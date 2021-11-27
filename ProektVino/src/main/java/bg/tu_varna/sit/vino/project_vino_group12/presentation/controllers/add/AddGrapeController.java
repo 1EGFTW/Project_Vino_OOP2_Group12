@@ -9,6 +9,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeReposito
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -63,9 +64,9 @@ public class AddGrapeController implements Initializable {
         this.s=stage;
     }
     @FXML
-    public void createGrape(ActionEvent actionEvent) { // da se vidi zashto izkarva null id
-        SortColor sc= (SortColor) sort_color.getItems();
-       Grape g=new Grape(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
+    public void createGrape(ActionEvent actionEvent) {
+        SortColorListViewModel sc= (SortColorListViewModel) sort_color.getItems();
+       GrapeListViewModel g=new GrapeListViewModel(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
         grapeService.addGrape(g);
         try {
             s.close();

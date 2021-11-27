@@ -12,6 +12,23 @@ public class OperatorListViewModel {
     public boolean equals(OperatorListViewModel r) {
         return this.username_operator.equals(r.username_operator)&& this.password_operator.equals(r.password_operator);
     }
+
+    public String getUsername_operator() {
+        return username_operator;
+    }
+
+    public void setUsername_operator(String username_operator) {
+        this.username_operator = username_operator;
+    }
+
+    public String getPassword_operator() {
+        return password_operator;
+    }
+
+    public void setPassword_operator(String password_operator) {
+        this.password_operator = password_operator;
+    }
+
     @Override
     public String toString() {
         return String.format("%s | %s", username_operator, password_operator);}

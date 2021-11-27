@@ -5,6 +5,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepo
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.annotations.Sort;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,5 +36,9 @@ public class SortColorService {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public SortColor changeListViewToObject(SortColorListViewModel s){
+        SortColor temp=new SortColor(s.getColor());
+        return temp;
     }
 }

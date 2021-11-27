@@ -11,6 +11,8 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeReposito
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeWinesListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,14 +75,19 @@ public class AddWineController implements Initializable {
 
     @FXML
     public void createWine(ActionEvent actionEvent){
-        Grape g= (Grape) grapeType.getItems();
-
+/*        Grape g= (Grape) grapeType.getItems();
         Wines wine=new Wines(name_wine.getText(),Integer.parseInt(total.getText()));
-
         wine=winesService.checkWine(wine);
         GrapeWines grapeWines=new GrapeWines();
         grapeWines.setWine(wine);
         grapeWines.setGrape(g);
+        grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));*/
+        GrapeListViewModel grape=(GrapeListViewModel) grapeType.getItems();
+        WinesListViewModel wine=new WinesListViewModel(name_wine.getText(),Integer.parseInt(total.getText()));
+        wine=winesService.checkWine(wine);
+        GrapeWinesListViewModel grapeWines=new GrapeWinesListViewModel();
+        grapeWines.setWine(wine);
+        grapeWines.setGrape(grape);
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
         grapeWinesService.addGrapeWines(grapeWines);
         try {

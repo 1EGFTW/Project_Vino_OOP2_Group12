@@ -2,11 +2,13 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeWinesListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,6 +18,8 @@ import java.util.stream.Collectors;
 public class GrapeWinesService {
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
     private final GrapeRepository grapeRepository=GrapeRepository.getInstance();
+    private final GrapeService grapeService=GrapeService.getInstance();
+    private final WinesService winesService=WinesService.getInstance();
     public static GrapeWinesService getInstance() {
         return GrapeWinesService.GrapeWinesServiceHolder.INSTANCE;
     }
@@ -28,19 +32,23 @@ public class GrapeWinesService {
 
         return FXCollections.observableList(
                 grapes.stream().map(g -> new GrapeWinesListViewModel(
-                        g.getGrape(),
-                        g.getWine(),
+                        grapeService.convertGrapeToListView(g.getGrape()),
+                        winesService.convertWinesToListView(g.getWine()),
                         g.getQuantity_for_wine()
                 )).collect(Collectors.toList()));
     }
-
-    public void addGrapeWines(GrapeWines g){
-        int quantity=g.getGrape().getSort_quantity();
-        quantity=quantity-g.getQuantity_for_wine();
-        g.getGrape().setSort_quantity(quantity);
+    public GrapeWines changeListViewToObject(GrapeWinesListViewModel gw){
+        GrapeWines temp=new GrapeWines(grapeService.changeListViewToObject(gw.getGrape()), winesService.changeListViewToObject(gw.getWine()), gw.getQuantity_for_wine());
+        return temp;
+    }
+    public void addGrapeWines(GrapeWinesListViewModel g){
+        GrapeWines grapeWines=new GrapeWines(changeListViewToObject(g).getGrape(),changeListViewToObject(g).getWine(),changeListViewToObject(g).getQuantity_for_wine());
+        int quantity=grapeWines.getGrape().getSort_quantity();
+        quantity=quantity-grapeWines.getQuantity_for_wine();
+        grapeWines.getGrape().setSort_quantity(quantity);
         try{
-            grapeRepository.update(g.getGrape());
-            grapeWinesRepository.save(g);
+            grapeRepository.update(grapeWines.getGrape());
+            grapeWinesRepository.save(grapeWines);
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -8,17 +8,40 @@ import java.util.Set;
 public class ProductionListViewModel {
     private Wines wines;
     private Bottles bottles;
-    private int produces_bottles;
+    private int produced_bottles;
 
-    public ProductionListViewModel(Wines wines, Bottles bottles, int produces_bottles) {
+    public ProductionListViewModel(Wines wines, Bottles bottles, int produced_bottles) {
         this.wines = wines;
         this.bottles = bottles;
-        this.produces_bottles = produces_bottles;
+        this.produced_bottles = produced_bottles;
     }
 
+    public Wines getWines() {
+        return wines;
+    }
+
+    public void setWines(Wines wines) {
+        this.wines = wines;
+    }
+
+    public Bottles getBottles() {
+        return bottles;
+    }
+
+    public void setBottles(Bottles bottles) {
+        this.bottles = bottles;
+    }
+
+    public int getProduced_bottles() {
+        return produced_bottles;
+    }
+
+    public void setProduced_bottles(int produced_bottles) {
+        this.produced_bottles = produced_bottles;
+    }
 
     @Override
     public String toString() {
-        return String.format("%s | %s | %s", wines, bottles, produces_bottles);
+        return String.format("%s | %s | %s", wines, bottles, produced_bottles);
     }
 }

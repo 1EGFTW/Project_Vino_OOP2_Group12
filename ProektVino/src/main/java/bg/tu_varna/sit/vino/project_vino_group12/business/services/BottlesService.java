@@ -29,9 +29,10 @@ public class BottlesService {
                         b.getBottle_quantity()
                 )).collect(Collectors.toList()));
     }
-    public void addBottle(Bottles b){
+    public void addBottle(BottlesListViewModel b){
+        Bottles temp=new Bottles(b.getBottle_size(),b.getBottle_quantity());
         try{
-            repository.save(b);
+            repository.save(temp);
         }
         catch (Exception e) {
             e.printStackTrace();

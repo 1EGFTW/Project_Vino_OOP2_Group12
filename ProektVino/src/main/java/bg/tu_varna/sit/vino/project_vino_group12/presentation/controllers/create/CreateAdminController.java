@@ -35,8 +35,7 @@ public class CreateAdminController {
     }
 
     @FXML
-    public void onCreateAdminButtonClick(ActionEvent actionEvent) { //da se pogledne zashto kato se pusne tazi funkciq ne trygva repositorito
-    //sled tazi funkciq se syzdawa i constructor v admin po syshtiq nachin kakto w operator i warehousehost, no pri tqh raboti
+    public void onCreateAdminButtonClick(ActionEvent actionEvent) {
         Admin admin=new Admin(admin_name.getText(),admin_pass.getText());
         service.createAdmin(admin);
         try {

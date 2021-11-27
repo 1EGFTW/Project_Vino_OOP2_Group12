@@ -5,6 +5,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,8 @@ public class AddBottlesController {
     }
 
     public void onCreateBottleButtonClick(ActionEvent actionEvent) {
-        Bottles bottle=new Bottles(Integer.parseInt(bottle_size.getText()),Integer.parseInt(bottle_quantity.getText()));
+        /*Bottles bottle=new Bottles(Integer.parseInt(bottle_size.getText()),Integer.parseInt(bottle_quantity.getText()));*/
+        BottlesListViewModel bottle=new BottlesListViewModel(Integer.parseInt(bottle_size.getText()),Integer.parseInt(bottle_quantity.getText()));
         service.addBottle(bottle);
         try {
             s.close();

@@ -2,12 +2,15 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.annotations.Sort;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +21,7 @@ public class GrapeService {
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
     }
+    private final SortColorService sortColorService=SortColorService.getInstance();
 
     private static class GrapeServiceHolder {
         public static final GrapeService INSTANCE = new GrapeService();
@@ -29,23 +33,20 @@ public class GrapeService {
         return FXCollections.observableList(
                 grapes.stream().map(g -> new GrapeListViewModel(
                         g.getName_sort(),
-                        g.getSortColor(),
+                        convertSortColorToListView(g.getSortColor()),
                         g.getSort_quantity(),
                         g.getQuantity_by_kg()
                 )).collect(Collectors.toList()));
     }
-
-    public void addGrape(Grape g){
-        List<SortColor> sortColors=sortColorRepository.getAll();
-        g.getSortColor().addGrape(g);
-            for (SortColor sortColor : sortColors) {
-                if (g.getSortColor().equals(sortColor)) {
-                    g.setSortColor(sortColor);
-                    break;
-                }
-            }
+    public SortColorListViewModel convertSortColorToListView(SortColor s){
+        SortColorListViewModel sc=new SortColorListViewModel(s.getColor());
+        return sc;
+    }
+    public void addGrape(GrapeListViewModel g){
+        SortColor sc=sortColorService.changeListViewToObject(g.getSortColor());
+        Grape temp=new Grape(g.getName_sort(),sc,g.getSort_quantity(),g.getQuantity_by_kg());
             try{
-                grapeRepository.save(g);
+                grapeRepository.save(temp);
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -58,6 +59,14 @@ public class GrapeService {
                 temp=g;
             }
         }
+        return temp;
+    }
+    public GrapeListViewModel convertGrapeToListView(Grape g){
+        GrapeListViewModel grapeListViewModel=new GrapeListViewModel(g.getName_sort(),convertSortColorToListView(g.getSortColor()),g.getSort_quantity(),g.getQuantity_by_kg());
+        return grapeListViewModel;
+    }
+    public Grape changeListViewToObject(GrapeListViewModel g){
+        Grape temp=new Grape(g.getName_sort(),sortColorService.changeListViewToObject(g.getSortColor()),g.getSort_quantity(),g.getQuantity_by_kg());
         return temp;
     }
 }
