@@ -82,7 +82,8 @@ public class AddWineController implements Initializable {
         grapeWines.setWine(wine);
         grapeWines.setGrape(g);
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));*/
-        GrapeListViewModel grape=(GrapeListViewModel) grapeType.getItems();
+        Grape temp=grapeType.getValue();
+        GrapeListViewModel grape=grapeService.convertGrapeToListView(temp);
         WinesListViewModel wine=new WinesListViewModel(name_wine.getText(),Integer.parseInt(total.getText()));
         wine=winesService.checkWine(wine);
         GrapeWinesListViewModel grapeWines=new GrapeWinesListViewModel();

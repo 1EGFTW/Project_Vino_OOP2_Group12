@@ -41,4 +41,8 @@ public class SortColorService {
         SortColor temp=new SortColor(s.getColor());
         return temp;
     }
+    public SortColorListViewModel convertSortColorToListView(SortColor s){
+        SortColorListViewModel sc=new SortColorListViewModel(s.getColor());
+        return sc;
+    }
 }

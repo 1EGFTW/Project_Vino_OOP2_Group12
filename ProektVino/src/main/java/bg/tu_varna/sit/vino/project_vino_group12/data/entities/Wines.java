@@ -23,7 +23,7 @@ public class Wines implements Serializable {
     @Column(name="total",nullable = false)
     private int total;
 
-    @OneToMany(mappedBy = "wine")
+    @OneToMany(mappedBy = "wine",cascade = CascadeType.ALL)
     private Set<Production> production;
 
     public Wines(){

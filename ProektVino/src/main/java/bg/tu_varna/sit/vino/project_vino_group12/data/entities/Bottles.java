@@ -23,7 +23,7 @@ public class Bottles implements Serializable {
     @Column(name="bottle_quantity",nullable = true)
     private int bottle_quantity;
 //da se vidi insertable i updatable(hibernate iska da byde tyka
-    @OneToMany(mappedBy = "bottle")
+    @OneToMany(mappedBy = "bottle",cascade = CascadeType.ALL)
     private Set<Production> production;
 
    public Bottles(){}

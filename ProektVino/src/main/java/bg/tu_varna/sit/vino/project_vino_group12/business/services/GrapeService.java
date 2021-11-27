@@ -33,15 +33,12 @@ public class GrapeService {
         return FXCollections.observableList(
                 grapes.stream().map(g -> new GrapeListViewModel(
                         g.getName_sort(),
-                        convertSortColorToListView(g.getSortColor()),
+                        sortColorService.convertSortColorToListView(g.getSortColor()),
                         g.getSort_quantity(),
                         g.getQuantity_by_kg()
                 )).collect(Collectors.toList()));
     }
-    public SortColorListViewModel convertSortColorToListView(SortColor s){
-        SortColorListViewModel sc=new SortColorListViewModel(s.getColor());
-        return sc;
-    }
+
     public void addGrape(GrapeListViewModel g){
         SortColor sc=sortColorService.changeListViewToObject(g.getSortColor());
         Grape temp=new Grape(g.getName_sort(),sc,g.getSort_quantity(),g.getQuantity_by_kg());
@@ -62,7 +59,7 @@ public class GrapeService {
         return temp;
     }
     public GrapeListViewModel convertGrapeToListView(Grape g){
-        GrapeListViewModel grapeListViewModel=new GrapeListViewModel(g.getName_sort(),convertSortColorToListView(g.getSortColor()),g.getSort_quantity(),g.getQuantity_by_kg());
+        GrapeListViewModel grapeListViewModel=new GrapeListViewModel(g.getName_sort(),sortColorService.convertSortColorToListView(g.getSortColor()),g.getSort_quantity(),g.getQuantity_by_kg());
         return grapeListViewModel;
     }
     public Grape changeListViewToObject(GrapeListViewModel g){

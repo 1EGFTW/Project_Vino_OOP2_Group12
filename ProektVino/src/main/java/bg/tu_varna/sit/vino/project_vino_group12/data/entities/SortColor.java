@@ -18,7 +18,7 @@ public class SortColor implements Serializable {
     @Column(name="color")
     private String color;
 
-    @OneToMany(mappedBy = "sortColor")
+    @OneToMany(mappedBy = "sortColor",cascade = CascadeType.ALL)
     private Set<Grape> grapes=new HashSet<Grape>();
 
     public SortColor(){}

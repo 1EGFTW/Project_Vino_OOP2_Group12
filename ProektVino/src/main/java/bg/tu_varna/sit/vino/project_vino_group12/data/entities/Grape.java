@@ -29,7 +29,7 @@ public class Grape implements Serializable {
     @Column(name="quantity_by_kg")
     private int quantity_by_kg;
 
-    @OneToMany(mappedBy = "grape")
+    @OneToMany(mappedBy = "grape",cascade = CascadeType.ALL)
     private Set<GrapeWines> grapeWines;
 
     public Grape(){

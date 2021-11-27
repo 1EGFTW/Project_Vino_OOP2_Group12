@@ -50,7 +50,7 @@ public class ProductionRepository implements DAORepository<Production> {
             log.error("Production update error" + e.getMessage());
         }finally {
             transaction.commit();
-            session.close();
+
         }
     }
 

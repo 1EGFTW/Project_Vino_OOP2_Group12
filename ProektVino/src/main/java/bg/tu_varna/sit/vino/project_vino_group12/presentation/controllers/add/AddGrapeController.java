@@ -38,13 +38,14 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AddGrapeController implements Initializable {
     private final GrapeService grapeService=GrapeService.getInstance();
+    private final SortColorService sortColorService=SortColorService.getInstance();
     Stage s;
     @FXML
     public Label createGrapeLabel;
     @FXML
     public TextField name_sort;
     @FXML
-    public ComboBox<SortColorListViewModel> sort_color;
+    public ComboBox<SortColor> sort_color;
     @FXML
     public TextField quantity_by_kg;
     @FXML
@@ -65,7 +66,8 @@ public class AddGrapeController implements Initializable {
     }
     @FXML
     public void createGrape(ActionEvent actionEvent) {
-        SortColorListViewModel sc= (SortColorListViewModel) sort_color.getItems();
+        SortColor temp=sort_color.getValue();
+        SortColorListViewModel sc= sortColorService.convertSortColorToListView(temp);
        GrapeListViewModel g=new GrapeListViewModel(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
         grapeService.addGrape(g);
         try {
@@ -95,9 +97,8 @@ public class AddGrapeController implements Initializable {
        }
    }
     public void fillComboBoxSortColor(){
-       SortColorService sortColorService=SortColorService.getInstance();
-        ObservableList<SortColorListViewModel> allSortColors =sortColorService.getAllSortColor();
-        sort_color.setItems(allSortColors);
+       List<SortColor> sortColors=SortColorRepository.getInstance().getAll();
+       sort_color.setItems(FXCollections.observableArrayList(sortColors));
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

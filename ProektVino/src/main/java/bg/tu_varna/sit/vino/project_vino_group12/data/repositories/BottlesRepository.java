@@ -49,7 +49,6 @@ public class BottlesRepository implements DAORepository<Bottles>{
             log.error("Bottle update error" + e.getMessage());
         }finally {
             transaction.commit();
-            session.close();
         }
     }
 
