@@ -43,11 +43,7 @@ public class ProductionService {
         bottle_quantity=bottle_quantity-p.getProduced_bottles();
 
         p.getBottle().setBottle_quantity(bottle_quantity);
-        //prispadane na kolichestvoto butilki v sklada sled produkciqta
-       /* Set<GrapeWines> temp=p.getWine().getGrapeWines();
-        for(GrapeWines g:temp){
 
-        }*/
 
         try{
             bottlesRepository.update(p.getBottle());//zapazvane na novoto kolichestvo butilki

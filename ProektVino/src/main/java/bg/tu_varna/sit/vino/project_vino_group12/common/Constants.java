@@ -18,6 +18,8 @@ public class Constants {
         public static final String ADD_WINE= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add/add-wine.fxml";
         public static final String ADD_PRODUCTION= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/add/add-production.fxml";
         public static final String CHECK_GRAPES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/selects/check-grapes.fxml";
+        public static final String CHECK_BOTTLES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/selects/check-bottles.fxml";
+        public static final String CHECK_WINES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/selects/check-wines.fxml";
     }
 
     public static class Configurations{

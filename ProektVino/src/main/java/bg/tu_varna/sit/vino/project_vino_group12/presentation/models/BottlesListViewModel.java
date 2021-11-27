@@ -27,6 +27,6 @@ public class BottlesListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s", bottle_size, bottle_quantity);
+        return String.format("\t%s ml\t\t|\t\t%s\t", bottle_size, bottle_quantity);
     }
 }

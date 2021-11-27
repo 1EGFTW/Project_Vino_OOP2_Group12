@@ -53,6 +53,6 @@ public class GrapeListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s | %s | %s", name_sort, sortColor, sort_quantity, quantity_by_kg);
+        return String.format("%s\t\t  |\t\t %s\t\t|\t\t%s\t\t|\t\t%s", name_sort, sortColor, sort_quantity, quantity_by_kg);
     }
 }

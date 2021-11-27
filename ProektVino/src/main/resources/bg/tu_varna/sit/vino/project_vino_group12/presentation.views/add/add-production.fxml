@@ -7,8 +7,8 @@
    <children>
       <Button layoutX="274.0" layoutY="331.0" mnemonicParsing="false" onAction="#addProduction" text="Add" />
       <Button layoutX="490.0" layoutY="331.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
-      <ComboBox fx:id="name_wine" layoutX="63.0" layoutY="143.0" />
-      <ComboBox fx:id="bottle_size" layoutX="377.0" layoutY="143.0" />
+      <ComboBox fx:id="name_wine" layoutX="111.0" layoutY="130.0" />
+      <ComboBox fx:id="bottle_size" layoutX="424.0" layoutY="130.0" />
       <TextField fx:id="produced_bottles" layoutX="63.0" layoutY="257.0" />
       <Label layoutX="123.0" layoutY="103.0" text="Wine" />
       <Label layoutX="424.0" layoutY="103.0" text="Bottle size" />

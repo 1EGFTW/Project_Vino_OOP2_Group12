@@ -2,7 +2,9 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.*;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckBottlesController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckGrapesController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckWinesController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateAdminController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateWarehouseHostController;
@@ -174,10 +176,31 @@ public class AdminViewController{
     }
     @FXML
     public void checkAvailableBottles(ActionEvent actionEvent){
-
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_BOTTLES));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new CheckBottlesController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     public void checkAvailableWines(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_WINES));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new CheckWinesController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
     }
     @FXML
