@@ -44,7 +44,7 @@ public class AddGrapeController implements Initializable {
     @FXML
     public TextField name_sort;
     @FXML
-    public ComboBox<SortColor> sort_color;
+    public ComboBox<SortColorListViewModel> sort_color;
     @FXML
     public TextField quantity_by_kg;
     @FXML
@@ -95,9 +95,9 @@ public class AddGrapeController implements Initializable {
        }
    }
     public void fillComboBoxSortColor(){
-        SortColorRepository sortColorRepository=SortColorRepository.getInstance();
-        List<SortColor> allSortColors =sortColorRepository.getAll();
-        sort_color.setItems(FXCollections.observableArrayList(allSortColors));
+       SortColorService sortColorService=SortColorService.getInstance();
+        ObservableList<SortColorListViewModel> allSortColors =sortColorService.getAllSortColor();
+        sort_color.setItems(allSortColors);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView fx:id="grapes" layoutX="63.0" layoutY="113.0" prefHeight="232.0" prefWidth="499.0" />
+      <Label fx:id="label1" layoutX="257.0" layoutY="31.0" text="Available grapes" />
+      <Label fx:id="label2" layoutX="90.0" layoutY="84.0" text="Grape" />
+      <Label fx:id="label3" layoutX="187.0" layoutY="84.0" text="Color" />
+      <Label fx:id="label4" layoutX="265.0" layoutY="84.0" text="Available quantity" />
+      <Label fx:id="label5" layoutX="428.0" layoutY="84.0" text="Wine produced by 1kg" />
+      <Button fx:id="goBack" onAction="#goBack" layoutX="497.0" layoutY="361.0" mnemonicParsing="false" text="Go back" />
+   </children>
+</AnchorPane>

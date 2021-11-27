@@ -10,6 +10,7 @@
         <property name="hibernate.connection.password">Franki1254</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles"/>
         <mapping class="bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape"/>

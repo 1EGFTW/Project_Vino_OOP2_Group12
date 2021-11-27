@@ -26,5 +26,13 @@
       </Pane>
       <Separator layoutX="242.0" layoutY="199.0" prefHeight="17.0" prefWidth="344.0" />
       <Button layoutX="524.0" layoutY="348.0" mnemonicParsing="false" onAction="#goBack" text="Go back" />
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Pane layoutX="13.0" layoutY="199.0" prefHeight="187.0" prefWidth="218.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Button fx:id="checkAvailableGrapes"  onAction="#checkAvailableGrapes" layoutX="7.0" layoutY="26.0" mnemonicParsing="false" text="Check available grapes" />
+            <Button fx:id="checkAvailableBottles" onAction="#checkAvailableBottles" layoutX="7.0" layoutY="61.0" mnemonicParsing="false" text="Check available bottles" />
+            <Button fx:id="checkAvailableWines" onAction="#checkAvailableWines" layoutX="10.0" layoutY="102.0" mnemonicParsing="false" text="Check available wines" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
