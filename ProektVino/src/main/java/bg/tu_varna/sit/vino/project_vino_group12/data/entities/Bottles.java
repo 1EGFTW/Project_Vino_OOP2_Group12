@@ -75,4 +75,9 @@ public class Bottles implements Serializable {
     public void setProduction(Set<Production> production) {
         this.production = production;
     }
+
+    @Override
+    public String toString() {
+        return bottle_size+"ml";
+    }
 }

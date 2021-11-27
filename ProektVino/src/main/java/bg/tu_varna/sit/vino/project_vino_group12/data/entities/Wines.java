@@ -86,12 +86,6 @@ public class Wines implements Serializable {
 
     @Override
     public String toString() {
-        return "Wines{" +
-                "id_wine=" + id_wine +
-                ", name_wine='" + name_wine + '\'' +
-                ", grapeWines=" + grapeWines +
-                ", total=" + total +
-                ", production=" + production +
-                '}';
+        return name_wine;
     }
 }

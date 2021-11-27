@@ -83,6 +83,17 @@ public class AddWineController implements Initializable {
         grapeWines.setGrape(g);
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
         grapeWinesService.addGrapeWines(grapeWines);
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AdminViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

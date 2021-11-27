@@ -64,10 +64,6 @@ public class SortColor implements Serializable {
     }
     @Override
     public String toString() {
-        return "SortColor{" +
-                "id_sort_color=" + id_sort_color +
-                ", color='" + color + '\'' +
-                ", grapes=" + grapes +
-                '}';
+        return color;
     }
 }

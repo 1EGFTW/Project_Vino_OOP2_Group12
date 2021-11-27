@@ -33,6 +33,17 @@ public class AddSortColorController {
         SortColor sortColor=new SortColor();
         sortColor.setColor(color.getText());
         service.addSortColor(sortColor);
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AdminViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
