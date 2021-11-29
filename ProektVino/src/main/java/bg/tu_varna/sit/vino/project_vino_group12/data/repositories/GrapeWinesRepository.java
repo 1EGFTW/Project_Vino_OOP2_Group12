@@ -32,7 +32,6 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
             log.error("GrapeWines save error" + e.getMessage());
             e.printStackTrace();
         } finally {
-
             transaction.commit();
             session.close();
         }

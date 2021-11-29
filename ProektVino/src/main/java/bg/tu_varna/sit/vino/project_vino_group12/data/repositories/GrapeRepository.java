@@ -50,6 +50,7 @@ public class GrapeRepository implements DAORepository<Grape> {
             log.error("Grape update error" + e.getMessage());
         }finally {
             transaction.commit();
+            session.close();
         }
     }
 

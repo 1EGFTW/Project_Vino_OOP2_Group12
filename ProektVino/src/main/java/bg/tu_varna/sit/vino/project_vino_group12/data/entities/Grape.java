@@ -19,7 +19,7 @@ public class Grape implements Serializable {
     @Column(name="name_sort")
     private String name_sort;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_sort_color")
     private SortColor sortColor;
 

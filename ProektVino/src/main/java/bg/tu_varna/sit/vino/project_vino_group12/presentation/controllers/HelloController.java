@@ -43,8 +43,6 @@ public class HelloController{
 
     public HelloController(Stage stage){
         s=stage;
-
-        loadImage();
     }
 
     @FXML
