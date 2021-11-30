@@ -15,6 +15,7 @@
      -fx-background-radius: 30 30 30 30;
      -fx-border-radius: 30 30 30 30;
      -fx-font-size: 12;
+     -fx-alignment: center;
  }
 
  .loginButtons:hover{
@@ -23,7 +24,7 @@
      -fx-scale-x: 1.1;
      -fx-scale-y: 1.1;
      -fx-scale-z: 1.1;
-     -fx-font-size: 16;
+     -fx-font-size: 14;
      -fx-font-style: italic;
      -fx-font-weight: bold;
      -fx-position:fixed;
@@ -35,4 +36,17 @@
 
  .inputFields{
     -fx-control-inner-background: #FFECDB;
+ }
+
+ .GoBackButton{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+ }
+
+ .GoBackButton:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #520000;
+    -fx-background-radius: 15 15 15 15;
  }
