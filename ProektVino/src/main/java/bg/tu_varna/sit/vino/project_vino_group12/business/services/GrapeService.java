@@ -41,6 +41,7 @@ public class GrapeService {
 
     public void addGrape(GrapeListViewModel g){
         SortColor sc=sortColorService.changeListViewToObject(g.getSortColor());
+        sc=sortColorService.getSortColorByName(sc.getColor());
         Grape temp=new Grape(g.getName_sort(),sc,g.getSort_quantity(),g.getQuantity_by_kg());
             try{
                 grapeRepository.save(temp);

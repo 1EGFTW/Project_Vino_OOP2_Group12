@@ -37,6 +37,17 @@ public class SortColorService {
             e.printStackTrace();
         }
     }
+    public SortColor getSortColorByName(String name){
+        List<SortColor> allColors=repository.getAll();
+        SortColor temp=new SortColor();
+        for(SortColor s:allColors){
+            if(s.getColor().equals(name))
+            {
+                temp=s;
+            }
+        }
+        return temp;
+    }
     public SortColor changeListViewToObject(SortColorListViewModel s){
         SortColor temp=new SortColor(s.getColor());
         return temp;

@@ -42,12 +42,6 @@ public class WinesService {
                 return w;
             }
         }
-        try{
-            Wines temp=new Wines(w.getName_wine(),w.getTotal());
-            repository.save(temp);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         return w;
     }
     public Wines getWineByName(String name){
@@ -56,9 +50,19 @@ public class WinesService {
         for(Wines w:wines){
             if(w.getName_wine().equals(name)){
                 temp=w;
+                return temp;
             }
         }
         return temp;
+    }
+    public boolean isWineAlreadyCreated(Wines w){
+        List<Wines> wines=repository.getAll();
+        for(Wines wine:wines){
+            if(wine.equals(w)){
+                return true;
+            }
+        }
+        return false;
     }
     public WinesListViewModel convertWinesToListView(Wines w){
         WinesListViewModel winesListViewModel=new WinesListViewModel(w.getName_wine(),w.getTotal());

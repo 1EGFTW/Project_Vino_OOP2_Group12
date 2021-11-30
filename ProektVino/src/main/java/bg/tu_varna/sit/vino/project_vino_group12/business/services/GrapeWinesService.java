@@ -43,11 +43,18 @@ public class GrapeWinesService {
         return temp;
     }
     public void addGrapeWines(GrapeWinesListViewModel g){ // pri tozi variant syzdava novo grozde i nov sortcolor, no ne dava greshka
-        GrapeWines grapeWines=new GrapeWines(changeListViewToObject(g).getGrape(),changeListViewToObject(g).getWine(),changeListViewToObject(g).getQuantity_for_wine());
+        Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort());
+        Wines wine=changeListViewToObject(g).getWine();
+        if(winesService.isWineAlreadyCreated(wine)){
+            wine=winesService.getWineByName(wine.getName_wine());
+        }
+        GrapeWines grapeWines=new GrapeWines(grape,wine,changeListViewToObject(g).getQuantity_for_wine());
         int quantity=grapeWines.getGrape().getSort_quantity();
-        quantity=quantity-grapeWines.getQuantity_for_wine();
+        quantity=quantity-grapeWines.getQuantity_for_wine(); // da se izvika getgrapebyname
         grapeWines.getGrape().setSort_quantity(quantity);
+
         try{
+            grapeRepository.update(grape);
             grapeWinesRepository.save(grapeWines);
         }
         catch (Exception e) {
