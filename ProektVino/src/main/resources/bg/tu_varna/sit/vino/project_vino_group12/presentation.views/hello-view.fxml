@@ -8,23 +8,46 @@
    <children>
       <Pane layoutX="60.0" layoutY="60.0" prefHeight="605.0" prefWidth="884.0" styleClass="box">
          <children>
-            <VBox layoutX="10.0" prefHeight="499.0" prefWidth="874.0" styleClass="imageNLabel">
+            <VBox layoutX="35.0" prefHeight="499.0" prefWidth="849.0" styleClass="imageNLabel">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="513.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView" fitHeight="480.0" fitWidth="672.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Logo.png" />
                      </image></ImageView>
-                   <Label fx:id="HelloText" prefHeight="16.0" prefWidth="108.0" text="Please choose:" />
+                   <Label fx:id="HelloText" prefHeight="16.0" prefWidth="127.0" text="Please choose:" />
                </children>
             </VBox>
-            <HBox layoutY="520.0" prefHeight="85.0" prefWidth="884" styleClass="buttonLineup">
-                <Button fx:id="adminButton" onAction="#adminLog" styleClass="loginButtons" text="Log in as admin">
+            <HBox layoutY="484.0" prefHeight="119.0" prefWidth="280.0" styleClass="buttonLineup">
+                <Button fx:id="adminButton" onAction="#adminLog" prefHeight="62.0" prefWidth="222.0" styleClass="loginButtons" text="Log in as admin">
                   <graphic>
-                     <ImageView fx:id="buttonAdminIcon" fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" />
+                     <ImageView fx:id="buttonAdminIcon" fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/user.png" />
+                        </image></ImageView>
                   </graphic>
                   </Button>
-                <Button fx:id="operatorButton" onAction="#operatorLog" styleClass="loginButtons" text="Log in as operator" />
-                <Button fx:id="warehouseLogButton" onAction="#warehouseHostLog" styleClass="loginButtons" text="Log in as warehouse host" />
+            </HBox>
+            <HBox layoutX="247.0" layoutY="510.0" prefHeight="92.0" prefWidth="341.0" styleClass="buttonLineup">
+               <children>
+                   <Button fx:id="operatorButton" onAction="#operatorLog" prefHeight="56.0" prefWidth="222.0" styleClass="loginButtons" text="Log in as operator">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/operator.png" />
+                           </image></ImageView>
+                     </graphic></Button>
+               </children>
+            </HBox>
+            <HBox layoutX="553.0" layoutY="513.0" prefHeight="92.0" prefWidth="331.0" styleClass="buttonLineup">
+               <children>
+                   <Button fx:id="warehouseLogButton" onAction="#warehouseHostLog" prefHeight="61.0" prefWidth="280.0" styleClass="loginButtons" text="Log in as warehouse host">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/user2.png" />
+                           </image></ImageView>
+                     </graphic></Button>
+               </children>
             </HBox>
          </children></Pane>
    </children>
