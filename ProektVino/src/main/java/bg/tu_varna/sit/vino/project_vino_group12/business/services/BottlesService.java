@@ -50,4 +50,7 @@ public class BottlesService {
         }
         return temp;
     }
+    public Bottles convertListViewToObject(BottlesListViewModel b){
+        return new Bottles(b.getBottle_size(),b.getBottle_quantity());
+    }
 }

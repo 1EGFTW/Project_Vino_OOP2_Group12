@@ -1,15 +1,16 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.*;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.ProductionListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.util.List;
 import java.util.Set;
@@ -23,6 +24,8 @@ public class ProductionService {
     public final BottlesRepository bottlesRepository=BottlesRepository.getInstance();
     public final GrapeRepository grapeRepository=GrapeRepository.getInstance();
     public final WinesRepository winesRepository=WinesRepository.getInstance();
+    public final WinesService winesService=WinesService.getInstance();
+    public final BottlesService bottlesService=BottlesService.getInstance();
 
     private static class ProductionServiceHolder {
         public static final ProductionService INSTANCE = new ProductionService();
@@ -38,29 +41,43 @@ public class ProductionService {
                     p.getProduced_bottles()
         )).collect(Collectors.toList()));
     }
-    public void addProduction(Production p)
+    public Production changeListViewToObject(ProductionListViewModel p){
+        return new Production(p.getWines(),p.getBottles(),p.getProduced_bottles());
+    }
+    public int addProduction(ProductionListViewModel p)
     {
+        Wines wine=winesService.getWineByName(p.getWines().getName_wine());
+        Bottles bottle=bottlesService.getBottleBySize(p.getBottles().getBottle_size());
+        Production production=new Production(wine,bottle,p.getProduced_bottles());
         //update-va br butilki v sklada sled proizvodstvo
-        int bottle_quantity=p.getBottle().getBottle_quantity();
+        int bottle_quantity=production.getBottle().getBottle_quantity();
 
-        bottle_quantity=bottle_quantity-p.getProduced_bottles();
-
-        p.getBottle().setBottle_quantity(bottle_quantity);
-
-        //update-va total v wine sled butilirane
-        int total=p.getWine().getTotal();
-        total=(total-(p.getProduced_bottles()*p.getBottle().getBottle_size())/1000);
-
-        p.getWine().setTotal(total);
-
-
-        try{
-            winesRepository.update(p.getWine());//zapazvane na noviq total na vinoto
-            bottlesRepository.update(p.getBottle());//zapazvane na novoto kolichestvo butilki
-            repository.save(p);
+        bottle_quantity=bottle_quantity-production.getProduced_bottles();
+        //check if there are enouh bottles
+        if(bottle_quantity<=50 || bottle_quantity<=production.getProduced_bottles()) {
+            return 0;
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        else{
+            production.getBottle().setBottle_quantity(bottle_quantity);
+            //update-va total v wine sled butilirane
+            int total = production.getWine().getTotal();
+            total = (total - (production.getProduced_bottles() * production.getBottle().getBottle_size()) / 1000);
+            //check if there is enough wine to be bottled
+            if(total<=0)
+            {
+                return 2;
+            }
+            else{
+                production.getWine().setTotal(total);
+                try {
+                    winesRepository.update(production.getWine());//zapazvane na noviq total na vinoto
+                    bottlesRepository.update(production.getBottle());//zapazvane na novoto kolichestvo butilki
+                    repository.save(production);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return 1;
+            }
         }
     }
 }
