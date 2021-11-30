@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -18,7 +20,8 @@ public class SortColor implements Serializable {
     @Column(name="color")
     private String color;
 
-    @OneToMany(mappedBy = "sortColor",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sortColor")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Set<Grape> grapes=new HashSet<Grape>();
 
     public SortColor(){}

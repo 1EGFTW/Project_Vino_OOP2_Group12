@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Sort;
 
 import javax.persistence.*;
@@ -19,7 +20,8 @@ public class Grape implements Serializable {
     @Column(name="name_sort")
     private String name_sort;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "id_sort_color")
     private SortColor sortColor;
 
@@ -29,7 +31,8 @@ public class Grape implements Serializable {
     @Column(name="quantity_by_kg")
     private int quantity_by_kg;
 
-    @OneToMany(mappedBy = "grape",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "grape")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Set<GrapeWines> grapeWines;
 
     public Grape(){

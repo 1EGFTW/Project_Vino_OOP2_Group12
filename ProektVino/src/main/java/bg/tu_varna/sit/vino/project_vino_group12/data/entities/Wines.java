@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -18,12 +20,14 @@ public class Wines implements Serializable {
     private String name_wine;
 
     @OneToMany(mappedBy = "wine")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Set<GrapeWines> grapeWines=new HashSet<>();
 
     @Column(name="total",nullable = false)
     private int total;
 
-    @OneToMany(mappedBy = "wine",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "wine")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Set<Production> production;
 
     public Wines(){

@@ -57,8 +57,8 @@ public class AddProductionController implements Initializable {
     private Button goBack;
     @FXML
     public void addProduction(ActionEvent actionEvent){
-        Wines w= (Wines) name_wine.getItems();
-        Bottles b=(Bottles) bottle_size.getItems();
+        Wines w= name_wine.getValue();
+        Bottles b= bottle_size.getValue();
         Production production=new Production(w,b,Integer.parseInt(produced_bottles.getText()));
         productionService.addProduction(production);
         try {
