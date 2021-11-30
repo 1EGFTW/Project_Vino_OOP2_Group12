@@ -19,10 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.hibernate.annotations.Sort;
 
@@ -68,33 +65,32 @@ public class AddGrapeController implements Initializable {
     public void createGrape(ActionEvent actionEvent) {
         SortColor temp=sort_color.getValue();
         SortColorListViewModel sc= sortColorService.convertSortColorToListView(temp);
-       GrapeListViewModel g=new GrapeListViewModel(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
-        grapeService.addGrape(g);
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new AdminViewController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
+        GrapeListViewModel g=new GrapeListViewModel(name_sort.getText(),sc,Integer.parseInt(sort_quantity.getText()),Integer.parseInt(quantity_by_kg.getText()));
+        int res=grapeService.addGrape(g);
+        if(res==0){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_GRAPE));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new AddGrapeController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Alert alert=new Alert(Alert.AlertType.WARNING,"Grape already exists!", ButtonType.CLOSE);
+            alert.show();
+        }
+        else{
+            loadNewPage(ADMIN_VIEW);
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Grape added", ButtonType.OK);
+            alert.show();
         }
     }
    @FXML
    public void goBack(ActionEvent actionEvent){
-       try {
-           s.close();
-           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
-           Stage stage = new Stage();
-           fxmlLoader.setController(new AdminViewController(stage));
-           Parent root1 = (Parent) fxmlLoader.load();
-           stage.setScene(new Scene(root1));
-           stage.show();
-       } catch(Exception e) {
-           e.printStackTrace();
-       }
+     loadNewPage(ADMIN_VIEW);
    }
     public void fillComboBoxSortColor(){
        List<SortColor> sortColors=SortColorRepository.getInstance().getAll();
@@ -103,5 +99,18 @@ public class AddGrapeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBoxSortColor();
+    }
+    public void loadNewPage(String path){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AdminViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

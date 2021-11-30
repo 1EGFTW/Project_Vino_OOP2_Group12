@@ -1,4 +1,5 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.*;
@@ -13,15 +14,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
-public class AdminViewController{
+public class AdminViewController implements Initializable {
     Stage s;
     @FXML
     public Button addGrape;
@@ -43,37 +52,37 @@ public class AdminViewController{
     private Button checkAvailableWines;
 
     public AdminViewController(Stage s){
+
         this.s=s;
     }
 
     @FXML
     protected void createOperator(ActionEvent event){
-       try {
-           s.close();
-           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_OPERATOR));
-           Stage stage=new Stage();
-           fxmlLoader.setController(new CreateOperatorController(stage));
-           Parent root1 = (Parent) fxmlLoader.load();
-           stage.setScene(new Scene(root1));
-           stage.show();
-       } catch(Exception e) {
-           e.printStackTrace();
-       }
-
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_OPERATOR));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new CreateOperatorController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
    }
     @FXML
     protected void createHost(ActionEvent event){
-       try {
-           s.close();
-           FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_WAREHOUSEHOST));
-           Stage stage = new Stage();
-           fxmlLoader.setController(new CreateWarehouseHostController(stage));
-           Parent root1 = (Parent) fxmlLoader.load();
-           stage.setScene(new Scene(root1));
-           stage.show();
-       } catch(Exception e) {
-           e.printStackTrace();
-       }
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_WAREHOUSEHOST));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new CreateWarehouseHostController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
    }
     @FXML
     protected void createAdmin(ActionEvent actionEvent) {
@@ -102,7 +111,6 @@ public class AdminViewController{
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
     @FXML
     public void addBottles(ActionEvent actionEvent) {
@@ -201,7 +209,6 @@ public class AdminViewController{
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
@@ -215,6 +222,37 @@ public class AdminViewController{
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
+        }
+    }
+    public void loadNewPage(String path){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new HelloController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        notificationAlerts();
+    }
+    public void notificationAlerts(){
+        AdminService adminService=AdminService.getInstance();
+        List<String> bottles = adminService.checkAvailableBottles();
+        List<String> grapes=adminService.checkAvailableGrapes();
+        for (String s:bottles){
+            Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nBottle: "+s+"ml",ButtonType.OK);
+            alert.show();
+        }
+        for (String s:grapes){
+            Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nGrape: "+s,ButtonType.OK);
+            alert.show();
         }
     }
 }

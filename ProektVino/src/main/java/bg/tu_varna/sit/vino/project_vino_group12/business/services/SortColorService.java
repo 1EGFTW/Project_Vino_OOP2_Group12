@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.FXCollections;
@@ -29,12 +30,27 @@ public class SortColorService {
                         s.getColor()
                 )).collect(Collectors.toList()));
     }
-    public void addSortColor(SortColor sc){
-        try{
-            repository.save(sc);
+    public boolean checkSortColor(SortColor s){
+        List<SortColor> sortColors=repository.getAll();
+        for(SortColor sc:sortColors){
+            if(sc.equals(s)){
+                return true;
+            }
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        return false;
+    }
+    public int addSortColor(SortColorListViewModel sc){
+        SortColor sortColor=new SortColor(sc.getColor());
+        if(checkSortColor(sortColor)){
+            return 0;
+        }
+        else {
+            try {
+                repository.save(sortColor);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return 1;
         }
     }
     public SortColor getSortColorByName(String name){

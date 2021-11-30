@@ -30,6 +30,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADD_PRODUCTION;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
 
 public class AddProductionController implements Initializable {
@@ -66,41 +67,46 @@ public class AddProductionController implements Initializable {
         Wines wine=winesService.changeListViewToObject(w);
         Bottles bottles=bottlesService.convertListViewToObject(b);
         ProductionListViewModel production=new ProductionListViewModel(wine,bottles,Integer.parseInt(produced_bottles.getText()));
-        if(productionService.addProduction(production)==1) {
+        int res=productionService.addProduction(production);
+        if(res==1) {
+            loadNewPage(ADMIN_VIEW);
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successful entry!",ButtonType.OK);
+            alert.show();
+        }
+        else if(res==0){
             try {
                 s.close();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_PRODUCTION));
                 Stage stage = new Stage();
-                fxmlLoader.setController(new AdminViewController(stage));
+                fxmlLoader.setController(new AddProductionController(stage));
                 Parent root1 = (Parent) fxmlLoader.load();
                 stage.setScene(new Scene(root1));
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if(productionService.addProduction(production)==2){
             Alert alert=new Alert(Alert.AlertType.ERROR,"Not enough bottles available",ButtonType.OK);
             alert.show();
         }
-        else{
+        else if (res==2){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_PRODUCTION));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new AddProductionController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Alert alert=new Alert(Alert.AlertType.ERROR,"Not enough wine available",ButtonType.OK);
             alert.show();
         }
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new AdminViewController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+       loadNewPage(ADMIN_VIEW);
     }
 
     public void fillComboBoxes(){
@@ -112,5 +118,18 @@ public class AddProductionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        fillComboBoxes();
+    }
+    public void loadNewPage(String path){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AdminViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
