@@ -19,6 +19,15 @@ public class AdminService {
         return AdminServiceHolder.INSTANCE;
     }
 
+    public void deleteAdmin(AdminListViewModel admin) {
+        Admin a=getAdminByName(admin.getUsername_admin());
+        try{
+            repository.delete(a);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private static class AdminServiceHolder {
         public static final AdminService INSTANCE = new AdminService();
     }
@@ -58,7 +67,17 @@ public class AdminService {
             }
             return 1;
         }
-
+    }
+    public Admin getAdminByName(String name){
+        List<Admin> allAdmins=repository.getAll();
+        Admin temp=new Admin();
+        for(Admin a:allAdmins){
+            if(a.getUsername_admin().equals(name))
+            {
+                return a;
+            }
+        }
+        return temp;
     }
     public boolean checkIfAdminExists(Admin a){
         List<Admin> allAdmins=repository.getAll();

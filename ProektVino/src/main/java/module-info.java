@@ -41,4 +41,6 @@ module bg.tu_varna.sit.vino.project_vino_group12 {
     opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views to javafx.fxml;
     exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check;
     opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check to javafx.fxml;
+    exports bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete;
+    opens bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete to javafx.fxml;
 }

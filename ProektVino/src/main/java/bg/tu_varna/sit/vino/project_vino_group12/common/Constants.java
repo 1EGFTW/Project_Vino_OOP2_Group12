@@ -20,6 +20,9 @@ public class Constants {
         public static final String CHECK_GRAPES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/selects/check-grapes.fxml";
         public static final String CHECK_BOTTLES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/selects/check-bottles.fxml";
         public static final String CHECK_WINES= "/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/selects/check-wines.fxml";
+        public static final String DELETE_ADMIN="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-admin.fxml";
+        public static final String DELETE_OPERATOR="/bg/tu-varna/sit/vino/project_vino_group12/presentation.views/delete/delete-operator.fxml";
+        public static final String DELETE_HOST="/bg/tu-varna/sit/vino/project_vino_group12/presentation.views/delete/delete-warehousehost.fxml";
     }
 
     public static class Configurations{

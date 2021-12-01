@@ -29,9 +29,16 @@
       <Pane prefHeight="200.0" prefWidth="200.0" />
       <Pane layoutX="13.0" layoutY="199.0" prefHeight="187.0" prefWidth="218.0" style="-fx-background-color: #ffff;">
          <children>
-            <Button fx:id="checkAvailableGrapes"  onAction="#checkAvailableGrapes" layoutX="7.0" layoutY="26.0" mnemonicParsing="false" text="Check available grapes" />
-            <Button fx:id="checkAvailableBottles" onAction="#checkAvailableBottles" layoutX="7.0" layoutY="61.0" mnemonicParsing="false" text="Check available bottles" />
-            <Button fx:id="checkAvailableWines" onAction="#checkAvailableWines" layoutX="10.0" layoutY="102.0" mnemonicParsing="false" text="Check available wines" />
+            <Button fx:id="checkAvailableGrapes" layoutX="7.0" layoutY="26.0" mnemonicParsing="false" onAction="#checkAvailableGrapes" text="Check available grapes" />
+            <Button fx:id="checkAvailableBottles" layoutX="7.0" layoutY="61.0" mnemonicParsing="false" onAction="#checkAvailableBottles" text="Check available bottles" />
+            <Button fx:id="checkAvailableWines" layoutX="10.0" layoutY="102.0" mnemonicParsing="false" onAction="#checkAvailableWines" text="Check available wines" />
+         </children>
+      </Pane>
+      <Pane layoutX="247.0" layoutY="193.0" prefHeight="200.0" prefWidth="274.0" style="-fx-background-color: #FFFF;">
+         <children>
+            <Label fx:id="delete" layoutX="109.0" layoutY="14.0" text="Delete:" />
+            <ComboBox fx:id="comboBoxDelete" layoutX="52.0" layoutY="54.0" prefWidth="150.0" />
+            <Button layoutX="101.0" layoutY="126.0" mnemonicParsing="false" text="Choose" fx:id="deleteChoice" onAction="#deleteSelected"/>
          </children>
       </Pane>
    </children>

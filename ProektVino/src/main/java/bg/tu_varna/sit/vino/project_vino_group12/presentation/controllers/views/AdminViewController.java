@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.*;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckBottlesController;
@@ -9,7 +10,10 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateAdminController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateWarehouseHostController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.DeleteAdminController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.DeleteOperatorController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.DeleteWarehouseHostController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,20 +21,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AdminViewController implements Initializable {
+    AdminService adminService=AdminService.getInstance();
+    OperatorService operatorService=OperatorService.getInstance();
+    WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     Stage s;
     @FXML
     public Button addGrape;
@@ -50,6 +53,12 @@ public class AdminViewController implements Initializable {
     private Button checkAvailableBottles;
     @FXML
     private Button checkAvailableWines;
+    @FXML
+    private Label delete;
+    @FXML
+    private ComboBox<String> comboBoxDelete;
+    @FXML
+    private Button deleteChoice;
 
     public AdminViewController(Stage s){
 
@@ -212,19 +221,55 @@ public class AdminViewController implements Initializable {
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(HELLO_VIEW));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new HelloController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        loadNewPage(HELLO_VIEW);
     }
-    public void loadNewPage(String path){
+    @FXML
+    public void deleteSelected(ActionEvent actionEvent){
+        switch (comboBoxDelete.getValue())
+        {
+            case "Admin":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_ADMIN));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteAdminController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "Operator":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_OPERATOR));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteOperatorController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "Warehouse Host":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_HOST));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteWarehouseHostController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+
+    }
+    private void loadNewPage(String path){
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -241,8 +286,9 @@ public class AdminViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         notificationAlerts();
+        fillComboBox();
     }
-    public void notificationAlerts(){
+    private void notificationAlerts(){
         AdminService adminService=AdminService.getInstance();
         List<String> bottles = adminService.checkAvailableBottles();
         List<String> grapes=adminService.checkAvailableGrapes();
@@ -255,4 +301,13 @@ public class AdminViewController implements Initializable {
             alert.show();
         }
     }
+    private void fillComboBox(){
+        List<String> choices=new ArrayList<>();
+        choices.add("Admin");
+        choices.add("Operator");
+        choices.add("Warehouse Host");
+        comboBoxDelete.setItems(FXCollections.observableList(choices));
+    }
+
+
 }
