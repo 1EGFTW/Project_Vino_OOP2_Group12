@@ -17,6 +17,16 @@ public class SortColorService {
         return SortColorServiceHolder.INSTANSE;
     }
 
+    public void deleteColor(SortColorListViewModel color) {
+        SortColor s=getSortColorByName(color.getColor());
+        try{
+            repository.delete(s);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     private static class SortColorServiceHolder {
         public static final SortColorService INSTANSE = new SortColorService();

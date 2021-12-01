@@ -97,6 +97,11 @@ public class Grape implements Serializable {
     public void addGrapeWines(GrapeWines grapeWines){
         this.grapeWines.add(grapeWines);
     }
+    public boolean equals(Grape r){
+        return this.name_sort.equals(r.name_sort)&&this.sortColor.equals(r.sortColor)
+                &&this.sort_quantity==r.sort_quantity
+                &&this.quantity_by_kg==r.quantity_by_kg;
+    }
 
     @Override
     public String toString() {

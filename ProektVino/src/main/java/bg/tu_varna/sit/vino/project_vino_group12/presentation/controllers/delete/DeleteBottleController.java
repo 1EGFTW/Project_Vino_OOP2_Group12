@@ -1,8 +1,10 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete;
 
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,9 +20,16 @@ import java.util.ResourceBundle;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
-public class DeleteOperatorController implements Initializable {
-    OperatorService operatorService=OperatorService.getInstance();
+public class DeleteBottleController implements Initializable {
+    BottlesService bottleService=BottlesService.getInstance();
     Stage s;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillComboBox();
+    }
+    public DeleteBottleController(Stage stage){
+        this.s=stage;
+    }
     @FXML
     private Label label1;
     @FXML
@@ -28,32 +37,16 @@ public class DeleteOperatorController implements Initializable {
     @FXML
     private Button goBack;
     @FXML
-    private ComboBox<OperatorListViewModel> operatorComboBox;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        fillComboBox();
-    }
-    public DeleteOperatorController(Stage stage){
-        this.s=stage;
-    }
+    private ComboBox<BottlesListViewModel> bottleComboBox;
     private void fillComboBox(){
-        ObservableList<OperatorListViewModel> operators=operatorService.getAllOperators();
-        operatorComboBox.setItems(operators);
-    }
-    @FXML
-    public void deleteOperator(ActionEvent actionEvent){
-        OperatorListViewModel operator=operatorComboBox.getValue();
-        operatorService.deleteOperator(operator);
-        loadNewPage(ADMIN_VIEW);
-        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted operator!", ButtonType.OK);
-        alert.show();
+        ObservableList<BottlesListViewModel>bottles=bottleService.getAllBottles();
+        bottleComboBox.setItems(bottles);
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
         loadNewPage(ADMIN_VIEW);
     }
-    private void loadNewPage(String path) {
+    private void loadNewPage(String path){
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -62,8 +55,16 @@ public class DeleteOperatorController implements Initializable {
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();
-        } catch (Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    public void deleteBottle(ActionEvent actionEvent){
+        BottlesListViewModel bottle=bottleComboBox.getValue();
+        bottleService.deleteBottle(bottle);
+        loadNewPage(ADMIN_VIEW);
+        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted bottle!", ButtonType.OK);
+        alert.show();
     }
 }

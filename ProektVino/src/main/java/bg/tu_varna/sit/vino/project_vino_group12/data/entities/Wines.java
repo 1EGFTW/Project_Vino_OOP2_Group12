@@ -88,6 +88,9 @@ public class Wines implements Serializable {
         this.production = production;
     }
 
+    public boolean equals(Wines r){
+        return this.name_wine.equals(r.name_wine)&&this.total==r.total;
+    }
     @Override
     public String toString() {
         return name_wine;

@@ -17,6 +17,15 @@ public class BottlesService {
         return BottlesRepositoryHolder.INSTANCE;
     }
 
+    public void deleteBottle(BottlesListViewModel bottle) {
+        Bottles b=getBottleBySize(bottle.getBottle_size());
+        try{
+            repository.delete(b);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private static class BottlesRepositoryHolder {
         public static final BottlesService INSTANCE = new BottlesService();
     }
@@ -75,7 +84,7 @@ public class BottlesService {
         List<Bottles> temp=new LinkedList<>();
         for(Bottles bottle:allBottles)
         {
-            if(bottle.getBottle_quantity()<=100)
+            if(bottle.getBottle_quantity()<=2)
             {
                 temp.add(bottle);
             }

@@ -10,9 +10,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateAdminController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateWarehouseHostController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.DeleteAdminController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.DeleteOperatorController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.DeleteWarehouseHostController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,9 +57,10 @@ public class AdminViewController implements Initializable {
     private ComboBox<String> comboBoxDelete;
     @FXML
     private Button deleteChoice;
+    @FXML
+    private Button notifications;
 
     public AdminViewController(Stage s){
-
         this.s=s;
     }
 
@@ -266,6 +265,71 @@ public class AdminViewController implements Initializable {
                     e.printStackTrace();
                 }
                 break;
+            case "Bottle":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_BOTTLE));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteBottleController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "Wine":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_WINE));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteWineController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "Grape":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_GRAPE));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteGrapeController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "SortColor":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_SORTCOLOR));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteSortColorController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "Production":
+                try {
+                    s.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(DELETE_PRODUCTION));
+                    Stage stage = new Stage();
+                    fxmlLoader.setController(new DeleteProductionController(stage));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+                break;
         }
 
     }
@@ -285,8 +349,11 @@ public class AdminViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        notificationAlerts();
         fillComboBox();
+    }
+    @FXML
+    protected void checkNotifications(ActionEvent actionEvent){
+        notificationAlerts();
     }
     private void notificationAlerts(){
         AdminService adminService=AdminService.getInstance();
@@ -306,6 +373,11 @@ public class AdminViewController implements Initializable {
         choices.add("Admin");
         choices.add("Operator");
         choices.add("Warehouse Host");
+        choices.add("Bottle");
+        choices.add("Grape");
+        choices.add("SortColor");
+        choices.add("Wine");
+        choices.add("Production");
         comboBoxDelete.setItems(FXCollections.observableList(choices));
     }
 

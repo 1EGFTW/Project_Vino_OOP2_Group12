@@ -22,6 +22,15 @@ public class WinesService {
         return WinesServiceHolder.INSTANCE;
     }
 
+    public void deleteWine(WinesListViewModel wine) {
+        Wines w=getWineByName(wine.getName_wine());
+        try{
+            repository.delete(w);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private static class WinesServiceHolder {
         public static final WinesService INSTANCE = new WinesService();
     }

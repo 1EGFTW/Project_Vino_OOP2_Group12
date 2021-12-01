@@ -61,5 +61,15 @@ public class GrapeWinesService {
             e.printStackTrace();
         }
     }
+    public GrapeWines getByGrapeName(Grape g){
+        List<GrapeWines> grapeWines=grapeWinesRepository.getAll();
+        GrapeWines temp=new GrapeWines();
+        for(GrapeWines gr:grapeWines){
+            if(gr.getGrape().equals(g)){
+                return gr;
+            }
+        }
+        return temp;
+    }
 
 }

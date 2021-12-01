@@ -23,6 +23,11 @@ public class Constants {
         public static final String DELETE_ADMIN="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-admin.fxml";
         public static final String DELETE_OPERATOR="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-operator.fxml";
         public static final String DELETE_HOST="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-warehousehost.fxml";
+        public static final String DELETE_BOTTLE="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-bottle.fxml";
+        public static final String DELETE_GRAPE="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-grape.fxml";
+        public static final String DELETE_WINE="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-wine.fxml";
+        public static final String DELETE_SORTCOLOR="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-sortcolor.fxml";
+        public static final String DELETE_PRODUCTION="/bg/tu_varna/sit/vino/project_vino_group12/presentation.views/delete/delete-production.fxml";
     }
 
     public static class Configurations{

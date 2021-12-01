@@ -38,7 +38,8 @@
          <children>
             <Label fx:id="delete" layoutX="109.0" layoutY="14.0" text="Delete:" />
             <ComboBox fx:id="comboBoxDelete" layoutX="52.0" layoutY="54.0" prefWidth="150.0" />
-            <Button layoutX="101.0" layoutY="126.0" mnemonicParsing="false" text="Choose" fx:id="deleteChoice" onAction="#deleteSelected"/>
+            <Button fx:id="deleteChoice" layoutX="101.0" layoutY="126.0" mnemonicParsing="false" onAction="#deleteSelected" text="Choose" />
+            <Button layoutX="208.0" layoutY="11.0" mnemonicParsing="false" text="Check notifications" onAction="#checkNotifications" fx:id="notifications"/>
          </children>
       </Pane>
    </children>

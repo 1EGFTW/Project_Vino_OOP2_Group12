@@ -27,6 +27,15 @@ public class ProductionService {
     public final WinesService winesService=WinesService.getInstance();
     public final BottlesService bottlesService=BottlesService.getInstance();
 
+    public void deleteProduction(ProductionListViewModel production) {
+        Production p=getProduction(production);
+        try{
+            repository.delete(p);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private static class ProductionServiceHolder {
         public static final ProductionService INSTANCE = new ProductionService();
     }
@@ -43,6 +52,16 @@ public class ProductionService {
     }
     public Production changeListViewToObject(ProductionListViewModel p){
         return new Production(p.getWines(),p.getBottles(),p.getProduced_bottles());
+    }
+    public Production getProduction(ProductionListViewModel production){
+        List<Production> all=repository.getAll();
+        Production temp=new Production(winesService.getWineByName(production.getWines().getName_wine()), bottlesService.getBottleBySize(production.getBottles().getBottle_size()), production.getProduced_bottles());
+        for(Production p:all){
+            if(p.equals(temp)){
+                return p;
+            }
+        }
+        return temp;
     }
     public int addProduction(ProductionListViewModel p)
     {

@@ -1,10 +1,8 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.*;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
@@ -20,12 +18,24 @@ import java.util.stream.Collectors;
 public class GrapeService {
     private final GrapeRepository grapeRepository = GrapeRepository.getInstance();
     private final SortColorRepository sortColorRepository = SortColorRepository.getInstance();
-
+GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
+GrapeWinesRepository grapeWinesRepository=GrapeWinesRepository.getInstance();
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
     }
 
     private final SortColorService sortColorService = SortColorService.getInstance();
+
+    public void deleteGrape(GrapeListViewModel grape) {
+        Grape g=getGrapeByName(grape.getName_sort());
+        GrapeWines grapeWines=grapeWinesService.getByGrapeName(g);
+        try{
+            grapeWinesRepository.delete(grapeWines);
+            grapeRepository.delete(g);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
     private static class GrapeServiceHolder {
         public static final GrapeService INSTANCE = new GrapeService();
@@ -83,7 +93,7 @@ public class GrapeService {
         List<Grape> temp=new LinkedList<>();
         for(Grape grape:allGrapes)
         {
-            if(grape.getSort_quantity()<=100)
+            if(grape.getSort_quantity()<=50)
             {
                 temp.add(grape);
             }

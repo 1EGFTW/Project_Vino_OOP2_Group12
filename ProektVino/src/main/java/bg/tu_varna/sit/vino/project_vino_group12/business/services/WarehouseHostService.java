@@ -25,6 +25,15 @@ public class WarehouseHostService {
         return WarehouseHostServiceHolder.INSTANCE;
     }
 
+    public void deleteHost(WarehouseHostListViewModel host) {
+        WarehouseHost h=getHostByName(host.getUsername_domakin());
+        try{
+            repository.delete(h);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private static class WarehouseHostServiceHolder {
         public static final WarehouseHostService INSTANCE = new WarehouseHostService();
     }
@@ -63,6 +72,16 @@ public class WarehouseHostService {
             }
             return 1;
         }
+    }
+    public WarehouseHost getHostByName(String name){
+        List<WarehouseHost> hosts=repository.getAll();
+        WarehouseHost temp=new WarehouseHost();
+        for(WarehouseHost w:hosts){
+            if(w.getUsername_domakin().equals(name)){
+                return w;
+            }
+        }
+        return temp;
     }
     public boolean checkIfHostExists(WarehouseHost w){
         List<WarehouseHost> allHosts=repository.getAll();
