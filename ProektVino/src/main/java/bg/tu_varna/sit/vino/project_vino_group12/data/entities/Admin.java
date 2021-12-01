@@ -50,6 +50,9 @@ public class Admin implements Serializable {
         this.password_admin = password_admin;
     }
 
+    public boolean equals(Admin r){
+        return this.username_admin.equals(r.username_admin)&&this.password_admin.equals(r.password_admin);
+    }
     @Override
     public String toString() {
         return "Admin{" +

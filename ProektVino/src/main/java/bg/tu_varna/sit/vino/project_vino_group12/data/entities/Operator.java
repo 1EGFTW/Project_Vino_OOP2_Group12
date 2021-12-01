@@ -48,6 +48,9 @@ public class Operator implements Serializable {
         this.password_operator = password_operator;
     }
 
+    public boolean equals(Operator r){
+        return this.username_operator.equals(r.username_operator)&&this.password_operator.equals(r.password_operator);
+    }
     @Override
     public String toString() {
         return "Operator{" +

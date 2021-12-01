@@ -50,13 +50,27 @@ public class WarehouseHostService {
         }
        return false;
     }
-    public void createWarehouseHost(WarehouseHost w){
-            try{
-                repository.save(w);
-            }
-            catch (Exception e) {
+    public int createWarehouseHost(WarehouseHostListViewModel w){
+        WarehouseHost host=new WarehouseHost(w.getUsername_domakin(),w.getPassword_domakin());
+        if(checkIfHostExists(host)){
+            return 0;
+        }
+        else {
+            try {
+                repository.save(host);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
+            return 1;
+        }
+    }
+    public boolean checkIfHostExists(WarehouseHost w){
+        List<WarehouseHost> allHosts=repository.getAll();
+        for(WarehouseHost host:allHosts){
+            if(host.equals(w)){
+                return true;
+            }
+        }
+        return false;
     }
 }

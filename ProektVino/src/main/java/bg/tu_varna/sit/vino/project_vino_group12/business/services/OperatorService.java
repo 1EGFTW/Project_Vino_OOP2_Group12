@@ -70,12 +70,27 @@ public class OperatorService {
        return false;
 
    }
-    public void createOperator(Operator o){
-        try{
-            repository.save(o);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+    public int createOperator(OperatorListViewModel o){
+       Operator operator=new Operator(o.getUsername_operator(),o.getPassword_operator());
+       if(checkIfOperatorExists(operator)){
+           return 0;
+       }else{
+           try{
+               repository.save(operator);
+           }
+           catch (Exception e) {
+               e.printStackTrace();
+           }
+           return 1;
+       }
+    }
+    public boolean checkIfOperatorExists(Operator o){
+       List<Operator> allOperators=repository.getAll();
+       for(Operator operator:allOperators){
+           if(operator.equals(o)){
+               return true;
+           }
+       }
+       return false;
     }
 }

@@ -44,13 +44,31 @@ public class AdminService {
         }
         return false;
     }
-    public void createAdmin(Admin a){
-        try{
-            repository.save(a);
+    public int createAdmin(AdminListViewModel a){
+        Admin admin=new Admin(a.getUsername_admin(),a.getPassword_admin());
+        if(checkIfAdminExists(admin)){
+            return 0;
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        else {
+            try{
+                repository.save(admin);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            return 1;
         }
+
+    }
+    public boolean checkIfAdminExists(Admin a){
+        List<Admin> allAdmins=repository.getAll();
+        for(Admin admin:allAdmins){
+            if(admin.equals(a))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     public List<String> checkAvailableBottles(){
         BottlesService bottlesService=BottlesService.getInstance();
@@ -70,6 +88,7 @@ public class AdminService {
         }
         return critical;
     }
+
 
 
 }
