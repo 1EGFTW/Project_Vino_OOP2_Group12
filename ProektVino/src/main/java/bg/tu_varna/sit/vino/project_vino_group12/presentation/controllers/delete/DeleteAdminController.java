@@ -57,7 +57,6 @@ public class DeleteAdminController implements Initializable {
             }
         }
     private void fillComboBox(){
-        AdminService adminService=AdminService.getInstance();
         ObservableList<AdminListViewModel> admins=adminService.getAllAdmin();
         adminComboBox.setItems(admins);
     }

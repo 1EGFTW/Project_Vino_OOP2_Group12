@@ -29,6 +29,17 @@ public class OperatorService {
         return OperatorServiceHolder.INSTANCE;
     }
     private static final Logger log = Logger.getLogger(OperatorRepository.class);
+
+    public void deleteOperator(OperatorListViewModel operator) {
+        Operator o=getOperatorByName(operator.getUsername_operator());
+        try{
+            repository.delete(o);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private static class OperatorServiceHolder {
         public static final OperatorService INSTANCE = new OperatorService();
     }
@@ -83,6 +94,16 @@ public class OperatorService {
            }
            return 1;
        }
+    }
+    public Operator getOperatorByName(String name){
+       List<Operator> allOperators=repository.getAll();
+       Operator temp=new Operator();
+       for(Operator o:allOperators){
+           if(o.getUsername_operator().equals(name)){
+               return o;
+           }
+       }
+       return temp;
     }
     public boolean checkIfOperatorExists(Operator o){
        List<Operator> allOperators=repository.getAll();
