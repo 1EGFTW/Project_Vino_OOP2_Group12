@@ -1,0 +1,27 @@
+.leftMenu{
+    -fx-background-color: #280000;
+}
+
+.GoBackButton{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+ }
+
+.GoBackButton:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #520000;
+    -fx-background-radius: 15 15 15 15;
+ }
+
+ .header{
+    -fx-background-color: #280000;
+ }
+
+ .Circle{
+    -fx-fill: #345830;
+    -fx-stroke: #345830;
+    -fx-stroke-type: inside;
+ }
+

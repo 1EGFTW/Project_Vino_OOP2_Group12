@@ -58,9 +58,9 @@ public class AdminViewController implements Initializable {
     public Button addBottles;
     @FXML
     private Label create;
-   @FXML
+    @FXML
     private Button createOperator;
-   @FXML
+    @FXML
     private Button createHost;
     @FXML
     private Button createAdmin;
