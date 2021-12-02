@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 public class GrapeService {
     private final GrapeRepository grapeRepository = GrapeRepository.getInstance();
     private final SortColorRepository sortColorRepository = SortColorRepository.getInstance();
-GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
-GrapeWinesRepository grapeWinesRepository=GrapeWinesRepository.getInstance();
+    private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
+    private final GrapeWinesRepository grapeWinesRepository=GrapeWinesRepository.getInstance();
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
     }

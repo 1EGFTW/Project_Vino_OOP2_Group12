@@ -12,6 +12,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -57,7 +59,7 @@ public class ProductionService {
         List<Production> all=repository.getAll();
         Production temp=new Production(winesService.getWineByName(production.getWines().getName_wine()), bottlesService.getBottleBySize(production.getBottles().getBottle_size()), production.getProduced_bottles());
         for(Production p:all){
-            if(p.equals(temp)){
+            if(p.equals(temp)){ //dava che this.wine e null
                 return p;
             }
         }
@@ -66,13 +68,37 @@ public class ProductionService {
     public int addProduction(ProductionListViewModel p)
     {
         Wines wine=winesService.getWineByName(p.getWines().getName_wine());
+      /*  int total=wine.getTotal();*/
+        /*List<Bottles> allBottles=new ArrayList<>();
+        allBottles=bottlesRepository.getAll();
+        int sum;
+        List<Integer> listNumberBottles=new LinkedList<>();
+        Bottles temp=new Bottles();
+        for(int i=0;i<allBottles.size();i++){
+            int br=0;
+            sum=allBottles.get(i).getBottle_size()/1000;
+            int bQuantity=allBottles.get(i).getBottle_quantity();
+            while(total>=0 && bQuantity>0){
+                total-=sum;
+                br++;
+                bQuantity--;
+            }
+            total=wine.getTotal();
+            listNumberBottles.add(br);
+        }
+        for(int i=0;i<allBottles.size();i++){
+            if(total % allBottles.get(i).getBottle_size()/1000*listNumberBottles.get(i) > total % allBottles.get(i+1).getBottle_size()/1000*listNumberBottles.get(i+1)){
+                temp=bottlesService.getBottleBySize(allBottles.get(i+1).getBottle_size());
+                temp.setBottle_quantity(temp.getBottle_quantity()-listNumberBottles.get(i+1));
+            }
+        }*/
         Bottles bottle=bottlesService.getBottleBySize(p.getBottles().getBottle_size());
-        Production production=new Production(wine,bottle,p.getProduced_bottles());
+        Production production=new Production(wine,bottle/*temp*/,p.getProduced_bottles());
         //update-va br butilki v sklada sled proizvodstvo
         int bottle_quantity=production.getBottle().getBottle_quantity();
 
         bottle_quantity=bottle_quantity-production.getProduced_bottles();
-        //check if there are enouh bottles
+        //check if there are enough bottles
         if(bottle_quantity<=50 || bottle_quantity<=production.getProduced_bottles()) {
             return 0;
         }

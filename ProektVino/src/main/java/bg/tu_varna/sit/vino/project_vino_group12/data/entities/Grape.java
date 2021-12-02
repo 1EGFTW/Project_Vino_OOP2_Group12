@@ -21,7 +21,7 @@ public class Grape implements Serializable {
     private String name_sort;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "id_sort_color")
     private SortColor sortColor;
 
@@ -32,7 +32,7 @@ public class Grape implements Serializable {
     private int quantity_by_kg;
 
     @OneToMany(mappedBy = "grape")
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<GrapeWines> grapeWines;
 
     public Grape(){

@@ -43,7 +43,7 @@ public class GrapeWinesService {
         return temp;
     }
     public void addGrapeWines(GrapeWinesListViewModel g){
-        Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort());
+        Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort()); //dava che grapeService e null
         Wines wine=changeListViewToObject(g).getWine();
         if(winesService.isWineAlreadyCreated(wine)){
             wine=winesService.getWineByName(wine.getName_wine());

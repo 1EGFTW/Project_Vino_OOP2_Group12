@@ -58,8 +58,7 @@ public class WinesService {
         Wines temp=new Wines();
         for(Wines w:wines){
             if(w.getName_wine().equals(name)){
-                temp=w;
-                return temp;
+                return w;
             }
         }
         return temp;
