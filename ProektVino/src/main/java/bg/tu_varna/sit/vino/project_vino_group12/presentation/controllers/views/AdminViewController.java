@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
@@ -33,6 +34,24 @@ public class AdminViewController implements Initializable {
     OperatorService operatorService=OperatorService.getInstance();
     WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     Stage s;
+    @FXML
+    public Pane wrapperPane;
+    @FXML
+    public Pane createPane;
+    @FXML
+    public Pane addPane;
+    @FXML
+    public Pane checkPane;
+    @FXML
+    public Pane deletePane;
+    @FXML
+    public Button changeToCreate;
+    @FXML
+    public Button changeToAdd;
+    @FXML
+    public Button changeToCheck;
+    @FXML
+    public Button changeToDelete;
     @FXML
     public Button addGrape;
     @FXML
@@ -381,5 +400,28 @@ public class AdminViewController implements Initializable {
         comboBoxDelete.setItems(FXCollections.observableList(choices));
     }
 
+    @FXML
+    public void changeToCreate(ActionEvent actionEvent){
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(createPane);
+    }
+
+    @FXML
+    public void changeToAdd(ActionEvent actionEvent){
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(addPane);
+    }
+
+    @FXML
+    public void changeToCheck(ActionEvent actionEvent){
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(checkPane);
+    }
+
+    @FXML
+    public void changeToDelete(ActionEvent actionEvent){
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(deletePane);
+    }
 
 }

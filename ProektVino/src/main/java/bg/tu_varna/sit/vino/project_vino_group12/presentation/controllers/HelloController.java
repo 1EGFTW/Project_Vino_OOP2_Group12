@@ -46,26 +46,6 @@ public class HelloController{
     }
 
     @FXML
-    protected void loadImage(){
-       /* ClassLoader classLoader = getClass().getClassLoader();
-        String imageUrl = classLoader.getResource("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png").toExternalForm();
-        Image image = new Image(imageUrl);
-        imageView.setImage(image);*/
-
-        /*try {
-            Image image = new Image(new FileInputStream("C:\\Users\\my\\Documents\\GitHub\\Project_Vino_OOP2_Group12\\ProektVino\\src\\main\\resources\\bg\\tu_varna\\sit\\vino\\project_vino_group12\\images\\Logo.png"));
-            imageView.setImage(image);
-        }catch(FileNotFoundException e){ e.printStackTrace();}*/
-
-       /* Image image = new Image( new File("Users/my/Documents/GitHub/Project_Vino_OOP2_Group12/ProektVino/src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/Logo.png").toURI().toString());
-        imageView.setImage(image);*/
-
-        /*Image icon = new Image( new File("src/main/resources/bg/tu_varna/sit/vino/project_vino_group12/images/user.png").toURI().toString());
-        adminButton.setGraphic(new ImageView(icon));*/
-
-    }
-
-    @FXML
     protected void adminLog() {
         try {
             s.close();
@@ -74,6 +54,9 @@ public class HelloController{
             fxmlLoader.setController(new AdminLoginController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.setWidth(750);
+            stage.setHeight(500);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -89,6 +72,9 @@ public class HelloController{
             Parent root1 = (Parent) fxmlLoader.load();
 
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.setWidth(750);
+            stage.setHeight(500);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -104,6 +90,9 @@ public class HelloController{
             Parent root1 = (Parent) fxmlLoader.load();
 
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.setWidth(750);
+            stage.setHeight(500);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();

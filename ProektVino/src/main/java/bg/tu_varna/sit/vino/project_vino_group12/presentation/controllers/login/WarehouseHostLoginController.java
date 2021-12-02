@@ -41,6 +41,9 @@ public class WarehouseHostLoginController {
               fxmlLoader.setController(new WarehouseHostViewController(stage));
               Parent root1 = (Parent) fxmlLoader.load();
               stage.setScene(new Scene(root1));
+              stage.setResizable(false);
+              stage.setWidth(1024);
+              stage.setHeight(768);
               stage.show();
           } catch(Exception e) {
               e.printStackTrace();
