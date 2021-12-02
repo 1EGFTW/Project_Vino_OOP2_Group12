@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 @Table(name = "production")
@@ -17,12 +18,12 @@ public class Production implements Serializable {
     private int id_production;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+
     @JoinColumn(name = "id_wine")
     private Wines wine;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+
     @JoinColumn(name = "id_bottle")
     private Bottles bottle;
 
@@ -71,10 +72,20 @@ public class Production implements Serializable {
     public void setBottle(Bottles bottle) {
         this.bottle = bottle;
     }
-
-    public boolean equals(Production r){
-        return this.wine.equals(r.wine)&&this.bottle.equals(r.bottle)&&this.produced_bottles==r.produced_bottles;
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Production that = (Production) o;
+        return produced_bottles == that.produced_bottles && Objects.equals(wine, that.wine) && Objects.equals(bottle, that.bottle);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(wine, bottle, produced_bottles);
+    }
+
     @Override
     public String toString() {
         return "Production{" +

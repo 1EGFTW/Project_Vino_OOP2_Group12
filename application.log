@@ -1,20 +1,25 @@
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
 
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
 
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
 
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
 
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
 
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
 
-[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection  - 
-
-[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - 
-
-[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - 
-
-[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - 
-
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=1, wine=Varna, bottle=500ml, produced_bottles=40} Production{id_production=0, wine=Sasho1, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=9, wine=Sasho1, bottle=750ml, produced_bottles=4} Production{id_production=0, wine=Sasho1, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=11, wine=Sasho1, bottle=10ml, produced_bottles=100} Production{id_production=0, wine=Sasho1, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - line 64null
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Production delete errorCannot invoke "bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production.getId_production()" because "obj" is null
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=1, wine=Varna, bottle=500ml, produced_bottles=40} Production{id_production=0, wine=Sasho1, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=9, wine=Sasho1, bottle=750ml, produced_bottles=4} Production{id_production=0, wine=Sasho1, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=11, wine=Sasho1, bottle=10ml, produced_bottles=100} Production{id_production=0, wine=Sasho1, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - line 64null
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Production delete errorCannot invoke "bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production.getId_production()" because "obj" is null
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=1, wine=Varna 99, bottle=500ml, produced_bottles=40} Production{id_production=0, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=9, wine=Sasho1 95, bottle=750ml, produced_bottles=4} Production{id_production=0, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=11, wine=Sasho1 95, bottle=10ml, produced_bottles=100} Production{id_production=0, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - line 64null
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Production delete errorCannot invoke "bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production.getId_production()" because "obj" is null
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=1, wine=Varna 99, bottle=500ml, produced_bottles=40} Production{id_production=0, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - false Production{id_production=9, wine=Sasho1 95, bottle=750ml, produced_bottles=4} Production{id_production=0, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - true Production{id_production=11, wine=Sasho1 95, bottle=10ml, produced_bottles=100} Production{id_production=0, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - line 64Production{id_production=11, wine=Sasho1 95, bottle=10ml, produced_bottles=100}

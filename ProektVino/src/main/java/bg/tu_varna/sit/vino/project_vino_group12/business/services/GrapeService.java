@@ -106,7 +106,7 @@ public class GrapeService {
         return grapeListViewModel;
     }
 
-    public Grape changeListViewToObject(GrapeListViewModel g) {
+    public Grape convertListViewToObject(GrapeListViewModel g) {
         Grape temp = new Grape(g.getName_sort(), sortColorService.changeListViewToObject(g.getSortColor()), g.getSort_quantity(), g.getQuantity_by_kg());
         return temp;
     }

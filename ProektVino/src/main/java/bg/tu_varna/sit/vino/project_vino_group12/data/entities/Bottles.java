@@ -4,6 +4,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesList
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 @Table(name="bottles")
@@ -58,8 +59,17 @@ public class Bottles implements Serializable {
     }
 
 
-    public boolean equals(Bottles r){
-        return this.bottle_size==r.bottle_size;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bottles bottles = (Bottles) o;
+        return bottle_size == bottles.bottle_size;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bottle_size);
     }
 
     public int getId_bottles() {

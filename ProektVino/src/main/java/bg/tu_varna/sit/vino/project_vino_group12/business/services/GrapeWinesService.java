@@ -20,7 +20,6 @@ public class GrapeWinesService {
     private final GrapeRepository grapeRepository=GrapeRepository.getInstance();
     private final GrapeService grapeService=GrapeService.getInstance();
     private final WinesService winesService=WinesService.getInstance();
-    private final SortColorRepository sortColorRepository=SortColorRepository.getInstance();
     public static GrapeWinesService getInstance() {
         return GrapeWinesService.GrapeWinesServiceHolder.INSTANCE;
     }
@@ -39,8 +38,8 @@ public class GrapeWinesService {
                 )).collect(Collectors.toList()));
     }
     public GrapeWines changeListViewToObject(GrapeWinesListViewModel gw){
-        GrapeWines temp=new GrapeWines(grapeService.changeListViewToObject(gw.getGrape()), winesService.changeListViewToObject(gw.getWine()), gw.getQuantity_for_wine());
-        return temp;
+       return new GrapeWines(grapeService.convertListViewToObject(gw.getGrape()), winesService.changeListViewToObject(gw.getWine()), gw.getQuantity_for_wine());
+
     }
     public void addGrapeWines(GrapeWinesListViewModel g){
         Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort()); //dava che grapeService e null

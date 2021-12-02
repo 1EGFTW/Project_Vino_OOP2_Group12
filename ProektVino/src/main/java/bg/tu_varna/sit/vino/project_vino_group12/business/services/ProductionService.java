@@ -1,16 +1,14 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.*;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.*;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.ProductionListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,6 +26,7 @@ public class ProductionService {
     public final WinesRepository winesRepository=WinesRepository.getInstance();
     public final WinesService winesService=WinesService.getInstance();
     public final BottlesService bottlesService=BottlesService.getInstance();
+    private static final org.apache.log4j.Logger log = Logger.getLogger(ProductionService.class);
 
     public void deleteProduction(ProductionListViewModel production) {
         Production p=getProduction(production);
@@ -63,7 +62,7 @@ public class ProductionService {
                 return p;
             }
         }
-        return temp;
+        return null;
     }
     public int addProduction(ProductionListViewModel p)
     {

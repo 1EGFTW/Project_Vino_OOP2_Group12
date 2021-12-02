@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Table(name="wines")
@@ -88,11 +89,23 @@ public class Wines implements Serializable {
         this.production = production;
     }
 
-    public boolean equals(Wines r){
-        return this.name_wine.equals(r.name_wine)&&this.total==r.total;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Wines wines = (Wines) o;
+        return total == wines.total && Objects.equals(name_wine, wines.name_wine);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name_wine, total);
+    }
+
     @Override
     public String toString() {
-        return name_wine;
+        return name_wine+ " "+
+                total;
+
     }
 }

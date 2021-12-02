@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +62,7 @@ public class ProductionRepository implements DAORepository<Production> {
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
+            session.flush();
             log.info("Production deleted successfully!");
         }catch(Exception e) {
             log.error("Production delete error" + e.getMessage());
@@ -77,7 +79,7 @@ public class ProductionRepository implements DAORepository<Production> {
         Transaction transaction= session.beginTransaction();
         List<Production> productions=new LinkedList<>();
         try{
-            String jpql="SELECT p FROM Production p WHERE id_production ="+id;
+            String jpql="SELECT p FROM Production p WHERE id_production="+id;
             productions.addAll(session.createQuery(jpql,Production.class).getResultList());
             log.info("Get production by id!");
         }catch(Exception e){
