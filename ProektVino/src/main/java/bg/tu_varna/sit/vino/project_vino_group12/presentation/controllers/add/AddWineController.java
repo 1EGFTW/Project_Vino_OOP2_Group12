@@ -53,7 +53,7 @@ public class AddWineController implements Initializable {
     @FXML
     private TextField name_wine;
     @FXML
-    private ComboBox<Grape> grapeType;
+    private ComboBox<GrapeListViewModel> grapeType;
     @FXML
     private TextField total;
     @FXML
@@ -64,9 +64,8 @@ public class AddWineController implements Initializable {
     private Button back;
 
     public void fillComboBoxGrapeType(){
-        GrapeRepository grapeRepository=GrapeRepository.getInstance();
-        List<Grape> allGrapes =grapeRepository.getAll();
-        grapeType.setItems(FXCollections.observableArrayList(allGrapes));
+        ObservableList<GrapeListViewModel> grapes=grapeService.getAllGrape();
+        grapeType.setItems(grapes);
     }
 
     public AddWineController(Stage stage) {
@@ -82,15 +81,16 @@ public class AddWineController implements Initializable {
         grapeWines.setWine(wine);
         grapeWines.setGrape(g);
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));*/
-        Grape temp=grapeService.getGrapeByName(grapeType.getValue().getName_sort());
-        GrapeListViewModel grape=grapeService.convertGrapeToListView(temp);
+       /* Grape temp=grapeService.getGrapeByName(grapeType.getValue().getName_sort());*/
+       /* GrapeListViewModel grape=grapeService.convertGrapeToListView(temp);*/
+        GrapeListViewModel grape=grapeType.getValue();
         WinesListViewModel wine=new WinesListViewModel(name_wine.getText(),Integer.parseInt(total.getText()));
-        wine=winesService.checkWine(wine);
+        /*wine=winesService.checkWine(wine);*/
         GrapeWinesListViewModel grapeWines=new GrapeWinesListViewModel();
-        grapeWines.setWine(wine);
-        grapeWines.setGrape(grape);
+        /*grapeWines.setWine(wine);
+        grapeWines.setGrape(grape);*/
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
-        grapeWinesService.addGrapeWines(grapeWines);
+        grapeWinesService.addGrapeWines(grapeWines,grape,wine);
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));

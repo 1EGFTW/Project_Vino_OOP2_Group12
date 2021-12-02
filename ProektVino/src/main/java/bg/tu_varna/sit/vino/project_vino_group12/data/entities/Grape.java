@@ -38,6 +38,9 @@ public class Grape implements Serializable {
     public Grape(){
 
     }
+    public Grape(String name_sort){
+        this.name_sort=name_sort;
+    }
     public Grape(String name_sort,SortColor sortcolor, int sort_quantity,int quantity_by_kg){
         this.name_sort=name_sort;
         this.sortColor=sortcolor;

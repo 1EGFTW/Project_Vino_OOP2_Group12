@@ -15,6 +15,11 @@ public class GrapeListViewModel {
         this.sort_quantity = sort_quantity;
         this.quantity_by_kg = quantity_by_kg;
     }
+
+    public GrapeListViewModel() {
+    }
+
+
     public boolean equals(GrapeListViewModel r){
         return this.name_sort.equals(r.name_sort) && this.sortColor.equals(r.sortColor);
     }
