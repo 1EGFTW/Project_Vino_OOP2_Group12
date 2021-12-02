@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -15,10 +17,12 @@ public class Production implements Serializable {
     private int id_production;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "id_wine")
     private Wines wine;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "id_bottle")
     private Bottles bottle;
 

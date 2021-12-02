@@ -49,7 +49,7 @@ public class WinesRepository implements DAORepository<Wines> {
             log.error("Wines update error" + e.getMessage());
         }finally {
             transaction.commit();
-
+            session.close();
         }
     }
 
