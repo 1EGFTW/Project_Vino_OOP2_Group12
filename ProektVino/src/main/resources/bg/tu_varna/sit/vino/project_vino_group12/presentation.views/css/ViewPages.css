@@ -31,14 +31,14 @@
 
  .centerPaneButtons{
     -fx-color: #345830;
-         -fx-font-family: sans-serif;
-         -fx-text-fill: #0A090C;
-         -fx-border-width: 1px;
-         -fx-border-color: #A7CCA3;
-         -fx-background-radius: 15 15 15 15;
-         -fx-border-radius: 15 15 15 15;
-         -fx-font-size: 12;
-         -fx-alignment: center;
+    -fx-font-family: sans-serif;
+    -fx-text-fill: #0A090C;
+    -fx-border-width: 1px;
+    -fx-border-color: #A7CCA3;
+    -fx-background-radius: 15 15 15 15;
+    -fx-border-radius: 15 15 15 15;
+    -fx-font-size: 12;
+    -fx-alignment: center;
  }
 
  .centerPaneButtons:hover{
@@ -54,3 +54,52 @@
     -fx-font-size: 18;
   }
 
+.leftMenuButton{
+    -fx-color: #FCC99C;
+    /*-fx-shape:"M 100 300 L 100 200 L 300 200 L 400 250 L 300 300 L 100 300";*/
+    -fx-shape: "M 0 400 L 0 100 L 450 100 L 700 200 Q 750 250 700 300 L 450 400 L 0 400 ";
+    -fx-font-family: sans-serif;
+    -fx-text-fill: #23272F;
+    -fx-font-weight: bold;
+    -fx-border-width: 1px;
+    -fx-border-color: #FFECDB;
+    -fx-font-size: 14;
+    -fx-alignment: center-left;
+}
+
+.leftMenuButton:hover{
+    -fx-color: #FDD4AF;
+    -fx-cursor: hand;
+    -fx-text-fill: #23272F;
+    -fx-border-color: #FFDEC2;
+}
+
+.combo{
+    -fx-background-color: #A7CCA3;
+}
+
+.combo .list-cell{
+    -fx-background-color: #A7CCA3;
+}
+
+.combo .list-cell:hover{
+    -fx-background-color: #345830;
+}
+
+.notificationsButton{
+    -fx-color: #FCC99C;
+    -fx-font-family: sans-serif;
+    -fx-text-fill: #23272F;
+    -fx-font-style: italic;
+    -fx-border-width: 1px;
+    -fx-border-color: #FFECDB;
+    -fx-font-size: 11;
+    -fx-alignment: center-left;
+}
+
+.notificationsButton:hover{
+    -fx-color: #FDD4AF;
+    -fx-cursor: hand;
+    -fx-text-fill: #23272F;
+    -fx-border-color: #FFDEC2;
+}
