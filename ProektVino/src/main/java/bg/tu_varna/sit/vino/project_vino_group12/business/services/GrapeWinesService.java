@@ -19,37 +19,43 @@ import java.util.stream.Collectors;
 
 public class GrapeWinesService {
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
+    private static final org.apache.log4j.Logger log = Logger.getLogger(GrapeService.class);
     private final GrapeRepository grapeRepository=GrapeRepository.getInstance();
-    private final GrapeService service=GrapeService.getInstance();
+    private final GrapeService grapeService=GrapeService.getInstance();
     private final WinesService winesService=WinesService.getInstance();
     public static GrapeWinesService getInstance() {
         return GrapeWinesService.GrapeWinesServiceHolder.INSTANCE;
     }
-    private static final org.apache.log4j.Logger log = Logger.getLogger(GrapeWinesService.class);
+
 
     private static class GrapeWinesServiceHolder {
         public static final GrapeWinesService INSTANCE = new GrapeWinesService();
     }
     public ObservableList<GrapeWinesListViewModel> getAllGrapeWines() {
         List<GrapeWines> grapes = grapeWinesRepository.getAll();
-
         return FXCollections.observableList(
                 grapes.stream().map(g -> new GrapeWinesListViewModel(
-                        service.convertGrapeToListView(g.getGrape()),
+                        grapeService.convertGrapeToListView(g.getGrape()),
                         winesService.convertWinesToListView(g.getWine()),
                         g.getQuantity_for_wine()
                 )).collect(Collectors.toList()));
     }
     public GrapeWines changeListViewToObject(GrapeWinesListViewModel gw){
-       return new GrapeWines(service.convertListViewToObject(gw.getGrape()), winesService.changeListViewToObject(gw.getWine()), gw.getQuantity_for_wine());
+       return new GrapeWines(grapeService.convertListViewToObject(gw.getGrape()), winesService.changeListViewToObject(gw.getWine()), gw.getQuantity_for_wine());
 
     }
     public void addGrapeWines(GrapeWinesListViewModel g,GrapeListViewModel gr,WinesListViewModel w){
         /*Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort());*/
-        Grape grape=new Grape(gr.getName_sort());
-        if(service.checkIfGrapeExists(grape)){
-            grape=service.getGrapeByName(grape.getName_sort());
+        Grape grape = new Grape(gr.getName_sort());
+        try {
+            if (grapeService.checkIfGrapeExists(grape)) {
+                grape = grapeService.getGrapeByName(grape.getName_sort());
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            log.error("Error: " +e);
         }
+
         /*Wines wine=changeListViewToObject(g).getWine();*/
         Wines wine=new Wines(w.getName_wine(),w.getTotal());
         if(winesService.isWineAlreadyCreated(wine)){

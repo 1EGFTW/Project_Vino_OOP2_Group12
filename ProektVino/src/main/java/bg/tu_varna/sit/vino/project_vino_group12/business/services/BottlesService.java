@@ -91,4 +91,15 @@ public class BottlesService {
         }
         return temp;
     }
+    public void updateBottleQuantity(BottlesListViewModel b,int q){
+        Bottles bottle=getBottleBySize(b.getBottle_size());
+        int temp=0;
+        temp=q+bottle.getBottle_quantity();
+        bottle.setBottle_quantity(temp);
+        try{
+            repository.update(bottle);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

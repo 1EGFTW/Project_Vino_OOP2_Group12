@@ -72,14 +72,6 @@ public class Bottles implements Serializable {
         return Objects.hash(bottle_size);
     }
 
-    public int getId_bottles() {
-        return id_bottles;
-    }
-
-    public void setId_bottles(int id_bottles) {
-        this.id_bottles = id_bottles;
-    }
-
     public Set<Production> getProduction() {
         return production;
     }

@@ -25,3 +25,4 @@
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - line 64Production{id_production=11, wine=Sasho1 95, bottle=10ml, produced_bottles=100}
 [JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Access denied for user 'root'@'localhost' (using password: YES)
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection  - Initial SessionFactory errororg.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository  - Bottle errorUpdate/delete queries cannot be typed
