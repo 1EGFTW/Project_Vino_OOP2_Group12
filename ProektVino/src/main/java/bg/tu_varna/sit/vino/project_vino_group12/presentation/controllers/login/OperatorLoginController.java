@@ -12,8 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.HELLO_VIEW;
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class OperatorLoginController {
     private final OperatorService service= OperatorService.getInstance();
@@ -35,7 +34,7 @@ public class OperatorLoginController {
         if(service.operatorLogin(operatorToLogIn)){
             try {
                 s.close();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_VIEW));
                 Stage stage = new Stage();
                 fxmlLoader.setController(new OperatorViewController(stage));
                 Parent root1 = (Parent) fxmlLoader.load();

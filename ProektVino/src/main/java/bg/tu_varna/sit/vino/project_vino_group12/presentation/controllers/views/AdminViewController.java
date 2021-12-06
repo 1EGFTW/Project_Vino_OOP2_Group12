@@ -11,6 +11,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateWarehouseHostController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.*;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -422,6 +423,20 @@ public class AdminViewController implements Initializable {
     public void changeToDelete(ActionEvent actionEvent){
         wrapperPane.getChildren().clear();
         wrapperPane.getChildren().add(deletePane);
+    }
+    @FXML
+    public void loadUpdatePage(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

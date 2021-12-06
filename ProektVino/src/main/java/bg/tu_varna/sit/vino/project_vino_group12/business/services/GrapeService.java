@@ -17,11 +17,13 @@ import java.util.stream.Collectors;
 
 public class GrapeService {
     private final GrapeRepository grapeRepository = GrapeRepository.getInstance();
-    private final SortColorRepository sortColorRepository = SortColorRepository.getInstance();
     private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
     private final GrapeWinesRepository grapeWinesRepository=GrapeWinesRepository.getInstance();
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
+    }
+    private static class GrapeServiceHolder {
+        public static final GrapeService INSTANCE = new GrapeService();
     }
 
     private final SortColorService sortColorService = SortColorService.getInstance();
@@ -37,9 +39,6 @@ public class GrapeService {
         }
     }
 
-    private static class GrapeServiceHolder {
-        public static final GrapeService INSTANCE = new GrapeService();
-    }
 
     public ObservableList<GrapeListViewModel> getAllGrape() {
         List<Grape> grapes = grapeRepository.getAll();

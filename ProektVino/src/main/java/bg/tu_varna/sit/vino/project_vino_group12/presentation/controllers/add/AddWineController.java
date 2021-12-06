@@ -26,6 +26,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 
 import java.net.URL;
 import java.util.List;
@@ -39,6 +40,7 @@ public class AddWineController implements Initializable {
     private final WinesService winesService=WinesService.getInstance();
     private final WinesRepository winesRepository=WinesRepository.getInstance();
     Stage s;
+    private static final org.apache.log4j.Logger log = Logger.getLogger(AddWineController.class);
 
     @FXML
     private Label label1;
@@ -90,7 +92,9 @@ public class AddWineController implements Initializable {
         /*grapeWines.setWine(wine);
         grapeWines.setGrape(grape);*/
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
+
         grapeWinesService.addGrapeWines(grapeWines,grape,wine);
+
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
