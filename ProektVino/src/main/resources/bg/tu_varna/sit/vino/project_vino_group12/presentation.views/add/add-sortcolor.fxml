@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="500.0" prefWidth="750.0" stylesheets="@../css/InputPages.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="258.0" layoutY="310.0" mnemonicParsing="false" text="Add color" onAction="#createSortColor"/>
-      <TextField layoutX="218.0" layoutY="247.0" fx:id="color"/>
-      <Label layoutX="245.0" layoutY="191.0" text="Please enter color" />
-      <Button layoutX="493.0" layoutY="339.0" mnemonicParsing="false" text="Go back" onAction="#goBack"/>
+      <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
+         <children>
+            <Label fx:id="createBottle" layoutX="164.0" layoutY="73.0" prefHeight="70.0" prefWidth="288.0" styleClass="labelTitle" text="Please enter the color &#10;of the grape you want to add:" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="color" layoutX="233.0" layoutY="232.0" prefHeight="37.0" prefWidth="149.0" styleClass="inputFields" />
+            <Button layoutX="242.0" layoutY="294.0" mnemonicParsing="false" onAction="#createSortColor" prefHeight="52.0" prefWidth="132.0" styleClass="confirmButtons" text="Add color" wrapText="true" />
+            <Label layoutX="232.0" layoutY="203.0" text="Color:" />
+         </children>
+      </Pane>
+      <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">
+         <children>
+            <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#goBack" prefHeight="70.0" prefWidth="70.0" styleClass="GoBackButton">
+               <graphic>
+                  <ImageView fitHeight="79.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/share-orange.png" />
+                     </image></ImageView>
+               </graphic></Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

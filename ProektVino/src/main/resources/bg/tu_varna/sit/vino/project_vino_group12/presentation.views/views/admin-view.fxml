@@ -9,6 +9,14 @@
    <children>
       <Separator layoutX="241.0" orientation="VERTICAL" prefHeight="731.0" prefWidth="4.0" />
       <Separator layoutX="242.0" layoutY="119.0" prefHeight="17.0" prefWidth="769.0" />
+      <Pane layoutX="241.0" layoutY="-1.0" prefHeight="129.0" prefWidth="769.0" styleClass="header">
+         <children>
+            <Circle fill="#345830" layoutX="392.0" layoutY="65.0" radius="96.0" />
+            <ImageView fitHeight="157.0" fitWidth="211.0" layoutX="291.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/Logo.png" />
+               </image></ImageView>
+         </children></Pane>
       <Pane layoutX="-2.0" prefHeight="731.0" prefWidth="243.0" styleClass="leftMenu">
          <children>
             <Button fx:id="changeToCreate" layoutX="23.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToCreate" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Create" />
@@ -58,16 +66,13 @@
                   <Button fx:id="createAdmin" layoutX="316.0" layoutY="204.0" mnemonicParsing="false" onAction="#createAdmin" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Create Admin" />
                </children>
             </Pane>
+            <Pane prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
+               <children>
+                  <Label layoutX="39.0" layoutY="5.0" prefHeight="596.0" prefWidth="728.0" styleClass="frontLabel" text="Welcome to &#10;V&amp;A &#10;Winery!&#10;&#10;Please choose one of the cathegories." textAlignment="CENTER" wrapText="true">
+                  </Label>
+               </children></Pane>
          </children>
       </Pane>
-      <Pane layoutX="241.0" layoutY="-1.0" prefHeight="129.0" prefWidth="769.0" styleClass="header">
-         <children>
-            <ImageView fitHeight="157.0" fitWidth="211.0" layoutX="291.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/Logo.png" />
-               </image></ImageView>
-            <Circle fill="#345830" layoutX="769.0" layoutY="64.0" radius="64.0" />
-         </children></Pane>
 
    </children>
 </AnchorPane>
