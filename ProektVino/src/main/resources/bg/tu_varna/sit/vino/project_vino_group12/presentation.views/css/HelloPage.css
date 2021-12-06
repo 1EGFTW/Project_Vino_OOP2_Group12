@@ -46,6 +46,11 @@
     -fx-position:fixed;
 }
 
+.button:focused{
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #345830;
+}
+
 .loginButtons{
     -fx-padding: 15px 15px 15px 15px;
     -fx-font-size: 16;

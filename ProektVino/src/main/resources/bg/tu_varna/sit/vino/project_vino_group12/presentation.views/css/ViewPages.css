@@ -49,6 +49,11 @@
       -fx-font-weight: bold;
   }
 
+ centerPaneButtons:focused{
+     -fx-faint-focus-color: transparent;
+     -fx-focus-color: #345830;
+}
+
   .label{
     -fx-font-weight: bold;
     -fx-font-size: 18;
@@ -86,6 +91,11 @@
     -fx-background-color: #345830;
 }
 
+.combo .list-cell:focused{
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #A7CCA3;
+}
+
 .notificationsButton{
     -fx-color: #FCC99C;
     -fx-font-family: sans-serif;
@@ -102,4 +112,13 @@
     -fx-cursor: hand;
     -fx-text-fill: #23272F;
     -fx-border-color: #FFDEC2;
+}
+
+.notificationButton:focused{
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #FCC99C;
+}
+
+.frontLabel{
+    -fx-font-size: 36;
 }
