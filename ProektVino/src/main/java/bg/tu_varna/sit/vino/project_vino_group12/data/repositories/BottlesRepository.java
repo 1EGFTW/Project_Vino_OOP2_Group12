@@ -106,20 +106,5 @@ public class BottlesRepository implements DAORepository<Bottles>{
         }
         return bottles;
     }
-    public void updateQuantity(Bottles b,int q){
-        Session session=Connection.openSession();
-        Transaction transaction= session.beginTransaction();
-        try{
-            String jpql="UPDATE Bottles b SET bottle_quantity="+String.valueOf(q)+" WHERE id_bottle="+b.getId_bottle();
-            session.createQuery(jpql,Bottles.class).getResultList();
-            log.info("Bottle updated!");
-        }catch(Exception e){
-            log.error("Bottle error"+e.getMessage());
-        }finally {
-            transaction.commit();
-            session.close();
-        }
-    }
-
 
 }

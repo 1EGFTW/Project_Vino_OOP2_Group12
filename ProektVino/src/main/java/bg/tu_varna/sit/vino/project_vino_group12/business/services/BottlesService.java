@@ -6,6 +6,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesReposi
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.log4j.Logger;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,13 +17,16 @@ public class BottlesService {
     public static BottlesService getInstance(){
         return BottlesRepositoryHolder.INSTANCE;
     }
+    private static final Logger log=Logger.getLogger(BottlesService.class);
 
     public void deleteBottle(BottlesListViewModel bottle) {
         Bottles b=getBottleBySize(bottle.getBottle_size());
         try{
             repository.delete(b);
+            log.info("Bottle "+b+" deleted successfully!");
         }catch(Exception e){
             e.printStackTrace();
+            log.error("Error deleting bottle "+b);
         }
     }
 
@@ -42,13 +46,16 @@ public class BottlesService {
     public int addBottle(BottlesListViewModel b){
         Bottles temp=new Bottles(b.getBottle_size(),b.getBottle_quantity());
         if(checkIfBottleExists(temp)){
+            log.info("Bottle "+temp+" already exists!");
             return 0;
         }
         else {
             try {
                 repository.save(temp);
+                log.info("Bottle "+b+" added successfully!");
             } catch (Exception e) {
                 e.printStackTrace();
+                log.error("Error adding bottle "+b);
             }
         }
         return 1;
@@ -59,9 +66,11 @@ public class BottlesService {
         {
             if(bottle.equals(b))
             {
+                log.info("Bottle "+bottle+" already exists!");
                 return true;
             }
         }
+        log.info("Bottle "+b+" does not exist!");
         return false;
     }
     public Bottles getBottleBySize(int size){
@@ -72,12 +81,10 @@ public class BottlesService {
             if(b.getBottle_size()==size)
             {
                 temp=b;
+                log.info("Bottle "+temp+" found!");
             }
         }
         return temp;
-    }
-    public Bottles convertListViewToObject(BottlesListViewModel b){
-        return new Bottles(b.getBottle_size(),b.getBottle_quantity());
     }
     public List<Bottles> checkCriticalLevels(){
         List<Bottles> allBottles=repository.getAll();
@@ -87,19 +94,23 @@ public class BottlesService {
             if(bottle.getBottle_quantity()<=2)
             {
                 temp.add(bottle);
+                log.info("Bottle "+bottle+" at critical level!");
             }
         }
         return temp;
     }
-    public void updateBottleQuantity(BottlesListViewModel b,int q){
+    public boolean updateBottleQuantity(BottlesListViewModel b,int q){
         Bottles bottle=getBottleBySize(b.getBottle_size());
         int temp=0;
         temp=q+bottle.getBottle_quantity();
         bottle.setBottle_quantity(temp);
         try{
             repository.update(bottle);
+            log.info("Bottle quantity updated successfully!");
+            return true;
         }catch(Exception e){
             e.printStackTrace();
+            return false;
         }
     }
 }

@@ -32,6 +32,6 @@ public class WinesListViewModel {
 
     @Override
     public String toString() {
-        return String.format("\t%s\t\t|\t\t%s\t", name_wine, total);
+        return String.format("Wine: %s | total quantity in storage: %s", name_wine, total);
     }
 }

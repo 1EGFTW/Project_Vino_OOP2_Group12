@@ -64,10 +64,10 @@ public class AddProductionController implements Initializable {
         Production production=new Production(w,b,Integer.parseInt(produced_bottles.getText()));*/
         WinesListViewModel w=name_wine.getValue();
         BottlesListViewModel b=bottle_size.getValue();
-        Wines wine=winesService.changeListViewToObject(w);
-        Bottles bottles=bottlesService.convertListViewToObject(b);
-        ProductionListViewModel production=new ProductionListViewModel(wine,bottles,Integer.parseInt(produced_bottles.getText()));
-        int res=productionService.addProduction(production);
+       /* Wines wine=winesService.changeListViewToObject(w);
+        Bottles bottles=bottlesService.convertListViewToObject(b);*/
+        ProductionListViewModel production=new ProductionListViewModel(Integer.parseInt(produced_bottles.getText()));
+        int res=productionService.addProduction(production,w,b);
         if(res==1) {
             loadNewPage(ADMIN_VIEW);
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successful entry!",ButtonType.OK);

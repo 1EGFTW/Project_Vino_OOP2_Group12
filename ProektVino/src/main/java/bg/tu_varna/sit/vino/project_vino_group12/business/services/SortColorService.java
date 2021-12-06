@@ -74,12 +74,5 @@ public class SortColorService {
         }
         return temp;
     }
-    public SortColor changeListViewToObject(SortColorListViewModel s){
-        SortColor temp=new SortColor(s.getColor());
-        return temp;
-    }
-    public SortColorListViewModel convertSortColorToListView(SortColor s){
-        SortColorListViewModel sc=new SortColorListViewModel(s.getColor());
-        return sc;
-    }
+
 }

@@ -42,7 +42,7 @@ public class DeleteAdminController implements Initializable {
     private void deleteAdmin(ActionEvent actionEvent){
         AdminListViewModel admin=adminComboBox.getValue();
         adminService.deleteAdmin(admin);
-           loadNewPage(ADMIN_VIEW);
+        loadNewPage(ADMIN_VIEW);
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted admin!", ButtonType.OK);
         alert.show();
         }

@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -42,7 +39,17 @@ public class UpdateBottlesController implements Initializable {
     public void updateBottles(ActionEvent actionEvent){
         BottlesListViewModel bottle=bottles.getValue();
         int newQuantity=Integer.parseInt(quantity.getText());
-        bottlesService.updateBottleQuantity(bottle,newQuantity);
+        if(bottlesService.updateBottleQuantity(bottle,newQuantity)){
+            loadNewPage();
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully added!",ButtonType.OK);
+            alert.show();
+        }
+        else{
+            Alert alert=new Alert(Alert.AlertType.ERROR,"Error!",ButtonType.OK);
+            alert.show();
+            quantity.setText("");
+        }
+
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
@@ -66,5 +73,18 @@ public class UpdateBottlesController implements Initializable {
     public void fillComboBox(){
         ObservableList<BottlesListViewModel> allbottles=bottlesService.getAllBottles();
         bottles.setItems(allbottles);
+    }
+    public void loadNewPage(){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateViewController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

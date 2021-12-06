@@ -72,14 +72,18 @@ public class WinesService {
         }
         return false;
     }
-    public WinesListViewModel convertWinesToListView(Wines w){
-        WinesListViewModel winesListViewModel=new WinesListViewModel(w.getName_wine(),w.getTotal());
-        return winesListViewModel;
-    }
-    public Wines changeListViewToObject(WinesListViewModel w){
-        Wines temp=new Wines(w.getName_wine(),w.getTotal());
-        return temp;
-    }
 
+    public boolean updateWine(WinesListViewModel w,int q){
+        Wines wine=getWineByName(w.getName_wine());
+        int temp=q+wine.getTotal();
+        wine.setTotal(temp);
+        try{
+            repository.update(wine);
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

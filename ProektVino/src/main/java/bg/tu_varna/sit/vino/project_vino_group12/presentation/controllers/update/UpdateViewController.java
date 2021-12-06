@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update;
 
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,8 @@ public class UpdateViewController {
     public Button grape;
     @FXML
     public Button wine;
+    @FXML
+    public Button back;
 
     @FXML
     public void updateBottles(ActionEvent actionEvent){
@@ -62,6 +65,20 @@ public class UpdateViewController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_WINE));
             Stage stage = new Stage();
             fxmlLoader.setController(new UpdateWineController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void goBack(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();

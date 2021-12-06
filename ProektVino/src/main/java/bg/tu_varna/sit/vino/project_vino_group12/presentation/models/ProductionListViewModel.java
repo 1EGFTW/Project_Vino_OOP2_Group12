@@ -16,6 +16,10 @@ public class ProductionListViewModel {
         this.produced_bottles = produced_bottles;
     }
 
+    public ProductionListViewModel(int produced_bottles) {
+        this.produced_bottles=produced_bottles;
+    }
+
     public Wines getWines() {
         return wines;
     }

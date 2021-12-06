@@ -4,6 +4,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.*;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.*;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.ProductionListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -51,9 +52,6 @@ public class ProductionService {
                     p.getProduced_bottles()
         )).collect(Collectors.toList()));
     }
-    public Production changeListViewToObject(ProductionListViewModel p){
-        return new Production(p.getWines(),p.getBottles(),p.getProduced_bottles());
-    }
     public Production getProduction(ProductionListViewModel production){
         List<Production> all=repository.getAll();
         Production temp=new Production(winesService.getWineByName(production.getWines().getName_wine()), bottlesService.getBottleBySize(production.getBottles().getBottle_size()), production.getProduced_bottles());
@@ -64,9 +62,9 @@ public class ProductionService {
         }
         return null;
     }
-    public int addProduction(ProductionListViewModel p)
+    public int addProduction(ProductionListViewModel p, WinesListViewModel w,BottlesListViewModel b)
     {
-        Wines wine=winesService.getWineByName(p.getWines().getName_wine());
+        Wines wine=winesService.getWineByName(w.getName_wine());
       /*  int total=wine.getTotal();*/
         /*List<Bottles> allBottles=new ArrayList<>();
         allBottles=bottlesRepository.getAll();
@@ -91,7 +89,7 @@ public class ProductionService {
                 temp.setBottle_quantity(temp.getBottle_quantity()-listNumberBottles.get(i+1));
             }
         }*/
-        Bottles bottle=bottlesService.getBottleBySize(p.getBottles().getBottle_size());
+        Bottles bottle=bottlesService.getBottleBySize(b.getBottle_size());
         Production production=new Production(wine,bottle/*temp*/,p.getProduced_bottles());
         //update-va br butilki v sklada sled proizvodstvo
         int bottle_quantity=production.getBottle().getBottle_quantity();

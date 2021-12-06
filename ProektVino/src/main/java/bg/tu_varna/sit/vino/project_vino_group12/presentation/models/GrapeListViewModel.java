@@ -5,11 +5,11 @@ import javafx.scene.control.Label;
 
 public class GrapeListViewModel {
     private String name_sort;
-    private SortColorListViewModel sortColor;
+    private SortColor sortColor;
     private int sort_quantity;
     private int quantity_by_kg;
 
-    public GrapeListViewModel(String name_sort, SortColorListViewModel sortColor, int sort_quantity, int quantity_by_kg){
+    public GrapeListViewModel(String name_sort, SortColor sortColor, int sort_quantity, int quantity_by_kg){
         this.name_sort = name_sort;
         this.sortColor = sortColor;
         this.sort_quantity = sort_quantity;
@@ -17,6 +17,12 @@ public class GrapeListViewModel {
     }
 
     public GrapeListViewModel() {
+    }
+
+    public GrapeListViewModel(String name_sort, int sort_quantity, int quantity_by_kg) {
+        this.name_sort=name_sort;
+        this.sort_quantity=sort_quantity;
+        this.quantity_by_kg=quantity_by_kg;
     }
 
 
@@ -32,11 +38,11 @@ public class GrapeListViewModel {
         this.name_sort = name_sort;
     }
 
-    public SortColorListViewModel getSortColor() {
+    public SortColor getSortColor() {
         return sortColor;
     }
 
-    public void setSortColor(SortColorListViewModel sortColor) {
+    public void setSortColor(SortColor sortColor) {
         this.sortColor = sortColor;
     }
 
@@ -58,6 +64,6 @@ public class GrapeListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s\t\t  |\t\t %s\t\t|\t\t%s\t\t|\t\t%s", name_sort, sortColor, sort_quantity, quantity_by_kg);
+        return String.format("Grape: %s | color: %s | quantity in storage: %s | wine produced by 1kg: %s", name_sort, sortColor, sort_quantity, quantity_by_kg);
     }
 }
