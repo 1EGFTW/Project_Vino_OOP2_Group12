@@ -71,7 +71,6 @@ public class AdminService {
         if(checkIfAdminExists(admin)){
             log.info("Admin "+a+" already exists!");
             return 0;
-
         }
         else {
             try{

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JpbDataSourceConfig">
-    <data-sources>
-      <data-source id="b4941f14-a53a-418a-9567-a75ec3db6951" name="Project_Vino_OOP2_Group12" url="jdbc:mysql://localhost/wine?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
-    </data-sources>
-  </component>
-</project>
