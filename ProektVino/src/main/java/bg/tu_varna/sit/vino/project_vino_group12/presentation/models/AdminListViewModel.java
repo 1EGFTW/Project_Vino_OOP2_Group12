@@ -4,6 +4,7 @@ public class AdminListViewModel {
     private String username_admin;
     private String password_admin;
 
+    public AdminListViewModel(){}
     public AdminListViewModel(String username_admin, String password_admin) {
         this.username_admin = username_admin;
         this.password_admin = password_admin;
