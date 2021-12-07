@@ -3,7 +3,7 @@
 }
 
 .inputField{
-    -fx-background-color: #EEEBD3;
+    -fx-background-color: #F7EDDA;
 }
 
 .confirmButtons{
@@ -16,6 +16,8 @@
      -fx-border-radius: 30 30 30 30;
      -fx-font-size: 12;
      -fx-alignment: center;
+     -fx-text-fill: #A1A9BA;
+     -fx-font-weight: bold;
  }
 
  .confirmButtons:hover{
@@ -28,6 +30,7 @@
      -fx-font-style: italic;
      -fx-font-weight: bold;
      -fx-position:fixed;
+     -fx-text-fill: #0A090C;
  }
 
  .label{
@@ -35,12 +38,12 @@
  }
 
  .inputFields{
-    -fx-control-inner-background: #FFECDB;
+    -fx-control-inner-background: #A7CCA3; /*FFECDB old*/
  }
 
  .inputFields:focused{
     -fx-faint-focus-color: transparent;
-    -fx-focus-color: #FFECDB;
+    -fx-focus-color: #A7CCA3; /*FFECDB old*/
 }
 
  .GoBackButton{
@@ -60,7 +63,7 @@
     -fx-font-size: 20;
  }
 
- .combo{
+ /*.combo{
      -fx-background-color: #FFECDB;
  }
 
@@ -76,4 +79,25 @@
  .combo .list-cell:focused{
      -fx-faint-focus-color: transparent;
      -fx-focus-color: #A7CCA3;
+ }*/
+
+ .combo{
+     -fx-background-color: #A7CCA3;
+     -fx-font-weight: bold;
+ }
+
+ .combo .list-cell{
+     -fx-background-color: #A7CCA3;
+     -fx-font-weight: bold;
+ }
+
+ .combo .list-cell:hover{
+     -fx-background-color: #345830;
+     -fx-font-weight: bold;
+ }
+
+ .combo .list-cell:focused{
+     -fx-faint-focus-color: transparent;
+     -fx-focus-color: #A7CCA3;
+     -fx-font-weight: bold;
  }

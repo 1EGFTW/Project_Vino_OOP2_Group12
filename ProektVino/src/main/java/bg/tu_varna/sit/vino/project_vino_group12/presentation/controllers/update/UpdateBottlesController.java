@@ -17,7 +17,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.UPDATE_VIEW;
 
 public class UpdateBottlesController implements Initializable {
     BottlesService bottlesService=BottlesService.getInstance();
@@ -55,9 +54,9 @@ public class UpdateBottlesController implements Initializable {
     public void goBack(ActionEvent actionEvent){
         try {
             s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_VIEW));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
             Stage stage = new Stage();
-            fxmlLoader.setController(new UpdateViewController(stage));
+            fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();
@@ -77,9 +76,9 @@ public class UpdateBottlesController implements Initializable {
     public void loadNewPage(){
         try {
             s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_VIEW));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
             Stage stage = new Stage();
-            fxmlLoader.setController(new UpdateViewController(stage));
+            fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
             stage.show();

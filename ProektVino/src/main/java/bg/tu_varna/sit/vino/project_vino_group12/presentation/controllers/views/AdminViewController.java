@@ -11,7 +11,9 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateWarehouseHostController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete.*;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateBottlesController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateGrapeController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateWineController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,6 +48,8 @@ public class AdminViewController implements Initializable {
     @FXML
     public Pane deletePane;
     @FXML
+    public Pane updatePane;
+    @FXML
     public Button changeToCreate;
     @FXML
     public Button changeToAdd;
@@ -79,6 +83,16 @@ public class AdminViewController implements Initializable {
     private Button deleteChoice;
     @FXML
     private Button notifications;
+    @FXML
+    public Label label;
+    @FXML
+    public Button bottle;
+    @FXML
+    public Button grape;
+    @FXML
+    public Button wine;
+    @FXML
+    public Button back;
 
     public AdminViewController(Stage s){
         this.s=s;
@@ -402,6 +416,49 @@ public class AdminViewController implements Initializable {
     }
 
     @FXML
+    public void updateBottles(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_BOTTLES));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateBottlesController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void updateGrape(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_GRAPE));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateGrapeController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void updateWine(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_WINE));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateWineController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void changeToCreate(ActionEvent actionEvent){
         wrapperPane.getChildren().clear();
         wrapperPane.getChildren().add(createPane);
@@ -424,19 +481,11 @@ public class AdminViewController implements Initializable {
         wrapperPane.getChildren().clear();
         wrapperPane.getChildren().add(deletePane);
     }
+
     @FXML
-    public void loadUpdatePage(ActionEvent actionEvent){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_VIEW));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new UpdateViewController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+    public void changeToUpdate(ActionEvent actionEvent){
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(updatePane);
     }
 
 }
