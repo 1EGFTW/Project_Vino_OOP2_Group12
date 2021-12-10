@@ -20,10 +20,11 @@ public class Production implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
 
     @JoinColumn(name = "id_wine")
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     private Wines wine;
 
     @ManyToOne(fetch = FetchType.LAZY)
-
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     @JoinColumn(name = "id_bottle")
     private Bottles bottle;
 

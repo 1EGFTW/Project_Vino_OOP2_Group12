@@ -21,8 +21,9 @@ public class BottlesService {
 
     public void deleteBottle(BottlesListViewModel bottle) {
         Bottles b=getBottleBySize(bottle.getBottle_size());
+        b.setBottle_quantity(0);
         try{
-            repository.delete(b);
+            repository.update(b);
             log.info("Bottle "+b+" deleted successfully!");
         }catch(Exception e){
             e.printStackTrace();

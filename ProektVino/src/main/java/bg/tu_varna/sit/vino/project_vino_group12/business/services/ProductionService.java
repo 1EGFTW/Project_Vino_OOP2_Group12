@@ -25,12 +25,12 @@ public class ProductionService {
     public final BottlesRepository bottlesRepository=BottlesRepository.getInstance();
     public final GrapeRepository grapeRepository=GrapeRepository.getInstance();
     public final WinesRepository winesRepository=WinesRepository.getInstance();
-    public final WinesService winesService=WinesService.getInstance();
     public final BottlesService bottlesService=BottlesService.getInstance();
     private static final org.apache.log4j.Logger log = Logger.getLogger(ProductionService.class);
 
     public void deleteProduction(ProductionListViewModel production) {
         Production p=getProduction(production);
+
         try{
             repository.delete(p);
         }catch (Exception e){
@@ -53,6 +53,7 @@ public class ProductionService {
         )).collect(Collectors.toList()));
     }
     public Production getProduction(ProductionListViewModel production){
+        WinesService winesService=WinesService.getInstance();
         List<Production> all=repository.getAll();
         Production temp=new Production(winesService.getWineByName(production.getWines().getName_wine()), bottlesService.getBottleBySize(production.getBottles().getBottle_size()), production.getProduced_bottles());
         for(Production p:all){
@@ -62,8 +63,18 @@ public class ProductionService {
         }
         return null;
     }
+    public boolean checkIfWineIsInProduction(Wines wine){
+        List<Production> productions=repository.getAll();
+        for(Production p:productions){
+            if(p.getWine().equals(wine)){
+                return true;
+            }
+        }
+        return false;
+    }
     public int addProduction(ProductionListViewModel p, WinesListViewModel w,BottlesListViewModel b)
     {
+        WinesService winesService=WinesService.getInstance();
         Wines wine=winesService.getWineByName(w.getName_wine());
       /*  int total=wine.getTotal();*/
         /*List<Bottles> allBottles=new ArrayList<>();

@@ -61,9 +61,15 @@ public class DeleteGrapeController implements Initializable {
     @FXML
     public void deleteGrape(ActionEvent actionEvent){
         GrapeListViewModel grape=grapeComboBox.getValue();
-        grapeService.deleteGrape(grape);
-        loadNewPage(ADMIN_VIEW);
-        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted grape!", ButtonType.OK);
-        alert.show();
+        if(grapeService.deleteGrape(grape)){
+            loadNewPage(ADMIN_VIEW);
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted grape!", ButtonType.OK);
+            alert.show();
+        }
+        else{
+            Alert alert=new Alert(Alert.AlertType.ERROR,"This grape is used in a wine!", ButtonType.OK);
+            alert.show();
+        }
+
     }
 }

@@ -44,11 +44,12 @@ public class GrapeWinesService {
     public void addGrapeWines(GrapeWinesListViewModel g, GrapeListViewModel gr, WinesListViewModel w){
         /*Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort());*/
         GrapeService service=GrapeService.getInstance();
+        WinesService wService=WinesService.getInstance();
         Grape grape = service.getGrapeByName(gr.getName_sort());
         /*Wines wine=changeListViewToObject(g).getWine();*/
         Wines wine=new Wines(w.getName_wine(),w.getTotal());
-        if(winesService.isWineAlreadyCreated(wine)){
-            wine=winesService.getWineByName(wine.getName_wine());
+        if(wService.isWineAlreadyCreated(wine)){
+            wine=wService.getWineByName(wine.getName_wine());
         }
         GrapeWines grapeWines=new GrapeWines(grape,wine,g.getQuantity_for_wine());
 
@@ -70,6 +71,16 @@ public class GrapeWinesService {
         GrapeWines temp=new GrapeWines();
         for(GrapeWines gr:grapeWines){
             if(gr.getGrape().equals(g)){
+                return gr;
+            }
+        }
+        return null;
+    }
+    public GrapeWines getByWineName(Wines w){
+        List<GrapeWines> grapeWines=grapeWinesRepository.getAll();
+        GrapeWines temp=new GrapeWines();
+        for(GrapeWines gr:grapeWines){
+            if(gr.getWine().equals(w)){
                 return gr;
             }
         }

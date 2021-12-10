@@ -21,7 +21,7 @@ public class Grape implements Serializable {
     private String name_sort;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     @JoinColumn(name = "id_sort_color")
     private SortColor sortColor;
 

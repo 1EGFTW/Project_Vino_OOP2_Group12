@@ -21,7 +21,7 @@ public class SortColor implements Serializable {
     private String color;
 
     @OneToMany(mappedBy = "sortColor")
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     private Set<Grape> grapes=new HashSet<Grape>();
 
     public SortColor(){}

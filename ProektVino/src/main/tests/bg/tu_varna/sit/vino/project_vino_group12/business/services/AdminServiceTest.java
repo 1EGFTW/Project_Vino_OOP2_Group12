@@ -3,9 +3,11 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
+import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ class AdminServiceTest {
     private AdminListViewModel adminListViewModel;
     private Bottles bottle;
     private Grape grape;
+    private AdminRepository adminRepository;
 
     @BeforeEach
     void setUp() {
@@ -31,13 +34,17 @@ class AdminServiceTest {
         grape=new Grape();
         grape.setSort_quantity(40);
         grape.setName_sort("Test");
+        adminRepository=AdminRepository.getInstance();
     }
     @Test
-    void deleteAdmin(AdminListViewModel admin){
-
+    void deleteAdmin(){
+        List<Admin> allAdmins=adminRepository.getAll();
+        adminService.deleteAdmin(adminListViewModel);
+        assertNotEquals(allAdmins,adminRepository.getAll());
     }
 
     @Test
+    @Disabled
     void getAllAdmin() {
        /* ObservableList<AdminListViewModel> allAdmins = AdminService.getInstance().getAllAdmin();
         assertEquals(allAdmins,adminService.getAllAdmin());*/
@@ -66,6 +73,7 @@ class AdminServiceTest {
     }
 
     @Test
+    @Disabled
     void getAdminByName() {
         assertEquals(admin,adminService.getAdminByName(admin.getUsername_admin()));//??????
     }

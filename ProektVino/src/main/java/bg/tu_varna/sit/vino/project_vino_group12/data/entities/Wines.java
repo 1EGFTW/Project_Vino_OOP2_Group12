@@ -21,14 +21,14 @@ public class Wines implements Serializable {
     private String name_wine;
 
     @OneToMany(mappedBy = "wine")
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<GrapeWines> grapeWines=new HashSet<>();
 
     @Column(name="total",nullable = false)
     private int total;
 
     @OneToMany(mappedBy = "wine")
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     private Set<Production> production;
 
     public Wines(){

@@ -18,17 +18,29 @@ import java.util.stream.Collectors;
 public class WinesService {
     private final WinesRepository repository = WinesRepository.getInstance();
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
+    private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
+    private final ProductionService productionService=ProductionService.getInstance();
     public static  WinesService getInstance() {
         return WinesServiceHolder.INSTANCE;
     }
 
-    public void deleteWine(WinesListViewModel wine) {
+    public boolean deleteWine(WinesListViewModel wine) {
+        GrapeWinesService gwService=GrapeWinesService.getInstance();
         Wines w=getWineByName(wine.getName_wine());
-        try{
-            repository.delete(w);
-        }catch(Exception e){
-            e.printStackTrace();
+        GrapeWines grapeWines=gwService.getByWineName(w);
+        if(productionService.checkIfWineIsInProduction(w)){
+            return false;
         }
+        else {
+            //variant e ako iskame da se trie vinoto no porudction da ostava, varianta e da se set-va total=0
+            try {
+                grapeWinesRepository.delete(grapeWines);
+                repository.delete(w);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
     }
 
     private static class WinesServiceHolder {

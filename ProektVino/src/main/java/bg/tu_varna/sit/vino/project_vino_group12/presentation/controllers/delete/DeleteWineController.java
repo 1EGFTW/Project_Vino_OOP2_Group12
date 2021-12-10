@@ -62,9 +62,14 @@ public class DeleteWineController implements Initializable {
     @FXML
     public void deleteWine(ActionEvent actionEvent){
         WinesListViewModel wine=wineComboBox.getValue();
-        winesService.deleteWine(wine);
-        loadNewPage(ADMIN_VIEW);
-        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted wine!", ButtonType.OK);
-        alert.show();
+        if(winesService.deleteWine(wine)){
+            loadNewPage(ADMIN_VIEW);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Successfully deleted wine!", ButtonType.OK);
+            alert.show();
+
+        }else {
+            Alert alert=new Alert(Alert.AlertType.ERROR,"This wine is used in a production cycle!", ButtonType.OK);
+            alert.show();
+        }
     }
 }
