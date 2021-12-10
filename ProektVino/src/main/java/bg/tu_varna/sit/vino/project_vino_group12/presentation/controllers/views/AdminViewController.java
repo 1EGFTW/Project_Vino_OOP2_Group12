@@ -6,6 +6,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloC
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.*;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckBottlesController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckGrapesController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckProductionController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckWinesController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateAdminController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create.CreateOperatorController;
@@ -33,9 +34,9 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AdminViewController implements Initializable {
-    AdminService adminService=AdminService.getInstance();
-    OperatorService operatorService=OperatorService.getInstance();
-    WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
+    private final AdminService adminService=AdminService.getInstance();
+    private final OperatorService operatorService=OperatorService.getInstance();
+    private final WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     Stage s;
     @FXML
     public Pane wrapperPane;
@@ -75,6 +76,8 @@ public class AdminViewController implements Initializable {
     private Button checkAvailableBottles;
     @FXML
     private Button checkAvailableWines;
+    @FXML
+    private Button checkAvailableProductions;
     @FXML
     private Label delete;
     @FXML
@@ -253,6 +256,21 @@ public class AdminViewController implements Initializable {
         }
     }
     @FXML
+    public void checkAvailableProductions(ActionEvent actionEvent){
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_PRODUCTION));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new CheckProductionController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
     public void goBack(ActionEvent actionEvent){
         loadNewPage(HELLO_VIEW);
     }
@@ -399,6 +417,10 @@ public class AdminViewController implements Initializable {
         }
         for (String s:grapes){
             Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nGrape: "+s,ButtonType.OK);
+            alert.show();
+        }
+        if(bottles.isEmpty() && grapes.isEmpty()){
+            Alert alert=new Alert(Alert.AlertType.INFORMATION,"Everything is in stock!",ButtonType.OK);
             alert.show();
         }
     }

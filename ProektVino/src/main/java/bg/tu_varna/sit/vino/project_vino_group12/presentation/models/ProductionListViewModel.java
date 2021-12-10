@@ -46,6 +46,6 @@ public class ProductionListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s | %s", wines, bottles, produced_bottles);
+        return String.format("Wine: %s | Bottle: %s | Produced bottles: %s", wines.getName_wine(), bottles.getBottle_size(), produced_bottles);
     }
 }
