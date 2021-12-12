@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" stylesheets="@../css/InputPages.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <ListView fx:id="productions" layoutX="63.0" layoutY="113.0" prefHeight="232.0" prefWidth="499.0" />
-        <Button fx:id="goBack" onAction="#goBack" layoutX="497.0" layoutY="361.0" mnemonicParsing="false" text="Go back" />
+        <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
+            <children>
+                <Label fx:id="label1" layoutX="202.0" layoutY="33.0" styleClass="labelTitle" text="Completed productions" />
+                <TableView fx:id="productionTable" layoutX="12.0" layoutY="79.0" prefHeight="421.0" prefWidth="601.0">
+                    <columns>
+                        <TableColumn fx:id="col_Wine" prefWidth="262.0" text="Wine used" />
+                        <TableColumn fx:id="col_Bottle" prefWidth="171.0" text="Bottles used in ml" />
+                        <TableColumn fx:id="col_ProducedBottles" prefWidth="166.0" text="Produced bottles" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">
+            <children>
+                <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#goBack" prefHeight="70.0" prefWidth="70.0" styleClass="GoBackButton">
+                    <graphic>
+                        <ImageView fitHeight="79.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/share-orange.png" />
+                            </image></ImageView>
+                    </graphic></Button>
+            </children>
+        </Pane>
     </children>
 </AnchorPane>

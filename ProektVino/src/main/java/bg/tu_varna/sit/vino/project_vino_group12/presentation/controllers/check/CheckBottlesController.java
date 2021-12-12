@@ -14,6 +14,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -29,11 +32,11 @@ public class CheckBottlesController implements Initializable {
     @FXML
     private Label label1;
     @FXML
-    private Label label2;
+    private TableView<BottlesListViewModel> bottlesTable = new TableView<>();
     @FXML
-    private Label label3;
+    private TableColumn<BottlesListViewModel, Integer> bottleSize = new TableColumn<>();
     @FXML
-    private ListView<BottlesListViewModel> bottles;
+    private TableColumn<BottlesListViewModel, Integer> bottleQuantity  = new TableColumn<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,7 +45,9 @@ public class CheckBottlesController implements Initializable {
     public void displayBottles(){
         BottlesService bottlesService=BottlesService.getInstance();
         ObservableList<BottlesListViewModel> bottlesListViewModels=bottlesService.getAllBottles();
-        bottles.setItems(bottlesListViewModels);
+            bottleSize.setCellValueFactory(new PropertyValueFactory<>("bottle_size"));
+            bottleQuantity.setCellValueFactory(new PropertyValueFactory<>("bottle_quantity"));
+            bottlesTable.setItems(bottlesListViewModels);
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
@@ -53,6 +58,7 @@ public class CheckBottlesController implements Initializable {
             fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();

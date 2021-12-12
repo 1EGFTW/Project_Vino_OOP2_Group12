@@ -42,6 +42,7 @@ public class CreateOperatorController {
                 fxmlLoader.setController(new CreateOperatorController(stage));
                 Parent root1 = (Parent) fxmlLoader.load();
                 stage.setScene(new Scene(root1));
+                stage.setResizable(false);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -67,6 +68,7 @@ public class CreateOperatorController {
             fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();

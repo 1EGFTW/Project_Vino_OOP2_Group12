@@ -1,11 +1,14 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
+import bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WinesService;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.ProductionListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +19,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -31,11 +37,11 @@ public class CheckWinesController implements Initializable {
     @FXML
     private Label label1;
     @FXML
-    private Label label2;
+    private TableView<WinesListViewModel> wineTable = new TableView<>();
     @FXML
-    private Label label3;
+    private TableColumn<WinesListViewModel, String> col_Name = new TableColumn<>();
     @FXML
-    private ListView<WinesListViewModel> wines;
+    private TableColumn<WinesListViewModel, Integer> col_Quantity  = new TableColumn<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,7 +50,9 @@ public class CheckWinesController implements Initializable {
     public void displayWines(){
         WinesService winesService=WinesService.getInstance();
         ObservableList<WinesListViewModel> winesListViewModels=winesService.getAllWines();
-        wines.setItems(winesListViewModels);
+        col_Name.setCellValueFactory(new PropertyValueFactory<>("name_wine"));
+        col_Quantity.setCellValueFactory(new PropertyValueFactory<>("total"));
+        wineTable.setItems(winesListViewModels);
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
@@ -55,6 +63,7 @@ public class CheckWinesController implements Initializable {
             fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();

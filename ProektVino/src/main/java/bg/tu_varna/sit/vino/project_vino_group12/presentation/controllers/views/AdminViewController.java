@@ -110,6 +110,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CreateOperatorController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -124,6 +125,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CreateWarehouseHostController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -138,6 +140,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CreateAdminController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -152,6 +155,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new AddGrapeController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -166,6 +170,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new AddBottlesController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -180,6 +185,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new AddSortColorController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -194,6 +200,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new AddWineController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -208,6 +215,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new AddProductionController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -222,6 +230,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CheckGrapesController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -236,6 +245,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CheckBottlesController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -250,6 +260,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CheckWinesController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -264,6 +275,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new CheckProductionController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -286,6 +298,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteAdminController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -299,6 +312,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteOperatorController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -312,6 +326,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteWarehouseHostController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -325,6 +340,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteBottleController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -338,6 +354,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteWineController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -351,6 +368,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteGrapeController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -364,6 +382,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteSortColorController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -377,6 +396,7 @@ public class AdminViewController implements Initializable {
                     fxmlLoader.setController(new DeleteProductionController(stage));
                     Parent root1 = (Parent) fxmlLoader.load();
                     stage.setScene(new Scene(root1));
+                    stage.setResizable(false);
                     stage.show();
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -393,6 +413,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new HelloController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -446,6 +467,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new UpdateBottlesController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -460,6 +482,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new UpdateGrapeController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -474,6 +497,7 @@ public class AdminViewController implements Initializable {
             fxmlLoader.setController(new UpdateWineController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();

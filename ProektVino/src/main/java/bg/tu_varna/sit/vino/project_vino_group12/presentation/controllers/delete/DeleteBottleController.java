@@ -54,6 +54,7 @@ public class DeleteBottleController implements Initializable {
             fxmlLoader.setController(new AdminViewController(stage));
             Parent root1 = (Parent) fxmlLoader.load();
             stage.setScene(new Scene(root1));
+            stage.setResizable(false);
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
