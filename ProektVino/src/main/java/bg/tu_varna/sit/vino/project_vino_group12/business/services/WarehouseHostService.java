@@ -81,7 +81,7 @@ public class WarehouseHostService {
                 return w;
             }
         }
-        return temp;
+        return null;
     }
     public boolean checkIfHostExists(WarehouseHost w){
         List<WarehouseHost> allHosts=repository.getAll();

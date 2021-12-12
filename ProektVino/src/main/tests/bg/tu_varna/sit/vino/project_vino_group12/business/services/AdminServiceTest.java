@@ -28,9 +28,9 @@ class AdminServiceTest {
     void setUp() {
         adminService=AdminService.getInstance();
         admin=new Admin("1","1");
-        admin.setId(5);
+        admin.setId(9);
         adminListViewModel=new AdminListViewModel("1","1");
-        bottle=new Bottles(250,1);
+        bottle=new Bottles(1000,0);
         grape=new Grape();
         grape.setSort_quantity(40);
         grape.setName_sort("Test");
@@ -44,12 +44,10 @@ class AdminServiceTest {
     }
 
     @Test
-    @Disabled
     void getAllAdmin() {
-       /* ObservableList<AdminListViewModel> allAdmins = AdminService.getInstance().getAllAdmin();
-        assertEquals(allAdmins,adminService.getAllAdmin());*/
+        ObservableList<AdminListViewModel> allAdmins = adminService.getAllAdmin();
+        assertEquals(allAdmins, adminService.getAllAdmin());
     }
-
     @Test
     void adminLogin() {
         assertTrue(adminService.adminLogin(adminListViewModel));
@@ -69,13 +67,12 @@ class AdminServiceTest {
 
     @Test
     void createAdmin() {
-        assertEquals(0,adminService.createAdmin(adminListViewModel));
+        assertEquals(1,adminService.createAdmin(adminListViewModel));
     }
 
     @Test
-    @Disabled
     void getAdminByName() {
-        assertEquals(admin,adminService.getAdminByName(admin.getUsername_admin()));//??????
+        assertEquals(admin,adminService.getAdminByName(admin.getUsername_admin()));
     }
 
     @Test

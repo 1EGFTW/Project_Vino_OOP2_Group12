@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Table(name="domakin_sklad")
 @Entity
@@ -51,9 +52,19 @@ public class WarehouseHost implements Serializable {
         this.password_domakin = password_domakin;
     }
 
-    public boolean equals(WarehouseHost r){
-        return this.username_domakin.equals(r.username_domakin)&&this.password_domakin.equals(r.password_domakin);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WarehouseHost that = (WarehouseHost) o;
+        return Objects.equals(username_domakin, that.username_domakin) && Objects.equals(password_domakin, that.password_domakin);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username_domakin, password_domakin);
+    }
+
     @Override
     public String toString() {
         return "WarehouseHost{" +

@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 
+import java.util.Objects;
+
 public class AdminListViewModel {
     private String username_admin;
     private String password_admin;
@@ -9,6 +11,15 @@ public class AdminListViewModel {
         this.username_admin = username_admin;
         this.password_admin = password_admin;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AdminListViewModel that = (AdminListViewModel) o;
+        return Objects.equals(username_admin, that.username_admin) && Objects.equals(password_admin, that.password_admin);
+    }
+
 
     public boolean equals(AdminListViewModel r) {
    return this.username_admin.equals(r.username_admin)&& this.password_admin.equals(r.password_admin);

@@ -67,13 +67,12 @@ public class WinesService {
     }
     public Wines getWineByName(String name){
         List<Wines> wines=repository.getAll();
-        Wines temp=new Wines();
         for(Wines w:wines){
             if(w.getName_wine().equals(name)){
                 return w;
             }
         }
-        return temp;
+        return null;
     }
     public boolean isWineAlreadyCreated(Wines w){
         List<Wines> wines=repository.getAll();
@@ -87,6 +86,9 @@ public class WinesService {
 
     public boolean updateWine(WinesListViewModel w,int q){
         Wines wine=getWineByName(w.getName_wine());
+        if(wine==null){
+            return false;
+        }
         int temp=q+wine.getTotal();
         wine.setTotal(temp);
         try{

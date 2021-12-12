@@ -6,6 +6,7 @@ import org.hibernate.annotations.Sort;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Table(name="grozde")
@@ -100,10 +101,18 @@ public class Grape implements Serializable {
     public void addGrapeWines(GrapeWines grapeWines){
         this.grapeWines.add(grapeWines);
     }
-    public boolean equals(Grape r){
-        return this.name_sort.equals(r.name_sort)&&this.sortColor.equals(r.sortColor)
-                &&this.sort_quantity==r.sort_quantity
-                &&this.quantity_by_kg==r.quantity_by_kg;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Grape grape = (Grape) o;
+        return sort_quantity == grape.sort_quantity && quantity_by_kg == grape.quantity_by_kg && Objects.equals(name_sort, grape.name_sort) && Objects.equals(sortColor, grape.sortColor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name_sort, sortColor, sort_quantity, quantity_by_kg);
     }
 
     @Override

@@ -3,6 +3,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class ProductionListViewModel {
@@ -42,6 +43,19 @@ public class ProductionListViewModel {
 
     public void setProduced_bottles(int produced_bottles) {
         this.produced_bottles = produced_bottles;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductionListViewModel that = (ProductionListViewModel) o;
+        return produced_bottles == that.produced_bottles && Objects.equals(wines, that.wines) && Objects.equals(bottles, that.bottles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(wines, bottles, produced_bottles);
     }
 
     @Override

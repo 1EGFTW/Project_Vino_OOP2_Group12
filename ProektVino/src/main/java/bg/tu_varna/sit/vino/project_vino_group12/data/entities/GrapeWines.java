@@ -68,4 +68,16 @@ public class GrapeWines implements Serializable{
         this.quantity_for_wine = quantity_for_wine;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GrapeWines that = (GrapeWines) o;
+        return quantity_for_wine == that.quantity_for_wine && Objects.equals(grape, that.grape) && Objects.equals(wine, that.wine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(grape, wine, quantity_for_wine);
+    }
 }

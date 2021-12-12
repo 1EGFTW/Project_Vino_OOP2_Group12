@@ -3,6 +3,8 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import javafx.scene.control.Label;
 
+import java.util.Objects;
+
 public class GrapeListViewModel {
     private String name_sort;
     private SortColor sortColor;
@@ -60,6 +62,19 @@ public class GrapeListViewModel {
 
     public void setQuantity_by_kg(int quantity_by_kg) {
         this.quantity_by_kg = quantity_by_kg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GrapeListViewModel that = (GrapeListViewModel) o;
+        return sort_quantity == that.sort_quantity && quantity_by_kg == that.quantity_by_kg && Objects.equals(name_sort, that.name_sort) && Objects.equals(sortColor, that.sortColor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name_sort, sortColor, sort_quantity, quantity_by_kg);
     }
 
     @Override

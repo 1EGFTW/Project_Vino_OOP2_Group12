@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 
+import java.util.Objects;
+
 public class WarehouseHostListViewModel {
     private String username_domakin;
     private String password_domakin;
@@ -27,6 +29,19 @@ public class WarehouseHostListViewModel {
 
     public void setPassword_domakin(String password_domakin) {
         this.password_domakin = password_domakin;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WarehouseHostListViewModel that = (WarehouseHostListViewModel) o;
+        return Objects.equals(username_domakin, that.username_domakin) && Objects.equals(password_domakin, that.password_domakin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username_domakin, password_domakin);
     }
 
     @Override

@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Table(name="sort_color")
@@ -62,9 +63,19 @@ public class SortColor implements Serializable {
         this.grapes.add(g);
     }
 
-    public boolean equals(SortColor r){
-        return this.color.equals(r.color);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SortColor sortColor = (SortColor) o;
+        return Objects.equals(color, sortColor.color) && Objects.equals(grapes, sortColor.grapes);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color);
+    }
+
     @Override
     public String toString() {
         return color;

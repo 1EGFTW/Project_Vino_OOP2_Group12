@@ -28,13 +28,17 @@ public class ProductionService {
     public final BottlesService bottlesService=BottlesService.getInstance();
     private static final org.apache.log4j.Logger log = Logger.getLogger(ProductionService.class);
 
-    public void deleteProduction(ProductionListViewModel production) {
+    public boolean deleteProduction(ProductionListViewModel production) {
         Production p=getProduction(production);
-
+        if(p==null){
+            return false;
+        }
         try{
             repository.delete(p);
+            return true;
         }catch (Exception e){
             e.printStackTrace();
+            return false;
         }
     }
 

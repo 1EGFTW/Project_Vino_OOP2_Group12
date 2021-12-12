@@ -5,6 +5,8 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
+import javafx.collections.ObservableList;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -33,25 +35,33 @@ class GrapeServiceTest {
         this.sortColorListViewModel=new SortColorListViewModel("black");
         this.grape=new Grape("Test",sortColor,1000,100);
         this.grapeListViewModel=new GrapeListViewModel("Test",sortColor,1000,100);
+        grapeRepository.delete(grape);
+    }
+
+    @AfterEach
+    void tearDown() {
+        grapeRepository.delete(grape);
     }
 
     @Test
     void deleteGrape() {
+        List<Grape> grapes=grapeRepository.getAll();
+        grapeService.deleteGrape(grapeListViewModel);
+        assertNotEquals(grapes,grapeRepository.getAll());
     }
 
     @Test
-    @Disabled
     void getAllGrape() {
+        ObservableList<GrapeListViewModel> grapes= grapeService.getAllGrape();
+        assertEquals(grapes,grapeService.getAllGrape());
     }
 
     @Test
-    @Disabled
     void addGrape() {
         assertEquals(1,grapeService.addGrape(grapeListViewModel,sortColorListViewModel));
     }
 
     @Test
-    @Disabled
     void checkIfGrapeExists() {
         assertFalse(grapeService.checkIfGrapeExists(grape));
     }
@@ -59,7 +69,6 @@ class GrapeServiceTest {
     @Test
     void getGrapeByName() {
         assertEquals(grape,grapeService.getGrapeByName(grapeListViewModel.getName_sort()));//??????????
-
     }
 
     @Test

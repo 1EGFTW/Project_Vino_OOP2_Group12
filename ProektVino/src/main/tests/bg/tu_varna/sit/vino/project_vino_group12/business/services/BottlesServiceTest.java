@@ -22,10 +22,11 @@ class BottlesServiceTest {
     private BottlesRepository bottlesRepository;
     @BeforeEach
     void setUp(){
-        this.bottle=new Bottles(250,10);
-        this.bottlesListViewModel=new BottlesListViewModel(250,10);
+        this.bottle=new Bottles(500,100);
+        this.bottlesListViewModel=new BottlesListViewModel(500,100);
         this.bottlesService= BottlesService.getInstance();
         this.bottlesRepository=BottlesRepository.getInstance();
+        bottlesRepository.delete(bottle);
 
     }
 
@@ -33,18 +34,12 @@ class BottlesServiceTest {
     void deleteBottle() {
         List<Bottles> allBottles=bottlesRepository.getAll();
         bottlesService.deleteBottle(bottlesListViewModel);
-        assertNotEquals(allBottles, bottlesRepository.getAll());
+        assertEquals(allBottles, bottlesRepository.getAll());
     }
 
     @Test
-    @Disabled
     void getAllBottles() {
         ObservableList<BottlesListViewModel> b=bottlesService.getAllBottles();
-        List<Bottles> temp=new LinkedList<>();
-        for(BottlesListViewModel bottle:b){
-            Bottles tempBottle=new Bottles(bottle.getBottle_size(),bottle.getBottle_quantity());
-            temp.add(tempBottle);
-        }
         assertEquals(b,bottlesService.getAllBottles());
     }
 
@@ -66,7 +61,7 @@ class BottlesServiceTest {
     @RepeatedTest(5)
     void checkCriticalLevels() {
         List<Bottles> res=new LinkedList<>();
-        res.add(bottle);
+        res.add(bottlesService.getBottleBySize(1000));
         assertEquals(res,bottlesService.checkCriticalLevels());
     }
 

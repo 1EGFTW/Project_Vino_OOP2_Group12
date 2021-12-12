@@ -2,6 +2,8 @@ package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
+
 @Table(name="operator")
 @Entity
 public class Operator implements Serializable {
@@ -48,9 +50,19 @@ public class Operator implements Serializable {
         this.password_operator = password_operator;
     }
 
-    public boolean equals(Operator r){
-        return this.username_operator.equals(r.username_operator)&&this.password_operator.equals(r.password_operator);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Operator operator = (Operator) o;
+        return Objects.equals(username_operator, operator.username_operator) && Objects.equals(password_operator, operator.password_operator);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username_operator, password_operator);
+    }
+
     @Override
     public String toString() {
         return "Operator{" +

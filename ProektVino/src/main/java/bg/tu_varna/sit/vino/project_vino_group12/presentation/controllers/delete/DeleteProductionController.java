@@ -62,9 +62,15 @@ public class DeleteProductionController implements Initializable {
     @FXML
     public void deleteProduction(ActionEvent actionEvent){
         ProductionListViewModel production=productionComboBox.getValue();
-        productionService.deleteProduction(production);
-        loadNewPage(ADMIN_VIEW);
-        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted production!", ButtonType.OK);
-        alert.show();
+        if(productionService.deleteProduction(production))
+        {
+            loadNewPage(ADMIN_VIEW);
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted production!", ButtonType.OK);
+            alert.show();
+        }else{
+            Alert alert=new Alert(Alert.AlertType.ERROR,"Couldn't delete production!", ButtonType.OK);
+            alert.show();
+        }
+
     }
 }

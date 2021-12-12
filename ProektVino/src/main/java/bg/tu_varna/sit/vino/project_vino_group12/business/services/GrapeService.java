@@ -89,13 +89,12 @@ public class GrapeService {
     }
     public Grape getGrapeByName(String name) {
         List<Grape> grapes = grapeRepository.getAll();
-        Grape temp = new Grape();
         for (Grape g : grapes) {
             if (g.getName_sort().equals(name)) {
-                temp = g;
+                return g;
             }
         }
-        return temp;
+        return null;
     }
     public List<Grape> checkCriticalLevels(){
         List<Grape> allGrapes=grapeRepository.getAll();

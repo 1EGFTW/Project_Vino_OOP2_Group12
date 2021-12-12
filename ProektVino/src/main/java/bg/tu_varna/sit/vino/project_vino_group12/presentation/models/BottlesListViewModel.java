@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 
+import java.util.Objects;
+
 public class BottlesListViewModel {
     private int bottle_size;
     private int bottle_quantity;
@@ -23,6 +25,19 @@ public class BottlesListViewModel {
 
     public void setBottle_quantity(int bottle_quantity) {
         this.bottle_quantity = bottle_quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BottlesListViewModel that = (BottlesListViewModel) o;
+        return bottle_size == that.bottle_size && bottle_quantity == that.bottle_quantity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bottle_size, bottle_quantity);
     }
 
     @Override
