@@ -61,3 +61,7 @@
 [JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot delete or update a parent row: a foreign key constraint fails (`wine`.`production`, CONSTRAINT `Production_Wine_FK` FOREIGN KEY (`id_wine`) REFERENCES `wines` (`id_wine`))
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository  - GrapeWines delete errorattempt to create delete event with null entity
 [JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot delete or update a parent row: a foreign key constraint fails (`wine`.`production`, CONSTRAINT `Production_Wine_FK` FOREIGN KEY (`id_wine`) REFERENCES `wines` (`id_wine`))
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin not found!
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login error!
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin not found!
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login error!

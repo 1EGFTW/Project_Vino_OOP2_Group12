@@ -8,12 +8,12 @@
     <children>
         <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
             <children>
-                <Label fx:id="createHost" layoutX="181.0" layoutY="60.0" prefHeight="37.0" prefWidth="249.0" text="Please enter the username and password &#10;of the warehouse host:" textAlignment="CENTER" wrapText="true" />
-                <TextField fx:id="warehouseHost_name" layoutX="232.0" layoutY="151.0" prefHeight="37.0" prefWidth="149.0" styleClass="inputFields" />
-                <PasswordField fx:id="warehouseHost_pass" layoutX="231.0" layoutY="232.0" prefHeight="37.0" prefWidth="149.0" styleClass="inputFields" />
-                <Button fx:id="login" layoutX="213.0" layoutY="309.0" mnemonicParsing="false" onAction="#onCreateWarehouseHostButtonClick" prefHeight="52.0" prefWidth="186.0" styleClass="confirmButtons" text="Create Warehouse host" wrapText="true" />
-                <Label layoutX="232.0" layoutY="125.0" text="Username" />
-                <Label layoutX="233.0" layoutY="205.0" text="Password" />
+                <Label fx:id="createHost" layoutX="72.0" layoutY="49.0" prefHeight="76.0" prefWidth="467.0" styleClass="labelTitle" text="Please enter the username and password &#10;of the warehouse host:" textAlignment="CENTER" wrapText="true" />
+                <TextField fx:id="warehouseHost_name" layoutX="232.0" layoutY="200.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
+                <PasswordField fx:id="warehouseHost_pass" layoutX="231.0" layoutY="282.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
+                <Button fx:id="login" layoutX="213.0" layoutY="361.0" mnemonicParsing="false" onAction="#onCreateWarehouseHostButtonClick" prefHeight="52.0" prefWidth="186.0" styleClass="confirmButtons" text="Create Warehouse host" wrapText="true" />
+                <Label layoutX="230.0" layoutY="180.0" text="Username" />
+                <Label layoutX="232.0" layoutY="262.0" text="Password" />
             </children>
         </Pane>
         <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">

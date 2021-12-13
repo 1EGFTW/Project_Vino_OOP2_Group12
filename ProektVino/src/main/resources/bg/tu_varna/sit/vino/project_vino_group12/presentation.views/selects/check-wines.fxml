@@ -8,7 +8,7 @@
     <children>
         <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
             <children>
-                <Label fx:id="label1" layoutX="225.0" layoutY="32.0" styleClass="labelTitle" text="Available wines" />
+                <Label fx:id="label1" layoutX="219.0" layoutY="23.0" styleClass="labelTitle" text="Available wines" />
                 <TableView fx:id="wineTable" layoutX="12.0" layoutY="79.0" prefHeight="421.0" prefWidth="601.0">
                     <columns>
                         <TableColumn fx:id="col_Name" prefWidth="299.0" text="Name" />

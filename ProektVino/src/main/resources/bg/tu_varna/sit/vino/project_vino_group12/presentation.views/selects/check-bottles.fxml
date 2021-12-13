@@ -8,8 +8,8 @@
     <children>
         <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
             <children>
-                <Label fx:id="label1" layoutX="257.0" layoutY="31.0" text="Available bottles" styleClass="labelTitle"/>
-            <TableView fx:id="bottlesTable" layoutX="12.0" layoutY="79.0" prefHeight="421.0" prefWidth="603.0">
+                <Label fx:id="label1" layoutX="212.0" layoutY="26.0" styleClass="labelTitle" text="Available bottles" />
+            <TableView fx:id="bottlesTable" layoutX="12.0" layoutY="79.0" prefHeight="421.0" prefWidth="601.0">
               <columns>
                 <TableColumn fx:id="bottleSize" prefWidth="299.0" text="Bottle size" />
                 <TableColumn fx:id="bottleQuantity" prefWidth="303.0" text="Quantity" />

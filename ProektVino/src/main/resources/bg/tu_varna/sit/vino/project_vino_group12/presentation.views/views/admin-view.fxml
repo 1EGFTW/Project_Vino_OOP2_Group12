@@ -46,17 +46,17 @@
             <Pane fx:id="addPane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
                <children>
                   <Label layoutX="290.0" layoutY="98.0" text="Warehouse operations" />
-                  <Button fx:id="addGrape" layoutX="317.0" layoutY="310.0" mnemonicParsing="false" onAction="#addGrape" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add grape" />
-                  <Button fx:id="addBottles" layoutX="317.0" layoutY="243.0" mnemonicParsing="false" onAction="#addBottles" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add bottles" />
+                  <Button fx:id="addGrape" layoutX="317.0" layoutY="310.0" mnemonicParsing="false" onAction="#addGrape" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add Grape" />
+                  <Button fx:id="addBottles" layoutX="317.0" layoutY="243.0" mnemonicParsing="false" onAction="#addBottles" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add Bottles" />
                   <Button layoutX="317.0" layoutY="172.0" mnemonicParsing="false" onAction="#addSortColor" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add SortColor" />
-                  <Button layoutX="317.0" layoutY="379.0" mnemonicParsing="false" onAction="#addWines" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Create Wine" />
+                  <Button layoutX="317.0" layoutY="379.0" mnemonicParsing="false" onAction="#addWines" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add Wine" />
                   <Button fx:id="addProduction" layoutX="317.0" layoutY="450.0" mnemonicParsing="false" onAction="#addProduction" prefHeight="45.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Add Production" />
                </children>
             </Pane>
             <Pane fx:id="deletePane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
                <children>
                   <Label fx:id="delete" layoutX="354.0" layoutY="152.0" text="Delete:" />
-                  <ComboBox fx:id="comboBoxDelete" layoutX="279.0" layoutY="238.0" prefHeight="38.0" prefWidth="211.0" styleClass="combo" />
+                  <ComboBox fx:id="comboBoxDelete" layoutX="279.0" layoutY="238.0" prefHeight="45.0" prefWidth="211.0" styleClass="combo" />
                   <Button fx:id="deleteChoice" layoutX="324.0" layoutY="345.0" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="45.0" prefWidth="120.0" styleClass="centerPaneButtons" text="Choose" />
                </children>
             </Pane>

@@ -9,15 +9,15 @@
    <children>
       <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
          <children>
-             <Label fx:id="adminlogin" layoutX="194.0" layoutY="165.0" text="Please enter your username and password:" />
-            <TextField fx:id="admin_name" layoutX="108.0" layoutY="282.0" prefHeight="37.0" prefWidth="149.0" styleClass="inputFields" />
-            <PasswordField fx:id="admin_pass" layoutX="356.0" layoutY="282.0" prefHeight="37.0" prefWidth="149.0" styleClass="inputFields" />
+             <Label fx:id="adminlogin" layoutX="66.0" layoutY="158.0" styleClass="labelTitle" text="Please enter your username and password:" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="admin_name" layoutX="108.0" layoutY="282.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
+            <PasswordField fx:id="admin_pass" layoutX="356.0" layoutY="282.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
             <Button fx:id="login" layoutX="240.0" layoutY="354.0" mnemonicParsing="false" onAction="#onAdminLoginButtonClick" prefHeight="52.0" prefWidth="132.0" styleClass="confirmButtons" text="Log in as admin" wrapText="true">
                <font>
                   <Font size="10.0" />
                </font></Button>
-            <Label layoutX="155.0" layoutY="243.0" text="Username" />
-            <Label layoutX="406.0" layoutY="243.0" text="Password" />
+            <Label layoutX="150.0" layoutY="243.0" text="Username" />
+            <Label layoutX="399.0" layoutY="243.0" text="Password" />
          </children>
       </Pane>
      <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">

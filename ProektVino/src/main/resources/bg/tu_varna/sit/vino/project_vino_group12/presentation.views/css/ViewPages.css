@@ -85,11 +85,13 @@
 .combo{
     -fx-background-color: #A7CCA3;
     -fx-font-weight: bold;
+    -fx-font-size: 14;
 }
 
 .combo .list-cell{
     -fx-background-color: #A7CCA3;
     -fx-font-weight: bold;
+    -fx-font-size: 14;
 }
 
 .combo .list-cell:hover{
