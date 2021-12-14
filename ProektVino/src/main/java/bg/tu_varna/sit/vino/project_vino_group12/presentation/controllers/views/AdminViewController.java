@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.*;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.check.CheckBottlesController;
@@ -88,6 +89,8 @@ public class AdminViewController implements Initializable {
     private Button notifications;
     @FXML
     public Label label;
+    @FXML
+    public Label user;
     @FXML
     public Button bottle;
     @FXML
@@ -423,6 +426,7 @@ public class AdminViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
+        user.setText(Constants.User.LoggedUser);
     }
     @FXML
     protected void checkNotifications(ActionEvent actionEvent){

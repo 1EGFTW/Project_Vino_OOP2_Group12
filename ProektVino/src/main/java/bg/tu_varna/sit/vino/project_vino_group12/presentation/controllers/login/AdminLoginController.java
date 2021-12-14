@@ -37,6 +37,7 @@ public class AdminLoginController {
         if(service.adminLogin(adminToLogIn))
         {
             try {
+                Constants.User.LoggedUser=admin_name.getText();
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_VIEW));
                 Stage stage = new Stage();

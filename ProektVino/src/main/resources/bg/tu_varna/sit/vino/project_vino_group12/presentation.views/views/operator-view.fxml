@@ -73,6 +73,8 @@
                 <children>
                     <Label layoutX="54.0" layoutY="5.0" prefHeight="596.0" prefWidth="713.0" styleClass="frontLabel" text="Welcome to &#10;V&amp;A &#10;Winery!&#10;&#10;Please choose one of the categories." textAlignment="CENTER" wrapText="true">
                     </Label>
+                    <Label layoutX="538.0" layoutY="21.0" text="Operator:" />
+                    <Label layoutX="641.0" layoutY="21.0" text="Label" fx:id="user"/>
                 </children></Pane>
         </children>
     </Pane>

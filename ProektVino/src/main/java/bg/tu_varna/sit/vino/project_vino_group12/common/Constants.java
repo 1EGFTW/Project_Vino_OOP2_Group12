@@ -43,5 +43,6 @@ public class Constants {
     }
     public static class User{
         public static int UserTracking=0;
+        public static String LoggedUser;
     }
 }

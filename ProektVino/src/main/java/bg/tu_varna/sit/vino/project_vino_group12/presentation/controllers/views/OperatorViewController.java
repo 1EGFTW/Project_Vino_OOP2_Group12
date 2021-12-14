@@ -3,6 +3,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddProductionController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddWineController;
@@ -69,6 +70,8 @@ public class OperatorViewController implements Initializable {
     private Button checkAvailableProductions;
     @FXML
     private Label delete;
+    @FXML
+    private Label user;
     @FXML
     private ComboBox<String> comboBoxDelete;
     @FXML
@@ -230,6 +233,7 @@ public class OperatorViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
+        user.setText(Constants.User.LoggedUser);
     }
     @FXML
     protected void checkNotifications(ActionEvent actionEvent){
