@@ -41,4 +41,7 @@ public class Constants {
     public static class Values{
         public static final String Title = "Winery";
     }
+    public static class User{
+        public static int UserTracking=0;
+    }
 }

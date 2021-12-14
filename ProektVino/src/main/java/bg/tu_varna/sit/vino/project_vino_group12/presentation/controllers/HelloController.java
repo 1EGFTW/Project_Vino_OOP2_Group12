@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login.AdminLoginController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login.OperatorLoginController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login.WarehouseHostLoginController;
@@ -48,6 +49,7 @@ public class HelloController{
     @FXML
     protected void adminLog() {
         try {
+            Constants.User.UserTracking=1;
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADMIN_LOGIN));
             Stage stage = new Stage();
@@ -65,6 +67,7 @@ public class HelloController{
     @FXML
     protected void operatorLog(){
         try {
+            Constants.User.UserTracking=2;
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(OPERATOR_LOGIN));
             Stage stage = new Stage();
@@ -83,6 +86,7 @@ public class HelloController{
     @FXML
     protected void warehouseHostLog(){
         try {
+            Constants.User.UserTracking=3;
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WAREHOUSEHOST_LOGIN));
             Stage stage = new Stage();

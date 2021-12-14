@@ -79,6 +79,6 @@ public class GrapeListViewModel {
 
     @Override
     public String toString() {
-        return String.format("Grape: %s | color: %s | quantity in storage: %s | wine produced by 1kg: %s", name_sort, sortColor, sort_quantity, quantity_by_kg);
+        return String.format("%s | %s | quantity in storage: %s ", name_sort, sortColor, sort_quantity);
     }
 }

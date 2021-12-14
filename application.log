@@ -65,3 +65,5 @@
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login error!
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin not found!
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login error!
+[JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Access denied for user 'root'@'localhost' (using password: YES)
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection  - Initial SessionFactory errororg.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]

@@ -57,11 +57,11 @@ public class CheckProductionController implements Initializable {
         ProductionService productionService=ProductionService.getInstance();
         ObservableList<ProductionListViewModel> productionListViewModels=productionService.getAllProductions();
         col_Wine.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductionListViewModel, String>, ObservableValue<String>>() {
-                                         @Override
-                                         public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductionListViewModel, String> p) {
-                                             return new ReadOnlyObjectWrapper(p.getValue().getWines().getName_wine());
-                                         }
-                                     });
+             @Override
+             public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductionListViewModel, String> p) {
+                 return new ReadOnlyObjectWrapper(p.getValue().getWines().getName_wine());
+             }
+     });
         col_Bottle.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductionListViewModel, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductionListViewModel, String> b) {

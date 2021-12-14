@@ -1,9 +1,12 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.WarehouseHost;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WarehouseHostListViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,27 +55,68 @@ public class CreateWarehouseHostController {
             alert.show();
         }
         else{
-            loadNewPage(ADMIN_VIEW);
+            int userTracking= Constants.User.UserTracking;
+            switch (userTracking) {
+                case 1 -> loadNewPage(ADMIN_VIEW);
+                case 2 -> loadNewPage(OPERATOR_VIEW);
+                case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
+            }
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Host added", ButtonType.OK);
             alert.show();
         }
     }
     @FXML
     public void goBack(ActionEvent actionEvent){
-        loadNewPage(ADMIN_VIEW);
+        int userTracking= Constants.User.UserTracking;
+        switch (userTracking) {
+            case 1 -> loadNewPage(ADMIN_VIEW);
+            case 2 -> loadNewPage(OPERATOR_VIEW);
+            case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
+        }
     }
     public void loadNewPage(String path){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new AdminViewController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
+        int userTracking= Constants.User.UserTracking;
+        if(userTracking==1){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new AdminViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.setResizable(false);
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }else if(userTracking==2){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new OperatorViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.setResizable(false);
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         }
+        else if(userTracking==3){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new WarehouseHostViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.setResizable(false);
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

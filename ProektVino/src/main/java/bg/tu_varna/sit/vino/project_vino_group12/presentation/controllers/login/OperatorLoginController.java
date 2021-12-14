@@ -60,6 +60,7 @@ public class OperatorLoginController {
     }
     public void loadNewPage(String path){
         try {
+
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Stage stage = new Stage();
@@ -68,6 +69,7 @@ public class OperatorLoginController {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
+
         } catch(Exception e) {
             e.printStackTrace();
         }

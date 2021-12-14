@@ -70,9 +70,9 @@ public class WarehouseHostLoginController {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
+
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
 }

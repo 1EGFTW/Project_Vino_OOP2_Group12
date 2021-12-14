@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
@@ -63,6 +64,7 @@ public class AdminLoginController {
     }
     public void loadNewPage(String path){
         try {
+
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Stage stage = new Stage();
@@ -74,6 +76,7 @@ public class AdminLoginController {
         } catch(Exception e) {
             e.printStackTrace();
         }
+
 
     }
 }
