@@ -37,7 +37,7 @@
     -fx-border-color: #A7CCA3;
     -fx-background-radius: 15 15 15 15;
     -fx-border-radius: 15 15 15 15;
-    -fx-font-size: 12;
+    -fx-font-size: 14;
     -fx-alignment: center;
     -fx-text-fill: #D0D4DC;
     -fx-font-weight: bold;
@@ -46,7 +46,7 @@
  .centerPaneButtons:hover{
       -fx-color: #75AF6E;
       -fx-cursor: hand;
-      -fx-font-size: 14;
+      -fx-font-size: 16;
       -fx-font-style: italic;
       -fx-font-weight: bold;
       -fx-text-fill: #0A090C;
@@ -59,7 +59,7 @@
 
   .label{
     -fx-font-weight: bold;
-    -fx-font-size: 18;
+    -fx-font-size: 20;
   }
 
 .leftMenuButton{

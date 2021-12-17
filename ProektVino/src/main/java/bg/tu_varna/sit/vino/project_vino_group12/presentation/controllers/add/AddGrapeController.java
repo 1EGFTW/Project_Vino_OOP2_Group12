@@ -2,6 +2,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.SortColorService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
@@ -9,6 +10,8 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeReposito
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
+import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.FXCollections;
@@ -36,6 +39,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class AddGrapeController implements Initializable {
     private final GrapeService grapeService=GrapeService.getInstance();
     private final SortColorService sortColorService=SortColorService.getInstance();
+    public final int userTracking= Constants.User.UserTracking;
     Stage s;
     @FXML
     public Label createGrapeLabel;
@@ -84,14 +88,23 @@ public class AddGrapeController implements Initializable {
             alert.show();
         }
         else{
-            loadNewPage(ADMIN_VIEW);
+            /*loadNewPage(ADMIN_VIEW);*/
+            switch (userTracking) {
+                case 1 -> loadNewPage(ADMIN_VIEW);
+                case 2 -> loadNewPage(OPERATOR_VIEW);
+                case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
+            }
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Grape added", ButtonType.OK);
             alert.show();
         }
     }
    @FXML
    public void goBack(ActionEvent actionEvent){
-     loadNewPage(ADMIN_VIEW);
+       switch (userTracking) {
+           case 1 -> loadNewPage(ADMIN_VIEW);
+           case 2 -> loadNewPage(OPERATOR_VIEW);
+           case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
+       }
    }
     public void fillComboBoxSortColor(){
        ObservableList<SortColorListViewModel> sortColors=SortColorService.getInstance().getAllSortColor();
@@ -102,17 +115,46 @@ public class AddGrapeController implements Initializable {
         fillComboBoxSortColor();
     }
     public void loadNewPage(String path){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new AdminViewController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
+        if(userTracking==1){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new AdminViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.setResizable(false);
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }else if(userTracking==2){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new OperatorViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.setResizable(false);
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if(userTracking==3){
+            try {
+                s.close();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+                Stage stage = new Stage();
+                fxmlLoader.setController(new WarehouseHostViewController(stage));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setScene(new Scene(root1));
+                stage.setResizable(false);
+                stage.show();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

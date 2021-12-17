@@ -10,7 +10,7 @@
             <children>
                 <Label fx:id="label1" layoutX="99.0" layoutY="118.0" styleClass="labelTitle" text="Please choose which grape to delete:" />
                 <ComboBox fx:id="grapeComboBox" layoutX="97.0" layoutY="213.0" prefHeight="45.0" prefWidth="419.0" styleClass="combo" />
-                <Button fx:id="delete" layoutX="241.0" layoutY="303.0" mnemonicParsing="false" onAction="#deleteGrape" prefHeight="52.0" prefWidth="132.0" styleClass="confirmButtons" text="Delete grape" />
+                <Button fx:id="delete" layoutX="223.0" layoutY="302.0" mnemonicParsing="false" onAction="#deleteGrape" prefHeight="55.0" prefWidth="167.0" styleClass="confirmButtons" text="Delete grape" />
             </children>
         </Pane>
         <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">

@@ -9,11 +9,11 @@
         <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
             <children>
                 <Label fx:id="createBottle" layoutX="114.0" layoutY="64.0" prefHeight="86.0" prefWidth="387.0" styleClass="labelTitle" text="Please enter the size and quantity &#10;of the bottle you want to add:" textAlignment="CENTER" wrapText="true" />
-                <TextField fx:id="bottle_quantity" layoutX="232.0" layoutY="304.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
-                <TextField fx:id="bottle_size" layoutX="232.0" layoutY="216.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
-                <Button fx:id="create" layoutX="241.0" layoutY="378.0" mnemonicParsing="false" onAction="#onCreateBottleButtonClick" prefHeight="52.0" prefWidth="132.0" styleClass="confirmButtons" text="Create bottle" wrapText="true" />
-                <Label layoutX="232.0" layoutY="181.0" prefHeight="25.0" prefWidth="149.0" text="Bottle size in ml" />
-                <Label layoutX="232.0" layoutY="268.0" prefHeight="25.0" prefWidth="149.0" text="Bottle quantity" />
+                <TextField fx:id="bottle_quantity" layoutX="207.0" layoutY="303.0" prefHeight="45.0" prefWidth="200.0" styleClass="inputFields" />
+                <TextField fx:id="bottle_size" layoutX="207.0" layoutY="215.0" prefHeight="45.0" prefWidth="200.0" styleClass="inputFields" />
+                <Button fx:id="create" layoutX="223.0" layoutY="378.0" mnemonicParsing="false" onAction="#onCreateBottleButtonClick" prefHeight="55.0" prefWidth="167.0" styleClass="confirmButtons" text="Add bottle" wrapText="true" />
+                <Label layoutX="207.0" layoutY="190.0" prefHeight="25.0" prefWidth="149.0" text="Bottle size in ml" />
+                <Label layoutX="207.0" layoutY="278.0" prefHeight="25.0" prefWidth="149.0" text="Bottle quantity" />
             </children>
         </Pane>
         <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">

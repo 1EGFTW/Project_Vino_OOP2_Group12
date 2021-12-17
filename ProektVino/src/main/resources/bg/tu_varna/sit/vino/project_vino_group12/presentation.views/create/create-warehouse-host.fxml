@@ -9,11 +9,11 @@
         <Pane layoutX="137.0" maxHeight="500.0" maxWidth="613.0" minHeight="500.0" minWidth="613.0" prefHeight="500.0" prefWidth="613.0" styleClass="inputField">
             <children>
                 <Label fx:id="createHost" layoutX="72.0" layoutY="49.0" prefHeight="76.0" prefWidth="467.0" styleClass="labelTitle" text="Please enter the username and password &#10;of the warehouse host:" textAlignment="CENTER" wrapText="true" />
-                <TextField fx:id="warehouseHost_name" layoutX="232.0" layoutY="200.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
-                <PasswordField fx:id="warehouseHost_pass" layoutX="231.0" layoutY="282.0" prefHeight="45.0" prefWidth="149.0" styleClass="inputFields" />
-                <Button fx:id="login" layoutX="213.0" layoutY="361.0" mnemonicParsing="false" onAction="#onCreateWarehouseHostButtonClick" prefHeight="52.0" prefWidth="186.0" styleClass="confirmButtons" text="Create Warehouse host" wrapText="true" />
-                <Label layoutX="230.0" layoutY="180.0" text="Username" />
-                <Label layoutX="232.0" layoutY="262.0" text="Password" />
+                <TextField fx:id="warehouseHost_name" layoutX="206.0" layoutY="200.0" prefHeight="45.0" prefWidth="200.0" styleClass="inputFields" />
+                <PasswordField fx:id="warehouseHost_pass" layoutX="207.0" layoutY="282.0" prefHeight="45.0" prefWidth="200.0" styleClass="inputFields" />
+                <Button fx:id="login" layoutX="191.0" layoutY="379.0" mnemonicParsing="false" onAction="#onCreateWarehouseHostButtonClick" prefHeight="55.0" prefWidth="230.0" styleClass="confirmButtons" text="Create Warehouse host" wrapText="true" />
+                <Label layoutX="205.0" layoutY="180.0" text="Username" />
+                <Label layoutX="207.0" layoutY="262.0" text="Password" />
             </children>
         </Pane>
         <Pane prefHeight="500.0" prefWidth="149.0" styleClass="leftMenu">
