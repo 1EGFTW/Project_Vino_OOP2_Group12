@@ -3,10 +3,7 @@ package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
+import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.*;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeWinesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
@@ -21,8 +18,7 @@ public class GrapeWinesService {
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
     private static final org.apache.log4j.Logger log = Logger.getLogger(GrapeWinesService.class);
     private final GrapeRepository grapeRepository=GrapeRepository.getInstance();
-    private final GrapeService grapeService=GrapeService.getInstance();
-    private final WinesService winesService=WinesService.getInstance();
+    private final WinesRepository winesRepository=WinesRepository.getInstance();
     public static GrapeWinesService getInstance() {
         return GrapeWinesService.GrapeWinesServiceHolder.INSTANCE;
     }
@@ -59,32 +55,34 @@ public class GrapeWinesService {
 
         try{
             grapeRepository.update(grape);
+            log.info("Grape:"+grape.getName_sort()+" quantity updated successfully!");
             grapeWinesRepository.save(grapeWines);
+            log.info("wine "+grapeWines.getWine().getName_wine()+" created successfully");
         }
         catch (Exception e) {
             e.printStackTrace();
-            log.error("Error" +e);
+            log.error("Error creating wine "+grapeWines.getWine().getName_wine()+" :"+e);
         }
     }
     public GrapeWines getByGrapeName(Grape g){
         List<GrapeWines> grapeWines=grapeWinesRepository.getAll();
-        GrapeWines temp=new GrapeWines();
         for(GrapeWines gr:grapeWines){
             if(gr.getGrape().equals(g)){
                 return gr;
             }
         }
+        log.error("No such wine!");
         return null;
     }
     public GrapeWines getByWineName(Wines w){
         List<GrapeWines> grapeWines=grapeWinesRepository.getAll();
-        GrapeWines temp=new GrapeWines();
         for(GrapeWines gr:grapeWines){
             if(gr.getWine().equals(w)){
                 return gr;
             }
         }
-        return temp;
+        log.error("No such wine!");
+        return null;
     }
 
 }

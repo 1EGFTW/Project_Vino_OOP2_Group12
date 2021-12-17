@@ -28,9 +28,9 @@ public class SortColorRepository implements DAORepository<SortColor>{
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("SortColor saved successfully!");
+         /*   log.info("SortColor saved successfully!");*/
         }catch(Exception e){
-            log.error("SortColor save error"+e.getMessage());
+            /*log.error("SortColor save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -44,9 +44,9 @@ public class SortColorRepository implements DAORepository<SortColor>{
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("SortColor updated successfully!");
+            /*log.info("SortColor updated successfully!");*/
         }catch(Exception e) {
-            log.error("SortColor update error" + e.getMessage());
+      /*      log.error("SortColor update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -59,9 +59,9 @@ public class SortColorRepository implements DAORepository<SortColor>{
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            log.info("SortColor deleted successfully!");
+        /*    log.info("SortColor deleted successfully!");*/
         }catch(Exception e) {
-            log.error("SortColor delete error" + e.getMessage());
+         /*   log.error("SortColor delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -76,9 +76,9 @@ public class SortColorRepository implements DAORepository<SortColor>{
         try{
             String jpql="SELECT s FROM Sort_color s WHERE id_sort_color ="+id;
             sortcolors.addAll(session.createQuery(jpql,SortColor.class).getResultList());
-            log.info("Get sortcolor by id!");
+           /* log.info("Get sortcolor by id!");*/
         }catch(Exception e){
-            log.error("Get sortcolor error"+e.getMessage());
+           /* log.error("Get sortcolor error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -94,9 +94,9 @@ public class SortColorRepository implements DAORepository<SortColor>{
         try{
             String jpql="SELECT s FROM SortColor s";
             sortColors.addAll(session.createQuery(jpql, SortColor.class).getResultList());
-            log.info("Get all sort colors!");
+          /*  log.info("Get all sort colors!");*/
         }catch(Exception e){
-            log.error("Get sort color error"+e.getMessage());
+            /*log.error("Get sort color error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();

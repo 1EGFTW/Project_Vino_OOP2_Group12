@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
+import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository;
@@ -29,10 +30,10 @@ class ProductionServiceTest {
         this.productionService=ProductionService.getInstance();
         this.productionRepository=ProductionRepository.getInstance();
         this.wine=new Wines("gfsfsdf",100);
-        this.bottle=new Bottles(999,100);
+        this.bottle=new Bottles(1000,100);
         this.production=new Production(wine,bottle,1);
         this.winesListViewModel=new WinesListViewModel("gfsfsdf",100);
-        this.bottlesListViewModel=new BottlesListViewModel(999,100);
+        this.bottlesListViewModel=new BottlesListViewModel(1000,100);
         this.productionListViewModel=new ProductionListViewModel(wine,bottle,1);
     }
 
@@ -41,13 +42,13 @@ class ProductionServiceTest {
         List<Production> all=productionRepository.getAll();
         productionService.deleteProduction(productionListViewModel);
         List<Production> after=productionRepository.getAll();
-        assertEquals(all,after);
+        assertEquals(all.size(),after.size());
     }
 
     @Test
     void getAllProductions() {
         ObservableList<ProductionListViewModel> all= productionService.getAllProductions();
-        assertEquals(all,productionService.getAllProductions());
+        assertEquals(all.size(),productionService.getAllProductions().size());
     }
 
     @Test

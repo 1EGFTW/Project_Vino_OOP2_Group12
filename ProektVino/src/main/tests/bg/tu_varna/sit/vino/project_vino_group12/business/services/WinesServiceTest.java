@@ -23,16 +23,13 @@ class WinesServiceTest {
         this.winesService=WinesService.getInstance();
         this.winesRepository=WinesRepository.getInstance();
         this.wine=new Wines("111111",500);
-        this.winesListViewModel=new WinesListViewModel("111111",500);
+        this.winesListViewModel=new WinesListViewModel("fdad",79);
 
     }
 
     @Test
     void deleteWine() {
-        List<Wines> all=winesRepository.getAll();
-        winesService.deleteWine(winesListViewModel);
-        List<Wines> after=winesRepository.getAll();
-        assertEquals(all,after);
+        assertFalse(winesService.deleteWine(winesListViewModel));
     }
 
     @Test
@@ -54,6 +51,6 @@ class WinesServiceTest {
 
     @Test
     void updateWine() {
-        assertFalse(winesService.updateWine(winesListViewModel,0));
+        assertTrue(winesService.updateWine(winesListViewModel,0));
     }
 }

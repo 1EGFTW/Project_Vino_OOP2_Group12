@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import org.apache.log4j.Logger;
 import org.hibernate.annotations.Sort;
 
 import java.util.LinkedList;
@@ -22,6 +23,7 @@ public class GrapeService {
     private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
     private final GrapeWinesRepository grapeWinesRepository=GrapeWinesRepository.getInstance();
     private final SortColorRepository sortColorRepository=SortColorRepository.getInstance();
+    private static final Logger log=Logger.getLogger(GrapeService.class);
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
     }
@@ -38,14 +40,13 @@ public class GrapeService {
         {
             try{
                 grapeRepository.delete(g);
+                log.info("Grape: "+g.getName_sort()+" deleted successfully!");
                 return true;
 
             }catch(Exception e){
                 e.printStackTrace();
+                log.error("Error deleting grape: "+g.getName_sort());
             }
-        }
-        else{
-            return false;
         }
         return false;
     }
@@ -64,7 +65,9 @@ public class GrapeService {
     }
 
     public int addGrape(GrapeListViewModel g,SortColorListViewModel s) {
-        SortColor sc = sortColorService.getSortColorByName(s.getColor());
+        SortColor sc =sortColorService.getSortColorByName(s.getColor());
+        if(sc==null)
+            return 0;
         Grape temp = new Grape(g.getName_sort(), sc, g.getSort_quantity(), g.getQuantity_by_kg());
         if(checkIfGrapeExists(temp)){
             return 0;
@@ -72,8 +75,10 @@ public class GrapeService {
         else {
             try {
                 grapeRepository.save(temp);
+                log.info("Grape: "+temp.getName_sort()+" created successfully!");
             } catch (Exception e) {
                 e.printStackTrace();
+                log.error("Error creating grape: "+temp.getName_sort());
             }
             return 1;
         }
@@ -85,6 +90,7 @@ public class GrapeService {
                 return true;
             }
         }
+        log.info("No such grape!");
         return false;
     }
     public Grape getGrapeByName(String name) {
@@ -94,6 +100,7 @@ public class GrapeService {
                 return g;
             }
         }
+        log.error("No such grape!");
         return null;
     }
     public List<Grape> checkCriticalLevels(){
@@ -115,9 +122,11 @@ public class GrapeService {
         grape.setSort_quantity(quantity);
         try{
             grapeRepository.update(grape);
+            log.info("Grape: "+ grape.getName_sort()+" updated successfully!");
             return true;
         }catch(Exception e){
             e.printStackTrace();
+            log.error("Error updating grape: "+grape.getName_sort());
             return false;
         }
     }

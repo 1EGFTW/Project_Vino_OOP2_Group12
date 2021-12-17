@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,24 +20,27 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.OP
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.WAREHOUSEHOST_VIEW;
 
 public class WarehouseHostService {
-    public boolean logIn=false;
     private final WarehouseHostRepository repository = WarehouseHostRepository.getInstance();
+    private static final Logger log=Logger.getLogger(WarehouseHostService.class);
     public static WarehouseHostService getInstance() {
         return WarehouseHostServiceHolder.INSTANCE;
+    }
+    private static class WarehouseHostServiceHolder {
+        public static final WarehouseHostService INSTANCE = new WarehouseHostService();
     }
 
     public void deleteHost(WarehouseHostListViewModel host) {
         WarehouseHost h=getHostByName(host.getUsername_domakin());
         try{
             repository.delete(h);
+            log.info("Host: "+h.getUsername_domakin()+" deleted successfully!");
         }catch(Exception e){
             e.printStackTrace();
+            log.error("Error deleting host: "+h.getUsername_domakin()+" - "+e);
         }
     }
 
-    private static class WarehouseHostServiceHolder {
-        public static final WarehouseHostService INSTANCE = new WarehouseHostService();
-    }
+
 
     public ObservableList<WarehouseHostListViewModel> getAllWarehouseHost() {
         List<WarehouseHost> warehouseHosts = repository.getAll();
@@ -48,16 +52,12 @@ public class WarehouseHostService {
                 )).collect(Collectors.toList()));
     }
     public boolean hostLogin(WarehouseHostListViewModel w){
-
-        ObservableList<WarehouseHostListViewModel> allHosts= getAllWarehouseHost();
-        for (WarehouseHostListViewModel host:allHosts)
-        {
-            if(host.equals(w))
-            {
-                return true;
-            }
+        if(getHostByName(w.getUsername_domakin())==null){
+            log.error("Host login error!");
+            return false;
         }
-       return false;
+        log.info("Host login successful!");
+        return true;
     }
     public int createWarehouseHost(WarehouseHostListViewModel w){
         WarehouseHost host=new WarehouseHost(w.getUsername_domakin(),w.getPassword_domakin());
@@ -67,20 +67,22 @@ public class WarehouseHostService {
         else {
             try {
                 repository.save(host);
+                log.info("Host:"+host.getUsername_domakin()+" created successfully!");
             } catch (Exception e) {
                 e.printStackTrace();
+                log.error("Error creating host: "+host.getUsername_domakin()+" - "+e);
             }
             return 1;
         }
     }
     public WarehouseHost getHostByName(String name){
         List<WarehouseHost> hosts=repository.getAll();
-        WarehouseHost temp=new WarehouseHost();
         for(WarehouseHost w:hosts){
             if(w.getUsername_domakin().equals(name)){
                 return w;
             }
         }
+        log.error("No such host!");
         return null;
     }
     public boolean checkIfHostExists(WarehouseHost w){
@@ -90,6 +92,7 @@ public class WarehouseHostService {
                 return true;
             }
         }
+        log.error("No such host!");
         return false;
     }
 }

@@ -6,6 +6,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepo
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.log4j.Logger;
 import org.hibernate.annotations.Sort;
 
 import java.util.List;
@@ -13,24 +14,26 @@ import java.util.stream.Collectors;
 
 public class SortColorService {
     private final SortColorRepository repository = SortColorRepository.getInstance();
+    private static final Logger log=Logger.getLogger(SortColorService.class);
     public static SortColorService getInstance() {
         return SortColorServiceHolder.INSTANSE;
+    }
+    private static class SortColorServiceHolder {
+        public static final SortColorService INSTANSE = new SortColorService();
     }
 
     public void deleteColor(SortColorListViewModel color) {
         SortColor s=getSortColorByName(color.getColor());
         try{
             repository.delete(s);
-        }catch(Exception e)
-        {
+            log.info("Color: "+s.getColor()+" deleted successfully!");
+        }catch(Exception e) {
             e.printStackTrace();
+            log.error("Error deleting color: "+s.getColor()+" - "+e);
         }
     }
 
 
-    private static class SortColorServiceHolder {
-        public static final SortColorService INSTANSE = new SortColorService();
-    }
 
     public ObservableList<SortColorListViewModel> getAllSortColor() {
         List<SortColor> sortColors = repository.getAll();
@@ -47,32 +50,36 @@ public class SortColorService {
                 return true;
             }
         }
+        log.error("No such color!");
         return false;
     }
     public int addSortColor(SortColorListViewModel sc){
         SortColor sortColor=new SortColor(sc.getColor());
         if(checkSortColor(sortColor)){
+            log.error("Color: "+sortColor.getColor()+" already exists!");
             return 0;
         }
         else {
             try {
                 repository.save(sortColor);
+                log.info("Color: "+sortColor.getColor()+" created successfully!");
             } catch (Exception e) {
                 e.printStackTrace();
+                log.error("Error creating color! - "+e);
             }
             return 1;
         }
     }
     public SortColor getSortColorByName(String name){
         List<SortColor> allColors=repository.getAll();
-        SortColor temp=new SortColor();
         for(SortColor s:allColors){
             if(s.getColor().equals(name))
             {
-                temp=s;
+                return s;
             }
         }
-        return temp;
+        log.error("No such color!");
+        return null;
     }
 
 }

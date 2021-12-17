@@ -57,12 +57,12 @@ class SortColorServiceTest {
     @Test
     @Order(4)
     void addSortColor() {
-        assertEquals(1,sortColorService.addSortColor(sortColorListViewModel));
+        assertEquals(0,sortColorService.addSortColor(sortColorListViewModel));
     }
 
     @Test
     @Order(2)
     void getSortColorByName() {
-        assertEquals(sortColor,sortColorService.getSortColorByName(sortColorListViewModel.getColor()));
+        assertEquals(sortColor.getColor(),sortColorService.getSortColorByName(sortColorListViewModel.getColor()).getColor());
     }
 }

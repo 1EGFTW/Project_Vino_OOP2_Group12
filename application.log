@@ -67,3 +67,47 @@
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login error!
 [JavaFX Application Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Access denied for user 'root'@'localhost' (using password: YES)
 [JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection  - Initial SessionFactory errororg.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository  - Grape update errorA different object with the same identifier value was already associated with the session : [bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape#32]
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeWinesService  - Errorjavax.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session : [bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape#32]
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin found by name:1
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin: 1 already exists!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin found by name:1
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin: 1 already exists!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin: 1 already exists!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminRepository  - Get all admins!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.OperatorRepository  - Get all operators!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService  - Operator login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository  - Get all wines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository  - Get all wines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository  - Get all grapesWines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Get all productions!
+[JavaFX Application Thread] ERROR bg.tu_varna.sit.vino.project_vino_group12.business.services.WinesService  - Wine is in production! Deleting wine: Merlo aborted!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Get all productions!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Get all productions!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository  - Get all wines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository  - Get all bottles!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService  - Bottle 750ml found!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Production deleted successfully!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - Successfully deleted production: 22
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository  - Get all wines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository  - Get all wines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository  - Get all grapesWines!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository  - Get all productions!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - Wine: Merlo not in production
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository  - GrapeWines deleted successfully!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository  - Wines deleted successfully!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.WinesService  - Wine: Merlo deleted successfully!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!

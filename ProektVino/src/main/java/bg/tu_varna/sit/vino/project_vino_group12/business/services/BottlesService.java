@@ -24,7 +24,7 @@ public class BottlesService {
         b.setBottle_quantity(0);
         try{
             repository.update(b);
-            log.info("Bottle "+b+" deleted successfully!");
+            log.info("Bottle "+b.getBottle_quantity()+" deleted successfully!");
         }catch(Exception e){
             e.printStackTrace();
             log.error("Error deleting bottle "+b);
@@ -53,10 +53,10 @@ public class BottlesService {
         else {
             try {
                 repository.save(temp);
-                log.info("Bottle "+b+" added successfully!");
+                log.info("Bottle "+temp+" added successfully!");
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("Error adding bottle "+b);
+                log.error("Error adding bottle "+temp);
             }
         }
         return 1;
@@ -76,16 +76,15 @@ public class BottlesService {
     }
     public Bottles getBottleBySize(int size){
         List<Bottles> bottles=repository.getAll();
-        Bottles temp=new Bottles();
         for(Bottles b:bottles)
         {
             if(b.getBottle_size()==size)
             {
-                temp=b;
-                log.info("Bottle "+temp+" found!");
+                log.info("Bottle "+b+" found!");
+                return b;
             }
         }
-        return temp;
+        return null;
     }
     public List<Bottles> checkCriticalLevels(){
         List<Bottles> allBottles=repository.getAll();
@@ -111,6 +110,7 @@ public class BottlesService {
             return true;
         }catch(Exception e){
             e.printStackTrace();
+            log.error("Error updating bottle "+bottle+" quantity!");
             return false;
         }
     }

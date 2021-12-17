@@ -11,6 +11,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorLi
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,15 +21,19 @@ public class WinesService {
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
     private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
     private final ProductionService productionService=ProductionService.getInstance();
+    private static final Logger log=Logger.getLogger(WinesService.class);
     public static  WinesService getInstance() {
         return WinesServiceHolder.INSTANCE;
     }
-
+    private static class WinesServiceHolder {
+        public static final WinesService INSTANCE = new WinesService();
+    }
     public boolean deleteWine(WinesListViewModel wine) {
         GrapeWinesService gwService=GrapeWinesService.getInstance();
         Wines w=getWineByName(wine.getName_wine());
         GrapeWines grapeWines=gwService.getByWineName(w);
         if(productionService.checkIfWineIsInProduction(w)){
+            log.error("Wine is in production! Deleting wine: "+w.getName_wine()+" aborted!");
             return false;
         }
         else {
@@ -36,16 +41,16 @@ public class WinesService {
             try {
                 grapeWinesRepository.delete(grapeWines);
                 repository.delete(w);
+                log.info("Wine: "+w.getName_wine()+" deleted successfully!");
             } catch (Exception e) {
                 e.printStackTrace();
+                log.error("Error deleting wine: "+w.getName_wine()+" - "+e);
             }
         }
         return true;
     }
 
-    private static class WinesServiceHolder {
-        public static final WinesService INSTANCE = new WinesService();
-    }
+
 
    public ObservableList<WinesListViewModel> getAllWines() {
         List<Wines> wines = repository.getAll();
@@ -56,7 +61,7 @@ public class WinesService {
                         w.getTotal()
                 )).collect(Collectors.toList()));
     }
-    public WinesListViewModel checkWine(WinesListViewModel w){
+/*    public WinesListViewModel checkWine(WinesListViewModel w){
         ObservableList<WinesListViewModel> wines=getAllWines();
         for(WinesListViewModel wine:wines){
             if(wine.equals(w)){
@@ -64,7 +69,7 @@ public class WinesService {
             }
         }
         return w;
-    }
+    }*/
     public Wines getWineByName(String name){
         List<Wines> wines=repository.getAll();
         for(Wines w:wines){
@@ -72,15 +77,18 @@ public class WinesService {
                 return w;
             }
         }
+        log.info("No such wine!");
         return null;
     }
     public boolean isWineAlreadyCreated(Wines w){
         List<Wines> wines=repository.getAll();
         for(Wines wine:wines){
             if(wine.equals(w)){
+                log.info("Wine found!");
                 return true;
             }
         }
+        log.info("No such wine!");
         return false;
     }
 
@@ -93,9 +101,11 @@ public class WinesService {
         wine.setTotal(temp);
         try{
             repository.update(wine);
+            log.info("Wine: "+wine.getName_wine()+" quantity updated successfully!");
             return true;
         }catch(Exception e){
             e.printStackTrace();
+            log.error("Error updating wine: "+wine.getName_wine()+" quantity - "+e);
             return false;
         }
     }

@@ -26,9 +26,9 @@ public class AdminRepository implements DAORepository<Admin>{
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("Admin saved successfully!");
+           /* log.info("Admin saved successfully!");*/
         }catch(Exception e){
-            log.error("Admin save error"+e.getMessage());
+            /*log.error("Admin save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -42,9 +42,9 @@ public class AdminRepository implements DAORepository<Admin>{
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("Admin updated successfully!");
+         /*   log.info("Admin updated successfully!");*/
         }catch(Exception e) {
-            log.error("Admin update error" + e.getMessage());
+           /* log.error("Admin update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -57,9 +57,9 @@ public class AdminRepository implements DAORepository<Admin>{
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            log.info("Admin deleted successfully!");
+           /* log.info("Admin deleted successfully!");*/
         }catch(Exception e) {
-            log.error("Admin delete error" + e.getMessage());
+            /*log.error("Admin delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -74,9 +74,9 @@ public class AdminRepository implements DAORepository<Admin>{
         try{
             String jpql="SELECT a FROM Admin a WHERE id_admin ="+id.toString();
             admins.addAll(session.createQuery(jpql,Admin.class).getResultList());
-            log.info("Get all admins!");
+            /*log.info("Get all admins!");*/
         }catch(Exception e){
-            log.error("Get admin error"+e.getMessage());
+           /* log.error("Get admin error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -92,9 +92,9 @@ public class AdminRepository implements DAORepository<Admin>{
         try{
             String jpql="SELECT a FROM Admin a";
             admins.addAll(session.createQuery(jpql,Admin.class).getResultList());
-            log.info("Get all admins!");
+           /* log.info("Get all admins!");*/
         }catch(Exception e){
-            log.error("Get admin error"+e.getMessage());
+          /*  log.error("Get admin error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();

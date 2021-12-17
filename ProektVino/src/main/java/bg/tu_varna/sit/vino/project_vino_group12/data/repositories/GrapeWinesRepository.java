@@ -27,9 +27,9 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         Transaction transaction = session.beginTransaction();
         try {
             session.save(obj);
-            log.info("GrapeWines saved successfully!");
+           /* log.info("GrapeWines saved successfully!");*/
         } catch (Exception e) {
-            log.error("GrapeWines save error" + e.getMessage());
+            /*log.error("GrapeWines save error" + e.getMessage());*/
             e.printStackTrace();
         } finally {
             transaction.commit();
@@ -43,9 +43,9 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         Transaction transaction = session.beginTransaction();
         try {
             session.update(obj);
-            log.info("GrapeWines updated successfully!");
+           /* log.info("GrapeWines updated successfully!");*/
         } catch (Exception e) {
-            log.error("GrapeWines update error" + e.getMessage());
+            /*log.error("GrapeWines update error" + e.getMessage());*/
         } finally {
             transaction.commit();
             session.close();
@@ -58,9 +58,9 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         Transaction transaction = session.beginTransaction();
         try {
             session.delete(obj);
-            log.info("GrapeWines deleted successfully!");
+            /*log.info("GrapeWines deleted successfully!");*/
         } catch (Exception e) {
-            log.error("GrapeWines delete error" + e.getMessage());
+            /*log.error("GrapeWines delete error" + e.getMessage());*/
         } finally {
             transaction.commit();
             session.close();
@@ -76,9 +76,9 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         try {
             String jpql = "SELECT g FROM GrapeWines g WHERE id_sort_wine =" + id;
             grapes.addAll(session.createQuery(jpql, GrapeWines.class).getResultList());
-            log.info("Get grapeWines by id!");
+            /*log.info("Get grapeWines by id!");*/
         } catch (Exception e) {
-            log.error("Get grapeWines error" + e.getMessage());
+        /*    log.error("Get grapeWines error" + e.getMessage());*/
         } finally {
             transaction.commit();
             session.close();
@@ -94,9 +94,9 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         try {
             String jpql = "SELECT g FROM GrapeWines g";
             grapes.addAll(session.createQuery(jpql, GrapeWines.class).getResultList());
-            log.info("Get all grapesWines!");
+            /*log.info("Get all grapesWines!");*/
         } catch (Exception e) {
-            log.error("Get grapeWines error" + e.getMessage());
+           /* log.error("Get grapeWines error" + e.getMessage());*/
         } finally {
             transaction.commit();
             session.close();

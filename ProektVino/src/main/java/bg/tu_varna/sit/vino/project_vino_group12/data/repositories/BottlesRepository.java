@@ -28,9 +28,9 @@ public class BottlesRepository implements DAORepository<Bottles>{
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("Bottle saved successfully!");
+          /*  log.info("Bottle saved successfully!");*/
         }catch(Exception e){
-            log.error("Bottle save error"+e.getMessage());
+           /* log.error("Bottle save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -44,9 +44,9 @@ public class BottlesRepository implements DAORepository<Bottles>{
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("Bottle updated successfully!");
+           /* log.info("Bottle updated successfully!");*/
         }catch(Exception e) {
-            log.error("Bottle update error" + e.getMessage());
+            /*log.error("Bottle update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -59,9 +59,9 @@ public class BottlesRepository implements DAORepository<Bottles>{
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            log.info("Bottle deleted successfully!");
+            /*log.info("Bottle deleted successfully!");*/
         }catch(Exception e) {
-            log.error("Bottle delete error" + e.getMessage());
+           /* log.error("Bottle delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -77,9 +77,9 @@ public class BottlesRepository implements DAORepository<Bottles>{
         try{
             String jpql="SELECT b FROM Bottles b WHERE id_bottle ="+id;
             bottles.addAll(session.createQuery(jpql,Bottles.class).getResultList());
-            log.info("Get bottle by id!");
+            /*log.info("Get bottle by id!");*/
         }catch(Exception e){
-            log.error("Get bottle error"+e.getMessage());
+            /*log.error("Get bottle error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -95,10 +95,10 @@ public class BottlesRepository implements DAORepository<Bottles>{
         try{
             String jpql="SELECT b FROM Bottles b";
             bottles.addAll(session.createQuery(jpql,Bottles.class).getResultList());
-            log.info("Get all bottles!");
+            /*log.info("Get all bottles!");*/
         }
         catch (Exception e){
-            log.error("Get bottles error" + e.getMessage());
+            /*log.error("Get bottles error" + e.getMessage());*/
         }
         finally {
             transaction.commit();

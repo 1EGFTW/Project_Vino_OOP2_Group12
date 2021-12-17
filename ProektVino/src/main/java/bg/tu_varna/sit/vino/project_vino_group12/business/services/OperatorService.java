@@ -23,26 +23,28 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.AD
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.OPERATOR_VIEW;
 
 public class OperatorService {
-    public boolean logIn=false;
     private final OperatorRepository repository = OperatorRepository.getInstance();
     public static OperatorService getInstance() {
         return OperatorServiceHolder.INSTANCE;
     }
-    private static final Logger log = Logger.getLogger(OperatorRepository.class);
+    private static final Logger log = Logger.getLogger(OperatorService.class);
+    private static class OperatorServiceHolder {
+        public static final OperatorService INSTANCE = new OperatorService();
+    }
 
     public void deleteOperator(OperatorListViewModel operator) {
         Operator o=getOperatorByName(operator.getUsername_operator());
         try{
             repository.delete(o);
+            log.info("Successfully deleted operator: "+o);
         }
         catch (Exception e){
             e.printStackTrace();
+            log.error("Error deleting operator: "+o);
         }
     }
 
-    private static class OperatorServiceHolder {
-        public static final OperatorService INSTANCE = new OperatorService();
-    }
+
 
     public ObservableList<OperatorListViewModel> getAllOperators() {
         List<Operator> operators = repository.getAll();
@@ -70,15 +72,12 @@ public class OperatorService {
     */
    public boolean operatorLogin(OperatorListViewModel o)
    {
-       ObservableList<OperatorListViewModel> allOperators= getAllOperators();
-       for (OperatorListViewModel operator:allOperators)
-       {
-           if(operator.equals(o))
-           {
-               return true;
-           }
+       if(getOperatorByName(o.getUsername_operator())==null){
+           log.error("Operator login error!");
+           return false;
        }
-       return false;
+       log.info("Operator login successful!");
+       return true;
 
    }
     public int createOperator(OperatorListViewModel o){
@@ -88,22 +87,24 @@ public class OperatorService {
        }else{
            try{
                repository.save(operator);
+               log.info("Successfully created operator: "+operator.getUsername_operator());
            }
            catch (Exception e) {
                e.printStackTrace();
+               log.error("Error creating operator!");
            }
            return 1;
        }
     }
     public Operator getOperatorByName(String name){
        List<Operator> allOperators=repository.getAll();
-       Operator temp=new Operator();
        for(Operator o:allOperators){
            if(o.getUsername_operator().equals(name)){
                return o;
            }
        }
-       return temp;
+        log.error("Operator not found!");
+       return null;
     }
     public boolean checkIfOperatorExists(Operator o){
        List<Operator> allOperators=repository.getAll();
@@ -112,6 +113,7 @@ public class OperatorService {
                return true;
            }
        }
+        log.error("No such operator!");
        return false;
     }
 }

@@ -47,13 +47,13 @@ public class AdminService {
     }
     public boolean adminLogin(AdminListViewModel a)
     {
-        Admin admin=getAdminByName(a.getUsername_admin());
-        if(checkIfAdminExists(admin)){
-            log.info("Admin login successful!");
-            return true;
+        if(getAdminByName(a.getUsername_admin())==null){
+            log.error("Admin login error!");
+            return false;
         }
-        log.error("Admin login error!");
-        return false;
+        log.info("Admin login successful!");
+        return true;
+
         /*ObservableList<AdminListViewModel> allAdmins= getAllAdmin();
         for (AdminListViewModel admin:allAdmins)
         {
@@ -86,16 +86,14 @@ public class AdminService {
     }
     public Admin getAdminByName(String name){
         List<Admin> allAdmins=repository.getAll();
-        Admin temp=new Admin();
         for(Admin a:allAdmins){
             if(a.getUsername_admin().equals(name))
             {
-                log.info("Admin found by name:"+name);
                 return a;
             }
         }
         log.error("Admin not found!");
-        return temp;
+        return null;
     }
     public boolean checkIfAdminExists(Admin a){
         List<Admin> allAdmins=repository.getAll();
@@ -116,7 +114,8 @@ public class AdminService {
         for(Bottles b:bottles){
             critical.add(String.valueOf(b.getBottle_size()));
         }
-        log.info("Bottles at critical levels: "+ critical);
+
+            log.info("Bottles at critical levels: "+ critical);
         return critical;
     }
     public List<String> checkAvailableGrapes(){

@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
+import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WarehouseHostListViewModel;
@@ -35,6 +36,7 @@ public class WarehouseHostLoginController {
         WarehouseHostListViewModel warehouseHostToLogIn=new WarehouseHostListViewModel(warehouseHost_name.getText(),warehouseHost_pass.getText());
       if(service.hostLogin(warehouseHostToLogIn)){
           try {
+              Constants.User.LoggedUser=warehouseHost_name.getText();
               s.close();
               FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WAREHOUSEHOST_VIEW));
               Stage stage = new Stage();

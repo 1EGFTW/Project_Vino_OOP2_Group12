@@ -28,9 +28,9 @@ public class WinesRepository implements DAORepository<Wines> {
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("Wines saved successfully!");
+           /* log.info("Wines saved successfully!");*/
         }catch(Exception e){
-            log.error("Wines save error"+e.getMessage());
+      /*      log.error("Wines save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -44,9 +44,9 @@ public class WinesRepository implements DAORepository<Wines> {
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("Wines updated successfully!");
+           /* log.info("Wines updated successfully!");*/
         }catch(Exception e) {
-            log.error("Wines update error" + e.getMessage());
+            /*log.error("Wines update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -59,9 +59,9 @@ public class WinesRepository implements DAORepository<Wines> {
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            log.info("Wines deleted successfully!");
+           /* log.info("Wines deleted successfully!");*/
         }catch(Exception e) {
-            log.error("Wines delete error" + e.getMessage());
+         /*   log.error("Wines delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -76,9 +76,9 @@ public class WinesRepository implements DAORepository<Wines> {
         try{
             String jpql="SELECT w FROM Wines w WHERE id_wine ="+id;
             wines.addAll(session.createQuery(jpql,Wines.class).getResultList());
-            log.info("Get wine by id!");
+            /*log.info("Get wine by id!");*/
         }catch(Exception e){
-            log.error("Get wine error"+e.getMessage());
+            /*log.error("Get wine error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -94,9 +94,9 @@ public class WinesRepository implements DAORepository<Wines> {
         try{
             String jpql="SELECT w FROM Wines w";
             wines.addAll(session.createQuery(jpql, Wines.class).getResultList());
-            log.info("Get all wines!");
+           /* log.info("Get all wines!");*/
         }catch(Exception e){
-            log.error("Get wines error"+e.getMessage());
+           /* log.error("Get wines error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();

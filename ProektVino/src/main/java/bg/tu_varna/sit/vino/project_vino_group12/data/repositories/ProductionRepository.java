@@ -30,9 +30,9 @@ public class ProductionRepository implements DAORepository<Production> {
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("Production saved successfully!");
+            /*log.info("Production saved successfully!");*/
         }catch(Exception e){
-            log.error("Production save error"+e.getMessage());
+            /*log.error("Production save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -46,9 +46,9 @@ public class ProductionRepository implements DAORepository<Production> {
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("Production updated successfully!");
+           /* log.info("Production updated successfully!");*/
         }catch(Exception e) {
-            log.error("Production update error" + e.getMessage());
+          /*  log.error("Production update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -63,9 +63,9 @@ public class ProductionRepository implements DAORepository<Production> {
         try{
             session.delete(obj);
             session.flush();
-            log.info("Production deleted successfully!");
+          /*  log.info("Production deleted successfully!");*/
         }catch(Exception e) {
-            log.error("Production delete error" + e.getMessage());
+            /*log.error("Production delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -81,9 +81,9 @@ public class ProductionRepository implements DAORepository<Production> {
         try{
             String jpql="SELECT p FROM Production p WHERE id_production="+id;
             productions.addAll(session.createQuery(jpql,Production.class).getResultList());
-            log.info("Get production by id!");
+          /*  log.info("Get production by id!");*/
         }catch(Exception e){
-            log.error("Get admin error"+e.getMessage());
+            /*log.error("Get admin error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -99,9 +99,9 @@ public class ProductionRepository implements DAORepository<Production> {
         try{
             String jpql="SELECT p FROM Production p";
             productions.addAll(session.createQuery(jpql, Production.class).getResultList());
-            log.info("Get all productions!");
+            /*log.info("Get all productions!");*/
         }catch(Exception e){
-            log.error("Get production error"+e.getMessage());
+          /*  log.error("Get production error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();

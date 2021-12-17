@@ -30,9 +30,9 @@ public class OperatorRepository implements DAORepository<Operator>{
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("Operator saved successfully!");
+            /*log.info("Operator saved successfully!");*/
         }catch(Exception e){
-            log.error("Operator save error"+e.getMessage());
+            /*log.error("Operator save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -46,9 +46,9 @@ public class OperatorRepository implements DAORepository<Operator>{
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("Operator updated successfully!");
+            /*log.info("Operator updated successfully!");*/
         }catch(Exception e) {
-            log.error("Operator update error" + e.getMessage());
+           /* log.error("Operator update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -61,9 +61,9 @@ public class OperatorRepository implements DAORepository<Operator>{
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            log.info("Operator deleted successfully!");
+          /*  log.info("Operator deleted successfully!");*/
         }catch(Exception e) {
-            log.error("Operator delete error" + e.getMessage());
+          /*  log.error("Operator delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -79,9 +79,9 @@ public class OperatorRepository implements DAORepository<Operator>{
         try{
             String jpql="SELECT o FROM Operator o WHERE id_operator ="+id;
             operators.addAll(session.createQuery(jpql,Operator.class).getResultList());
-            log.info("Get operator by id!");
+            /*log.info("Get operator by id!");*/
         }catch(Exception e){
-            log.error("Get operator error"+e.getMessage());
+           /* log.error("Get operator error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -97,9 +97,9 @@ public class OperatorRepository implements DAORepository<Operator>{
         try{
             String jpql="SELECT o FROM Operator o";
             operators.addAll(session.createQuery(jpql, Operator.class).getResultList());
-            log.info("Get all operators!");
+           /* log.info("Get all operators!");*/
         }catch(Exception e){
-            log.error("Get operator error"+e.getMessage());
+            /*log.error("Get operator error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();

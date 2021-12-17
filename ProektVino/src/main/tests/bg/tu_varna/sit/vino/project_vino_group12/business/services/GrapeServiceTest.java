@@ -53,7 +53,7 @@ class GrapeServiceTest {
     @Test
     void getAllGrape() {
         ObservableList<GrapeListViewModel> grapes= grapeService.getAllGrape();
-        assertEquals(grapes,grapeService.getAllGrape());
+        assertEquals(grapes.size(),grapeService.getAllGrape().size());
     }
 
     @Test
@@ -68,7 +68,7 @@ class GrapeServiceTest {
 
     @Test
     void getGrapeByName() {
-        assertEquals(grape,grapeService.getGrapeByName(grapeListViewModel.getName_sort()));//??????????
+        assertEquals(grape.getName_sort(),grapeService.getGrapeByName(grapeListViewModel.getName_sort()).getName_sort());//??????????
     }
 
     @Test

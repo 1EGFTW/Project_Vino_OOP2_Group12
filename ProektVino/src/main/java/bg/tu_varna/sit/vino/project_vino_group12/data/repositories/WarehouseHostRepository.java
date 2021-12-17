@@ -28,9 +28,9 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-            log.info("WarehouseHost saved successfully!");
+            /*log.info("WarehouseHost saved successfully!");*/
         }catch(Exception e){
-            log.error("WarehouseHost save error"+e.getMessage());
+            /*log.error("WarehouseHost save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -44,9 +44,9 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-            log.info("WarehouseHost updated successfully!");
+            /*log.info("WarehouseHost updated successfully!");*/
         }catch(Exception e) {
-            log.error("WarehouseHost update error" + e.getMessage());
+           /* log.error("WarehouseHost update error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -59,9 +59,9 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            log.info("WarehouseHost deleted successfully!");
+          /*  log.info("WarehouseHost deleted successfully!");*/
         }catch(Exception e) {
-            log.error("WarehouseHost delete error" + e.getMessage());
+           /* log.error("WarehouseHost delete error" + e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -76,9 +76,9 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
         try{
             String jpql="SELECT w FROM Domakin_sklad w WHERE id_domakin ="+id;
             hosts.addAll(session.createQuery(jpql,WarehouseHost.class).getResultList());
-            log.info("Get host by id!");
+            /*log.info("Get host by id!");*/
         }catch(Exception e){
-            log.error("Get warehouseHost error"+e.getMessage());
+   /*         log.error("Get warehouseHost error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
@@ -94,9 +94,9 @@ public class WarehouseHostRepository implements DAORepository<WarehouseHost> {
         try{
             String jpql="SELECT wh FROM WarehouseHost wh";
             warehouseHosts.addAll(session.createQuery(jpql, WarehouseHost.class).getResultList());
-            log.info("Get all warehouse hosts!");
+           /* log.info("Get all warehouse hosts!");*/
         }catch(Exception e){
-            log.error("Get warehouse host error"+e.getMessage());
+       /*     log.error("Get warehouse host error"+e.getMessage());*/
         }finally {
             transaction.commit();
             session.close();
