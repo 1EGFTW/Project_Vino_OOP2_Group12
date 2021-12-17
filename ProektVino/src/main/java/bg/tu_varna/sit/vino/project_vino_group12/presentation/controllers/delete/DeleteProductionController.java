@@ -108,10 +108,16 @@ public class DeleteProductionController implements Initializable {
         {
             userSwitch();
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted production!", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }else{
             userSwitch();
             Alert alert=new Alert(Alert.AlertType.ERROR,"Couldn't delete production!", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
 

@@ -44,6 +44,9 @@ public class DeleteAdminController implements Initializable {
         adminService.deleteAdmin(admin);
         loadNewPage(ADMIN_VIEW);
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted admin!", ButtonType.OK);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add("Alerts.css");
+        dialogPane.getStyleClass().add("Alert");
         alert.show();
         }
     private void fillComboBox(){

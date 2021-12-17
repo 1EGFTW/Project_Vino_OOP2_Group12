@@ -52,6 +52,9 @@ public class CreateOperatorController {
                 e.printStackTrace();
             }
             Alert alert=new Alert(Alert.AlertType.WARNING,"Operator already exists!", ButtonType.CLOSE);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
         else{
@@ -61,6 +64,9 @@ public class CreateOperatorController {
                 case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
             }
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Operator added", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
     }

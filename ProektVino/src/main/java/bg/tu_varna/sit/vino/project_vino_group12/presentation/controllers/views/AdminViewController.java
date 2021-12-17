@@ -438,14 +438,23 @@ public class AdminViewController implements Initializable {
         List<String> grapes=adminService.checkAvailableGrapes();
         for (String s:bottles){
             Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nBottle: "+s+"ml",ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
         for (String s:grapes){
             Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nGrape: "+s,ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
         if(bottles.isEmpty() && grapes.isEmpty()){
             Alert alert=new Alert(Alert.AlertType.INFORMATION,"Everything is in stock!",ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
     }

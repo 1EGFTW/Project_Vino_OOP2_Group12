@@ -107,11 +107,17 @@ public class DeleteWineController implements Initializable {
         if(winesService.deleteWine(wine)){
             userSwitch();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Successfully deleted wine!", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
 
         }else {
             userSwitch();
             Alert alert=new Alert(Alert.AlertType.ERROR,"This wine is used in a production cycle!", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
     }

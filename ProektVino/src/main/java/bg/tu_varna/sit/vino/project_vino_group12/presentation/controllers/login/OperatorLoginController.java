@@ -51,6 +51,9 @@ public class OperatorLoginController {
         }
         else{
             Alert alert=new Alert(Alert.AlertType.INFORMATION,"No such user!",ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
             operator_name.setText("");
             operator_pass.setText("");

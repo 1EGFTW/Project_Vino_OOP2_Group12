@@ -106,10 +106,16 @@ public class DeleteGrapeController implements Initializable {
                 case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
             }
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted grape!", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
         else{
             Alert alert=new Alert(Alert.AlertType.ERROR,"This grape is used in a wine!", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
 

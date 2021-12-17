@@ -47,6 +47,9 @@ public class UpdateWineController implements Initializable {
         if(winesService.updateWine(wine,newQuantity)){
             userSwitch();
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully added!",ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
         else{
@@ -63,6 +66,9 @@ public class UpdateWineController implements Initializable {
                 e.printStackTrace();
             }
             Alert alert=new Alert(Alert.AlertType.ERROR,"Error!",ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
             quantity.setText("");
         }

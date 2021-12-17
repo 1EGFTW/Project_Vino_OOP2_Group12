@@ -18,6 +18,8 @@
      -fx-alignment: center;
      -fx-text-fill: #A1A9BA;
      -fx-font-weight: bold;
+     -fx-faint-focus-color: transparent;
+     -fx-focus-color: #345830;
  }
 
  .confirmButtons:hover{

@@ -1,0 +1,27 @@
+.Alert{
+    -fx-background-color: #F7EDDA;
+}
+
+ .Alert:header *.header-panel{
+     -fx-background-color: #280000;
+ }
+
+ .Alert > *.label.content{
+     -fx-font-size: 16px;
+     -fx-font-weight: bold;
+ }
+
+ .Alert > *.button-bar{
+    -fx-color: #75AF6E;
+    -fx-cursor: hand;
+    -fx-font-size: 14;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #345830;
+ }
+
+ .Alert:header *.header-panel *.label{
+     -fx-font-size: 18px;
+     -fx-font-style: italic;
+     -fx-font-weight: bold;
+     -fx-text-fill: #FFDEC2;
+ }

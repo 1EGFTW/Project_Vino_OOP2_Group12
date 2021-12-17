@@ -87,11 +87,17 @@ public class AddProductionController implements Initializable {
                     e.printStackTrace();
                 }
                 Alert alert1 = new Alert(Alert.AlertType.ERROR, "Not enough bottles available", ButtonType.OK);
+                DialogPane dialogPane = alert1.getDialogPane();
+                dialogPane.getStylesheets().add("Alerts.css");
+                dialogPane.getStyleClass().add("Alert");
                 alert1.show();
             }
             case 1 -> {
                 userSwitch();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Successful entry!", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add("Alerts.css");
+                dialogPane.getStyleClass().add("Alert");
                 alert.show();
             }
             case 2 -> {
@@ -108,6 +114,9 @@ public class AddProductionController implements Initializable {
                     e.printStackTrace();
                 }
                 Alert alert2 = new Alert(Alert.AlertType.ERROR, "Not enough wine available", ButtonType.OK);
+                DialogPane dialogPane = alert2.getDialogPane();
+                dialogPane.getStylesheets().add("Alerts.css");
+                dialogPane.getStyleClass().add("Alert");
                 alert2.show();
             }
         }
