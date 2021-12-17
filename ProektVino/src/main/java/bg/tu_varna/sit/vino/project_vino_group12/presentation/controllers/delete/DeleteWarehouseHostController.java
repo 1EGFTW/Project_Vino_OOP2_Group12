@@ -54,6 +54,9 @@ public class DeleteWarehouseHostController implements Initializable {
         warehouseHostService.deleteHost(host);
         loadNewPage(ADMIN_VIEW);
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted warehouse host!", ButtonType.OK);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add("Alerts.css");
+        dialogPane.getStyleClass().add("Alert");
         alert.show();
     }
     private void loadNewPage(String path) {

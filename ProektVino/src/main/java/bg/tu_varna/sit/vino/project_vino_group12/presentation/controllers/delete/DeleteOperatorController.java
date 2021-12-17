@@ -47,6 +47,9 @@ public class DeleteOperatorController implements Initializable {
         operatorService.deleteOperator(operator);
         loadNewPage(ADMIN_VIEW);
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted operator!", ButtonType.OK);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add("Alerts.css");
+        dialogPane.getStyleClass().add("Alert");
         alert.show();
     }
     @FXML

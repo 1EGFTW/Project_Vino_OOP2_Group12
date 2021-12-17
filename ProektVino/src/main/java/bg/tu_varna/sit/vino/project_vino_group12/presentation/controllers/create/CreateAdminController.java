@@ -50,11 +50,17 @@ public class CreateAdminController {
                 e.printStackTrace();
             }
             Alert alert=new Alert(Alert.AlertType.WARNING,"Admin already exists!", ButtonType.CLOSE);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
         else{
             loadNewPage(ADMIN_VIEW);
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Admin added", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add("Alerts.css");
+            dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
     }

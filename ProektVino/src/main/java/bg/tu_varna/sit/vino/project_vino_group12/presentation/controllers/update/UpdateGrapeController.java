@@ -46,10 +46,16 @@ public class UpdateGrapeController implements Initializable {
             if(grapeService.updateGrape(grape,newQuantity)){
                 userSwitch();
                 Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully added!",ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add("Alerts.css");
+                dialogPane.getStyleClass().add("Alert");
                 alert.show();
             }
             else{
                 Alert alert=new Alert(Alert.AlertType.ERROR,"Error!",ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add("Alerts.css");
+                dialogPane.getStyleClass().add("Alert");
                 alert.show();
                 quantity.setText("");
             }

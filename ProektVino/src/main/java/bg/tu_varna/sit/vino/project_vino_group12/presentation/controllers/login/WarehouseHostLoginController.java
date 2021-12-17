@@ -53,6 +53,9 @@ public class WarehouseHostLoginController {
       }
       else{
           Alert alert=new Alert(Alert.AlertType.INFORMATION,"No such user!",ButtonType.OK);
+          DialogPane dialogPane = alert.getDialogPane();
+          dialogPane.getStylesheets().add("Alerts.css");
+          dialogPane.getStyleClass().add("Alert");
           alert.show();
           warehouseHost_name.setText("");
           warehouseHost_pass.setText("");

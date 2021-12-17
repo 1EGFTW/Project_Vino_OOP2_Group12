@@ -106,6 +106,9 @@ public class DeleteSortColorController implements Initializable {
             case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
         }
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Successfully deleted color!", ButtonType.OK);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add("Alerts.css");
+        dialogPane.getStyleClass().add("Alert");
         alert.show();
 
     }
