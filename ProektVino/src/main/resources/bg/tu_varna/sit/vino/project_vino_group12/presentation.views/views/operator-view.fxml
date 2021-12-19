@@ -19,7 +19,6 @@
         </children></Pane>
     <Pane layoutX="-2.0" prefHeight="731.0" prefWidth="249.0" styleClass="leftMenu">
         <children>
-            <Button fx:id="changeToCreate" layoutX="23.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToCreate" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Create" />
             <Button fx:id="notifications" layoutX="14.0" layoutY="690.0" mnemonicParsing="false" onAction="#checkNotifications" prefHeight="27.0" prefWidth="146.0" styleClass="notificationsButton" text="Check notifications" />
             <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#goBack" prefHeight="70.0" prefWidth="70.0" styleClass="GoBackButton">
                 <graphic>
@@ -56,12 +55,6 @@
                     <Label fx:id="delete" layoutX="354.0" layoutY="151.0" text="Delete:" />
                     <ComboBox fx:id="comboBoxDelete" layoutX="279.0" layoutY="238.0" prefHeight="45.0" prefWidth="211.0" styleClass="combo" />
                     <Button fx:id="deleteChoice" layoutX="315.0" layoutY="345.0" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="55.0" prefWidth="137.0" styleClass="centerPaneButtons" text="Choose" />
-                </children>
-            </Pane>
-            <Pane fx:id="createPane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
-                <children>
-                    <Button fx:id="createOperator" layoutX="301.0" layoutY="282.0" mnemonicParsing="false" onAction="#createOperator" prefHeight="55.0" prefWidth="167.0" styleClass="centerPaneButtons" text="Create Operator" />
-                    <Label layoutX="357.0" layoutY="189.0" text="Create" />
                 </children>
             </Pane>
             <Pane fx:id="updatePane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">

@@ -39,6 +39,9 @@ public class Wines implements Serializable {
         this.name_wine=name_wine;
         this.total=total;
     }
+    public Wines(String name_wine){
+        this.name_wine=name_wine;
+    }
 
     public Wines(String name_wine, Set<GrapeWines> grapeWines, int total, Set<Production> production) {
         this.name_wine = name_wine;
@@ -94,7 +97,7 @@ public class Wines implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Wines wines = (Wines) o;
-        return total == wines.total && Objects.equals(name_wine, wines.name_wine);
+        return Objects.equals(name_wine, wines.name_wine);
     }
 
     @Override

@@ -75,7 +75,7 @@ public class AdminService {
         else {
             try{
                 repository.save(admin);
-                log.info("Admin "+admin+" created!");
+                log.info("Admin "+admin.getUsername_admin()+" created!");
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -104,7 +104,7 @@ public class AdminService {
                 return true;
             }
         }
-        log.info("No such admin!");
+        /*log.info("No such admin!");*/
         return false;
     }
     public List<String> checkAvailableBottles(){
@@ -115,7 +115,6 @@ public class AdminService {
             critical.add(String.valueOf(b.getBottle_size()));
         }
 
-            log.info("Bottles at critical levels: "+ critical);
         return critical;
     }
     public List<String> checkAvailableGrapes(){
@@ -125,7 +124,6 @@ public class AdminService {
         for(Grape g:grapes){
             critical.add(g.getName_sort());
         }
-        log.info("Grapes at critical levels: "+ critical);
         return critical;
     }
 

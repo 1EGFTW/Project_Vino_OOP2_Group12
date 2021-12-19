@@ -90,7 +90,6 @@ public class GrapeService {
                 return true;
             }
         }
-        log.info("No such grape!");
         return false;
     }
     public Grape getGrapeByName(String name) {
@@ -108,7 +107,7 @@ public class GrapeService {
         List<Grape> temp=new LinkedList<>();
         for(Grape grape:allGrapes)
         {
-            if(grape.getSort_quantity()<=50)
+            if(grape.getSort_quantity()<=250)
             {
                 temp.add(grape);
             }

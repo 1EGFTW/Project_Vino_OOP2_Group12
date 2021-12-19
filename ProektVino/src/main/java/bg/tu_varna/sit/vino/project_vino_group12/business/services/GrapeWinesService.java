@@ -43,10 +43,15 @@ public class GrapeWinesService {
         WinesService wService=WinesService.getInstance();
         Grape grape = service.getGrapeByName(gr.getName_sort());
         /*Wines wine=changeListViewToObject(g).getWine();*/
-        Wines wine=new Wines(w.getName_wine(),w.getTotal());
+/*        Wines wine=new Wines(w.getName_wine(),w.getTotal());*/ // raboteshto
+        Wines wine=new Wines(w.getName_wine());
+        int total=0;
         if(wService.isWineAlreadyCreated(wine)){
             wine=wService.getWineByName(wine.getName_wine());
+            total=wine.getTotal();
         }
+        total=total+((grape.getQuantity_by_kg()*g.getQuantity_for_wine())/1000);
+        wine.setTotal(total);
         GrapeWines grapeWines=new GrapeWines(grape,wine,g.getQuantity_for_wine());
 
         int quantity=grapeWines.getGrape().getSort_quantity();
@@ -71,7 +76,7 @@ public class GrapeWinesService {
                 return gr;
             }
         }
-        log.error("No such wine!");
+        log.error("No such grape/wine!");
         return null;
     }
     public GrapeWines getByWineName(Wines w){

@@ -15,7 +15,7 @@
             <TextField fx:id="quantity_by_kg" layoutX="160.0" layoutY="362.0" prefHeight="45.0" prefWidth="280.0" styleClass="inputFields" />
             <Label fx:id="name_sort_label" layoutX="158.0" layoutY="123.0" text="Name" />
             <Label fx:id="id_sort_color_label" layoutX="159.0" layoutY="196.0" text="Color" />
-            <Label fx:id="sort_quantity_label" layoutX="160.0" layoutY="267.0" text="Quantity" />
+            <Label fx:id="sort_quantity_label" layoutX="160.0" layoutY="267.0" text="Quantity in kg:" />
             <Label fx:id="quantity_by_kg_label" layoutX="159.0" layoutY="342.0" text="Wine produced by 1kg" />
             <Button fx:id="createGrape" layoutX="217.0" layoutY="422.0" mnemonicParsing="false" onAction="#createGrape" prefHeight="55.0" prefWidth="167.0" styleClass="confirmButtons" text="Add grape" />
          </children>

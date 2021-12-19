@@ -113,7 +113,7 @@ public class OperatorService {
                return true;
            }
        }
-        log.error("No such operator!");
+        /*log.error("No such operator!");*/
        return false;
     }
 }

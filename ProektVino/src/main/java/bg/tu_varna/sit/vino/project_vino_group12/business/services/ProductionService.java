@@ -82,8 +82,8 @@ public class ProductionService {
     }
     public int addProduction(ProductionListViewModel p, WinesListViewModel w,BottlesListViewModel b)
     {
-        WinesService winesService=WinesService.getInstance();
-        Wines wine=winesService.getWineByName(w.getName_wine());
+        int bottleProductionCriteria=0;
+        int wineProductionCriteria=0;
       /*  int total=wine.getTotal();*/
         /*List<Bottles> allBottles=new ArrayList<>();
         allBottles=bottlesRepository.getAll();
@@ -108,6 +108,8 @@ public class ProductionService {
                 temp.setBottle_quantity(temp.getBottle_quantity()-listNumberBottles.get(i+1));
             }
         }*/
+        WinesService winesService=WinesService.getInstance();
+        Wines wine=winesService.getWineByName(w.getName_wine());
         Bottles bottle=bottlesService.getBottleBySize(b.getBottle_size());
         Production production=new Production(wine,bottle/*temp*/,p.getProduced_bottles());
         //update-va br butilki v sklada sled proizvodstvo
@@ -115,7 +117,7 @@ public class ProductionService {
 
         bottle_quantity=bottle_quantity-production.getProduced_bottles();
         //check if there are enough bottles
-        if(bottle_quantity<=50 || bottle_quantity<=production.getProduced_bottles()) {
+        if(bottle_quantity<=production.getProduced_bottles() && bottle_quantity<=bottleProductionCriteria) {
             log.error("Not enough bottles for production!");
             return 0;
         }
@@ -125,7 +127,7 @@ public class ProductionService {
             int total = production.getWine().getTotal();
             total = (total - (production.getProduced_bottles() * production.getBottle().getBottle_size()) / 1000);
             //check if there is enough wine to be bottled
-            if(total<=0)
+            if(total<=wineProductionCriteria)
             {
                 log.error("Not enough wine for production!");
                 return 2;

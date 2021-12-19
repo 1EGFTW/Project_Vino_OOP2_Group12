@@ -41,8 +41,6 @@ public class OperatorViewController implements Initializable {
     @FXML
     public Pane wrapperPane;
     @FXML
-    public Pane createPane;
-    @FXML
     public Pane addPane;
     @FXML
     public Pane checkPane;
@@ -288,11 +286,6 @@ public class OperatorViewController implements Initializable {
         }
     }
 
-    @FXML
-    public void changeToCreate(ActionEvent actionEvent){
-        wrapperPane.getChildren().clear();
-        wrapperPane.getChildren().add(createPane);
-    }
 
     @FXML
     public void changeToAdd(ActionEvent actionEvent){

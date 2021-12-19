@@ -92,7 +92,7 @@ public class WarehouseHostService {
                 return true;
             }
         }
-        log.error("No such host!");
+  /*      log.error("No such host!");*/
         return false;
     }
 }

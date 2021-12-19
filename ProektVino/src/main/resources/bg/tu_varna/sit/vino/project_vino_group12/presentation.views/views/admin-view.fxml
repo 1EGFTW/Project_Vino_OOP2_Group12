@@ -19,7 +19,7 @@
          </children></Pane>
       <Pane layoutX="-2.0" prefHeight="731.0" prefWidth="249.0" styleClass="leftMenu">
          <children>
-            <Button fx:id="changeToCreate" layoutX="23.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToCreate" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Create" />
+            <Button fx:id="changeToCreate" layoutX="23.0" layoutY="155.0" mnemonicParsing="false" onAction="#changeToCreate" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Create users" />
             <Button fx:id="notifications" layoutX="14.0" layoutY="690.0" mnemonicParsing="false" onAction="#checkNotifications" prefHeight="27.0" prefWidth="146.0" styleClass="notificationsButton" text="Check notifications" />
             <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#goBack" prefHeight="70.0" prefWidth="70.0" styleClass="GoBackButton">
                <graphic>

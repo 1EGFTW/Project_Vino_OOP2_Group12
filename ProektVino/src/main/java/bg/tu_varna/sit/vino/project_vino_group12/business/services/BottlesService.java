@@ -91,7 +91,7 @@ public class BottlesService {
         List<Bottles> temp=new LinkedList<>();
         for(Bottles bottle:allBottles)
         {
-            if(bottle.getBottle_quantity()<=2)
+            if(bottle.getBottle_quantity()<=450)
             {
                 temp.add(bottle);
                 log.info("Bottle "+bottle+" at critical level!");

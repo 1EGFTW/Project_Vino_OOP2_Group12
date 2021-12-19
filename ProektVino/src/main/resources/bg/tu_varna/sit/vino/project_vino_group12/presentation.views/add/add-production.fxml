@@ -14,7 +14,7 @@
             <Label layoutX="148.0" layoutY="215.0" text="Bottle size" />
             <ComboBox fx:id="bottle_size" layoutX="148.0" layoutY="235.0" prefHeight="45.0" prefWidth="300.0" styleClass="combo" />
             <TextField fx:id="produced_bottles" layoutX="148.0" layoutY="313.0" prefHeight="45.0" prefWidth="300.0" styleClass="inputFields" />
-            <Label layoutX="148.0" layoutY="293.0" text="Produced bottles" />
+            <Label layoutX="148.0" layoutY="293.0" text="Bottles to be produced" />
             <Button fx:id="createGrape" layoutX="205.0" layoutY="395.0" mnemonicParsing="false" onAction="#addProduction" prefHeight="55.0" prefWidth="167.0" styleClass="confirmButtons" text="Add production" />
          </children>
       </Pane>

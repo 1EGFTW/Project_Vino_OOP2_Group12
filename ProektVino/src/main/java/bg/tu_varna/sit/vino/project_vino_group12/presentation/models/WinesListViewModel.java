@@ -14,6 +14,9 @@ public class WinesListViewModel {
         this.name_wine = name_wine;
         this.total = total;
     }
+    public WinesListViewModel(String name_wine){
+        this.name_wine=name_wine;
+    }
 
     public String getName_wine() {
         return name_wine;
