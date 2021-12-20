@@ -57,6 +57,8 @@ public class OperatorViewController implements Initializable {
     @FXML
     public Button changeToDelete;
     @FXML
+    public Button changeToUpdate;
+    @FXML
     private Button createOperator;
     @FXML
     private Button checkAvailableGrapes;
@@ -265,8 +267,8 @@ public class OperatorViewController implements Initializable {
     }
     private void fillComboBox(){
         List<String> choices=new ArrayList<>();
-        choices.add("Wine");
         choices.add("Production");
+        choices.add("Wine");
         comboBoxDelete.setItems(FXCollections.observableList(choices));
     }
 

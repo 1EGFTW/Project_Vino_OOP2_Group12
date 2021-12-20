@@ -57,6 +57,8 @@ public class WarehouseHostViewController implements Initializable {
     @FXML
     public Button changeToDelete;
     @FXML
+    public Button changeToUpdate;
+    @FXML
     public Button addGrape;
     @FXML
     public Button addBottles;
@@ -319,9 +321,9 @@ public class WarehouseHostViewController implements Initializable {
     private void fillComboBox(){
         List<String> choices=new ArrayList<>();
         choices.add("Bottle");
+        choices.add("Wine");
         choices.add("Grape");
         choices.add("SortColor");
-        choices.add("Wine");
         comboBoxDelete.setItems(FXCollections.observableList(choices));
     }
 

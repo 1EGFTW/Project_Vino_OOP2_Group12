@@ -60,6 +60,8 @@ public class AdminViewController implements Initializable {
     @FXML
     public Button changeToDelete;
     @FXML
+    public Button changeToUpdate;
+    @FXML
     public Button addGrape;
     @FXML
     public Button addBottles;
@@ -464,10 +466,10 @@ public class AdminViewController implements Initializable {
         choices.add("Operator");
         choices.add("Warehouse Host");
         choices.add("Bottle");
+        choices.add("Production");
+        choices.add("Wine");
         choices.add("Grape");
         choices.add("SortColor");
-        choices.add("Wine");
-        choices.add("Production");
         comboBoxDelete.setItems(FXCollections.observableList(choices));
     }
 

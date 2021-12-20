@@ -16,6 +16,8 @@
                <image>
                   <Image url="@../../images/Logo.png" />
                </image></ImageView>
+            <Label layoutX="538.0" layoutY="21.0" styleClass="showUserLabel" text="Admin:" />
+            <Label fx:id="user" layoutX="538.0" layoutY="50.0" styleClass="showUserLabel" text="Label" />
          </children></Pane>
       <Pane layoutX="-2.0" prefHeight="731.0" prefWidth="249.0" styleClass="leftMenu">
          <children>
@@ -31,18 +33,10 @@
             <Button fx:id="changeToAdd" layoutX="22.0" layoutY="239.0" mnemonicParsing="false" onAction="#changeToAdd" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Add" />
             <Button fx:id="changeToCheck" layoutX="22.0" layoutY="325.0" mnemonicParsing="false" onAction="#changeToCheck" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Check" />
             <Button fx:id="changeToDelete" layoutX="22.0" layoutY="408.0" mnemonicParsing="false" onAction="#changeToDelete" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Delete" />
-            <Button layoutX="21.0" layoutY="489.0" mnemonicParsing="false" onAction="#changeToUpdate" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Update" />
+            <Button fx:id="changeToUpdate" layoutX="21.0" layoutY="489.0" mnemonicParsing="false" onAction="#changeToUpdate" prefHeight="55.0" prefWidth="191.0" styleClass="leftMenuButton" text="Update" />
          </children></Pane>
       <Pane fx:id="wrapperPane" layoutX="243.0" layoutY="127.0" prefHeight="605.0" prefWidth="769.0">
          <children>
-            <Pane fx:id="checkPane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
-               <children>
-                  <Button fx:id="checkAvailableGrapes" layoutX="274.0" layoutY="275.0" mnemonicParsing="false" onAction="#checkAvailableGrapes" prefHeight="55.0" prefWidth="220.0" styleClass="centerPaneButtons" text="Check available grapes" />
-                  <Button fx:id="checkAvailableBottles" layoutX="274.0" layoutY="183.0" mnemonicParsing="false" onAction="#checkAvailableBottles" prefHeight="55.0" prefWidth="220.0" styleClass="centerPaneButtons" text="Check available bottles" />
-                  <Button fx:id="checkAvailableWines" layoutX="274.0" layoutY="366.0" mnemonicParsing="false" onAction="#checkAvailableWines" prefHeight="55.0" prefWidth="220.0" styleClass="centerPaneButtons" text="Check available wines" />
-                  <Button fx:id="checkAvailableProductions" layoutX="274.0" layoutY="450.0" mnemonicParsing="false" onAction="#checkAvailableProductions" prefHeight="55.0" prefWidth="220.0" styleClass="centerPaneButtons" text="Check available productions" />
-               </children>
-                  </Pane>
             <Pane fx:id="addPane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
                <children>
                   <Label layoutX="289.0" layoutY="98.0" text="Warehouse operations" />
@@ -75,12 +69,18 @@
                   <Button layoutX="279.0" layoutY="376.0" mnemonicParsing="false" onAction="#updateWine" prefHeight="55.0" prefWidth="211.0" styleClass="centerPaneButtons" text="Update wine quantity" />
                   <Label layoutX="260.0" layoutY="134.0" text="Please choose from the menu" />
                </children></Pane>
+            <Pane fx:id="checkPane" prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
+               <children>
+                  <Button fx:id="checkAvailableGrapes" layoutX="257.0" layoutY="240.0" mnemonicParsing="false" onAction="#checkAvailableGrapes" prefHeight="55.0" prefWidth="255.0" styleClass="centerPaneButtons" text="Check available grapes" />
+                  <Button fx:id="checkAvailableBottles" layoutX="257.0" layoutY="142.0" mnemonicParsing="false" onAction="#checkAvailableBottles" prefHeight="55.0" prefWidth="255.0" styleClass="centerPaneButtons" text="Check available bottles" />
+                  <Button fx:id="checkAvailableWines" layoutX="257.0" layoutY="340.0" mnemonicParsing="false" onAction="#checkAvailableWines" prefHeight="55.0" prefWidth="255.0" styleClass="centerPaneButtons" text="Check available wines" />
+                  <Button fx:id="checkAvailableProductions" layoutX="257.0" layoutY="433.0" mnemonicParsing="false" onAction="#checkAvailableProductions" prefHeight="55.0" prefWidth="255.0" styleClass="centerPaneButtons" text="Check available productions" />
+               </children>
+                  </Pane>
             <Pane prefHeight="605.0" prefWidth="768.0" styleClass="centerPanes">
                <children>
                   <Label layoutX="77.0" layoutY="5.0" prefHeight="596.0" prefWidth="615.0" styleClass="frontLabel" text="Welcome to &#10;V&amp;A &#10;Winery!&#10;&#10;Please choose one of the categories." textAlignment="CENTER" wrapText="true">
                   </Label>
-                  <Label layoutX="538.0" layoutY="21.0" text="Admin:" />
-                  <Label layoutX="641.0" layoutY="21.0" text="Label" fx:id="user"/>
                </children></Pane>
          </children>
       </Pane>
