@@ -14,8 +14,6 @@
             <Label layoutX="167.0" layoutY="266.0" text="Amount of grape needed for production" />
             <TextField fx:id="name_wine" layoutX="167.0" layoutY="138.0" prefHeight="45.0" prefWidth="280.0" styleClass="inputFields" />
             <TextField fx:id="amount" layoutX="167.0" layoutY="286.0" prefHeight="45.0" prefWidth="280.0" styleClass="inputFields" />
-            <!--<Label layoutX="166.0" layoutY="338.0" text="Total quantity in kg" />
-            <TextField fx:id="total" layoutX="167.0" layoutY="358.0" prefHeight="45.0" prefWidth="280.0" styleClass="inputFields" />-->
             <ComboBox fx:id="grapeType" layoutX="167.0" layoutY="210.0" prefHeight="45.0" prefWidth="280.0" styleClass="combo" />
             <Button fx:id="create" layoutX="223.0" layoutY="421.0" mnemonicParsing="false" onAction="#createWine" prefHeight="55.0" prefWidth="167.0" styleClass="confirmButtons" text="Create wine" />
          </children>

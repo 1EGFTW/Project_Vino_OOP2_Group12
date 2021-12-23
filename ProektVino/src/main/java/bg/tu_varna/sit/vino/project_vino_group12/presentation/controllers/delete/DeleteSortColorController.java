@@ -5,7 +5,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,25 +25,28 @@ public class DeleteSortColorController implements Initializable {
     public final int userTracking= Constants.User.UserTracking;
     private final SortColorService sortColorService=SortColorService.getInstance();
     Stage s;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public DeleteSortColorController(Stage stage){
         this.s=stage;
     }
-    @FXML
-    private Label label1;
+
     @FXML
     private Button delete;
     @FXML
     private Button goBack;
     @FXML
     private ComboBox<SortColorListViewModel> colorComboBox;
+
     private void fillComboBox(){
        ObservableList<SortColorListViewModel> sortColors=sortColorService.getAllSortColor();
        colorComboBox.setItems(sortColors);
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         switch (userTracking) {
@@ -53,6 +55,7 @@ public class DeleteSortColorController implements Initializable {
             case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
         }
     }
+
     public void loadNewPage(String path){
         if(userTracking==1){
             try {
@@ -67,7 +70,8 @@ public class DeleteSortColorController implements Initializable {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -110,6 +114,5 @@ public class DeleteSortColorController implements Initializable {
         dialogPane.getStylesheets().add("Alerts.css");
         dialogPane.getStyleClass().add("Alert");
         alert.show();
-
     }
 }

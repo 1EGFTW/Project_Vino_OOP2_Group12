@@ -1,8 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddProductionController;
@@ -24,7 +22,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +31,6 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class OperatorViewController implements Initializable {
     Stage s;
-    private final AdminService adminService=AdminService.getInstance();
-    private final OperatorService operatorService=OperatorService.getInstance();
-    private final WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
 
     @FXML
     public Pane wrapperPane;
@@ -68,8 +62,6 @@ public class OperatorViewController implements Initializable {
     private Button checkAvailableWines;
     @FXML
     private Button checkAvailableProductions;
-    @FXML
-    private Label delete;
     @FXML
     private Label user;
     @FXML
@@ -227,7 +219,6 @@ public class OperatorViewController implements Initializable {
                 }
                 break;
         }
-
     }
 
     @Override
@@ -235,10 +226,12 @@ public class OperatorViewController implements Initializable {
         fillComboBox();
         user.setText(Constants.User.LoggedUser);
     }
+
     @FXML
     protected void checkNotifications(ActionEvent actionEvent){
         notificationAlerts();
     }
+
     private void notificationAlerts(){
         AdminService adminService=AdminService.getInstance();
         List<String> bottles = adminService.checkAvailableBottles();
@@ -265,6 +258,7 @@ public class OperatorViewController implements Initializable {
             alert.show();
         }
     }
+
     private void fillComboBox(){
         List<String> choices=new ArrayList<>();
         choices.add("Production");
@@ -287,7 +281,6 @@ public class OperatorViewController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
     @FXML
     public void changeToAdd(ActionEvent actionEvent){

@@ -1,8 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
-import javafx.scene.control.Label;
-
 import java.util.Objects;
 
 public class GrapeListViewModel {

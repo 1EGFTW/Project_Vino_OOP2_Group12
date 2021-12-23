@@ -1,8 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddBottlesController;
@@ -34,9 +32,6 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class WarehouseHostViewController implements Initializable {
-    private final AdminService adminService=AdminService.getInstance();
-    private final OperatorService operatorService=OperatorService.getInstance();
-    private final WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     Stage s;
     @FXML
     public Pane wrapperPane;
@@ -170,6 +165,7 @@ public class WarehouseHostViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void checkAvailableBottles(ActionEvent actionEvent){
         try {
@@ -185,6 +181,7 @@ public class WarehouseHostViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void checkAvailableWines(ActionEvent actionEvent){
         try {
@@ -205,6 +202,7 @@ public class WarehouseHostViewController implements Initializable {
     public void goBack(ActionEvent actionEvent){
         loadNewPage(HELLO_VIEW);
     }
+
     @FXML
     public void deleteSelected(ActionEvent actionEvent){
         switch (comboBoxDelete.getValue())
@@ -266,7 +264,6 @@ public class WarehouseHostViewController implements Initializable {
                 }
                 break;
         }
-
     }
     private void loadNewPage(String path){
         try {
@@ -288,10 +285,12 @@ public class WarehouseHostViewController implements Initializable {
         fillComboBox();
         user.setText(Constants.User.LoggedUser);
     }
+
     @FXML
     protected void checkNotifications(ActionEvent actionEvent){
         notificationAlerts();
     }
+
     private void notificationAlerts(){
         AdminService adminService=AdminService.getInstance();
         List<String> bottles = adminService.checkAvailableBottles();
@@ -318,6 +317,7 @@ public class WarehouseHostViewController implements Initializable {
             alert.show();
         }
     }
+
     private void fillComboBox(){
         List<String> choices=new ArrayList<>();
         choices.add("Bottle");
@@ -342,6 +342,7 @@ public class WarehouseHostViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void updateGrape(ActionEvent actionEvent){
         try {

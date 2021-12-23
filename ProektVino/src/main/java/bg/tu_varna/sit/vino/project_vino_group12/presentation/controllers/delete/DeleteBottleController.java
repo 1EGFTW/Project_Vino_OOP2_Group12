@@ -1,12 +1,10 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete;
 
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,15 +25,16 @@ public class DeleteBottleController implements Initializable {
     private final BottlesService bottleService=BottlesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public DeleteBottleController(Stage stage){
         this.s=stage;
     }
-    @FXML
-    private Label label1;
+
     @FXML
     private Button delete;
     @FXML
@@ -68,7 +67,8 @@ public class DeleteBottleController implements Initializable {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));

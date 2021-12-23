@@ -5,7 +5,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,9 +25,9 @@ public class UpdateWineController implements Initializable {
     private final WinesService winesService=WinesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
+
     public UpdateWineController(Stage stage){
         this.s=stage;
-
     }
     @FXML
     public Button update;
@@ -38,8 +37,7 @@ public class UpdateWineController implements Initializable {
     public ComboBox<WinesListViewModel> wines;
     @FXML
     public TextField quantity;
-    @FXML
-    public Label label;
+
     @FXML
     public void updateWine(ActionEvent actionEvent){
         WinesListViewModel wine=wines.getValue();
@@ -79,15 +77,18 @@ public class UpdateWineController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public void fillComboBox(){
         ObservableList<WinesListViewModel> allWines=winesService.getAllWines();
         wines.setItems(allWines);
 
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         userSwitch();
     }
+
     public void userSwitch(){
         switch (userTracking) {
             case 1 -> loadNewPage(ADMIN_VIEW);
@@ -95,6 +96,7 @@ public class UpdateWineController implements Initializable {
             case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
         }
     }
+
     public void loadNewPage(String path){
         if(userTracking==1){
             try {
@@ -109,7 +111,8 @@ public class UpdateWineController implements Initializable {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -137,6 +140,5 @@ public class UpdateWineController implements Initializable {
                 e.printStackTrace();
             }
         }
-
     }
 }

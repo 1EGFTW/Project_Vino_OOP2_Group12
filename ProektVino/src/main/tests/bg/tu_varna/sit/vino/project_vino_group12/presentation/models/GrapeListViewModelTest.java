@@ -15,8 +15,8 @@ class GrapeListViewModelTest {
     @BeforeEach
     void setUp(){
         sortColor=new SortColor("white");
-     grapeListViewModel=new GrapeListViewModel("Vladi",sortColor,1000,100);
-     grapeListViewModel1=new GrapeListViewModel("Test",sortColor,1000,100);
+        grapeListViewModel=new GrapeListViewModel("Vladi",sortColor,1000,100);
+        grapeListViewModel1=new GrapeListViewModel("Test",sortColor,1000,100);
     }
     @Test
     void testEquals() {

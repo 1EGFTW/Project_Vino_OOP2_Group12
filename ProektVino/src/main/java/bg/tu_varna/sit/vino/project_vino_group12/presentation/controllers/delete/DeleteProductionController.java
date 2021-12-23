@@ -5,7 +5,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.ProductionListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,10 +15,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.LongAdder;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
@@ -27,29 +24,33 @@ public class DeleteProductionController implements Initializable {
     private final ProductionService productionService=ProductionService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public DeleteProductionController(Stage stage){
         this.s=stage;
     }
-    @FXML
-    private Label label1;
+
     @FXML
     private Button delete;
     @FXML
     private Button goBack;
     @FXML
     private ComboBox<ProductionListViewModel> productionComboBox;
+
     private void fillComboBox(){
       ObservableList<ProductionListViewModel> productions=productionService.getAllProductions();
       productionComboBox.setItems(productions);
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         userSwitch();
     }
+
     public void userSwitch(){
         switch (userTracking) {
             case 1 -> loadNewPage(ADMIN_VIEW);
@@ -71,7 +72,8 @@ public class DeleteProductionController implements Initializable {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -120,6 +122,5 @@ public class DeleteProductionController implements Initializable {
             dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
-
     }
 }

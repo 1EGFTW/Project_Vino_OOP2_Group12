@@ -19,8 +19,6 @@ public class WarehouseHostLoginController {
     Stage s;
     private final WarehouseHostService service= WarehouseHostService.getInstance();
     @FXML
-    public Label warehouseHostlogin;
-    @FXML
     public TextField warehouseHost_name;
     @FXML
     public PasswordField warehouseHost_pass;
@@ -61,10 +59,12 @@ public class WarehouseHostLoginController {
           warehouseHost_pass.setText("");
       }
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         loadNewPage(HELLO_VIEW);
     }
+
     public void loadNewPage(String path){
         try {
             s.close();
@@ -75,7 +75,6 @@ public class WarehouseHostLoginController {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-
         } catch(Exception e) {
             e.printStackTrace();
         }

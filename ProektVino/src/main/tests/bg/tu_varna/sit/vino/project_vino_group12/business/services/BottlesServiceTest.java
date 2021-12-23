@@ -5,11 +5,8 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesReposi
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-
-import java.lang.annotation.Repeatable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,6 +17,7 @@ class BottlesServiceTest {
     private BottlesService bottlesService;
     private BottlesListViewModel bottlesListViewModel;
     private BottlesRepository bottlesRepository;
+
     @BeforeEach
     void setUp(){
         this.bottle=new Bottles(500,100);

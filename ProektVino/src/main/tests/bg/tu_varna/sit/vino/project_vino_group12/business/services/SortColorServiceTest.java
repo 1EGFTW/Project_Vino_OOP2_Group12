@@ -4,7 +4,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.ObservableList;
-import net.bytebuddy.TypeCache;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
@@ -26,11 +25,6 @@ class SortColorServiceTest {
         sortColorRepository.delete(sortColor);
 
     }
-
-/*    @AfterEach
-    void tearDown() {
-        sortColorRepository.delete(sortColor);
-    }*/
 
     @Test
     @Order(5)

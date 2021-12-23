@@ -2,21 +2,13 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeWinesService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.WinesService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeWinesListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,13 +18,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.apache.log4j.Logger;
-
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
@@ -40,22 +28,8 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class AddWineController implements Initializable {
     private final GrapeService grapeService=GrapeService.getInstance();
     private final  GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
-    private final WinesService winesService=WinesService.getInstance();
-    private final WinesRepository winesRepository=WinesRepository.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
-    private static final org.apache.log4j.Logger log = Logger.getLogger(AddWineController.class);
-
-    @FXML
-    private Label label1;
-    @FXML
-    private Label label2;
-    @FXML
-    private Label label3;
-    @FXML
-    private Label label4;
-    @FXML
-    private Label label5;
     @FXML
     private TextField name_wine;
     @FXML
@@ -80,34 +54,17 @@ public class AddWineController implements Initializable {
 
     @FXML
     public void createWine(ActionEvent actionEvent){
-/*        Grape g= (Grape) grapeType.getItems();
-        Wines wine=new Wines(name_wine.getText(),Integer.parseInt(total.getText()));
-        wine=winesService.checkWine(wine);
-        GrapeWines grapeWines=new GrapeWines();
-        grapeWines.setWine(wine);
-        grapeWines.setGrape(g);
-        grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));*/
-       /* Grape temp=grapeService.getGrapeByName(grapeType.getValue().getName_sort());*/
-       /* GrapeListViewModel grape=grapeService.convertGrapeToListView(temp);*/
         GrapeListViewModel grape=grapeType.getValue();
-        /*WinesListViewModel wine=new WinesListViewModel(name_wine.getText(),Integer.parseInt(total.getText()));*/
         WinesListViewModel wine=new WinesListViewModel(name_wine.getText());
-        /*wine=winesService.checkWine(wine);*/
         GrapeWinesListViewModel grapeWines=new GrapeWinesListViewModel();
-        /*grapeWines.setWine(wine);
-        grapeWines.setGrape(grape);*/
         grapeWines.setQuantity_for_wine(Integer.parseInt(amount.getText()));
-
         grapeWinesService.addGrapeWines(grapeWines,grape,wine);
-
         switch (userTracking) {
             case 1 -> loadNewPage(ADMIN_VIEW);
             case 2 -> loadNewPage(OPERATOR_VIEW);
             case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
         }
-
     }
-
 
     @FXML
     public void goBack(ActionEvent actionEvent){
@@ -118,6 +75,7 @@ public class AddWineController implements Initializable {
             case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
         }
     }
+
     public void loadNewPage(String path){
         if(userTracking==1){
             try {
@@ -132,7 +90,8 @@ public class AddWineController implements Initializable {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -160,7 +119,6 @@ public class AddWineController implements Initializable {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override

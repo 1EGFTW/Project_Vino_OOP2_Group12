@@ -1,12 +1,10 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete;
 
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WinesService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,25 +25,28 @@ public class DeleteWineController implements Initializable {
     private final WinesService winesService=WinesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public DeleteWineController(Stage stage){
         this.s=stage;
     }
-    @FXML
-    private Label label1;
+
     @FXML
     private Button delete;
     @FXML
     private Button goBack;
     @FXML
     private ComboBox<WinesListViewModel> wineComboBox;
+
     private void fillComboBox(){
-    ObservableList<WinesListViewModel> wines=winesService.getAllWines();
-    wineComboBox.setItems(wines);
+        ObservableList<WinesListViewModel> wines=winesService.getAllWines();
+        wineComboBox.setItems(wines);
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         userSwitch();
@@ -57,6 +58,7 @@ public class DeleteWineController implements Initializable {
             case 3 -> loadNewPage(WAREHOUSEHOST_VIEW);
         }
     }
+
     public void loadNewPage(String path){
         if(userTracking==1){
             try {

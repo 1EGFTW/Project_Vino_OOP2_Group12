@@ -19,16 +19,16 @@ public class OperatorLoginController {
     private final OperatorService service= OperatorService.getInstance();
     Stage s;
     @FXML
-    public Label operatorlogin;
-    @FXML
     public TextField operator_name;
     @FXML
     public PasswordField operator_pass;
     @FXML
     public Button login;
+
     public OperatorLoginController(Stage stage){
         s=stage;
     }
+
     @FXML
     public void onOperatorLoginButtonClick(ActionEvent actionEvent) {
         OperatorListViewModel operatorToLogIn=new OperatorListViewModel(operator_name.getText(),operator_pass.getText());
@@ -59,13 +59,14 @@ public class OperatorLoginController {
             operator_pass.setText("");
         }
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         loadNewPage(HELLO_VIEW);
     }
+
     public void loadNewPage(String path){
         try {
-
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Stage stage = new Stage();
@@ -78,6 +79,5 @@ public class OperatorLoginController {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
 }

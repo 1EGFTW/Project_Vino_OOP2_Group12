@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class WarehouseHostListViewModelTest {
     private WarehouseHostListViewModel warehouseHostListViewModel;
     private WarehouseHostListViewModel warehouseHostListViewModel1;
+
     @BeforeEach
     void setUp() {
         warehouseHostListViewModel=new WarehouseHostListViewModel("host1","host1");

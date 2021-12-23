@@ -27,10 +27,9 @@ public class HelloApplication extends Application {
         if (path != null){
             FXMLLoader fxmlLoader=new FXMLLoader(path);
             fxmlLoader.setController(new HelloController(stage));
-            Parent root =fxmlLoader.load();      //= FXMLLoader.load(path);
+            Parent root =fxmlLoader.load();
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
-
             stage.setTitle(Constants.Values.Title);
             stage.setScene(scene);
             stage.setResizable(false);
@@ -41,7 +40,7 @@ public class HelloApplication extends Application {
             stage.show();
 
         } else {
-            log.error("Sorry, the main fxm could not be loaded.");
+            log.error("Sorry, the main fxml could not be loaded.");
             System.exit(-1);
         }
     }

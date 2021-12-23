@@ -1,20 +1,13 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 public class BottlesRepository implements DAORepository<Bottles>{
-    private static final Logger log = Logger.getLogger(BottlesRepository.class);
-
     public static BottlesRepository getInstance() {
         return BottlesRepository.BottlesRepositoryHolder.INSTANCE;
     }
@@ -28,9 +21,7 @@ public class BottlesRepository implements DAORepository<Bottles>{
         Transaction transaction= session.beginTransaction();
         try{
             session.save(obj);
-          /*  log.info("Bottle saved successfully!");*/
         }catch(Exception e){
-           /* log.error("Bottle save error"+e.getMessage());*/
             e.printStackTrace();
         }finally {
             transaction.commit();
@@ -44,9 +35,8 @@ public class BottlesRepository implements DAORepository<Bottles>{
         Transaction transaction=session.beginTransaction();
         try{
             session.update(obj);
-           /* log.info("Bottle updated successfully!");*/
         }catch(Exception e) {
-            /*log.error("Bottle update error" + e.getMessage());*/
+            e.printStackTrace();
         }finally {
             transaction.commit();
             session.close();
@@ -59,9 +49,8 @@ public class BottlesRepository implements DAORepository<Bottles>{
         Transaction transaction=session.beginTransaction();
         try{
             session.delete(obj);
-            /*log.info("Bottle deleted successfully!");*/
         }catch(Exception e) {
-           /* log.error("Bottle delete error" + e.getMessage());*/
+            e.printStackTrace();
         }finally {
             transaction.commit();
             session.close();
@@ -69,22 +58,21 @@ public class BottlesRepository implements DAORepository<Bottles>{
     }
 
     @Override
-    public List<Bottles> getById(Integer id) {
+    public Bottles getById(Integer id) {
 
         Session session=Connection.openSession();
         Transaction transaction= session.beginTransaction();
-        List<Bottles> bottles=new LinkedList<>();
+        Bottles bottle=new Bottles();
         try{
             String jpql="SELECT b FROM Bottles b WHERE id_bottle ="+id;
-            bottles.addAll(session.createQuery(jpql,Bottles.class).getResultList());
-            /*log.info("Get bottle by id!");*/
+            bottle=session.createQuery(jpql,Bottles.class).getSingleResult();
         }catch(Exception e){
-            /*log.error("Get bottle error"+e.getMessage());*/
+            e.printStackTrace();
         }finally {
             transaction.commit();
             session.close();
         }
-        return bottles;
+        return bottle;
     }
 
     @Override
@@ -95,10 +83,9 @@ public class BottlesRepository implements DAORepository<Bottles>{
         try{
             String jpql="SELECT b FROM Bottles b";
             bottles.addAll(session.createQuery(jpql,Bottles.class).getResultList());
-            /*log.info("Get all bottles!");*/
         }
         catch (Exception e){
-            /*log.error("Get bottles error" + e.getMessage());*/
+            e.printStackTrace();
         }
         finally {
             transaction.commit();
@@ -106,5 +93,4 @@ public class BottlesRepository implements DAORepository<Bottles>{
         }
         return bottles;
     }
-
 }

@@ -10,7 +10,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListVi
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +17,6 @@ public class GrapeWinesService {
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
     private static final org.apache.log4j.Logger log = Logger.getLogger(GrapeWinesService.class);
     private final GrapeRepository grapeRepository=GrapeRepository.getInstance();
-    private final WinesRepository winesRepository=WinesRepository.getInstance();
     public static GrapeWinesService getInstance() {
         return GrapeWinesService.GrapeWinesServiceHolder.INSTANCE;
     }
@@ -38,20 +36,19 @@ public class GrapeWinesService {
     }
 
     public void addGrapeWines(GrapeWinesListViewModel g, GrapeListViewModel gr, WinesListViewModel w){
-        /*Grape grape=grapeService.getGrapeByName(changeListViewToObject(g).getGrape().getName_sort());*/
         GrapeService service=GrapeService.getInstance();
         WinesService wService=WinesService.getInstance();
         Grape grape = service.getGrapeByName(gr.getName_sort());
-        /*Wines wine=changeListViewToObject(g).getWine();*/
-/*        Wines wine=new Wines(w.getName_wine(),w.getTotal());*/ // raboteshto
         Wines wine=new Wines(w.getName_wine());
         int total=0;
         if(wService.isWineAlreadyCreated(wine)){
             wine=wService.getWineByName(wine.getName_wine());
             total=wine.getTotal();
         }
+
         total=total+((grape.getQuantity_by_kg()*g.getQuantity_for_wine())/1000);
         wine.setTotal(total);
+
         GrapeWines grapeWines=new GrapeWines(grape,wine,g.getQuantity_for_wine());
 
         int quantity=grapeWines.getGrape().getSort_quantity();
@@ -89,5 +86,4 @@ public class GrapeWinesService {
         log.error("No such wine!");
         return null;
     }
-
 }

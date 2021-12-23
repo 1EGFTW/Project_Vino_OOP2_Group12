@@ -27,7 +27,7 @@ public class SortColor implements Serializable {
 
     public SortColor(){}
 
-   public SortColor(String color){
+    public SortColor(String color){
        this.color=color;
    }
 
@@ -59,6 +59,7 @@ public class SortColor implements Serializable {
     public void setGrapes(Set<Grape> grapes) {
         this.grapes = grapes;
     }
+
     public void addGrape(Grape g){
         this.grapes.add(g);
     }

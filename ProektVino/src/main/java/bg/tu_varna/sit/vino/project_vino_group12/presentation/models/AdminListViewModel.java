@@ -7,6 +7,7 @@ public class AdminListViewModel {
     private String password_admin;
 
     public AdminListViewModel(){}
+
     public AdminListViewModel(String username_admin, String password_admin) {
         this.username_admin = username_admin;
         this.password_admin = password_admin;
@@ -20,10 +21,10 @@ public class AdminListViewModel {
         return Objects.equals(username_admin, that.username_admin) && Objects.equals(password_admin, that.password_admin);
     }
 
-
-    public boolean equals(AdminListViewModel r) {
-   return this.username_admin.equals(r.username_admin)&& this.password_admin.equals(r.password_admin);
-   }
+    @Override
+    public int hashCode() {
+        return Objects.hash(username_admin, password_admin);
+    }
 
     public String getUsername_admin() {
         return username_admin;

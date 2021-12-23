@@ -50,15 +50,6 @@ class GrapeWinesServiceTest {
     @Test
     void getAllGrapeWines() {
         ObservableList<GrapeWinesListViewModel> grapeWinesListViewModels= grapeWinesService.getAllGrapeWines();
-       /* for(GrapeWinesListViewModel g:grapeWinesListViewModels){
-            for(GrapeWinesListViewModel gr:grapeWinesService.getAllGrapeWines()){
-                assertEquals(g,gr);
-            }
-        }*/
-      /*  GrapeWinesListViewModel temp=grapeWinesListViewModels.get(0);
-        GrapeWinesListViewModel temp1=grapeWinesService.getAllGrapeWines().get(0);
-        assertEquals(temp,temp1)*/;
-     /*   assertEquals(grapeWinesListViewModels,grapeWinesService.getAllGrapeWines());*/
         assertEquals(grapeWinesListViewModels.size(),grapeWinesService.getAllGrapeWines().size());
     }
 

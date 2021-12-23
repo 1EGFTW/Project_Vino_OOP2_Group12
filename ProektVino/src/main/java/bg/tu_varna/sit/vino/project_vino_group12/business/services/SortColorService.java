@@ -1,14 +1,11 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
-import org.hibernate.annotations.Sort;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,8 +29,6 @@ public class SortColorService {
             log.error("Error deleting color: "+s.getColor()+" - "+e);
         }
     }
-
-
 
     public ObservableList<SortColorListViewModel> getAllSortColor() {
         List<SortColor> sortColors = repository.getAll();
@@ -81,5 +76,4 @@ public class SortColorService {
         log.error("No such color!");
         return null;
     }
-
 }

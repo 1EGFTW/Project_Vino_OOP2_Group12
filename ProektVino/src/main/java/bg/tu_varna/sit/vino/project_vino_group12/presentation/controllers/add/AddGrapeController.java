@@ -3,18 +3,11 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.SortColorService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,25 +17,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.hibernate.annotations.Sort;
-
-import javax.persistence.criteria.CriteriaBuilder;
-
 import java.net.URL;
-import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.Set;
-
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AddGrapeController implements Initializable {
     private final GrapeService grapeService=GrapeService.getInstance();
-    private final SortColorService sortColorService=SortColorService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
-    @FXML
-    public Label createGrapeLabel;
     @FXML
     public TextField name_sort;
     @FXML
@@ -52,14 +34,6 @@ public class AddGrapeController implements Initializable {
     @FXML
     public TextField sort_quantity;
     @FXML
-    public Label name_sort_label;
-    @FXML
-    public Label id_sort_color_label;
-    @FXML
-    public Label sort_quantity_label;
-    @FXML
-    public Label quantity_by_kg_label;
-    @FXML
     public Button createGrape;
 
     public AddGrapeController(Stage stage) {
@@ -67,7 +41,6 @@ public class AddGrapeController implements Initializable {
     }
     @FXML
     public void createGrape(ActionEvent actionEvent) {
-       /* SortColor temp=sort_color.getValue();*/
         SortColorListViewModel sc= sort_color.getValue();
         GrapeListViewModel g = new GrapeListViewModel(name_sort.getText(), Integer.parseInt(sort_quantity.getText()), Integer.parseInt(quantity_by_kg.getText()));
         int res=grapeService.addGrape(g,sc);
@@ -91,7 +64,6 @@ public class AddGrapeController implements Initializable {
             alert.show();
         }
         else{
-            /*loadNewPage(ADMIN_VIEW);*/
             switch (userTracking) {
                 case 1 -> loadNewPage(ADMIN_VIEW);
                 case 2 -> loadNewPage(OPERATOR_VIEW);

@@ -8,8 +8,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListVi
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
-
-import javax.crypto.Cipher;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +34,7 @@ public class AdminService {
         public static final AdminService INSTANCE = new AdminService();
     }
 
-    public ObservableList<AdminListViewModel> getAllAdmin() { //spisyk s admini
+    public ObservableList<AdminListViewModel> getAllAdmin() {
         List<Admin> admins=repository.getAll();
 
         return FXCollections.observableList(
@@ -53,18 +51,6 @@ public class AdminService {
         }
         log.info("Admin login successful!");
         return true;
-
-        /*ObservableList<AdminListViewModel> allAdmins= getAllAdmin();
-        for (AdminListViewModel admin:allAdmins)
-        {
-            if(admin.equals(a))
-            {
-                log.info("Admin login successful!");
-                return true;
-            }
-        }
-        log.error("Admin login error!");
-        return false;*/
     }
     public int createAdmin(AdminListViewModel a){
         Admin admin=new Admin(a.getUsername_admin(),a.getPassword_admin());
@@ -104,7 +90,6 @@ public class AdminService {
                 return true;
             }
         }
-        /*log.info("No such admin!");*/
         return false;
     }
     public List<String> checkAvailableBottles(){
@@ -114,7 +99,6 @@ public class AdminService {
         for(Bottles b:bottles){
             critical.add(String.valueOf(b.getBottle_size()));
         }
-
         return critical;
     }
     public List<String> checkAvailableGrapes(){
@@ -126,7 +110,4 @@ public class AdminService {
         }
         return critical;
     }
-
-
-
 }

@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views;
+
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.*;
@@ -17,7 +16,6 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateGrapeController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.update.UpdateWineController;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,9 +33,6 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class AdminViewController implements Initializable {
-    private final AdminService adminService=AdminService.getInstance();
-    private final OperatorService operatorService=OperatorService.getInstance();
-    private final WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     Stage s;
     @FXML
     public Pane wrapperPane;
@@ -66,8 +61,6 @@ public class AdminViewController implements Initializable {
     @FXML
     public Button addBottles;
     @FXML
-    private Label create;
-    @FXML
     private Button createOperator;
     @FXML
     private Button createHost;
@@ -81,8 +74,6 @@ public class AdminViewController implements Initializable {
     private Button checkAvailableWines;
     @FXML
     private Button checkAvailableProductions;
-    @FXML
-    private Label delete;
     @FXML
     private ComboBox<String> comboBoxDelete;
     @FXML
@@ -102,12 +93,12 @@ public class AdminViewController implements Initializable {
     @FXML
     public Button back;
 
-    public AdminViewController(Stage s){
-        this.s=s;
+    public AdminViewController(Stage s) {
+        this.s = s;
     }
 
     @FXML
-    protected void createOperator(ActionEvent event){
+    protected void createOperator(ActionEvent event) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_OPERATOR));
@@ -117,12 +108,13 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-   }
+    }
+
     @FXML
-    protected void createHost(ActionEvent event){
+    protected void createHost(ActionEvent event) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CREATE_WAREHOUSEHOST));
@@ -132,10 +124,11 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-   }
+    }
+
     @FXML
     protected void createAdmin(ActionEvent actionEvent) {
         try {
@@ -147,10 +140,11 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void addGrape(ActionEvent actionEvent) {
         try {
@@ -162,10 +156,11 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void addBottles(ActionEvent actionEvent) {
         try {
@@ -177,12 +172,13 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void addSortColor(ActionEvent actionEvent){
+    public void addSortColor(ActionEvent actionEvent) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ADD_SORTCOLOR));
@@ -192,10 +188,11 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void addWines(ActionEvent actionEvent) {
         try {
@@ -207,10 +204,11 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void addProduction(ActionEvent actionEvent) {
         try {
@@ -222,12 +220,13 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void checkAvailableGrapes(ActionEvent actionEvent){
+    public void checkAvailableGrapes(ActionEvent actionEvent) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_GRAPES));
@@ -237,12 +236,13 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void checkAvailableBottles(ActionEvent actionEvent){
+    public void checkAvailableBottles(ActionEvent actionEvent) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_BOTTLES));
@@ -252,12 +252,13 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void checkAvailableWines(ActionEvent actionEvent){
+    public void checkAvailableWines(ActionEvent actionEvent) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_WINES));
@@ -267,12 +268,13 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void checkAvailableProductions(ActionEvent actionEvent){
+    public void checkAvailableProductions(ActionEvent actionEvent) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CHECK_PRODUCTION));
@@ -282,19 +284,19 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
     @FXML
-    public void goBack(ActionEvent actionEvent){
+    public void goBack(ActionEvent actionEvent) {
         loadNewPage(HELLO_VIEW);
     }
+
     @FXML
-    public void deleteSelected(ActionEvent actionEvent){
-        switch (comboBoxDelete.getValue())
-        {
+    public void deleteSelected(ActionEvent actionEvent) {
+        switch (comboBoxDelete.getValue()) {
             case "Admin":
                 try {
                     s.close();
@@ -305,9 +307,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "Operator":
                 try {
@@ -319,9 +322,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "Warehouse Host":
                 try {
@@ -333,9 +337,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "Bottle":
                 try {
@@ -347,9 +352,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "Wine":
                 try {
@@ -361,9 +367,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "Grape":
                 try {
@@ -375,9 +382,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "SortColor":
                 try {
@@ -389,9 +397,10 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 break;
             case "Production":
                 try {
@@ -403,14 +412,15 @@ public class AdminViewController implements Initializable {
                     stage.setScene(new Scene(root1));
                     stage.setResizable(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
         }
 
     }
-    private void loadNewPage(String path){
+
+    private void loadNewPage(String path) {
         try {
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
@@ -420,48 +430,131 @@ public class AdminViewController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+    @FXML
+    public void updateBottles(ActionEvent actionEvent) {
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_BOTTLES));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateBottlesController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void updateGrape(ActionEvent actionEvent) {
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_GRAPE));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateGrapeController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void updateWine(ActionEvent actionEvent) {
+        try {
+            s.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_WINE));
+            Stage stage = new Stage();
+            fxmlLoader.setController(new UpdateWineController(stage));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void changeToCreate(ActionEvent actionEvent) {
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(createPane);
+    }
+
+    @FXML
+    public void changeToAdd(ActionEvent actionEvent) {
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(addPane);
+    }
+
+    @FXML
+    public void changeToCheck(ActionEvent actionEvent) {
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(checkPane);
+    }
+
+    @FXML
+    public void changeToDelete(ActionEvent actionEvent) {
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(deletePane);
+    }
+
+    @FXML
+    public void changeToUpdate(ActionEvent actionEvent) {
+        wrapperPane.getChildren().clear();
+        wrapperPane.getChildren().add(updatePane);
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
         user.setText(Constants.User.LoggedUser);
     }
+
     @FXML
-    protected void checkNotifications(ActionEvent actionEvent){
+    protected void checkNotifications(ActionEvent actionEvent) {
         notificationAlerts();
     }
-    private void notificationAlerts(){
-        AdminService adminService=AdminService.getInstance();
+
+    private void notificationAlerts() {
+        AdminService adminService = AdminService.getInstance();
         List<String> bottles = adminService.checkAvailableBottles();
-        List<String> grapes=adminService.checkAvailableGrapes();
-        for (String s:bottles){
-            Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nBottle: "+s+"ml",ButtonType.OK);
+        List<String> grapes = adminService.checkAvailableGrapes();
+        for (String s : bottles) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check availability:\nBottle: " + s + "ml", ButtonType.OK);
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add("Alerts.css");
             dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
-        for (String s:grapes){
-            Alert alert=new Alert(Alert.AlertType.WARNING,"Please check availability:\nGrape: "+s,ButtonType.OK);
+        for (String s : grapes) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check availability:\nGrape: " + s, ButtonType.OK);
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add("Alerts.css");
             dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
-        if(bottles.isEmpty() && grapes.isEmpty()){
-            Alert alert=new Alert(Alert.AlertType.INFORMATION,"Everything is in stock!",ButtonType.OK);
+        if (bottles.isEmpty() && grapes.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Everything is in stock!", ButtonType.OK);
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add("Alerts.css");
             dialogPane.getStyleClass().add("Alert");
             alert.show();
         }
     }
-    private void fillComboBox(){
-        List<String> choices=new ArrayList<>();
+
+    private void fillComboBox() {
+        List<String> choices = new ArrayList<>();
         choices.add("Admin");
         choices.add("Operator");
         choices.add("Warehouse Host");
@@ -472,81 +565,4 @@ public class AdminViewController implements Initializable {
         choices.add("SortColor");
         comboBoxDelete.setItems(FXCollections.observableList(choices));
     }
-
-    @FXML
-    public void updateBottles(ActionEvent actionEvent){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_BOTTLES));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new UpdateBottlesController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    public void updateGrape(ActionEvent actionEvent){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_GRAPE));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new UpdateGrapeController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    public void updateWine(ActionEvent actionEvent){
-        try {
-            s.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(UPDATE_WINE));
-            Stage stage = new Stage();
-            fxmlLoader.setController(new UpdateWineController(stage));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void changeToCreate(ActionEvent actionEvent){
-        wrapperPane.getChildren().clear();
-        wrapperPane.getChildren().add(createPane);
-    }
-
-    @FXML
-    public void changeToAdd(ActionEvent actionEvent){
-        wrapperPane.getChildren().clear();
-        wrapperPane.getChildren().add(addPane);
-    }
-
-    @FXML
-    public void changeToCheck(ActionEvent actionEvent){
-        wrapperPane.getChildren().clear();
-        wrapperPane.getChildren().add(checkPane);
-    }
-
-    @FXML
-    public void changeToDelete(ActionEvent actionEvent){
-        wrapperPane.getChildren().clear();
-        wrapperPane.getChildren().add(deletePane);
-    }
-
-    @FXML
-    public void changeToUpdate(ActionEvent actionEvent){
-        wrapperPane.getChildren().clear();
-        wrapperPane.getChildren().add(updatePane);
-    }
-
 }

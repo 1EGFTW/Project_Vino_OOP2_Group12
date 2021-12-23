@@ -22,8 +22,6 @@ public class DeleteOperatorController implements Initializable {
     OperatorService operatorService=OperatorService.getInstance();
     Stage s;
     @FXML
-    private Label label1;
-    @FXML
     private Button delete;
     @FXML
     private Button goBack;
@@ -34,9 +32,11 @@ public class DeleteOperatorController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public DeleteOperatorController(Stage stage){
         this.s=stage;
     }
+
     private void fillComboBox(){
         ObservableList<OperatorListViewModel> operators=operatorService.getAllOperators();
         operatorComboBox.setItems(operators);

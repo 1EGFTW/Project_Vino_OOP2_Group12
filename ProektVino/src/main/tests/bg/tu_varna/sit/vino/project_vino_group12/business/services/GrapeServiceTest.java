@@ -8,11 +8,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorLi
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import javax.xml.bind.SchemaOutputResolver;
-
 import java.util.LinkedList;
 import java.util.List;
 

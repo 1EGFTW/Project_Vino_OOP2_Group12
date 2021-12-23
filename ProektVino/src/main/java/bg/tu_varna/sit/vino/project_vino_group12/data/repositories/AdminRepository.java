@@ -8,29 +8,25 @@ import org.hibernate.Transaction;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
-public class AdminRepository implements DAORepository<Admin>{
-    private static final Logger log=Logger.getLogger(AdminRepository.class);
-
-    public static AdminRepository getInstance(){
+public class AdminRepository implements DAORepository<Admin> {
+    public static AdminRepository getInstance() {
         return AdminRepository.AdminRepositoryHolder.INSTANCE;
     }
+
     private static class AdminRepositoryHolder {
         public static final AdminRepository INSTANCE = new AdminRepository();
     }
 
     @Override
     public void save(Admin obj) {
-        Session session= Connection.openSession();
-        Transaction transaction= session.beginTransaction();
-        try{
+        Session session = Connection.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
             session.save(obj);
-           /* log.info("Admin saved successfully!");*/
-        }catch(Exception e){
-            /*log.error("Admin save error"+e.getMessage());*/
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             transaction.commit();
             session.close();
         }
@@ -38,14 +34,13 @@ public class AdminRepository implements DAORepository<Admin>{
 
     @Override
     public void update(Admin obj) {
-        Session session=Connection.openSession();
-        Transaction transaction=session.beginTransaction();
-        try{
+        Session session = Connection.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
             session.update(obj);
-         /*   log.info("Admin updated successfully!");*/
-        }catch(Exception e) {
-           /* log.error("Admin update error" + e.getMessage());*/
-        }finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             transaction.commit();
             session.close();
         }
@@ -53,54 +48,49 @@ public class AdminRepository implements DAORepository<Admin>{
 
     @Override
     public void delete(Admin obj) {
-        Session session=Connection.openSession();
-        Transaction transaction=session.beginTransaction();
-        try{
+        Session session = Connection.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
             session.delete(obj);
-           /* log.info("Admin deleted successfully!");*/
-        }catch(Exception e) {
-            /*log.error("Admin delete error" + e.getMessage());*/
-        }finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             transaction.commit();
             session.close();
         }
     }
 
     @Override
-    public List<Admin> getById(Integer id) {
-        Session session=Connection.openSession();
-        Transaction transaction= session.beginTransaction();
-        List<Admin> admins=new LinkedList<>();
-        try{
-            String jpql="SELECT a FROM Admin a WHERE id_admin ="+id.toString();
-            admins.addAll(session.createQuery(jpql,Admin.class).getResultList());
-            /*log.info("Get all admins!");*/
-        }catch(Exception e){
-           /* log.error("Get admin error"+e.getMessage());*/
-        }finally {
+    public Admin getById(Integer id) {
+        Session session = Connection.openSession();
+        Transaction transaction = session.beginTransaction();
+        Admin admin = new Admin();
+        try {
+            String jpql = "SELECT a FROM Admin a WHERE id_admin =" + id.toString();
+            admin=session.createQuery(jpql, Admin.class).getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            transaction.commit();
+            session.close();
+        }
+        return admin;
+    }
+
+    @Override
+    public List<Admin> getAll() {
+        Session session = Connection.openSession();
+        Transaction transaction = session.beginTransaction();
+        List<Admin> admins = new LinkedList<>();
+        try {
+            String jpql = "SELECT a FROM Admin a";
+            admins.addAll(session.createQuery(jpql, Admin.class).getResultList());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             transaction.commit();
             session.close();
         }
         return admins;
     }
-
-   @Override
-   public List<Admin> getAll() {
-        Session session=Connection.openSession();
-        Transaction transaction= session.beginTransaction();
-        List<Admin> admins=new LinkedList<>();
-        try{
-            String jpql="SELECT a FROM Admin a";
-            admins.addAll(session.createQuery(jpql,Admin.class).getResultList());
-           /* log.info("Get all admins!");*/
-        }catch(Exception e){
-          /*  log.error("Get admin error"+e.getMessage());*/
-        }finally {
-            transaction.commit();
-            session.close();
-        }
-        return admins;
-    }
-
-
 }

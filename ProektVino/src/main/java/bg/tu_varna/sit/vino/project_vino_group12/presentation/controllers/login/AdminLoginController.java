@@ -20,13 +20,12 @@ public class AdminLoginController {
     private final AdminService service=AdminService.getInstance();
     public Stage s;
     @FXML
-    public Label adminlogin;
-    @FXML
     public TextField admin_name;
     @FXML
     public PasswordField admin_pass;
     @FXML
     public Button login;
+
     public AdminLoginController(Stage stage){
         s=stage;
     }
@@ -62,13 +61,14 @@ public class AdminLoginController {
             admin_pass.setText("");
         }
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         loadNewPage(HELLO_VIEW);
     }
+
     public void loadNewPage(String path){
         try {
-
             s.close();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Stage stage = new Stage();
@@ -80,7 +80,5 @@ public class AdminLoginController {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }

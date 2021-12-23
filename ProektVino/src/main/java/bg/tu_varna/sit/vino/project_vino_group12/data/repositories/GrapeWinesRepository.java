@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.repositories;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.access.Connection;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -11,8 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class GrapeWinesRepository implements DAORepository<GrapeWines>{
-    private static final Logger log = Logger.getLogger(bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository.class);
-
     public static bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository getInstance() {
         return bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository.GrapeWinesRepositoryHolder.INSTANCE;
     }
@@ -27,9 +24,7 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         Transaction transaction = session.beginTransaction();
         try {
             session.save(obj);
-           /* log.info("GrapeWines saved successfully!");*/
         } catch (Exception e) {
-            /*log.error("GrapeWines save error" + e.getMessage());*/
             e.printStackTrace();
         } finally {
             transaction.commit();
@@ -43,9 +38,8 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         Transaction transaction = session.beginTransaction();
         try {
             session.update(obj);
-           /* log.info("GrapeWines updated successfully!");*/
         } catch (Exception e) {
-            /*log.error("GrapeWines update error" + e.getMessage());*/
+            e.printStackTrace();
         } finally {
             transaction.commit();
             session.close();
@@ -58,9 +52,8 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         Transaction transaction = session.beginTransaction();
         try {
             session.delete(obj);
-            /*log.info("GrapeWines deleted successfully!");*/
         } catch (Exception e) {
-            /*log.error("GrapeWines delete error" + e.getMessage());*/
+            e.printStackTrace();
         } finally {
             transaction.commit();
             session.close();
@@ -68,22 +61,21 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
     }
 
     @Override
-    public List<GrapeWines> getById(Integer id) {
+    public GrapeWines getById(Integer id) {
 
         Session session = Connection.openSession();
         Transaction transaction = session.beginTransaction();
-        List<GrapeWines> grapes = new LinkedList<>();
+        GrapeWines grape = new GrapeWines();
         try {
             String jpql = "SELECT g FROM GrapeWines g WHERE id_sort_wine =" + id;
-            grapes.addAll(session.createQuery(jpql, GrapeWines.class).getResultList());
-            /*log.info("Get grapeWines by id!");*/
+            grape=session.createQuery(jpql, GrapeWines.class).getSingleResult();
         } catch (Exception e) {
-        /*    log.error("Get grapeWines error" + e.getMessage());*/
+            e.printStackTrace();
         } finally {
             transaction.commit();
             session.close();
         }
-        return grapes;
+        return grape;
     }
 
     @Override
@@ -94,14 +86,12 @@ public class GrapeWinesRepository implements DAORepository<GrapeWines>{
         try {
             String jpql = "SELECT g FROM GrapeWines g";
             grapes.addAll(session.createQuery(jpql, GrapeWines.class).getResultList());
-            /*log.info("Get all grapesWines!");*/
         } catch (Exception e) {
-           /* log.error("Get grapeWines error" + e.getMessage());*/
+            e.printStackTrace();
         } finally {
             transaction.commit();
             session.close();
         }
         return grapes;
     }
-
 }

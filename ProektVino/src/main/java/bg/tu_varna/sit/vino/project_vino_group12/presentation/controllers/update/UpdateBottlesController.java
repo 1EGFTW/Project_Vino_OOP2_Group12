@@ -25,6 +25,7 @@ public class UpdateBottlesController implements Initializable {
     private final BottlesService bottlesService=BottlesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
+
     public UpdateBottlesController(Stage stage){
         this.s=stage;
     }
@@ -36,8 +37,7 @@ public class UpdateBottlesController implements Initializable {
     public ComboBox<BottlesListViewModel> bottles;
     @FXML
     public TextField quantity;
-    @FXML
-    public Label label;
+
     @FXML
     public void updateBottles(ActionEvent actionEvent){
         BottlesListViewModel bottle=bottles.getValue();
@@ -58,12 +58,13 @@ public class UpdateBottlesController implements Initializable {
             alert.show();
             quantity.setText("");
         }
-
     }
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         userSwitch();
     }
+
     public void userSwitch(){
         switch (userTracking) {
             case 1 -> loadNewPage(ADMIN_VIEW);
@@ -76,10 +77,12 @@ public class UpdateBottlesController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();
     }
+
     public void fillComboBox(){
         ObservableList<BottlesListViewModel> allbottles=bottlesService.getAllBottles();
         bottles.setItems(allbottles);
     }
+
     public void loadNewPage(String path){
         if(userTracking==1){
             try {
@@ -94,7 +97,8 @@ public class UpdateBottlesController implements Initializable {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));

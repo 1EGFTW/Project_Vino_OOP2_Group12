@@ -1,9 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.add.AddBottlesController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.event.ActionEvent;
@@ -19,8 +16,6 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class CreateAdminController {
     private final AdminService service=AdminService.getInstance();
     Stage s;
-    @FXML
-    public Label createAdmin;
     @FXML
     public PasswordField admin_pass;
     @FXML

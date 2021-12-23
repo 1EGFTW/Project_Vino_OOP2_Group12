@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Production;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.ProductionRepository;
@@ -25,6 +24,7 @@ class ProductionServiceTest {
     private ProductionListViewModel productionListViewModel;
     private ProductionService productionService;
     private ProductionRepository productionRepository;
+
     @BeforeEach
     void setUp() {
         this.productionService=ProductionService.getInstance();

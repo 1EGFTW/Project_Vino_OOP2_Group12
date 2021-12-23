@@ -1,23 +1,13 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.WarehouseHost;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WarehouseHostRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WarehouseHostListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.apache.log4j.Logger;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.OPERATOR_VIEW;
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.WAREHOUSEHOST_VIEW;
 
 public class WarehouseHostService {
     private final WarehouseHostRepository repository = WarehouseHostRepository.getInstance();
@@ -40,8 +30,6 @@ public class WarehouseHostService {
         }
     }
 
-
-
     public ObservableList<WarehouseHostListViewModel> getAllWarehouseHost() {
         List<WarehouseHost> warehouseHosts = repository.getAll();
 
@@ -51,6 +39,7 @@ public class WarehouseHostService {
                         wh.getPassword_domakin()
                 )).collect(Collectors.toList()));
     }
+
     public boolean hostLogin(WarehouseHostListViewModel w){
         if(getHostByName(w.getUsername_domakin())==null){
             log.error("Host login error!");
@@ -59,6 +48,7 @@ public class WarehouseHostService {
         log.info("Host login successful!");
         return true;
     }
+
     public int createWarehouseHost(WarehouseHostListViewModel w){
         WarehouseHost host=new WarehouseHost(w.getUsername_domakin(),w.getPassword_domakin());
         if(checkIfHostExists(host)){
@@ -92,7 +82,6 @@ public class WarehouseHostService {
                 return true;
             }
         }
-  /*      log.error("No such host!");*/
         return false;
     }
 }

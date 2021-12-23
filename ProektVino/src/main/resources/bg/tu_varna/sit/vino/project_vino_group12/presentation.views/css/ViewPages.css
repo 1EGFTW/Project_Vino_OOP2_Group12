@@ -26,13 +26,12 @@
  }
 
  .centerPanes{
-    -fx-background-color: #F7EDDA; /*EEEBD3 old*/
+    -fx-background-color: #F7EDDA;
  }
 
  .centerPaneButtons{
     -fx-color: #345830;
     -fx-font-family: sans-serif;
-    /*-fx-text-fill: #0A090C;*/
     -fx-border-width: 1px;
     -fx-border-color: #A7CCA3;
     -fx-background-radius: 15 15 15 15;
@@ -64,7 +63,6 @@
 
 .leftMenuButton{
     -fx-color: #FCC99C;
-    /*-fx-shape:"M 100 300 L 100 200 L 300 200 L 400 250 L 300 300 L 100 300";*/
     -fx-shape: "M 0 400 L 0 100 L 450 100 L 700 200 Q 750 250 700 300 L 450 400 L 0 400 ";
     -fx-font-family: sans-serif;
     -fx-text-fill: #23272F;

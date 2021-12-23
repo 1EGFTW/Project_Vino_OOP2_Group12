@@ -34,11 +34,13 @@ public class Wines implements Serializable {
     public Wines(){
 
     }
+
     public Wines(String name_wine,int total)
     {
         this.name_wine=name_wine;
         this.total=total;
     }
+
     public Wines(String name_wine){
         this.name_wine=name_wine;
     }
@@ -73,9 +75,11 @@ public class Wines implements Serializable {
     public void setTotal(int total) {
         this.total = total;
     }
+
     public Set<GrapeWines> getGrapeWines(){
         return grapeWines;
     }
+
     public void setGrapeWines(Set<GrapeWines> wines){
         this.grapeWines=wines;
     }

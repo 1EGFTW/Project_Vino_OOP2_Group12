@@ -6,14 +6,9 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRep
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.SortColorRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import org.apache.log4j.Logger;
-import org.hibernate.annotations.Sort;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,8 +16,6 @@ import java.util.stream.Collectors;
 public class GrapeService {
     private final GrapeRepository grapeRepository = GrapeRepository.getInstance();
     private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
-    private final GrapeWinesRepository grapeWinesRepository=GrapeWinesRepository.getInstance();
-    private final SortColorRepository sortColorRepository=SortColorRepository.getInstance();
     private static final Logger log=Logger.getLogger(GrapeService.class);
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
@@ -33,9 +26,8 @@ public class GrapeService {
 
     private final SortColorService sortColorService = SortColorService.getInstance();
 
-    public boolean deleteGrape(GrapeListViewModel grape) { // pri triene se trie i sortcolor
+    public boolean deleteGrape(GrapeListViewModel grape) {
         Grape g=getGrapeByName(grape.getName_sort());
-       /* SortColor sortColor=sortColorService.getSortColorByName(g.getSortColor().getColor());*/
         if(grapeWinesService.getByGrapeName(g)==null)
         {
             try{

@@ -1,6 +1,5 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -24,12 +23,13 @@ public class Bottles implements Serializable {
 
     @Column(name="bottle_quantity",nullable = true)
     private int bottle_quantity;
-//da se vidi insertable i updatable(hibernate iska da byde tyka
+
     @OneToMany(mappedBy = "bottle")
     @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     private Set<Production> production;
 
-   public Bottles(){}
+    public Bottles(){}
+
     public Bottles(int bottle_size,int bottle_quantity)
     {
         this.bottle_size=bottle_size;

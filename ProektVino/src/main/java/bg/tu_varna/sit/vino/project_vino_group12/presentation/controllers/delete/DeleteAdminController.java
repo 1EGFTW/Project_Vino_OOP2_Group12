@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delete;
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.collections.ObservableList;
@@ -9,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.AccessibleAction;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -30,8 +28,6 @@ public class DeleteAdminController implements Initializable {
     public DeleteAdminController(Stage stage){
         this.s=stage;
     }
-    @FXML
-    private Label label1;
     @FXML
     private Button delete;
     @FXML

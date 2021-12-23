@@ -7,11 +7,8 @@ import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.AdminReposito
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,10 +45,12 @@ class AdminServiceTest {
         ObservableList<AdminListViewModel> allAdmins = adminService.getAllAdmin();
         assertEquals(allAdmins, adminService.getAllAdmin());
     }
+
     @Test
     void adminLogin() {
         assertTrue(adminService.adminLogin(adminListViewModel));
     }
+
     @Test
     void checkAvailableBottles(){
         List<String> res=new ArrayList<>();

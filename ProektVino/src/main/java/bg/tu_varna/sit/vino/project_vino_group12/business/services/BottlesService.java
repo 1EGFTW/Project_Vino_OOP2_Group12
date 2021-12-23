@@ -1,13 +1,11 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.BottlesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.BottlesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;

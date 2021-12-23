@@ -7,14 +7,8 @@ import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.ProductionL
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import org.apache.log4j.Logger;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ProductionService {
@@ -23,7 +17,6 @@ public class ProductionService {
         return ProductionServiceHolder.INSTANCE;
     }
     public final BottlesRepository bottlesRepository=BottlesRepository.getInstance();
-    public final GrapeRepository grapeRepository=GrapeRepository.getInstance();
     public final WinesRepository winesRepository=WinesRepository.getInstance();
     public final BottlesService bottlesService=BottlesService.getInstance();
     private static final org.apache.log4j.Logger log = Logger.getLogger(ProductionService.class);
@@ -58,18 +51,20 @@ public class ProductionService {
                     p.getProduced_bottles()
         )).collect(Collectors.toList()));
     }
+
     public Production getProduction(ProductionListViewModel production){
         WinesService winesService=WinesService.getInstance();
         List<Production> all=repository.getAll();
         Production temp=new Production(winesService.getWineByName(production.getWines().getName_wine()), bottlesService.getBottleBySize(production.getBottles().getBottle_size()), production.getProduced_bottles());
         for(Production p:all){
-            if(p.equals(temp)){ //dava che this.wine e null
+            if(p.equals(temp)){
                 return p;
             }
         }
         log.info("No such production");
         return null;
     }
+
     public boolean checkIfWineIsInProduction(Wines wine){
         List<Production> productions=repository.getAll();
         for(Production p:productions){
@@ -80,10 +75,10 @@ public class ProductionService {
         log.info("Wine: "+wine.getName_wine()+" not in production");
         return false;
     }
+
     public int addProduction(ProductionListViewModel p, WinesListViewModel w,BottlesListViewModel b)
     {
-        int bottleProductionCriteria=0;
-        int wineProductionCriteria=0;
+        //Attempt at automating production cycles
       /*  int total=wine.getTotal();*/
         /*List<Bottles> allBottles=new ArrayList<>();
         allBottles=bottlesRepository.getAll();
@@ -108,25 +103,28 @@ public class ProductionService {
                 temp.setBottle_quantity(temp.getBottle_quantity()-listNumberBottles.get(i+1));
             }
         }*/
+        int bottleProductionCriteria=0;
+        int wineProductionCriteria=0;
+
         WinesService winesService=WinesService.getInstance();
         Wines wine=winesService.getWineByName(w.getName_wine());
-        Bottles bottle=bottlesService.getBottleBySize(b.getBottle_size());
-        Production production=new Production(wine,bottle/*temp*/,p.getProduced_bottles());
-        //update-va br butilki v sklada sled proizvodstvo
-        int bottle_quantity=production.getBottle().getBottle_quantity();
 
+        Bottles bottle=bottlesService.getBottleBySize(b.getBottle_size());
+        Production production=new Production(wine,bottle,p.getProduced_bottles());
+
+        int bottle_quantity=production.getBottle().getBottle_quantity();
         bottle_quantity=bottle_quantity-production.getProduced_bottles();
-        //check if there are enough bottles
+
         if(bottle_quantity<=production.getProduced_bottles() && bottle_quantity<=bottleProductionCriteria) {
             log.error("Not enough bottles for production!");
             return 0;
         }
         else{
             production.getBottle().setBottle_quantity(bottle_quantity);
-            //update-va total v wine sled butilirane
+
             int total = production.getWine().getTotal();
             total = (total - (production.getProduced_bottles() * production.getBottle().getBottle_size()) / 1000);
-            //check if there is enough wine to be bottled
+
             if(total<=wineProductionCriteria)
             {
                 log.error("Not enough wine for production!");
@@ -135,9 +133,9 @@ public class ProductionService {
             else{
                 production.getWine().setTotal(total);
                 try {
-                    winesRepository.update(production.getWine());//zapazvane na noviq total na vinoto
+                    winesRepository.update(production.getWine());
                     log.info("Wine :"+production.getWine().getName_wine()+" quantity updated successfully!");
-                    bottlesRepository.update(production.getBottle());//zapazvane na novoto kolichestvo butilki
+                    bottlesRepository.update(production.getBottle());
                     log.info("Bottle :"+production.getBottle().getBottle_size()+" quantity updated successfully!");
                     repository.save(production);
                     log.info("Production created successfully!");

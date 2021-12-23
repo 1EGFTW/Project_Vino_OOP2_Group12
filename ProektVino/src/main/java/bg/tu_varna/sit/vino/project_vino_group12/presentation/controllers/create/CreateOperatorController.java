@@ -1,8 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.create;
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.OperatorService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Operator;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.HelloController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.OperatorViewController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.WarehouseHostViewController;
@@ -21,8 +19,6 @@ public class CreateOperatorController {
     private final OperatorService service=OperatorService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
     Stage s;
-    @FXML
-    public Label createOperator;
     @FXML
     public PasswordField operator_pass;
     @FXML
@@ -92,7 +88,8 @@ public class CreateOperatorController {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-        }else if(userTracking==2){
+        }
+        else if(userTracking==2){
             try {
                 s.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));

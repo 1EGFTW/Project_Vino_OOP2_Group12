@@ -6,10 +6,7 @@ import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Admin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class AdminRepositoryTest {
     private Admin admin;
@@ -32,9 +29,10 @@ class AdminRepositoryTest {
     @Test
     void update() {
         List<Admin> all=adminRepository.getAll();
-        admin.setUsername_admin("543");
-        admin.setPassword_admin("543");
-        adminRepository.update(admin);
+        Admin a=adminRepository.getById(2);
+        a.setUsername_admin("2");
+        a.setPassword_admin("2");
+        adminRepository.update(a);
         assertNotEquals(all,adminRepository.getAll());
     }
 

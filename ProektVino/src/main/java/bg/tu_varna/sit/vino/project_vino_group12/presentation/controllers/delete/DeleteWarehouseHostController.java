@@ -2,7 +2,6 @@ package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.delet
 
 import bg.tu_varna.sit.vino.project_vino_group12.business.services.WarehouseHostService;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.views.AdminViewController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.OperatorListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WarehouseHostListViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,18 +16,17 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.ADMIN_VIEW;
-import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.DELETE_HOST;
+import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class DeleteWarehouseHostController implements Initializable {
-        Stage s;
-        WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
+    Stage s;
+    private final WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    fillComnoBox();
+    fillComboBox();
     }
 
-    private void fillComnoBox() {
+    private void fillComboBox() {
         ObservableList<WarehouseHostListViewModel> hosts=warehouseHostService.getAllWarehouseHost();
         hostComboBox.setItems(hosts);
     }
@@ -36,18 +34,19 @@ public class DeleteWarehouseHostController implements Initializable {
     public DeleteWarehouseHostController(Stage stage){
         this.s=stage;
     }
-    @FXML
-    private Label label1;
+
     @FXML
     private Button delete;
     @FXML
     private Button goBack;
     @FXML
     private ComboBox<WarehouseHostListViewModel> hostComboBox;
+
     @FXML
     public void goBack(ActionEvent actionEvent){
         loadNewPage(ADMIN_VIEW);
     }
+
     @FXML
     public void deleteHost(ActionEvent actionEvent){
         WarehouseHostListViewModel host=hostComboBox.getValue();
@@ -59,6 +58,7 @@ public class DeleteWarehouseHostController implements Initializable {
         dialogPane.getStyleClass().add("Alert");
         alert.show();
     }
+
     private void loadNewPage(String path) {
         try {
             s.close();

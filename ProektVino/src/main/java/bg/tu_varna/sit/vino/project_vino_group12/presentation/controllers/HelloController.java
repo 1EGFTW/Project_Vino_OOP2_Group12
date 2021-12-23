@@ -1,33 +1,21 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers;
 
-import bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService;
 import bg.tu_varna.sit.vino.project_vino_group12.common.Constants;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login.AdminLoginController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login.OperatorLoginController;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.controllers.login.WarehouseHostLoginController;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.AdminListViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class HelloController{
-    Stage s=new Stage();
+    Stage s;
     @FXML
     private Label HelloText;
     @FXML
@@ -102,6 +90,4 @@ public class HelloController{
             e.printStackTrace();
         }
     }
-
-
 }

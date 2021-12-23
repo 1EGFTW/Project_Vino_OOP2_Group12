@@ -18,7 +18,6 @@ public class Production implements Serializable {
     private int id_production;
 
     @ManyToOne(fetch = FetchType.LAZY)
-
     @JoinColumn(name = "id_wine")
     @Cascade(org.hibernate.annotations.CascadeType.DETACH)
     private Wines wine;
@@ -30,8 +29,10 @@ public class Production implements Serializable {
 
     @Column(name="produced_bottles",nullable = false)
     private int produced_bottles;
+
     public Production(){
     }
+
     public Production(int produced_bottles){
         this.produced_bottles=produced_bottles;
     }

@@ -1,25 +1,19 @@
 package bg.tu_varna.sit.vino.project_vino_group12.business.services;
 
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.GrapeWines;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.SortColor;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.GrapeWinesRepository;
 import bg.tu_varna.sit.vino.project_vino_group12.data.repositories.WinesRepository;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.GrapeListViewModel;
-import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.SortColorListViewModel;
 import bg.tu_varna.sit.vino.project_vino_group12.presentation.models.WinesListViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class WinesService {
     private final WinesRepository repository = WinesRepository.getInstance();
     private final GrapeWinesRepository grapeWinesRepository = GrapeWinesRepository.getInstance();
-    private final GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
     private final ProductionService productionService=ProductionService.getInstance();
     private static final Logger log=Logger.getLogger(WinesService.class);
     public static  WinesService getInstance() {
@@ -32,12 +26,12 @@ public class WinesService {
         GrapeWinesService gwService=GrapeWinesService.getInstance();
         Wines w=getWineByName(wine.getName_wine());
         GrapeWines grapeWines=gwService.getByWineName(w);
+
         if(productionService.checkIfWineIsInProduction(w)){
             log.error("Wine is in production! Deleting wine: "+w.getName_wine()+" aborted!");
             return false;
         }
         else {
-            //variant e ako iskame da se trie vinoto no porudction da ostava, varianta e da se set-va total=0
             try {
                 grapeWinesRepository.delete(grapeWines);
                 repository.delete(w);
@@ -50,8 +44,6 @@ public class WinesService {
         return true;
     }
 
-
-
    public ObservableList<WinesListViewModel> getAllWines() {
         List<Wines> wines = repository.getAll();
 
@@ -61,15 +53,7 @@ public class WinesService {
                         w.getTotal()
                 )).collect(Collectors.toList()));
     }
-/*    public WinesListViewModel checkWine(WinesListViewModel w){
-        ObservableList<WinesListViewModel> wines=getAllWines();
-        for(WinesListViewModel wine:wines){
-            if(wine.equals(w)){
-                return w;
-            }
-        }
-        return w;
-    }*/
+
     public Wines getWineByName(String name){
         List<Wines> wines=repository.getAll();
         for(Wines w:wines){
@@ -80,6 +64,7 @@ public class WinesService {
         log.info("No such wine!");
         return null;
     }
+
     public boolean isWineAlreadyCreated(Wines w){
         List<Wines> wines=repository.getAll();
         for(Wines wine:wines){

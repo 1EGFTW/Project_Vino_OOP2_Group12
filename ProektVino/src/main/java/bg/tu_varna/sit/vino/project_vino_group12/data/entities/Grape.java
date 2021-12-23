@@ -1,11 +1,8 @@
 package bg.tu_varna.sit.vino.project_vino_group12.data.entities;
 
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.Sort;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -42,6 +39,7 @@ public class Grape implements Serializable {
     public Grape(String name_sort){
         this.name_sort=name_sort;
     }
+
     public Grape(String name_sort,SortColor sortcolor, int sort_quantity,int quantity_by_kg){
         this.name_sort=name_sort;
         this.sortColor=sortcolor;

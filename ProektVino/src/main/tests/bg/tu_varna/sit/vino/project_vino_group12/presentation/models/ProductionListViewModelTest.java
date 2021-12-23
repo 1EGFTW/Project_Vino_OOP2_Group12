@@ -1,7 +1,6 @@
 package bg.tu_varna.sit.vino.project_vino_group12.presentation.models;
 
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Bottles;
-import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Grape;
 import bg.tu_varna.sit.vino.project_vino_group12.data.entities.Wines;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
