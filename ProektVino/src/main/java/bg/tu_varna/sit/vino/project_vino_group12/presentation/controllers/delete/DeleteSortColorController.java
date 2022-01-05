@@ -24,7 +24,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class DeleteSortColorController implements Initializable {
     public final int userTracking= Constants.User.UserTracking;
     private final SortColorService sortColorService=SortColorService.getInstance();
-    Stage s;
+    public Stage s;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

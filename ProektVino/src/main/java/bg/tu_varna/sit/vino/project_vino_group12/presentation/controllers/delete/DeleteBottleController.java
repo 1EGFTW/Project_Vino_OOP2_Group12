@@ -24,7 +24,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class DeleteBottleController implements Initializable {
     private final BottlesService bottleService=BottlesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -27,7 +27,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class CheckProductionController implements Initializable {
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
     public CheckProductionController(Stage stage){
         this.s=stage;
     }

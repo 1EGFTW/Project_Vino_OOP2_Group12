@@ -29,7 +29,7 @@ public class AddProductionController implements Initializable {
     private final BottlesService bottlesService=BottlesService.getInstance();
     private final ProductionService productionService=ProductionService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
     public AddProductionController(Stage stage){
         this.s=stage;
     }
