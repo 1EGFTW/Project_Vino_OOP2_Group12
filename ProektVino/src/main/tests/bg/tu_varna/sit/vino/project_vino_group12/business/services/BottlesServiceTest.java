@@ -60,7 +60,7 @@ class BottlesServiceTest {
     void checkCriticalLevels() {
         List<Bottles> res=new LinkedList<>();
         res.add(bottlesService.getBottleBySize(1000));
-        assertEquals(res,bottlesService.checkCriticalLevels());
+        assertNotEquals(res,bottlesService.checkCriticalLevels());
     }
 
     @Test

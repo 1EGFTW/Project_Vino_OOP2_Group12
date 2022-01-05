@@ -19,8 +19,8 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class DeleteOperatorController implements Initializable {
-    OperatorService operatorService=OperatorService.getInstance();
-    Stage s;
+    private final OperatorService operatorService=OperatorService.getInstance();
+    public Stage s;
     @FXML
     private Button delete;
     @FXML

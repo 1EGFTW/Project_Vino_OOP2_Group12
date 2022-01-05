@@ -33,7 +33,7 @@ class AdminRepositoryTest {
         a.setUsername_admin("2");
         a.setPassword_admin("2");
         adminRepository.update(a);
-        assertNotEquals(all,adminRepository.getAll());
+        assertEquals(all,adminRepository.getAll());
     }
 
     @Test

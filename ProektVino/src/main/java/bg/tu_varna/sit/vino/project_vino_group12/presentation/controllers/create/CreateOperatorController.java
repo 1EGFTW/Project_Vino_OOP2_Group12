@@ -18,7 +18,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class CreateOperatorController {
     private final OperatorService service=OperatorService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
     @FXML
     public PasswordField operator_pass;
     @FXML

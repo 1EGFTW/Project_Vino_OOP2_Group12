@@ -17,7 +17,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class OperatorLoginController {
     private final OperatorService service= OperatorService.getInstance();
-    Stage s;
+    public Stage s;
     @FXML
     public TextField operator_name;
     @FXML

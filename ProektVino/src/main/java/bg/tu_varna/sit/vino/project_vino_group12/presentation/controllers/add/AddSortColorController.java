@@ -19,7 +19,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.WA
 public class AddSortColorController {
     private final SortColorService service=SortColorService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
     @FXML
     public TextField color;
     @FXML

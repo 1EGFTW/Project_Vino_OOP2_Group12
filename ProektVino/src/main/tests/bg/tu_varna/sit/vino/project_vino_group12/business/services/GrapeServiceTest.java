@@ -29,8 +29,8 @@ class GrapeServiceTest {
         this.grapeRepository=GrapeRepository.getInstance();
         this.sortColor=new SortColor("black");
         this.sortColorListViewModel=new SortColorListViewModel("black");
-        this.grape=new Grape("Test",sortColor,1000,100);
-        this.grapeListViewModel=new GrapeListViewModel("Test",sortColor,1000,100);
+        this.grape=new Grape("Grape1",sortColor,1000,100);
+        this.grapeListViewModel=new GrapeListViewModel("Grape1",sortColor,1000,100);
         grapeRepository.delete(grape);
     }
 

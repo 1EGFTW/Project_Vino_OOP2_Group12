@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class WarehouseHostLoginController {
-    Stage s;
+    public Stage s;
     private final WarehouseHostService service= WarehouseHostService.getInstance();
     @FXML
     public TextField warehouseHost_name;

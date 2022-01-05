@@ -29,11 +29,11 @@ class ProductionServiceTest {
     void setUp() {
         this.productionService=ProductionService.getInstance();
         this.productionRepository=ProductionRepository.getInstance();
-        this.wine=new Wines("gfsfsdf",100);
-        this.bottle=new Bottles(1000,100);
+        this.wine=new Wines("Wine1",100);
+        this.bottle=new Bottles(750,100);
         this.production=new Production(wine,bottle,1);
-        this.winesListViewModel=new WinesListViewModel("gfsfsdf",100);
-        this.bottlesListViewModel=new BottlesListViewModel(1000,100);
+        this.winesListViewModel=new WinesListViewModel("Wine1",100);
+        this.bottlesListViewModel=new BottlesListViewModel(750,100);
         this.productionListViewModel=new ProductionListViewModel(wine,bottle,1);
     }
 
@@ -42,7 +42,7 @@ class ProductionServiceTest {
         List<Production> all=productionRepository.getAll();
         productionService.deleteProduction(productionListViewModel);
         List<Production> after=productionRepository.getAll();
-        assertEquals(all.size(),after.size());
+        assertNotEquals(all.size(),after.size());
     }
 
     @Test
@@ -58,11 +58,11 @@ class ProductionServiceTest {
 
     @Test
     void checkIfWineIsInProduction() {
-        assertFalse(productionService.checkIfWineIsInProduction(wine));
+        assertTrue(productionService.checkIfWineIsInProduction(wine));
     }
 
     @Test
     void addProduction() {
-        assertEquals(0,productionService.addProduction(productionListViewModel,winesListViewModel,bottlesListViewModel));
+        assertEquals(1,productionService.addProduction(productionListViewModel,winesListViewModel,bottlesListViewModel));
     }
 }

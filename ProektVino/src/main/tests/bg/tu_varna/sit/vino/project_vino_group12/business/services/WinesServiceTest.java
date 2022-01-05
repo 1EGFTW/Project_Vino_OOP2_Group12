@@ -19,8 +19,8 @@ class WinesServiceTest {
     void setUp() {
         this.winesService=WinesService.getInstance();
         this.winesRepository=WinesRepository.getInstance();
-        this.wine=new Wines("111111",500);
-        this.winesListViewModel=new WinesListViewModel("fdad",79);
+        this.wine=new Wines("Wine1",500);
+        this.winesListViewModel=new WinesListViewModel("Wine1",79);
 
     }
 
@@ -38,12 +38,12 @@ class WinesServiceTest {
 
     @Test
     void getWineByName() {
-        assertNotEquals(wine,winesService.getWineByName(winesListViewModel.getName_wine()));
+        assertEquals(wine,winesService.getWineByName(winesListViewModel.getName_wine()));
     }
 
     @Test
     void isWineAlreadyCreated() {
-        assertFalse(winesService.isWineAlreadyCreated(wine));
+        assertTrue(winesService.isWineAlreadyCreated(wine));
     }
 
     @Test

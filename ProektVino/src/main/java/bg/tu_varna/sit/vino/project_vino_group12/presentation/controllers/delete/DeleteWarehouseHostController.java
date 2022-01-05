@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class DeleteWarehouseHostController implements Initializable {
-    Stage s;
+    public Stage s;
     private final WarehouseHostService warehouseHostService=WarehouseHostService.getInstance();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

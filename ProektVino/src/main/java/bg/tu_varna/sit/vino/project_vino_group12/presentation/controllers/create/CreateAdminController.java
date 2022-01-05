@@ -15,7 +15,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class CreateAdminController {
     private final AdminService service=AdminService.getInstance();
-    Stage s;
+    public Stage s;
     @FXML
     public PasswordField admin_pass;
     @FXML

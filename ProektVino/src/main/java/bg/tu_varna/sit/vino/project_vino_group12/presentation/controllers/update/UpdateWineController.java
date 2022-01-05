@@ -24,7 +24,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 public class UpdateWineController implements Initializable {
     private final WinesService winesService=WinesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
 
     public UpdateWineController(Stage stage){
         this.s=stage;

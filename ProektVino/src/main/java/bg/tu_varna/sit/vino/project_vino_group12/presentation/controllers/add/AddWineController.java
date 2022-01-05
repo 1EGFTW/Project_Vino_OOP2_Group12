@@ -29,7 +29,7 @@ public class AddWineController implements Initializable {
     private final GrapeService grapeService=GrapeService.getInstance();
     private final  GrapeWinesService grapeWinesService=GrapeWinesService.getInstance();
     public final int userTracking= Constants.User.UserTracking;
-    Stage s;
+    public Stage s;
     @FXML
     private TextField name_wine;
     @FXML

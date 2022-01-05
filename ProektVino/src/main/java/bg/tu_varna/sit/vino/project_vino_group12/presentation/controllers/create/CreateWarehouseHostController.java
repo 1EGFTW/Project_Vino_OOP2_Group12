@@ -18,7 +18,7 @@ import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class CreateWarehouseHostController {
     private final WarehouseHostService service=WarehouseHostService.getInstance();
-    Stage s;
+    public Stage s;
     @FXML
     public PasswordField warehouseHost_pass;
     @FXML

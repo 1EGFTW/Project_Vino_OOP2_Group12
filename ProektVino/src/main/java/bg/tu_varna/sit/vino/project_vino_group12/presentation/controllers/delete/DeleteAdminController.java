@@ -19,8 +19,8 @@ import java.util.ResourceBundle;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class DeleteAdminController implements Initializable {
-    AdminService adminService=AdminService.getInstance();
-    Stage s;
+    private final AdminService adminService=AdminService.getInstance();
+    public Stage s;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fillComboBox();

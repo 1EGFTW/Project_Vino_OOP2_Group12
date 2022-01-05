@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import static bg.tu_varna.sit.vino.project_vino_group12.common.Constants.View.*;
 
 public class HelloController{
-    Stage s;
+    public Stage s;
     @FXML
     private Label HelloText;
     @FXML

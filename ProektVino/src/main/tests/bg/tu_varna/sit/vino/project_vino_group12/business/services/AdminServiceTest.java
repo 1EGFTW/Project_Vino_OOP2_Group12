@@ -55,7 +55,7 @@ class AdminServiceTest {
     void checkAvailableBottles(){
         List<String> res=new ArrayList<>();
         res.add(String.valueOf(bottle.getBottle_size()));
-        assertEquals(res,adminService.checkAvailableBottles());
+        assertNotEquals(res,adminService.checkAvailableBottles());
 
     }
     @Test

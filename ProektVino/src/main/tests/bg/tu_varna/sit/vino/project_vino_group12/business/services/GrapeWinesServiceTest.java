@@ -33,9 +33,9 @@ class GrapeWinesServiceTest {
         this.grapeWinesRepository=GrapeWinesRepository.getInstance();
         this.sortColorService=SortColorService.getInstance();
         this.sortColor=sortColorService.getSortColorByName("white");
-        this.grape=new Grape("Test",sortColor,1000,100);
+        this.grape=new Grape("Grape1",sortColor,1000,100);
         this.wine=new Wines("TestWine",400);
-        this.grapeListViewModel=new GrapeListViewModel("Test",sortColor,1000,100);
+        this.grapeListViewModel=new GrapeListViewModel("Grape1",sortColor,1000,100);
         this.winesListViewModel=new WinesListViewModel("TestWine",400);
         this.grapeWines=new GrapeWines(grape,wine,100);
         this.grapeWinesListViewModel=new GrapeWinesListViewModel(grape,wine,100);

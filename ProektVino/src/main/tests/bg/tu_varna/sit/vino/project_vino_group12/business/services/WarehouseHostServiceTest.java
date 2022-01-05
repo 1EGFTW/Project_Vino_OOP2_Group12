@@ -52,7 +52,7 @@ class WarehouseHostServiceTest {
 
     @Test
     void getHostByName() {
-        assertNotEquals(warehouseHost,warehouseHostService.getHostByName(warehouseHostListViewModel.getUsername_domakin()));
+        assertNull(/*warehouseHost,*/warehouseHostService.getHostByName(warehouseHostListViewModel.getUsername_domakin()));
     }
 
     @Test
