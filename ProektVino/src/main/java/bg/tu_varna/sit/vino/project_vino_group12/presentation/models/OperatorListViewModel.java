@@ -46,5 +46,5 @@ public class OperatorListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s", username_operator, password_operator);}
+        return String.format("%s", username_operator);}
 }

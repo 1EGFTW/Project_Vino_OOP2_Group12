@@ -46,7 +46,7 @@ public class WarehouseHostListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s", username_domakin, password_domakin);
+        return String.format("%s", username_domakin);
     }
 
 }

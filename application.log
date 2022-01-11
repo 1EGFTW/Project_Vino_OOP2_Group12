@@ -14,3 +14,14 @@
 [JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
 [JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService  - Grape: Grape3 updated successfully!
 [JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin Alexander created!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.AdminService  - Admin login successful!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService  - Bottle 750ml found!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.ProductionService  - Successfully deleted production: 6
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService  - Bottle 500ml at critical level!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.GrapeService  - Grape: TestGrape created successfully!
+[JavaFX Application Thread] INFO  bg.tu_varna.sit.vino.project_vino_group12.business.services.BottlesService  - Bottle 500ml at critical level!

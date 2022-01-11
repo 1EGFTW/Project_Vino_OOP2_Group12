@@ -44,7 +44,7 @@ public class AdminListViewModel {
 
     @Override
     public String toString() {
-        return String.format("%s | %s",username_admin,password_admin);
+        return String.format("%s",username_admin);
     }
 
 }
