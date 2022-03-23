@@ -107,9 +107,11 @@ public class ProductionService {
         int wineProductionCriteria=0;
 
         WinesService winesService=WinesService.getInstance();
+
         Wines wine=winesService.getWineByName(w.getName_wine());
 
         Bottles bottle=bottlesService.getBottleBySize(b.getBottle_size());
+
         Production production=new Production(wine,bottle,p.getProduced_bottles());
 
         int bottle_quantity=production.getBottle().getBottle_quantity();

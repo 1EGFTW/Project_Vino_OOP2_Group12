@@ -19,6 +19,11 @@ public class AdminService {
         return AdminServiceHolder.INSTANCE;
     }
 
+
+    private static class AdminServiceHolder {
+        public static final AdminService INSTANCE = new AdminService();
+    }
+
     public void deleteAdmin(AdminListViewModel admin) {
         Admin a=getAdminByName(admin.getUsername_admin());
         try{
@@ -29,11 +34,6 @@ public class AdminService {
             log.error("Error deleting admin"+a);
         }
     }
-
-    private static class AdminServiceHolder {
-        public static final AdminService INSTANCE = new AdminService();
-    }
-
     public ObservableList<AdminListViewModel> getAllAdmin() {
         List<Admin> admins=repository.getAll();
 

@@ -52,7 +52,7 @@ public class GrapeWinesService {
         GrapeWines grapeWines=new GrapeWines(grape,wine,g.getQuantity_for_wine());
 
         int quantity=grapeWines.getGrape().getSort_quantity();
-        quantity=quantity-grapeWines.getQuantity_for_wine();
+        quantity=quantity-grapeWines.getQuantity_for_wine(); //quantity-=grapeWines.getQuantity_for_wine()
         grapeWines.getGrape().setSort_quantity(quantity);
 
         try{

@@ -20,11 +20,11 @@ public class GrapeService {
     public static GrapeService getInstance() {
         return GrapeServiceHolder.INSTANCE;
     }
+    private final SortColorService sortColorService = SortColorService.getInstance();
     private static class GrapeServiceHolder {
         public static final GrapeService INSTANCE = new GrapeService();
     }
 
-    private final SortColorService sortColorService = SortColorService.getInstance();
 
     public boolean deleteGrape(GrapeListViewModel grape) {
         Grape g=getGrapeByName(grape.getName_sort());

@@ -17,6 +17,9 @@ public class BottlesService {
     }
     private static final Logger log=Logger.getLogger(BottlesService.class);
 
+    private static class BottlesRepositoryHolder {
+        public static final BottlesService INSTANCE = new BottlesService();
+    }
     public void deleteBottle(BottlesListViewModel bottle) {
         Bottles b=getBottleBySize(bottle.getBottle_size());
         b.setBottle_quantity(0);
@@ -29,9 +32,6 @@ public class BottlesService {
         }
     }
 
-    private static class BottlesRepositoryHolder {
-        public static final BottlesService INSTANCE = new BottlesService();
-    }
 
     public ObservableList<BottlesListViewModel> getAllBottles() {
         List<Bottles> bottles = repository.getAll();
